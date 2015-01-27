@@ -1,0 +1,189 @@
+/*================
+	>> KBE Stylesheet
+================*/
+
+.kbe_admin_left_bar{
+    float: left;
+    width: 68%;
+    height: auto;
+    margin-top: 30px;
+}
+.kbe_admin_left_content{
+    float: left;
+    width: 100%;
+    height: auto;
+}
+.kbe_admin_left_heading{
+    background-color: #F1F1F1;
+    background-image: -moz-linear-gradient(center top , #F9F9F9, #ECECEC);
+    border-color: #DFDFDF;
+    border-style: solid;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    border-width: 1px;
+    box-shadow: 0 1px 0 #FFFFFF inset;
+    color: #464646;
+    cursor: pointer;
+    font-size: 13px;
+    text-shadow: 0 1px 0 #FFFFFF;
+}
+.kbe_admin_left_heading h3{
+    font-family: Arial;
+    font-size: 17px;
+    font-weight: normal;
+    margin: 0;
+    overflow: hidden;
+    padding: 14px 10px;
+    white-space: nowrap;
+    cursor: default;
+	font-weight:bold;
+}
+.kbe_admin_settings{
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-color: -moz-use-text-color #DFDFDF #DFDFDF;
+    border-image: none;
+    border-right: 1px solid #DFDFDF;
+    border-style: none solid solid;
+    border-width: medium 1px 1px;
+    padding: 10px;
+    background-color:#FFFFFF;
+}
+.kbe_admin_body{
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-color: -moz-use-text-color #DFDFDF #DFDFDF;
+    border-image: none;
+    border-right: 1px solid #DFDFDF;
+    border-style: none solid solid;
+    border-width: medium 1px 1px;
+    padding: 10px;
+    background-color: #FEFEFE;
+    margin-bottom: 30px;
+}
+.kbe_admin_body p{
+    padding:0px;
+    margin:0px;
+    font-family: Arial;
+    font-size: 13px;
+    text-align: left;
+    font-style:italic;
+    color:#666666;
+    margin:14px 0px;
+}
+.kbe_admin_settings .kbe_notifications{
+    font-size: 12px;
+    font-style: italic;
+}
+.kbe_admin_settings table p.slug_note{
+    font-size: 12px;
+    font-style: italic;
+}
+.kbe_admin_settings table td{
+    border-bottom: 1px solid #E4E2E2;
+    padding-bottom: 3px;
+}
+.kbe_admin_settings label{
+    display: inline-block;
+    font-family: Arial;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: left;
+    cursor: default;
+    padding: 12px 0px;
+    color:#000;
+}
+.kbe_admin_settings span{
+    font-family: Arial;
+    font-size: 13px;
+    font-weight: bold;
+    color:#000;
+}
+.kbe_admin_settings input[type="text"]{
+    font-family: Arial;
+    font-size: 14px;
+    width: 100%;
+    height: 28px;
+    padding: 0px 8px;
+    margin-bottom: 8px;
+    margin-top: 12px;
+}
+.kbe_admin_settings input[type="submit"]{
+    background: none repeat scroll 0 0 #2EA2CC;
+    border: 1px solid #0074A2;
+    box-shadow: 0 1px 0 rgba(120, 200, 230, 0.5) inset, 0 1px 0 rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 0 1px 0 rgba(120, 200, 230, 0.5) inset, 0 1px 0 rgba(0, 0, 0, 0.15);
+    -web-box-shadow: 0 1px 0 rgba(120, 200, 230, 0.5) inset, 0 1px 0 rgba(0, 0, 0, 0.15);
+    -o-box-shadow: 0 1px 0 rgba(120, 200, 230, 0.5) inset, 0 1px 0 rgba(0, 0, 0, 0.15);
+    -msie-box-shadow: 0 1px 0 rgba(120, 200, 230, 0.5) inset, 0 1px 0 rgba(0, 0, 0, 0.15);
+    color: #FFFFFF;
+    text-decoration: none;
+    color: #FFF;
+    font-weight: bold;
+    padding: 6px 10px;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -web-border-radius: 5px;
+    -o-border-radius: 5px;
+    -msie-border-radius: 5px;
+    font-family: Arial;
+    font-size: 13px;
+    cursor: pointer;
+    margin-top: 30px;
+}
+.kbe_admin_settings input[type="submit"]:hover{
+    background: none repeat scroll 0 0 #1e73be;
+    border: 1px solid #0074A2;
+    box-shadow: 0 1px 0 rgba(120, 200, 230, 0.5) inset, 0 1px 0 rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 0 1px 0 rgba(120, 200, 230, 0.5) inset, 0 1px 0 rgba(0, 0, 0, 0.15);
+    -web-box-shadow: 0 1px 0 rgba(120, 200, 230, 0.5) inset, 0 1px 0 rgba(0, 0, 0, 0.15);
+    -o-box-shadow: 0 1px 0 rgba(120, 200, 230, 0.5) inset, 0 1px 0 rgba(0, 0, 0, 0.15);
+    -msie-box-shadow: 0 1px 0 rgba(120, 200, 230, 0.5) inset, 0 1px 0 rgba(0, 0, 0, 0.15);
+    color: #FFFFFF;
+    text-decoration: none;
+    color: #FFF;
+    font-weight: bold;
+    padding: 6px 10px;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -web-border-radius: 5px;
+    -o-border-radius: 5px;
+    -msie-border-radius: 5px;
+    font-family: Arial;
+    font-size: 13px;
+    cursor: pointer;
+    margin-top: 30px;
+}
+.kbe_admin_order li{
+    background-color: #FCFCFC;
+    border: 1px solid #DFDFDF;
+    border-radius: 4px;
+    cursor: move;
+    line-height: 1em;
+    margin-bottom: 6px;
+    padding: 0.6em 1em;
+}
+.kbe_admin_order li.ui-state-highlight{
+    background-color:lightYellow;
+    border-color:#E6DB55;
+    height:1em;
+}
+.kbe_admin_sidebar{
+    float: right;
+    width: 28%;
+    height: auto;
+    margin-top: 30px;
+}
+.kbe_admin_settings p{
+	font-size: 12px;
+    font-style: italic;
+    margin: 0 0 6px;
+}
