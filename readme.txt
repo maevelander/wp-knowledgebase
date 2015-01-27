@@ -3,7 +3,7 @@ Contributors: EnigmaWeb
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=CEJ9HFWJ94BG4
 Tags: WP Knowledgebase, knowledgebase, knowledge base, faqs, wiki
 Requires at least: 3.1
-Tested up to: 4.0
+Tested up to: 4.1
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -78,10 +78,26 @@ If you've tried all the obvious stuff and it's still not working please request 
 
 == Changelog ==
 
+= 1.0.2 =
+* Translation issue fixed
+* Miscellaneous minor fixes
+
+= 1.0.1 =
+* Function fixed which was assigning template to the page
+* Theme styling issue fixed
+
 = 1.0 =
 * Initial release
 
 == Upgrade Notice ==
+
+= 1.0.2 =
+* Translation issue fixed
+* Miscellaneous minor fixes
+
+= 1.0.1 =
+* Function fixed which was assigning template to the page
+* Theme styling issue fixed
 
 = 1.0 =
 * Initial release
