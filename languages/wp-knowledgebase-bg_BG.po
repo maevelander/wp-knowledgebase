@@ -1,0 +1,333 @@
+# Copyright (C) 2014 
+# This file is distributed under the same license as the  package.
+msgid ""
+msgstr ""
+"Project-Id-Version: WP Knowledgebase Bulgarian 1.0\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/wp-knowledgebase\n"
+"POT-Creation-Date: 2014-12-11 01:35:37+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2014-12-13 09:52+0200\n"
+"Last-Translator: Georgi Demirev <admin@demirevdesign.com>\n"
+"Language-Team: Georgi Demirev <admin@demirevdesign.com>\n"
+"X-Generator: Poedit 1.7.1\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: bg_BG\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+
+#: articles/kbe_articles.php:15 articles/kbe_articles.php:16
+msgid "Knowledgebase"
+msgstr "Помощни Статии"
+
+#: articles/kbe_articles.php:17
+msgid "Articles"
+msgstr "Статии"
+
+#: articles/kbe_articles.php:18 articles/kbe_articles.php:21
+msgid "New Article"
+msgstr "Нова Статия"
+
+#: articles/kbe_articles.php:19
+msgid "Add New Article"
+msgstr "Добави Нова Статия"
+
+#: articles/kbe_articles.php:20
+msgid "Edit Article"
+msgstr "Редактирай Статията"
+
+#: articles/kbe_articles.php:22
+msgid "View Articles"
+msgstr "Прегледай Статиите"
+
+#: articles/kbe_articles.php:23
+msgid "Search Articles"
+msgstr "Търси Статии"
+
+#: articles/kbe_articles.php:24
+msgid "Nothing found"
+msgstr "Нищо не е намерено"
+
+#: articles/kbe_articles.php:25
+msgid "Nothing found in Trash"
+msgstr "Нищо не е намерено в Кошчето"
+
+#: articles/kbe_articles.php:65 articles/kbe_articles.php:66
+#: widget/kbe_widget_category.php:23
+msgid "Knowledgebase Category"
+msgstr "Категория"
+
+#: articles/kbe_articles.php:67
+msgid "Search Knowledgebase Category"
+msgstr "Търси Категория"
+
+#: articles/kbe_articles.php:68
+msgid "All Knowledgebase Categories"
+msgstr "Всички Категории"
+
+#: articles/kbe_articles.php:69
+msgid "Parent Knowledgebase Category"
+msgstr "Родителска Категория"
+
+#: articles/kbe_articles.php:70
+msgid "Parent Knowledgebase Category:"
+msgstr "Родителска Категория:"
+
+#: articles/kbe_articles.php:71
+msgid "Edit Knowledgebase Category"
+msgstr "Редактирай Категория"
+
+#: articles/kbe_articles.php:72
+msgid "Update Knowledgebase Category"
+msgstr "Обнови Категорията"
+
+#: articles/kbe_articles.php:73
+msgid "Add New Knowledgebase Category"
+msgstr "Добави Нова Категория"
+
+#: articles/kbe_articles.php:74
+msgid "New Knowledgebase Category Name"
+msgstr "Име на Новата Категория"
+
+#: articles/kbe_articles.php:75
+msgid "Categories"
+msgstr "Категории"
+
+#: articles/kbe_articles.php:93 widget/kbe_widget_tags.php:24
+msgid "Knowledgebase Tags"
+msgstr "Тагове"
+
+#: articles/kbe_articles.php:94
+msgid "Knowledgebase Tag"
+msgstr "Таг"
+
+#: articles/kbe_articles.php:95
+msgid "Search Knowledgebase Tags"
+msgstr "Търси Тагове"
+
+#: articles/kbe_articles.php:96
+msgid "All Knowledgebase Tags"
+msgstr "Всички Тагове"
+
+#: articles/kbe_articles.php:97
+msgid "Edit Knowledgebase Tag"
+msgstr "Редактирай Таг"
+
+#: articles/kbe_articles.php:98
+msgid "Update Knowledgebase Tag"
+msgstr "Обнови Тага"
+
+#: articles/kbe_articles.php:99
+msgid "Add New Knowledgebase Tag"
+msgstr "Добави Нов Таг"
+
+#: articles/kbe_articles.php:100
+msgid "New Knowledgebase Tag Name"
+msgstr "Име на Новия Таг"
+
+#: articles/kbe_articles.php:101 articles/kbe_articles.php:149
+msgid "Tags"
+msgstr "Тагове"
+
+#: articles/kbe_articles.php:146
+msgid "Title"
+msgstr "Заглавие"
+
+#: articles/kbe_articles.php:147
+msgid "Author"
+msgstr "Автор"
+
+#: articles/kbe_articles.php:148
+msgid "Cateogry"
+msgstr "Категория"
+
+#: articles/kbe_articles.php:150
+msgid "Comments"
+msgstr "Коментари"
+
+#: articles/kbe_articles.php:151
+msgid "Views"
+msgstr "Прегледи"
+
+#: articles/kbe_articles.php:152
+msgid "Date"
+msgstr "Дата"
+
+#: articles/kbe_articles.php:179
+msgid " Views"
+msgstr " Прегледа"
+
+#: articles/kbe_articles.php:181
+msgid "No Views"
+msgstr "Няма Прегледи"
+
+#: index.php:311 widget/kbe_widget_search.php:43
+msgid "Search Articles..."
+msgstr "Търси Статии..."
+
+#: kbe_order.php:12
+msgid "Re-Order"
+msgstr "Пренареждане"
+
+#: kbe_order.php:46
+msgid ""
+"Drag and drop items to customise the order of categories in WP Knowledgebase"
+msgstr ""
+"Дръпнете и пуснете категория за да промените подреждането и в Помощните "
+"Статии"
+
+#: kbe_order.php:60 kbe_order.php:135
+msgid "Save Order"
+msgstr "Запази Подредбата"
+
+#: kbe_order.php:67
+msgid "No terms found"
+msgstr "Няма намерени резултатти"
+
+#: kbe_order.php:120
+msgid ""
+"Drag and drop items to customise the order of articles in WP Knowledgebase"
+msgstr ""
+"Дръпнете и пуснете статия за да промените подреждането и в Помощните Статии"
+
+#: kbe_order.php:141
+msgid "No Articles found"
+msgstr "Няма намерени статии"
+
+#: kbe_order.php:180 kbe_settings.php:166
+msgid "Help Improve This Plugin!"
+msgstr "Помогнете за подобряването на този плъгин!"
+
+#: kbe_order.php:186 kbe_settings.php:172
+msgid ""
+"Enjoyed this plugin? All donations are used to improve and further develop "
+"this plugin. Thanks for your contribution."
+msgstr ""
+"Харесахте ли този плъгин? Всички дарения се използват да подобряването и по-"
+"нататъшното развитие на този плъгин. Благодарим ви за подкрепата."
+
+#: kbe_order.php:200 kbe_settings.php:186
+msgid "you can also help by"
+msgstr "също така може да помогнете като"
+
+#: kbe_order.php:202 kbe_settings.php:188
+msgid "rating this plugin on wordpress.org"
+msgstr "гласувате за тови плъгин в wordpress.org"
+
+#: kbe_order.php:211 kbe_settings.php:197
+msgid "Need Support?"
+msgstr "Нужна ви е помощ?"
+
+#: kbe_order.php:216 kbe_settings.php:202
+msgid "Check out the"
+msgstr "Вижте"
+
+#: kbe_order.php:218 kbe_settings.php:204
+msgid "and"
+msgstr "и"
+
+#: kbe_order.php:219 kbe_settings.php:205
+msgid "Support Forums"
+msgstr "Помощните Форуми"
+
+#: kbe_order.php:245
+msgid "Category Order updated successfully."
+msgstr "Подредбата на категориите беше обновена успешно."
+
+#: kbe_order.php:247 kbe_order.php:270
+msgid "An error occured, order has not been saved."
+msgstr "Грешка, подредбата не беше записана."
+
+#: kbe_order.php:268
+msgid "Article Order updated successfully."
+msgstr "Подредбата на статиите беше записана успешно."
+
+#: kbe_settings.php:9
+msgid "Knowledgebase Display Settings"
+msgstr "Визуални настройки"
+
+#: kbe_settings.php:34
+msgid "Settings updated successfully"
+msgstr "Настройките бяха обновени успешно"
+
+#: kbe_settings.php:52
+msgid "Knowledgebase Slug"
+msgstr "Кратко име"
+
+#: kbe_settings.php:60
+msgid "Number of articles to show"
+msgstr "Колко статии да се показват"
+
+#: kbe_settings.php:69
+msgid "Knowledgebase search"
+msgstr "Търсачка"
+
+#: kbe_settings.php:73 kbe_settings.php:87 kbe_settings.php:135
+msgid "On"
+msgstr "Включено"
+
+#: kbe_settings.php:77 kbe_settings.php:91 kbe_settings.php:139
+msgid "Off"
+msgstr "Изключено"
+
+#: kbe_settings.php:83
+msgid "Knowledgebase breadcrumbs"
+msgstr "Навигация (трохи)"
+
+#: kbe_settings.php:97
+msgid "Knowledgebase home page sidebar"
+msgstr "Сайдбар на началната страница"
+
+#: kbe_settings.php:101 kbe_settings.php:118
+msgid "Left"
+msgstr "Ляво"
+
+#: kbe_settings.php:105 kbe_settings.php:122
+msgid "Right"
+msgstr "Дясно"
+
+#: kbe_settings.php:109 kbe_settings.php:126
+msgid "None"
+msgstr "Изключено"
+
+#: kbe_settings.php:114
+msgid "Knowledgebase inner pages sidebar"
+msgstr "Сайдбар на вътрешните страници"
+
+#: kbe_settings.php:131
+msgid "Knowledgebase comments"
+msgstr "Коментари"
+
+#: kbe_settings.php:145
+msgid "Knowledgebase theme color"
+msgstr "Цветова тема"
+
+#: template/archive-kbe_knowledgebase.php:66
+#: template/kbe_knowledgebase.php:68 widget/kbe_widget_category.php:53
+msgid "View all posts in %s"
+msgstr "Покажи всички статии в %s"
+
+#: widget/kbe_widget_article.php:18
+msgid "WP Knowledgebase article widget to show articles on the site"
+msgstr "Притурка за показване помощните статии на вашия уеб сайт"
+
+#: widget/kbe_widget_article.php:24
+msgid "Knowledgebase Article"
+msgstr "Статия"
+
+#: widget/kbe_widget_category.php:17
+msgid "WP Knowledgebase category widget to show categories on the site"
+msgstr ""
+"Притурка за показване категориите на помощните статии на вашия уеб сайт"
+
+#: widget/kbe_widget_search.php:18
+msgid "WP Knowledgebase search widget"
+msgstr "Притурка за търсене в помощните статии"
+
+#: widget/kbe_widget_search.php:24
+msgid "Knowledgebase Search"
+msgstr "Търсачка"
+
+#: widget/kbe_widget_tags.php:18
+msgid "WP Knowledgebase article widget to show tags on the site"
+msgstr "Притурка за показване таговте на помощните статии на вашия уеб сайт"

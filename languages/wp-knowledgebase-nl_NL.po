@@ -1,0 +1,333 @@
+# Copyright (C) 2014 
+# This file is distributed under the same license as the  package.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/wp-knowledgebase\n"
+"POT-Creation-Date: 2014-12-11 01:35:37+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2014-12-12 11:24+0800\n"
+"Last-Translator: Johan Omlo <johan@totalsystemsupport.nl>\n"
+"Language-Team: \n"
+"X-Generator: Poedit 1.5.7\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: nl\n"
+
+#: articles/kbe_articles.php:15 articles/kbe_articles.php:16
+msgid "Knowledgebase"
+msgstr "Kennisbank"
+
+#: articles/kbe_articles.php:17
+msgid "Articles"
+msgstr "Artikelen"
+
+#: articles/kbe_articles.php:18 articles/kbe_articles.php:21
+msgid "New Article"
+msgstr "Nieuw Artikel"
+
+#: articles/kbe_articles.php:19
+msgid "Add New Article"
+msgstr "Nieuw Artikel Toevoegen"
+
+#: articles/kbe_articles.php:20
+msgid "Edit Article"
+msgstr "Artikel Aanpassen"
+
+#: articles/kbe_articles.php:22
+msgid "View Articles"
+msgstr "Artikelen Bekijken"
+
+#: articles/kbe_articles.php:23
+msgid "Search Articles"
+msgstr "Zoek Artikelen"
+
+#: articles/kbe_articles.php:24
+msgid "Nothing found"
+msgstr "Niets gevonden"
+
+#: articles/kbe_articles.php:25
+msgid "Nothing found in Trash"
+msgstr "Niets gevonden in de prullenbak"
+
+#: articles/kbe_articles.php:65 articles/kbe_articles.php:66
+#: widget/kbe_widget_category.php:23
+msgid "Knowledgebase Category"
+msgstr "Kennisbank Categorie"
+
+#: articles/kbe_articles.php:67
+msgid "Search Knowledgebase Category"
+msgstr "Zoek in Kennisbank Categorie"
+
+#: articles/kbe_articles.php:68
+msgid "All Knowledgebase Categories"
+msgstr "Alle Kennisbank Categorieën"
+
+#: articles/kbe_articles.php:69
+msgid "Parent Knowledgebase Category"
+msgstr "Ouder Kennisbank Categorie"
+
+#: articles/kbe_articles.php:70
+msgid "Parent Knowledgebase Category:"
+msgstr "Ouder Kennisbank Categorie:"
+
+#: articles/kbe_articles.php:71
+msgid "Edit Knowledgebase Category"
+msgstr "Kennisbank Categorie Aanpassen"
+
+#: articles/kbe_articles.php:72
+msgid "Update Knowledgebase Category"
+msgstr "Kennisbank Categorie Updaten"
+
+#: articles/kbe_articles.php:73
+msgid "Add New Knowledgebase Category"
+msgstr "Kennisbank Categorie Toevoegen"
+
+#: articles/kbe_articles.php:74
+msgid "New Knowledgebase Category Name"
+msgstr "Nieuwe Kennisbank Categorie naam"
+
+#: articles/kbe_articles.php:75
+msgid "Categories"
+msgstr "Categorieën"
+
+#: articles/kbe_articles.php:93 widget/kbe_widget_tags.php:24
+msgid "Knowledgebase Tags"
+msgstr "Kennisbank Tags"
+
+#: articles/kbe_articles.php:94
+msgid "Knowledgebase Tag"
+msgstr "Kennisbank Tag"
+
+#: articles/kbe_articles.php:95
+msgid "Search Knowledgebase Tags"
+msgstr "Zoek Kennisbank Tags"
+
+#: articles/kbe_articles.php:96
+msgid "All Knowledgebase Tags"
+msgstr "Alle Kennisbank Tags"
+
+#: articles/kbe_articles.php:97
+msgid "Edit Knowledgebase Tag"
+msgstr "Kennisbank Tag Aanpassen"
+
+#: articles/kbe_articles.php:98
+msgid "Update Knowledgebase Tag"
+msgstr "Kennisbank Tag Updaten"
+
+#: articles/kbe_articles.php:99
+msgid "Add New Knowledgebase Tag"
+msgstr "Kennisbank Tag Toevoegen"
+
+#: articles/kbe_articles.php:100
+msgid "New Knowledgebase Tag Name"
+msgstr "Nieuwe Kennisbak Tag Naam"
+
+#: articles/kbe_articles.php:101 articles/kbe_articles.php:149
+msgid "Tags"
+msgstr "Tags"
+
+#: articles/kbe_articles.php:146
+msgid "Title"
+msgstr "Titel"
+
+#: articles/kbe_articles.php:147
+msgid "Author"
+msgstr "Auteur"
+
+#: articles/kbe_articles.php:148
+msgid "Cateogry"
+msgstr "Categorie"
+
+#: articles/kbe_articles.php:150
+msgid "Comments"
+msgstr "Commentaar"
+
+#: articles/kbe_articles.php:151
+msgid "Views"
+msgstr "Kijkers"
+
+#: articles/kbe_articles.php:152
+msgid "Date"
+msgstr "Datum"
+
+#: articles/kbe_articles.php:179
+msgid " Views"
+msgstr " Kijkers"
+
+#: articles/kbe_articles.php:181
+msgid "No Views"
+msgstr "Geen Kijkers"
+
+#: index.php:311 widget/kbe_widget_search.php:43
+msgid "Search Articles..."
+msgstr "Zoek Artikelen..."
+
+#: kbe_order.php:12
+msgid "Re-Order"
+msgstr "Opnieuw Sorteren"
+
+#: kbe_order.php:46
+msgid ""
+"Drag and drop items to customise the order of categories in WP Knowledgebase"
+msgstr ""
+"Versleep items om handmatige de volgorde van de Kennisbank categorieën aan "
+"te passen"
+
+#: kbe_order.php:60 kbe_order.php:135
+msgid "Save Order"
+msgstr "Bewaar Volgorde"
+
+#: kbe_order.php:67
+msgid "No terms found"
+msgstr "Geen termen gevonden"
+
+#: kbe_order.php:120
+msgid ""
+"Drag and drop items to customise the order of articles in WP Knowledgebase"
+msgstr ""
+"Versleep items om handmatige de volgorde van de Kennisbank artikelen aan te "
+"passen"
+
+#: kbe_order.php:141
+msgid "No Articles found"
+msgstr "Geen Artikelen gevonden"
+
+#: kbe_order.php:180 kbe_settings.php:166
+msgid "Help Improve This Plugin!"
+msgstr "Help Ons Deze Plugin Te Verbeteren!"
+
+#: kbe_order.php:186 kbe_settings.php:172
+msgid ""
+"Enjoyed this plugin? All donations are used to improve and further develop "
+"this plugin. Thanks for your contribution."
+msgstr ""
+"Genoten van deze plug-in? Alle donaties worden gebruikt om deze plugin te "
+"verbeteren en verder te ontwikkelen. Bedankt voor uw contributie."
+
+#: kbe_order.php:200 kbe_settings.php:186
+msgid "you can also help by"
+msgstr "u kunt ook helpen door"
+
+#: kbe_order.php:202 kbe_settings.php:188
+msgid "rating this plugin on wordpress.org"
+msgstr "deze plugin te beoordelen op wordpress.org"
+
+#: kbe_order.php:211 kbe_settings.php:197
+msgid "Need Support?"
+msgstr "Hulp Nodig?"
+
+#: kbe_order.php:216 kbe_settings.php:202
+msgid "Check out the"
+msgstr "Bekijk de"
+
+#: kbe_order.php:218 kbe_settings.php:204
+msgid "and"
+msgstr "en"
+
+#: kbe_order.php:219 kbe_settings.php:205
+msgid "Support Forums"
+msgstr "Support Forums"
+
+#: kbe_order.php:245
+msgid "Category Order updated successfully."
+msgstr "Categorie volgorde is aangepast."
+
+#: kbe_order.php:247 kbe_order.php:270
+msgid "An error occured, order has not been saved."
+msgstr "Er is een fout ontstaan, uw order is niet opgeslagen."
+
+#: kbe_order.php:268
+msgid "Article Order updated successfully."
+msgstr "Artikel volgorde is aangepast."
+
+#: kbe_settings.php:9
+msgid "Knowledgebase Display Settings"
+msgstr "Kennisbank Beeldscherm Instellingen"
+
+#: kbe_settings.php:34
+msgid "Settings updated successfully"
+msgstr "Instellingen zijn aangepast"
+
+#: kbe_settings.php:52
+msgid "Knowledgebase Slug"
+msgstr "Kennisbank Verwijzing"
+
+#: kbe_settings.php:60
+msgid "Number of articles to show"
+msgstr "Aantal te tonen artikelen"
+
+#: kbe_settings.php:69
+msgid "Knowledgebase search"
+msgstr "Zoek in Kennisbank"
+
+#: kbe_settings.php:73 kbe_settings.php:87 kbe_settings.php:135
+msgid "On"
+msgstr "Aan"
+
+#: kbe_settings.php:77 kbe_settings.php:91 kbe_settings.php:139
+msgid "Off"
+msgstr "Uit"
+
+#: kbe_settings.php:83
+msgid "Knowledgebase breadcrumbs"
+msgstr "Kennisbank pad"
+
+#: kbe_settings.php:97
+msgid "Knowledgebase home page sidebar"
+msgstr "Kennisbank home pagina zijbalk"
+
+#: kbe_settings.php:101 kbe_settings.php:118
+msgid "Left"
+msgstr "Links"
+
+#: kbe_settings.php:105 kbe_settings.php:122
+msgid "Right"
+msgstr "Rechts"
+
+#: kbe_settings.php:109 kbe_settings.php:126
+msgid "None"
+msgstr "Geen"
+
+#: kbe_settings.php:114
+msgid "Knowledgebase inner pages sidebar"
+msgstr "Kennisbank binnen pagina zijbalk"
+
+#: kbe_settings.php:131
+msgid "Knowledgebase comments"
+msgstr "Kennisbank commentaar"
+
+#: kbe_settings.php:145
+msgid "Knowledgebase theme color"
+msgstr "Kennisbank thema kleur"
+
+#: template/archive-kbe_knowledgebase.php:66 template/kbe_knowledgebase.php:68
+#: widget/kbe_widget_category.php:53
+msgid "View all posts in %s"
+msgstr "Bekijk alle posts in %en"
+
+#: widget/kbe_widget_article.php:18
+msgid "WP Knowledgebase article widget to show articles on the site"
+msgstr "WP Knowledgebase artikel widget om artikelen te tonen op de website"
+
+#: widget/kbe_widget_article.php:24
+msgid "Knowledgebase Article"
+msgstr "Kennisbank Artikel"
+
+#: widget/kbe_widget_category.php:17
+msgid "WP Knowledgebase category widget to show categories on the site"
+msgstr ""
+"WP Knowledgebase categorie widget om categorieën te tonen op de website"
+
+#: widget/kbe_widget_search.php:18
+msgid "WP Knowledgebase search widget"
+msgstr "Kennisbank zoek widget"
+
+#: widget/kbe_widget_search.php:24
+msgid "Knowledgebase Search"
+msgstr "Zoek in Kennisbank"
+
+#: widget/kbe_widget_tags.php:18
+msgid "WP Knowledgebase article widget to show tags on the site"
+msgstr "WP Knowledgebase artikel widget om tags te tonen op de website"

@@ -1,0 +1,323 @@
+# Copyright (C) 2014 
+# This file is distributed under the same license as the  package.
+msgid ""
+msgstr ""
+"Project-Id-Version:  \n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/wp-knowledgebase\n"
+"POT-Creation-Date: 2014-12-11 01:35:37+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2014-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+
+#: articles/kbe_articles.php:15 articles/kbe_articles.php:16
+msgid "Knowledgebase"
+msgstr ""
+
+#: articles/kbe_articles.php:17
+msgid "Articles"
+msgstr ""
+
+#: articles/kbe_articles.php:18 articles/kbe_articles.php:21
+msgid "New Article"
+msgstr ""
+
+#: articles/kbe_articles.php:19
+msgid "Add New Article"
+msgstr ""
+
+#: articles/kbe_articles.php:20
+msgid "Edit Article"
+msgstr ""
+
+#: articles/kbe_articles.php:22
+msgid "View Articles"
+msgstr ""
+
+#: articles/kbe_articles.php:23
+msgid "Search Articles"
+msgstr ""
+
+#: articles/kbe_articles.php:24
+msgid "Nothing found"
+msgstr ""
+
+#: articles/kbe_articles.php:25
+msgid "Nothing found in Trash"
+msgstr ""
+
+#: articles/kbe_articles.php:65 articles/kbe_articles.php:66
+#: widget/kbe_widget_category.php:23
+msgid "Knowledgebase Category"
+msgstr ""
+
+#: articles/kbe_articles.php:67
+msgid "Search Knowledgebase Category"
+msgstr ""
+
+#: articles/kbe_articles.php:68
+msgid "All Knowledgebase Categories"
+msgstr ""
+
+#: articles/kbe_articles.php:69
+msgid "Parent Knowledgebase Category"
+msgstr ""
+
+#: articles/kbe_articles.php:70
+msgid "Parent Knowledgebase Category:"
+msgstr ""
+
+#: articles/kbe_articles.php:71
+msgid "Edit Knowledgebase Category"
+msgstr ""
+
+#: articles/kbe_articles.php:72
+msgid "Update Knowledgebase Category"
+msgstr ""
+
+#: articles/kbe_articles.php:73
+msgid "Add New Knowledgebase Category"
+msgstr ""
+
+#: articles/kbe_articles.php:74
+msgid "New Knowledgebase Category Name"
+msgstr ""
+
+#: articles/kbe_articles.php:75
+msgid "Categories"
+msgstr ""
+
+#: articles/kbe_articles.php:93 widget/kbe_widget_tags.php:24
+msgid "Knowledgebase Tags"
+msgstr ""
+
+#: articles/kbe_articles.php:94
+msgid "Knowledgebase Tag"
+msgstr ""
+
+#: articles/kbe_articles.php:95
+msgid "Search Knowledgebase Tags"
+msgstr ""
+
+#: articles/kbe_articles.php:96
+msgid "All Knowledgebase Tags"
+msgstr ""
+
+#: articles/kbe_articles.php:97
+msgid "Edit Knowledgebase Tag"
+msgstr ""
+
+#: articles/kbe_articles.php:98
+msgid "Update Knowledgebase Tag"
+msgstr ""
+
+#: articles/kbe_articles.php:99
+msgid "Add New Knowledgebase Tag"
+msgstr ""
+
+#: articles/kbe_articles.php:100
+msgid "New Knowledgebase Tag Name"
+msgstr ""
+
+#: articles/kbe_articles.php:101 articles/kbe_articles.php:149
+msgid "Tags"
+msgstr ""
+
+#: articles/kbe_articles.php:146
+msgid "Title"
+msgstr ""
+
+#: articles/kbe_articles.php:147
+msgid "Author"
+msgstr ""
+
+#: articles/kbe_articles.php:148
+msgid "Cateogry"
+msgstr ""
+
+#: articles/kbe_articles.php:150
+msgid "Comments"
+msgstr ""
+
+#: articles/kbe_articles.php:151
+msgid "Views"
+msgstr ""
+
+#: articles/kbe_articles.php:152
+msgid "Date"
+msgstr ""
+
+#: articles/kbe_articles.php:179
+msgid " Views"
+msgstr ""
+
+#: articles/kbe_articles.php:181
+msgid "No Views"
+msgstr ""
+
+#: index.php:311 widget/kbe_widget_search.php:43
+msgid "Search Articles..."
+msgstr ""
+
+#: kbe_order.php:12
+msgid "Re-Order"
+msgstr ""
+
+#: kbe_order.php:46
+msgid ""
+"Drag and drop items to customise the order of categories in WP Knowledgebase"
+msgstr ""
+
+#: kbe_order.php:60 kbe_order.php:135
+msgid "Save Order"
+msgstr ""
+
+#: kbe_order.php:67
+msgid "No terms found"
+msgstr ""
+
+#: kbe_order.php:120
+msgid ""
+"Drag and drop items to customise the order of articles in WP Knowledgebase"
+msgstr ""
+
+#: kbe_order.php:141
+msgid "No Articles found"
+msgstr ""
+
+#: kbe_order.php:180 kbe_settings.php:166
+msgid "Help Improve This Plugin!"
+msgstr ""
+
+#: kbe_order.php:186 kbe_settings.php:172
+msgid ""
+"Enjoyed this plugin? All donations are used to improve and further develop "
+"this plugin. Thanks for your contribution."
+msgstr ""
+
+#: kbe_order.php:200 kbe_settings.php:186
+msgid "you can also help by"
+msgstr ""
+
+#: kbe_order.php:202 kbe_settings.php:188
+msgid "rating this plugin on wordpress.org"
+msgstr ""
+
+#: kbe_order.php:211 kbe_settings.php:197
+msgid "Need Support?"
+msgstr ""
+
+#: kbe_order.php:216 kbe_settings.php:202
+msgid "Check out the"
+msgstr ""
+
+#: kbe_order.php:218 kbe_settings.php:204
+msgid "and"
+msgstr ""
+
+#: kbe_order.php:219 kbe_settings.php:205
+msgid "Support Forums"
+msgstr ""
+
+#: kbe_order.php:245
+msgid "Category Order updated successfully."
+msgstr ""
+
+#: kbe_order.php:247 kbe_order.php:270
+msgid "An error occured, order has not been saved."
+msgstr ""
+
+#: kbe_order.php:268
+msgid "Article Order updated successfully."
+msgstr ""
+
+#: kbe_settings.php:9
+msgid "Knowledgebase Display Settings"
+msgstr ""
+
+#: kbe_settings.php:34
+msgid "Settings updated successfully"
+msgstr ""
+
+#: kbe_settings.php:52
+msgid "Knowledgebase Slug"
+msgstr ""
+
+#: kbe_settings.php:60
+msgid "Number of articles to show"
+msgstr ""
+
+#: kbe_settings.php:69
+msgid "Knowledgebase search"
+msgstr ""
+
+#: kbe_settings.php:73 kbe_settings.php:87 kbe_settings.php:135
+msgid "On"
+msgstr ""
+
+#: kbe_settings.php:77 kbe_settings.php:91 kbe_settings.php:139
+msgid "Off"
+msgstr ""
+
+#: kbe_settings.php:83
+msgid "Knowledgebase breadcrumbs"
+msgstr ""
+
+#: kbe_settings.php:97
+msgid "Knowledgebase home page sidebar"
+msgstr ""
+
+#: kbe_settings.php:101 kbe_settings.php:118
+msgid "Left"
+msgstr ""
+
+#: kbe_settings.php:105 kbe_settings.php:122
+msgid "Right"
+msgstr ""
+
+#: kbe_settings.php:109 kbe_settings.php:126
+msgid "None"
+msgstr ""
+
+#: kbe_settings.php:114
+msgid "Knowledgebase inner pages sidebar"
+msgstr ""
+
+#: kbe_settings.php:131
+msgid "Knowledgebase comments"
+msgstr ""
+
+#: kbe_settings.php:145
+msgid "Knowledgebase theme color"
+msgstr ""
+
+#: template/archive-kbe_knowledgebase.php:66 template/kbe_knowledgebase.php:68
+#: widget/kbe_widget_category.php:53
+msgid "View all posts in %s"
+msgstr ""
+
+#: widget/kbe_widget_article.php:18
+msgid "WP Knowledgebase article widget to show articles on the site"
+msgstr ""
+
+#: widget/kbe_widget_article.php:24
+msgid "Knowledgebase Article"
+msgstr ""
+
+#: widget/kbe_widget_category.php:17
+msgid "WP Knowledgebase category widget to show categories on the site"
+msgstr ""
+
+#: widget/kbe_widget_search.php:18
+msgid "WP Knowledgebase search widget"
+msgstr ""
+
+#: widget/kbe_widget_search.php:24
+msgid "Knowledgebase Search"
+msgstr ""
+
+#: widget/kbe_widget_tags.php:18
+msgid "WP Knowledgebase article widget to show tags on the site"
+msgstr ""
