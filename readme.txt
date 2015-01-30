@@ -27,13 +27,26 @@ Create an attractive and professional knowledgebase. It's easy to use, easy to c
 * Works across all major browsers and devices - IE8+, Safari, Firefox, Chrome
 * Editable slug (default is /knowledgebase )
 
-= Demo =
+= Official Demo =
 
 *	[Click here](http://demo.enigmaweb.com.au/knowledgebase/) for out-of-the-box demo
 
+= User Examples =
+
+*	[Cub Themes](http://cubthemes.com/support/) knowledgebase
+*	[Orpheus](http://orpheus-app.com/knowledgebase) Android app knowledgebase
+*	[OzBeans](http://ozbeanz.com.au/knowledgebase/) - IT consultants
+
 = Languages =
 
-Just English right now... but it's translation ready so if you'd like to help with a translation please get in touch. It's very easy - you don't have to know any code and it's a great way to contribute to the WordPress community. Please [contact Maeve](http://www.enigmaplugins.com/contact/)
+* English
+* German
+* Dutch
+* Bulgarian
+
+Translators, thank you all for your contribution to this plugin. Much appreciated.
+
+If you'd like to help translate this plugin into your language please get in touch. It's very easy - you don't have to know any code and it's a great way to contribute to the WordPress community. Please [contact Maeve](http://www.enigmaplugins.com/contact/)
 
 
 == Installation ==
