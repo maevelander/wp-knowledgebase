@@ -65,6 +65,10 @@ Please go to Settings > Permalinks and resave your permalink structure.
 
 Yes, use this php snippet `<?php kbe_search_form(); ?>`
 
+= Can users vote on articles? Like a thumbs up/down thing? =
+
+This feature is not built into the plugin, however you can use another plugin to achieve this easily. I recommend [WTI Like Post](https://wordpress.org/plugins/wti-like-post/)
+
 = How can I customise the design? =
 
 You can do some basic presentation adjustments via Knowledgebase > Settings. Beyond this, you can completely customise the design via your theme css. You can use !important attribute to override the plugin css if needed.
