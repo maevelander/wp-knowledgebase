@@ -43,6 +43,9 @@ Create an attractive and professional knowledgebase. It's easy to use, easy to c
 * German
 * Dutch
 * Bulgarian
+* Spanish - Spain
+* Spanish - USA
+* Spanish - Puerto Rico
 
 Translators, thank you all for your contribution to this plugin. Much appreciated.
 
@@ -94,6 +97,8 @@ If you've tried all the obvious stuff and it's still not working please request 
 4. Available widgets
 
 == Changelog ==
+
+* Languages added
 
 = 1.0.2 =
 * Translation issue fixed
