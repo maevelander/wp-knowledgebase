@@ -27,6 +27,8 @@ Create an attractive and professional knowledgebase. It's easy to use, easy to c
 * Works across all major browsers and devices - IE8+, Safari, Firefox, Chrome
 * Editable slug (default is /knowledgebase )
 
+On activation, the plugin will create a page called "Knowledgebase" and on that page there will be the shortcode `[kbe_knowledgebase]` with page template "KBE" assigned. The plugin also copies that page template and related CSS into your active theme. You can directly edit those files to adjust the layout and design of the knowledgebase.
+
 = Official Demo =
 
 *	[Click here](http://demo.enigmaweb.com.au/knowledgebase/) for out-of-the-box demo
@@ -57,6 +59,8 @@ If you'd like to help translate this plugin into your language please get in tou
 1. Upload the `wp-knowledgebase` folder to the `/wp-content/plugins/` directory or install it from the plugin directory via your Plugins dash.
 1. Activate the WP Knowledgebase plugin through the 'Plugins' menu in WordPress
 1. Configure the plugin by going to the `Knowledgebase` tab that appears in your admin menu.
+
+On activation, the plugin will create a page called "Knowledgebase" and on that page there will be the shortcode `[kbe_knowledgebase]` with page template "KBE" assigned. The plugin also copies that page template and related CSS into your active theme. You can directly edit those files to adjust the layout and design of the knowledgebase.
  
 == Frequently Asked Questions ==
 
@@ -74,7 +78,11 @@ This feature is not built into the plugin, however you can use another plugin to
 
 = How can I customise the design? =
 
-You can do some basic presentation adjustments via Knowledgebase > Settings. Beyond this, you can completely customise the design via your theme css. You can use !important attribute to override the plugin css if needed.
+You can do some basic presentation adjustments via Knowledgebase > Settings. Beyond this, you can completely customise the design via your theme css.
+
+= It does not look good on my theme =
+
+Please check that the shortcode `[kbe_knowledgebase]` is added on the Knowledgebase main page, with page template "KBE" assigned. The plugin also copies that page template and related CSS into your active theme. You can directly edit those files to adjust the layout and design of the knowledgebase for better integration with your theme as needed.
 
 = Can I use WP Knowledgebase in my Language? =
 
