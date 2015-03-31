@@ -8,9 +8,20 @@
 }
 #kbe_container h1 {
     color: #000;
-    font-size: 22px;
+    font-size: 24px;
     font-weight: 600;
     margin: 0 0 34px;
+}
+#kbe_container table {
+    margin: 10px 0px;
+}
+#kbe_container table th {
+    font-weight: bold;
+}
+#kbe_container table, th, tr, td {
+    border: 1px solid #D3D3D3;
+    padding: 4px;
+    font-size: 12px;
 }
 
 /*===> breadcrumb <===*/
@@ -112,7 +123,7 @@
 #kbe_content {
 }
 .kbe_content_full{
-    width: 980px !important;
+    width: 100% !important;
     display: inline-block;
     float: none;
 }
@@ -276,6 +287,16 @@
     font-size: 14px;
     font-weight: normal;
 }
+#kbe_container blockquote {
+    margin: 15px 30px 0 10px;
+    padding-left: 20px;
+    border-left: 5px solid #ddd;
+    font-style: italic;
+}
+#kbe_container blockquote cite {
+    margin: 5px 0 0;
+    display: block;
+}
 
 /*===> aside <===*/
 .kbe_aside {
@@ -371,8 +392,18 @@
     font-size: 22px;
     font-weight: normal;
     border-bottom: 1px solid #cccccc;
-    padding-bottom: 16px;
+    padding-bottom: 12px;
     margin-bottom: 25px;
+}
+#kbe_content .kbe_leftcol h3 {
+    font-size: 18px;
+    padding-bottom: 0px;
+    margin-bottom: 16px;
+}
+#kbe_content .kbe_leftcol h4 {
+    font-size: 16px;
+    padding-bottom: 0px;
+    margin-bottom: 10px;
 }
 #kbe_content .kbe_leftcol p {
     font-size: 14px;

@@ -4,12 +4,18 @@
   Plugin URI: http://wordpress.org/plugins/wp-knowledgebase
   Description: Simple and flexible knowledgebase plugin for WordPress
   Author: Enigma Plugins
-  Version: 1.0.2
+  Version: 1.0.3
   Author URI: http://enigmaplugins.com
  */
  
 //=========> Hide all Reporting Errors
 error_reporting(0);
+
+//=========> Create language folder
+add_action( 'plugins_loaded', 'kbe_plugin_load_textdomain' );
+function kbe_plugin_load_textdomain() {
+    load_plugin_textdomain( 'kbe', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
+}
 
 //=========> Require Files
 //  kbe_settings.php
@@ -139,9 +145,6 @@ register_activation_hook(__FILE__, 'wp_kbe_hooks');
 
 //=========> Delete Data on uninstall
 register_uninstall_hook('uninstall.php', $callback);
-
-//=========> Create language folder
-load_plugin_textdomain('kbe', false, dirname(plugin_basename(__FILE__)) . '/languages/');
 
 //=========> Define plugin path
 define( 'WP_KNOWLEDGEBASE', plugin_dir_url(__FILE__));
@@ -357,16 +360,16 @@ function kbe_breadcrumbs(){
 ?>
         <ul>
             <li><a href="<?php echo home_url(); ?>"><?php _e('Home','kbe'); ?></a></li>
-            <li><a href="<?php echo get_permalink( get_page_by_path(KBE_PLUGIN_SLUG)); ?>"><?php _e('Knowledgebase' ,'kbe'); ?></a></li>
+            <li><a href="<?php echo home_url()."/".KBE_PLUGIN_SLUG; ?>"><?php _e('Knowledgebase' ,'kbe'); ?></a></li>
             <li><?php echo $kbe_bc_name; ?></li>
         </ul>
 <?php
     }elseif(strpos($url, 'kbe_tags') || strpos($url, 'knowledgebase_tags')){
         $kbe_bc_tag_name = get_queried_object()->name;
 ?>
-		<ul>
+	<ul>
             <li><a href="<?php echo home_url(); ?>"><?php _e('Home','kbe'); ?></a></li>
-            <li><a href="<?php echo get_permalink( get_page_by_path(KBE_PLUGIN_SLUG)); ?>"><?php _e('Knowledgebase' ,'kbe'); ?></a></li>
+            <li><a href="<?php echo home_url()."/".KBE_PLUGIN_SLUG; ?>"><?php _e('Knowledgebase' ,'kbe'); ?></a></li>
             <li><?php echo $kbe_bc_tag_name; ?></li>
         </ul>
 <?php
@@ -375,7 +378,7 @@ function kbe_breadcrumbs(){
 ?>
 	<ul>
             <li><a href="<?php echo home_url(); ?>"><?php _e('Home','kbe'); ?></a></li>
-            <li><a href="<?php echo get_permalink( get_page_by_path(KBE_PLUGIN_SLUG)); ?>"><?php _e('Knowledgebase' ,'kbe'); ?></a></li>
+            <li><a href="<?php echo home_url()."/".KBE_PLUGIN_SLUG; ?>"><?php _e('Knowledgebase' ,'kbe'); ?></a></li>
             <li><?php echo $kbe_search_word; ?></li>
         </ul>
 <?php
@@ -384,19 +387,27 @@ function kbe_breadcrumbs(){
 ?>
         <ul>
             <li><a href="<?php echo home_url(); ?>"><?php _e('Home','kbe'); ?></a></li>
-            <li><a href="<?php echo get_permalink( get_page_by_path(KBE_PLUGIN_SLUG)); ?>"><?php _e('Knowledgebase' ,'kbe'); ?></a></li>
-<?php
+            <li><a href="<?php echo home_url()."/".KBE_PLUGIN_SLUG; ?>"><?php _e('Knowledgebase' ,'kbe'); ?></a></li>
+        <?php
             foreach($kbe_bc_term as $kbe_tax_term){
-?>
+        ?>
                 <li>
                     <a href="<?php echo get_term_link($kbe_tax_term->slug, KBE_POST_TAXONOMY) ?>">
                         <?php echo $kbe_tax_term->name ?>
                     </a>
                 </li>
-<?php
+        <?php
             }
-?>
-            <li><?php echo substr(the_title('', '', FALSE), 0, 50); ?>....</li>
+        ?>
+            <li>
+                <?php
+                    if(strlen(the_title('', '', FALSE) >= 50)) {
+                        echo substr(the_title('', '', FALSE), 0, 50)."....";
+                    } else {
+                        the_title();
+                    }
+                ?>
+            </li>
         </ul>
 <?php
     }else{
@@ -435,7 +446,6 @@ function kbe_short_content($limit) {
 
 //=========>  KBE Custom Taxonomy Order
 function kbe_tax_order($orderby, $args){
-    
     $kbe_tax = "kbe_taxonomy";
     
     if($args['orderby'] == 'terms_order'){

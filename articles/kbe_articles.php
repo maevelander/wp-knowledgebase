@@ -72,7 +72,7 @@ function kbe_taxonomies() {
         'update_item'       => 	__( 'Update Knowledgebase Category', 'kbe' ),
         'add_new_item'      => 	__( 'Add New Knowledgebase Category', 'kbe' ),
         'new_item_name'     => 	__( 'New Knowledgebase Category Name', 'kbe' ),
-		'menu_name' 		=> 	__( 'Categories', 'kbe' )
+	'menu_name'         => 	__( 'Categories', 'kbe' )
     ); 	
 	
     register_taxonomy( 'kbe_taxonomy', array( 'kbe_knowledgebase' ), array(
@@ -89,26 +89,28 @@ function kbe_taxonomies() {
 add_action( 'init', 'kbe_custom_tags', 0 );
 function kbe_custom_tags() {
 	
-	$labels = array(
-			'name' 				=> 	__( 'Knowledgebase Tags', 'kbe' ),
-			'singular_name' 	=> 	__( 'Knowledgebase Tag', 'kbe' ),
-			'search_items' 		=>  __( 'Search Knowledgebase Tags', 'kbe' ),
-			'all_items' 		=> 	__( 'All Knowledgebase Tags', 'kbe' ),
-			'edit_item' 		=> 	__( 'Edit Knowledgebase Tag', 'kbe' ),
-			'update_item' 		=>  __( 'Update Knowledgebase Tag', 'kbe' ),
-			'add_new_item' 		=>  __( 'Add New Knowledgebase Tag', 'kbe' ),
-			'new_item_name' 	=>  __( 'New Knowledgebase Tag Name', 'kbe' ),
-			'menu_name' 		=> 	__( 'Tags', 'kbe' )
-	);
-	
-	register_taxonomy( 'kbe_tags', array('kbe_knowledgebase'), array(
-			'hierarchical' 	=> 	false,
-			'labels' 		=>  $labels,
-			'show_ui' 		=>  true,
-			'query_var' 	=>  true,
-			'rewrite' 		=>  array('slug' => 'knowledgebase_tags', 'with_front' => true),
-		)
-	);
+    $labels = array(
+                    'name' 		=>  __( 'Knowledgebase Tags', 'kbe' ),
+                    'singular_name' 	=>  __( 'Knowledgebase Tag', 'kbe' ),
+                    'search_items' 	=>  __( 'Search Knowledgebase Tags', 'kbe' ),
+                    'all_items' 	=>  __( 'All Knowledgebase Tags', 'kbe' ),
+                    'edit_item' 	=>  __( 'Edit Knowledgebase Tag', 'kbe' ),
+                    'update_item' 	=>  __( 'Update Knowledgebase Tag', 'kbe' ),
+                    'add_new_item' 	=>  __( 'Add New Knowledgebase Tag', 'kbe' ),
+                    'new_item_name' 	=>  __( 'New Knowledgebase Tag Name', 'kbe' ),
+                    'menu_name' 	=>  __( 'Tags', 'kbe' )
+            );
+
+    register_taxonomy( 'kbe_tags',
+                        array('kbe_knowledgebase'),
+                        array(
+                            'hierarchical'  =>  false,
+                            'labels'        =>  $labels,
+                            'show_ui'       =>  true,
+                            'query_var'     =>  true,
+                            'rewrite'       =>  array('slug' => 'knowledgebase_tags', 'with_front' => true),
+                        )
+    );
     flush_rewrite_rules();
 }
 
