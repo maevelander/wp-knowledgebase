@@ -78,7 +78,7 @@ This feature is not built into the plugin, however you can use another plugin to
 
 = How can I customise the design? =
 
-You can do some basic presentation adjustments via Knowledgebase > Settings. Beyond this, you can completely customise the design via your theme css.
+You can do some basic presentation adjustments via Knowledgebase > Settings. Beyond this, you can completely customise the design by editing the template files which the plugin copes into your active theme directory.
 
 = It does not look good on my theme =
 
@@ -106,9 +106,8 @@ If you've tried all the obvious stuff and it's still not working please request 
 
 == Changelog ==
 
-* Languages added
-
 = 1.0.3 =
+* Languages added
 * Minor CSS Changes.
 * Breadcrumbs link issue fixed.
 * Truncate function removed from the titles 
@@ -126,6 +125,13 @@ If you've tried all the obvious stuff and it's still not working please request 
 * Initial release
 
 == Upgrade Notice ==
+
+= 1.0.3 =
+* Languages added
+* Minor CSS Changes.
+* Breadcrumbs link issue fixed.
+* Truncate function removed from the titles 
+* Function corrected for loading plugin text domain
 
 = 1.0.2 =
 * Translation issue fixed
