@@ -108,6 +108,9 @@ If you've tried all the obvious stuff and it's still not working please request 
 
 * Languages added
 
+= 1.0.4 =
+* Breadcrumbs text issue fixed.
+
 = 1.0.3 =
 * Minor CSS Changes.
 * Breadcrumbs link issue fixed.

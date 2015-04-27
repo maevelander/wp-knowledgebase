@@ -4,7 +4,7 @@
   Plugin URI: http://wordpress.org/plugins/wp-knowledgebase
   Description: Simple and flexible knowledgebase plugin for WordPress
   Author: Enigma Plugins
-  Version: 1.0.3
+  Version: 1.0.4
   Author URI: http://enigmaplugins.com
  */
  
@@ -352,6 +352,8 @@ function kbe_search_drop(){
 //=========> KBE Plugin Breadcrumbs
 function kbe_breadcrumbs(){
     global $post;
+    
+    $kbe_slug_case = ucwords(strtolower(KBE_PLUGIN_SLUG));
                         
     $url = "http://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
     
@@ -360,7 +362,7 @@ function kbe_breadcrumbs(){
 ?>
         <ul>
             <li><a href="<?php echo home_url(); ?>"><?php _e('Home','kbe'); ?></a></li>
-            <li><a href="<?php echo home_url()."/".KBE_PLUGIN_SLUG; ?>"><?php _e('Knowledgebase' ,'kbe'); ?></a></li>
+            <li><a href="<?php echo home_url()."/".KBE_PLUGIN_SLUG; ?>"><?php _e($kbe_slug_case ,'kbe'); ?></a></li>
             <li><?php echo $kbe_bc_name; ?></li>
         </ul>
 <?php
@@ -369,7 +371,7 @@ function kbe_breadcrumbs(){
 ?>
 	<ul>
             <li><a href="<?php echo home_url(); ?>"><?php _e('Home','kbe'); ?></a></li>
-            <li><a href="<?php echo home_url()."/".KBE_PLUGIN_SLUG; ?>"><?php _e('Knowledgebase' ,'kbe'); ?></a></li>
+            <li><a href="<?php echo home_url()."/".KBE_PLUGIN_SLUG; ?>"><?php _e($kbe_slug_case ,'kbe'); ?></a></li>
             <li><?php echo $kbe_bc_tag_name; ?></li>
         </ul>
 <?php
@@ -378,7 +380,7 @@ function kbe_breadcrumbs(){
 ?>
 	<ul>
             <li><a href="<?php echo home_url(); ?>"><?php _e('Home','kbe'); ?></a></li>
-            <li><a href="<?php echo home_url()."/".KBE_PLUGIN_SLUG; ?>"><?php _e('Knowledgebase' ,'kbe'); ?></a></li>
+            <li><a href="<?php echo home_url()."/".KBE_PLUGIN_SLUG; ?>"><?php _e($kbe_slug_case ,'kbe'); ?></a></li>
             <li><?php echo $kbe_search_word; ?></li>
         </ul>
 <?php
@@ -387,7 +389,7 @@ function kbe_breadcrumbs(){
 ?>
         <ul>
             <li><a href="<?php echo home_url(); ?>"><?php _e('Home','kbe'); ?></a></li>
-            <li><a href="<?php echo home_url()."/".KBE_PLUGIN_SLUG; ?>"><?php _e('Knowledgebase' ,'kbe'); ?></a></li>
+            <li><a href="<?php echo home_url()."/".KBE_PLUGIN_SLUG; ?>"><?php _e($kbe_slug_case ,'kbe'); ?></a></li>
         <?php
             foreach($kbe_bc_term as $kbe_tax_term){
         ?>
@@ -414,7 +416,7 @@ function kbe_breadcrumbs(){
 ?>
         <ul>
             <li><a href="<?php echo home_url(); ?>"><?php _e('Home','kbe'); ?></a></li>
-            <li><?php _e('Knowledgebase' ,'kbe'); ?></li>
+            <li><?php _e($kbe_slug_case ,'kbe'); ?></li>
         </ul>
 <?php
     }
