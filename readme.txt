@@ -48,6 +48,7 @@ On activation, the plugin will create a page called "Knowledgebase" and on that 
 * Spanish - Spain
 * Spanish - USA
 * Spanish - Puerto Rico
+* Czech
 
 Translators, thank you all for your contribution to this plugin. Much appreciated.
 

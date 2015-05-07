@@ -1,0 +1,328 @@
+# Copyright (C) 2014 
+# This file is distributed under the same license as the  package.
+msgid ""
+msgstr ""
+"Project-Id-Version: wp-knowledgebase-cs_CZ\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/wp-knowledgebase\n"
+"POT-Creation-Date: 2014-12-11 01:35:37+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2015-05-04 14:29+0100\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"Last-Translator: Samuel Kolesar <samuelkolesar@mail.muni.cz>\n"
+"Language-Team: \n"
+"Language: cs_CZ\n"
+"X-Generator: Poedit 1.7.6\n"
+
+#: articles/kbe_articles.php:15 articles/kbe_articles.php:16
+msgid "Knowledgebase"
+msgstr "Databáze"
+
+#: articles/kbe_articles.php:17
+msgid "Articles"
+msgstr "Příspěvky"
+
+#: articles/kbe_articles.php:18 articles/kbe_articles.php:21
+msgid "New Article"
+msgstr "Nový příspěvek"
+
+#: articles/kbe_articles.php:19
+msgid "Add New Article"
+msgstr "Přidat nový příspěvek"
+
+#: articles/kbe_articles.php:20
+msgid "Edit Article"
+msgstr "Upravit příspěvek"
+
+#: articles/kbe_articles.php:22
+msgid "View Articles"
+msgstr "Zobrazit"
+
+#: articles/kbe_articles.php:23
+msgid "Search Articles"
+msgstr "Hledat"
+
+#: articles/kbe_articles.php:24
+msgid "Nothing found"
+msgstr "Nenalezeno"
+
+#: articles/kbe_articles.php:25
+msgid "Nothing found in Trash"
+msgstr "V koši nic nenalezeno"
+
+#: articles/kbe_articles.php:65 articles/kbe_articles.php:66
+#: widget/kbe_widget_category.php:23
+msgid "Knowledgebase Category"
+msgstr "Kategorie"
+
+#: articles/kbe_articles.php:67
+msgid "Search Knowledgebase Category"
+msgstr "Vyhledávat v kategorii"
+
+#: articles/kbe_articles.php:68
+msgid "All Knowledgebase Categories"
+msgstr "Všechny kategorie"
+
+#: articles/kbe_articles.php:69
+msgid "Parent Knowledgebase Category"
+msgstr "Mateřská kategorie"
+
+#: articles/kbe_articles.php:70
+msgid "Parent Knowledgebase Category:"
+msgstr "Mateřská kategorie:"
+
+#: articles/kbe_articles.php:71
+msgid "Edit Knowledgebase Category"
+msgstr "Editovat kategorii"
+
+#: articles/kbe_articles.php:72
+msgid "Update Knowledgebase Category"
+msgstr "Updatovat kategorii"
+
+#: articles/kbe_articles.php:73
+msgid "Add New Knowledgebase Category"
+msgstr "Přidat novou kategorii"
+
+#: articles/kbe_articles.php:74
+msgid "New Knowledgebase Category Name"
+msgstr "Název nové kategorie"
+
+#: articles/kbe_articles.php:75
+msgid "Categories"
+msgstr "Kategorie"
+
+#: articles/kbe_articles.php:93 widget/kbe_widget_tags.php:24
+msgid "Knowledgebase Tags"
+msgstr "Tagy"
+
+#: articles/kbe_articles.php:94
+msgid "Knowledgebase Tag"
+msgstr "Tag"
+
+#: articles/kbe_articles.php:95
+msgid "Search Knowledgebase Tags"
+msgstr "Vyhledávat tagy"
+
+#: articles/kbe_articles.php:96
+msgid "All Knowledgebase Tags"
+msgstr "Všechny tagy"
+
+#: articles/kbe_articles.php:97
+msgid "Edit Knowledgebase Tag"
+msgstr "Editovat tagy"
+
+#: articles/kbe_articles.php:98
+msgid "Update Knowledgebase Tag"
+msgstr "Updatovat tagy"
+
+#: articles/kbe_articles.php:99
+msgid "Add New Knowledgebase Tag"
+msgstr "Přidat nový tag"
+
+#: articles/kbe_articles.php:100
+msgid "New Knowledgebase Tag Name"
+msgstr "Název nového tagu"
+
+#: articles/kbe_articles.php:101 articles/kbe_articles.php:149
+msgid "Tags"
+msgstr "Tagy"
+
+#: articles/kbe_articles.php:146
+msgid "Title"
+msgstr "Titulek"
+
+#: articles/kbe_articles.php:147
+msgid "Author"
+msgstr "Autor"
+
+#: articles/kbe_articles.php:148
+msgid "Cateogry"
+msgstr "Kategorie"
+
+#: articles/kbe_articles.php:150
+msgid "Comments"
+msgstr "Komentáře"
+
+#: articles/kbe_articles.php:151
+msgid "Views"
+msgstr "Zobrazení"
+
+#: articles/kbe_articles.php:152
+msgid "Date"
+msgstr "Datum"
+
+#: articles/kbe_articles.php:179
+msgid " Views"
+msgstr "Zobrazení"
+
+#: articles/kbe_articles.php:181
+msgid "No Views"
+msgstr "Žádné zobrazení"
+
+#: index.php:311 widget/kbe_widget_search.php:43
+msgid "Search Articles..."
+msgstr "Vyhledávat..."
+
+#: kbe_order.php:12
+msgid "Re-Order"
+msgstr "Přeuspořádat"
+
+#: kbe_order.php:46
+msgid ""
+"Drag and drop items to customise the order of categories in WP Knowledgebase"
+msgstr "Chyť a pusť položky pro úpravu pořadí kategorií v WP Knowledgebase"
+
+#: kbe_order.php:60 kbe_order.php:135
+msgid "Save Order"
+msgstr "Uložiť pořadí"
+
+#: kbe_order.php:67
+msgid "No terms found"
+msgstr "Žádné termíny nenalezeny"
+
+#: kbe_order.php:120
+msgid ""
+"Drag and drop items to customise the order of articles in WP Knowledgebase"
+msgstr "Chyť a pusť položky pro úpravu pořadí příspěvků v WP Knowledgebase"
+
+#: kbe_order.php:141
+msgid "No Articles found"
+msgstr "Žádné příspěvky nenalezeny"
+
+#: kbe_order.php:180 kbe_settings.php:166
+msgid "Help Improve This Plugin!"
+msgstr "Pomozte vylepšit tento plugin"
+
+#: kbe_order.php:186 kbe_settings.php:172
+msgid ""
+"Enjoyed this plugin? All donations are used to improve and further develop "
+"this plugin. Thanks for your contribution."
+msgstr ""
+"Líbí se vám tento plugin? Všechny dary jsou využity na vylepšení a rozvoj "
+"tohto pluginu. Děkujeme za váš příspěvek. "
+
+#: kbe_order.php:200 kbe_settings.php:186
+msgid "you can also help by"
+msgstr "také můžete pomoci"
+
+#: kbe_order.php:202 kbe_settings.php:188
+msgid "rating this plugin on wordpress.org"
+msgstr "ohodnocením tohto pluginu na wordpress.org"
+
+#: kbe_order.php:211 kbe_settings.php:197
+msgid "Need Support?"
+msgstr "Potřebujete pomoc?"
+
+#: kbe_order.php:216 kbe_settings.php:202
+msgid "Check out the"
+msgstr "Podívejte se"
+
+#: kbe_order.php:218 kbe_settings.php:204
+msgid "and"
+msgstr "a"
+
+#: kbe_order.php:219 kbe_settings.php:205
+msgid "Support Forums"
+msgstr "Forum podpory"
+
+#: kbe_order.php:245
+msgid "Category Order updated successfully."
+msgstr "Pořadí kategorií úspěšne updatováno."
+
+#: kbe_order.php:247 kbe_order.php:270
+msgid "An error occured, order has not been saved."
+msgstr "Chyba, pořadí se neuložilo. "
+
+#: kbe_order.php:268
+msgid "Article Order updated successfully."
+msgstr "Pořadí příspěvků úspěšně uloženo. "
+
+#: kbe_settings.php:9
+msgid "Knowledgebase Display Settings"
+msgstr "Nastavení zobrazování databáze"
+
+#: kbe_settings.php:34
+msgid "Settings updated successfully"
+msgstr "Změny úspěšně uloženy. "
+
+#: kbe_settings.php:52
+msgid "Knowledgebase Slug"
+msgstr "Položka databáze"
+
+#: kbe_settings.php:60
+msgid "Number of articles to show"
+msgstr "Počet zobrazených příspěvků"
+
+#: kbe_settings.php:69
+msgid "Knowledgebase search"
+msgstr "Vyhladávaní v databáze"
+
+#: kbe_settings.php:73 kbe_settings.php:87 kbe_settings.php:135
+msgid "On"
+msgstr "Zapnuto"
+
+#: kbe_settings.php:77 kbe_settings.php:91 kbe_settings.php:139
+msgid "Off"
+msgstr "Vypnuto"
+
+#: kbe_settings.php:83
+msgid "Knowledgebase breadcrumbs"
+msgstr "Navigace databáze"
+
+#: kbe_settings.php:97
+msgid "Knowledgebase home page sidebar"
+msgstr "Sidebard domovské stránky"
+
+#: kbe_settings.php:101 kbe_settings.php:118
+msgid "Left"
+msgstr "Vlevo"
+
+#: kbe_settings.php:105 kbe_settings.php:122
+msgid "Right"
+msgstr "Vpravo"
+
+#: kbe_settings.php:109 kbe_settings.php:126
+msgid "None"
+msgstr "Žádný"
+
+#: kbe_settings.php:114
+msgid "Knowledgebase inner pages sidebar"
+msgstr "Sidebar stránek databáze"
+
+#: kbe_settings.php:131
+msgid "Knowledgebase comments"
+msgstr "Komentáře v databázi"
+
+#: kbe_settings.php:145
+msgid "Knowledgebase theme color"
+msgstr "Farba témy databáze"
+
+#: template/archive-kbe_knowledgebase.php:66
+#: template/kbe_knowledgebase.php:68 widget/kbe_widget_category.php:53
+msgid "View all posts in %s"
+msgstr "Zobrazit všechny posty v %"
+
+#: widget/kbe_widget_article.php:18
+msgid "WP Knowledgebase article widget to show articles on the site"
+msgstr "WP Knowledgebase widget příspěvků k zobrazení příspěvků na stránce"
+
+#: widget/kbe_widget_article.php:24
+msgid "Knowledgebase Article"
+msgstr "Příspěvek databáze"
+
+#: widget/kbe_widget_category.php:17
+msgid "WP Knowledgebase category widget to show categories on the site"
+msgstr "WP Knowledgebase widget kategorií k zobrazení kategorií na stránce"
+
+#: widget/kbe_widget_search.php:18
+msgid "WP Knowledgebase search widget"
+msgstr "WP Knowledgebase vyhledávací widget"
+
+#: widget/kbe_widget_search.php:24
+msgid "Knowledgebase Search"
+msgstr "Vyhledávání v databázi"
+
+#: widget/kbe_widget_tags.php:18
+msgid "WP Knowledgebase article widget to show tags on the site"
+msgstr "WP Knowledgebase widget příspěvků k zobrazování tagů na stránce"
