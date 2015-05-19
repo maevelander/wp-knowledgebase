@@ -4,7 +4,7 @@
   Plugin URI: http://wordpress.org/plugins/wp-knowledgebase
   Description: Simple and flexible knowledgebase plugin for WordPress
   Author: Enigma Plugins
-  Version: 1.0.3
+  Version: 1.0.4
   Author URI: http://enigmaplugins.com
  */
  
@@ -39,7 +39,17 @@ require "widget/kbe_widget_search.php";
 require "widget/kbe_widget_tags.php";
 
 //=========> Create Hooks for WP Knowledgebase
-function wp_kbe_hooks() {
+function wp_kbe_hooks($kbe_networkwide) {
+    
+    kbe_articles();
+    flush_rewrite_rules();
+    
+    kbe_taxonomies();
+    flush_rewrite_rules();
+    
+    kbe_custom_tags();
+    flush_rewrite_rules();
+    
     global $wpdb;
     /*Creat "term_order" Field in "wp_terms" Table for sortable order*/
     $term_order_qry = $wpdb->query("SHOW COLUMNS FROM $wpdb->terms LIKE 'terms_order'");
@@ -47,99 +57,92 @@ function wp_kbe_hooks() {
         $wpdb->query("ALTER TABLE $wpdb->terms ADD `terms_order` INT(4) NULL DEFAULT '0'");
     }
     
-    $kbe_pre = $wpdb->prefix;
+    $kbe_prefix = $wpdb->prefix;
 
-    $kbe_pageSql = "Select * From ".$kbe_pre."posts Where post_content like '%[kbe_knowledgebase]%' and post_type = 'page'";
-    $kbe_pageQry = mysql_query($kbe_pageSql);
-    $kbe_pageNum = mysql_num_rows($kbe_pageQry);
+    $kbe_pageSql = $wpdb->get_results("Select *
+                                       From ".$kbe_prefix."posts
+                                       Where post_content like '%[kbe_knowledgebase]%'
+                                       And post_type = 'page'");
 
-    if($kbe_pageNum == 0){
+    if(!$kbe_pageSql){
         //  Insert a "Knowledgebase" page
-        $tableSql = "SELECT Max(ID) As maxId FROM wp_posts";
-        $tableQry = mysql_query($tableSql);
-        $tableRow = mysql_fetch_array($tableQry);
+        $kbe_max_page_Sql = $wpdb->get_results("SELECT Max(ID) As kbe_maxId FROM ".$kbe_prefix."posts");
+        foreach($kbe_max_page_Sql as $kbe_max_page_row) {
+            $kbe_maxId = $kbe_max_page_row->kbe_maxId;
+            $kbe_maxId = $kbe_maxId + 1;
+        }
 
-        $maxId = $tableRow['maxId'];
-        $maxId = $maxId + 1;
+        $kbe_now = date('Y-m-d H:i:s');
+        $kbe_now_gmt = gmdate('Y-m-d H:i:s');
+        $kbe_guid = get_option('home') . '/?page_id='.$kbe_maxId;
+        $kbe_user_id = get_current_user_id();
 
-        $now = date('Y-m-d H:i:s');
-        $now_gmt = gmdate('Y-m-d H:i:s');
-        $guid = get_option('home') . '/?page_id='.$maxId;
-        $user_id = get_current_user_id();
+        $kbe_table_posts = $wpdb->prefix.'posts';
 
-        $table_posts	=	$wpdb->prefix.'posts';
-
-        $data_posts = array(
-                            'post_author'       =>  $user_id,
-                            'post_date'         =>  $now,
-                            'post_date_gmt'     =>  $now_gmt,
-                            'post_content'      =>  '[kbe_knowledgebase]',
-                            'post_title'        =>  'Knowledgebase',
-                            'post_excerpt'      =>  '',
-                            'post_status'       =>  'publish',
-                            'comment_status'         =>  'closed',
-                            'ping_status'       =>  'closed',
-                            'post_password'      =>  '',
-                            'post_name'        =>  'knowledgebase',
-                            'to_ping'      =>  '',
-                            'pinged'       =>  '',
-                            'post_modified'         =>  $now,
-                            'post_modified_gmt'     =>  $now_gmt,
-                            'post_content_filtered'      =>  '',
-                            'post_parent'        =>  '0',
-                            'guid'      =>  $guid,
-                            'menu_order'       =>  '0',
-                            'post_type'         =>  'page',
-                            'post_mime_type'     =>  '',
-                            'comment_count'      =>  '0',
+        $kbe_data_posts = array(
+                            'post_author'           =>  $kbe_user_id,
+                            'post_date'             =>  $kbe_now,
+                            'post_date_gmt'         =>  $kbe_now_gmt,
+                            'post_content'          =>  '[kbe_knowledgebase]',
+                            'post_title'            =>  'Knowledgebase',
+                            'post_excerpt'          =>  '',
+                            'post_status'           =>  'publish',
+                            'comment_status'        =>  'closed',
+                            'ping_status'           =>  'closed',
+                            'post_password'         =>  '',
+                            'post_name'             =>  'knowledgebase',
+                            'to_ping'               =>  '',
+                            'pinged'                =>  '',
+                            'post_modified'         =>  $kbe_now,
+                            'post_modified_gmt'     =>  $kbe_now_gmt,
+                            'post_content_filtered' =>  '',
+                            'post_parent'           =>  '0',
+                            'guid'                  =>  $kbe_guid,
+                            'menu_order'            =>  '0',
+                            'post_type'             =>  'page',
+                            'post_mime_type'        =>  '',
+                            'comment_count'         =>  '0',
                         );
-        $wpdb->insert($table_posts,$data_posts) or die(mysql_error());
+        $wpdb->insert($kbe_table_posts,$kbe_data_posts) or die(mysql_error());
 
         //  Insert a page template for knowlwdgebase
-        $tempTableSql = "Select post_content, ID From ".$kbe_pre."posts Where post_content Like '%[kbe_knowledgebase]%' And post_type <> 'revision'";
-        $tempTableQry = mysql_query($tempTableSql);
-        $tempTableRow = mysql_fetch_array($tempTableQry);
+        $kbe_tempTableSql = $wpdb->get_results("Select post_content, ID
+                                                From ".$kbe_prefix."posts
+                                                Where post_content Like '%[kbe_knowledgebase]%'
+                                                And post_type <> 'revision'");
+        foreach($kbe_tempTableSql as $kbe_tempTableRow) {
+            $tempPageId = $kbe_tempTableRow->ID;
 
-        $tempPageId = $tempTableRow['ID'];
-
-        //  Set Knowledgebase page template
-        $table_post_meta = $wpdb->prefix.'postmeta';
-
-        $meta_data = array(
-            'post_id'       =>  $tempPageId,
-            'meta_key'      =>  '_wp_page_template',
-            'meta_value'    =>  'kbe_knowledgebase.php'
-        );
-        $wpdb->insert($table_post_meta,$meta_data) or die(mysql_error());
+            //  Set Knowledgebase page template
+            add_post_meta($tempPageId, '_wp_page_template', 'kbe_knowledgebase.php');
+        }
     }
 
-    $kbe_optSlugSql = "Select * From ".$kbe_pre."options Where option_name like '%kbe_plugin_slug%'";
-    $kbe_optSlugQry = mysql_query($kbe_optSlugSql);
-    $kbe_optSlugNum = mysql_num_rows($kbe_optSlugQry);
+    $kbe_optSlugSql = $wpdb->get_results("Select * From ".$kbe_prefix."options Where option_name like '%kbe_plugin_slug%'");
 
-    if($kbe_optSlugNum == 0){
-        $table_slug_option = $wpdb->prefix.'options';
-
-        $kbe_slug_data = array(
-            'option_name'   => 'kbe_plugin_slug',
-            'option_value'   => 'knowledgebase'
-        );
-        $wpdb->insert($table_slug_option, $kbe_slug_data) or die(mysql_error());
+    if(!$kbe_optSlugSql){
+        add_option( 'kbe_plugin_slug', 'knowledgebase', '', 'yes' );
     }
 
-    $kbe_optPageSql = "Select * From ".$kbe_pre."options Where option_name like '%kbe_article_qty%'";
-    $kbe_optPageQry = mysql_query($kbe_optPageSql);
-    $kbe_optPageNum = mysql_num_rows($kbe_optPageQry);
+    $kbe_optPageSql = $wpdb->get_results("Select * From ".$kbe_prefix."options Where option_name like '%kbe_article_qty%'");
 
-    if($kbe_optPageNum == 0){
-        $table_page_option = $wpdb->prefix.'options';
-
-        $kbe_page_data = array(
-            'option_name'   => 'kbe_article_qty',
-            'option_value'   => '5'
-        );
-        $wpdb->insert($table_page_option, $kbe_page_data) or die(mysql_error());
+    if(!$kbe_optPageSql){
+        add_option( 'kbe_article_qty', '5', '', 'yes' );
     }
+    
+    if (function_exists('is_multisite') && is_multisite()) {
+        // check if it is a network activation - if so, run the activation function for each blog id
+        if ($kbe_networkwide) {
+            $kbe_old_blog = $wpdb->blogid;
+            // Get all blog ids
+            $kbe_blog_ids = $wpdb->get_col("SELECT blog_id FROM $wpdb->blogs");
+            foreach ($kbe_blog_ids as $kbe_blog_id) {
+                switch_to_blog($kbe_blog_id);
+            }
+            switch_to_blog($kbe_old_blog);
+            return;
+        }   
+    } 
 }
 register_activation_hook(__FILE__, 'wp_kbe_hooks');
 
@@ -175,12 +178,14 @@ define('KBE_LINK_STRUCTURE', get_option('permalink_structure'));
 define('KBE_POST_TYPE', 'kbe_knowledgebase');
 define('KBE_POST_TAXONOMY', 'kbe_taxonomy');
 define('KBE_POST_TAGS', 'kbe_tags');
-	
-$getSql = "Select ID From wp_posts Where post_content Like '%[kbe_knowledgebase]%' And post_type <> 'revision'";
-$getQry = mysql_query($getSql);
-$getRow = mysql_fetch_array($getQry);
-$pageId = $getRow['ID'];
 
+//=========> Get Knowledgebase title
+global $wpdb;
+$getSql = $wpdb->get_results("Select ID From wp_posts Where post_content Like '%[kbe_knowledgebase]%' And post_type <> 'revision'");
+
+foreach($getSql as $getRow) {
+    $pageId = $getRow->ID;
+}
 define('KBE_PAGE_TITLE', $pageId);
 
 //=========> Plugin menu
@@ -191,11 +196,16 @@ function kbe_plugin_menu() {
 }
 
 //=========> Enqueue KBE Style file in header.php
-add_action('wp_head', 'kbe_article_style');
+/*add_action('wp_head', 'kbe_article_style');
 function kbe_article_style(){
     wp_register_style('kbe_theme_css', get_template_directory_uri().'/kbe_style.css');
     wp_enqueue_style('kbe_theme_css');
+}*/
+function kbe_styles(){
+    wp_enqueue_style ('kbe_theme_style', get_stylesheet_directory_uri() . '/kbe_style.css');
 }
+add_action('wp_enqueue_scripts', 'kbe_styles');
+
 
 add_action('wp_print_scripts', 'kbe_live_search');
 function kbe_live_search(){
@@ -204,10 +214,14 @@ function kbe_live_search(){
 }
 
 //=========> Enqueue plugin files
-add_action('admin_init', 'wp_kbe_scripts');
-function wp_kbe_scripts(){
-    wp_register_style('kbe_admin_css', WP_KNOWLEDGEBASE.'css/kbe_admin_style.css');
-    wp_enqueue_style('kbe_admin_css');
+$kbe_address_bar = $_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+
+if(strpos($kbe_address_bar, "post_type=kbe_knowledgebase")) {
+    add_action('admin_init', 'wp_kbe_scripts');
+    function wp_kbe_scripts(){
+        wp_register_style('kbe_admin_css', WP_KNOWLEDGEBASE.'css/kbe_admin_style.css');
+        wp_enqueue_style('kbe_admin_css');
+    }
 }
 
 //=========> Enqueue color picker
@@ -345,6 +359,29 @@ function kbe_search_drop(){
             }
 	}
     });
+    
+    jQuery(document).ready(function () {
+        
+        var tree_id = 0;
+        jQuery('div.kbe_category:has(.kbe_child_category)').addClass('has-child').prepend('<span class="switch"><img src="<?php echo get_template_directory_uri() ?>/images/kbe_icon-plus.png" /></span>').each(function () {
+            tree_id++;
+            jQuery(this).attr('id', 'tree' + tree_id);
+        });
+
+        jQuery('div.kbe_category > span.switch').click(function () {
+            var tree_id = jQuery(this).parent().attr('id');
+            if (jQuery(this).hasClass('open')) {
+                jQuery(this).parent().find('div:first').slideUp('fast');
+                jQuery(this).removeClass('open');
+                jQuery(this).html('<img src="<?php echo get_template_directory_uri() ?>/images/kbe_icon-plus.png" />');
+            } else {
+                jQuery(this).parent().find('div:first').slideDown('fast');
+                jQuery(this).html('<img src="<?php echo get_template_directory_uri() ?>/images/kbe_icon-minus.png" />');
+                jQuery(this).addClass('open');
+            }
+        });
+
+    });
 </script>
 <?php
 }
@@ -352,6 +389,8 @@ function kbe_search_drop(){
 //=========> KBE Plugin Breadcrumbs
 function kbe_breadcrumbs(){
     global $post;
+    
+    $kbe_slug_case = ucwords(strtolower(KBE_PLUGIN_SLUG));
                         
     $url = "http://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
     
@@ -360,7 +399,7 @@ function kbe_breadcrumbs(){
 ?>
         <ul>
             <li><a href="<?php echo home_url(); ?>"><?php _e('Home','kbe'); ?></a></li>
-            <li><a href="<?php echo home_url()."/".KBE_PLUGIN_SLUG; ?>"><?php _e('Knowledgebase' ,'kbe'); ?></a></li>
+            <li><a href="<?php echo home_url()."/".KBE_PLUGIN_SLUG; ?>"><?php _e($kbe_slug_case ,'kbe'); ?></a></li>
             <li><?php echo $kbe_bc_name; ?></li>
         </ul>
 <?php
@@ -369,7 +408,7 @@ function kbe_breadcrumbs(){
 ?>
 	<ul>
             <li><a href="<?php echo home_url(); ?>"><?php _e('Home','kbe'); ?></a></li>
-            <li><a href="<?php echo home_url()."/".KBE_PLUGIN_SLUG; ?>"><?php _e('Knowledgebase' ,'kbe'); ?></a></li>
+            <li><a href="<?php echo home_url()."/".KBE_PLUGIN_SLUG; ?>"><?php _e($kbe_slug_case ,'kbe'); ?></a></li>
             <li><?php echo $kbe_bc_tag_name; ?></li>
         </ul>
 <?php
@@ -378,7 +417,7 @@ function kbe_breadcrumbs(){
 ?>
 	<ul>
             <li><a href="<?php echo home_url(); ?>"><?php _e('Home','kbe'); ?></a></li>
-            <li><a href="<?php echo home_url()."/".KBE_PLUGIN_SLUG; ?>"><?php _e('Knowledgebase' ,'kbe'); ?></a></li>
+            <li><a href="<?php echo home_url()."/".KBE_PLUGIN_SLUG; ?>"><?php _e($kbe_slug_case ,'kbe'); ?></a></li>
             <li><?php echo $kbe_search_word; ?></li>
         </ul>
 <?php
@@ -387,7 +426,7 @@ function kbe_breadcrumbs(){
 ?>
         <ul>
             <li><a href="<?php echo home_url(); ?>"><?php _e('Home','kbe'); ?></a></li>
-            <li><a href="<?php echo home_url()."/".KBE_PLUGIN_SLUG; ?>"><?php _e('Knowledgebase' ,'kbe'); ?></a></li>
+            <li><a href="<?php echo home_url()."/".KBE_PLUGIN_SLUG; ?>"><?php _e($kbe_slug_case ,'kbe'); ?></a></li>
         <?php
             foreach($kbe_bc_term as $kbe_tax_term){
         ?>
@@ -414,7 +453,7 @@ function kbe_breadcrumbs(){
 ?>
         <ul>
             <li><a href="<?php echo home_url(); ?>"><?php _e('Home','kbe'); ?></a></li>
-            <li><?php _e('Knowledgebase' ,'kbe'); ?></li>
+            <li><?php _e($kbe_slug_case ,'kbe'); ?></li>
         </ul>
 <?php
     }
@@ -506,6 +545,9 @@ function count_bg_color(){
     $kbe_bgcolor = get_option('kbe_bgcolor');
 ?>
     #kbe_content h2 span.kbe_count {
+        background-color: <?php echo $kbe_bgcolor; ?> !important;
+    }
+    #kbe_content .kbe_child_category h3 span.kbe_count {
         background-color: <?php echo $kbe_bgcolor; ?> !important;
     }
     .kbe_widget .kbe_tags_widget a{

@@ -42,8 +42,7 @@ function kbe_articles() {
         'menu_icon'             => 	WP_KNOWLEDGEBASE.'images/icon-kbe.png',
         'capability_type'       => 	'post',
         'hierarchical'          => 	false,
-        'menu_position'         => 	3,
-        'supports'              => 	array('title','editor','thumbnail','comments','tags'),
+        'supports'              => 	array('title','editor','thumbnail','comments','tags','revisions'),
         'rewrite'               => 	$kbe_rewrite,
         'show_in_menu'          => 	true,
         'show_in_nav_menus'     => 	true,
@@ -54,7 +53,6 @@ function kbe_articles() {
     );
  
     register_post_type( 'kbe_knowledgebase' , $args );
-    flush_rewrite_rules();
 }
 add_action( 'init', 'kbe_taxonomies', 0 );
 
@@ -83,12 +81,10 @@ function kbe_taxonomies() {
         'query_var'         => 	true,
         'rewrite'           => 	array( 'slug' => 'knowledgebase_category', 'with_front' => true )
     ));
-    flush_rewrite_rules();
 }
 
 add_action( 'init', 'kbe_custom_tags', 0 );
 function kbe_custom_tags() {
-	
     $labels = array(
                     'name' 		=>  __( 'Knowledgebase Tags', 'kbe' ),
                     'singular_name' 	=>  __( 'Knowledgebase Tag', 'kbe' ),
@@ -111,7 +107,6 @@ function kbe_custom_tags() {
                             'rewrite'       =>  array('slug' => 'knowledgebase_tags', 'with_front' => true),
                         )
     );
-    flush_rewrite_rules();
 }
 
 function kbe_set_post_views($postID) {

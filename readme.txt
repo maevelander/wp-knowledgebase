@@ -48,7 +48,6 @@ On activation, the plugin will create a page called "Knowledgebase" and on that 
 * Spanish - Spain
 * Spanish - USA
 * Spanish - Puerto Rico
-* Czech
 
 Translators, thank you all for your contribution to this plugin. Much appreciated.
 
@@ -79,7 +78,7 @@ This feature is not built into the plugin, however you can use another plugin to
 
 = How can I customise the design? =
 
-You can do some basic presentation adjustments via Knowledgebase > Settings. Beyond this, you can completely customise the design by editing the template files which the plugin copes into your active theme directory.
+You can do some basic presentation adjustments via Knowledgebase > Settings. Beyond this, you can completely customise the design via your theme css.
 
 = It does not look good on my theme =
 
@@ -107,8 +106,18 @@ If you've tried all the obvious stuff and it's still not working please request 
 
 == Changelog ==
 
-= 1.0.3 =
 * Languages added
+
+= 1.0.4 =
+* Breadcrumbs text issue fixed.
+* Added support for Sub-Categories.
+* Added support for child theme.
+* Added support for multi site.
+* Some Code Correction.
+* Added support for revisions.
+
+
+= 1.0.3 =
 * Minor CSS Changes.
 * Breadcrumbs link issue fixed.
 * Truncate function removed from the titles 
@@ -126,13 +135,6 @@ If you've tried all the obvious stuff and it's still not working please request 
 * Initial release
 
 == Upgrade Notice ==
-
-= 1.0.3 =
-* Languages added
-* Minor CSS Changes.
-* Breadcrumbs link issue fixed.
-* Truncate function removed from the titles 
-* Function corrected for loading plugin text domain
 
 = 1.0.2 =
 * Translation issue fixed
