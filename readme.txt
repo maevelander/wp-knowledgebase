@@ -3,7 +3,7 @@ Contributors: EnigmaWeb
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=CEJ9HFWJ94BG4
 Tags: WP Knowledgebase, knowledgebase, knowledge base, faqs, wiki
 Requires at least: 3.1
-Tested up to: 4.1
+Tested up to: 4.2
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -87,6 +87,7 @@ Please check that the shortcode `[kbe_knowledgebase]` is added on the Knowledgeb
 = Can I use WP Knowledgebase in my Language? =
 
 Yes, the plugin is internationalized and ready for translation. If you would like to help with a translation please [contact me](http://www.enigmaweb.com.au/contact)
+You can also use it WPML. After installing and activating both plugins, go to WPML > Translation Management > Multilangual Content Setup > scroll all the way down > tick the checkbox 'custom posts' and 'custom taxanomies' for this post type, set to 'Translate'.
 
 = Can import/export WP Knowledgebase data? =
 
@@ -106,8 +107,6 @@ If you've tried all the obvious stuff and it's still not working please request 
 
 == Changelog ==
 
-* Languages added
-
 = 1.0.4 =
 * Breadcrumbs text issue fixed.
 * Added support for Sub-Categories.
@@ -115,7 +114,7 @@ If you've tried all the obvious stuff and it's still not working please request 
 * Added support for multi site.
 * Some Code Correction.
 * Added support for revisions.
-
+* Languages added
 
 = 1.0.3 =
 * Minor CSS Changes.
@@ -135,6 +134,21 @@ If you've tried all the obvious stuff and it's still not working please request 
 * Initial release
 
 == Upgrade Notice ==
+
+= 1.0.4 =
+* Breadcrumbs text issue fixed.
+* Added support for Sub-Categories.
+* Added support for child theme.
+* Added support for multi site.
+* Some Code Correction.
+* Added support for revisions.
+* Languages added
+
+= 1.0.3 =
+* Minor CSS Changes.
+* Breadcrumbs link issue fixed.
+* Truncate function removed from the titles 
+* Function corrected for loading plugin text domain
 
 = 1.0.2 =
 * Translation issue fixed
