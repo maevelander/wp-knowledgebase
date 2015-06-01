@@ -107,6 +107,9 @@ If you've tried all the obvious stuff and it's still not working please request 
 
 == Changelog ==
 
+= 1.0.6 =
+* Update query corrected on order.
+
 = 1.0.5 =
 * Issue with child theme fixed.
 * Function corrected for copying plugin template files in to active theme folder

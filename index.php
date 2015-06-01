@@ -4,7 +4,7 @@
   Plugin URI: http://wordpress.org/plugins/wp-knowledgebase
   Description: Simple and flexible knowledgebase plugin for WordPress
   Author: Enigma Plugins
-  Version: 1.0.5
+  Version: 1.0.6
   Author URI: http://enigmaplugins.com
  */
  
@@ -196,11 +196,6 @@ function kbe_plugin_menu() {
 }
 
 //=========> Enqueue KBE Style file in header.php
-/*add_action('wp_head', 'kbe_article_style');
-function kbe_article_style(){
-    wp_register_style('kbe_theme_css', get_template_directory_uri().'/kbe_style.css');
-    wp_enqueue_style('kbe_theme_css');
-}*/
 function kbe_styles(){
     wp_enqueue_style ('kbe_theme_style', get_stylesheet_directory_uri() . '/wp_knowledgebase/kbe_style.css');
 }
@@ -464,7 +459,7 @@ function kbe_search_drop(){
     jQuery(document).ready(function () {
         
         var tree_id = 0;
-        jQuery('div.kbe_category:has(.kbe_child_category)').addClass('has-child').prepend('<span class="switch"><img src="<?php echo get_template_directory_uri() ?>/images/kbe_icon-plus.png" /></span>').each(function () {
+        jQuery('div.kbe_category:has(.kbe_child_category)').addClass('has-child').prepend('<span class="switch"><img src="<?php echo get_template_directory_uri() ?>/kbe_images/kbe_icon-plus.png" /></span>').each(function () {
             tree_id++;
             jQuery(this).attr('id', 'tree' + tree_id);
         });
@@ -474,10 +469,10 @@ function kbe_search_drop(){
             if (jQuery(this).hasClass('open')) {
                 jQuery(this).parent().find('div:first').slideUp('fast');
                 jQuery(this).removeClass('open');
-                jQuery(this).html('<img src="<?php echo get_template_directory_uri() ?>/images/kbe_icon-plus.png" />');
+                jQuery(this).html('<img src="<?php echo get_template_directory_uri() ?>/kbe_images/kbe_icon-plus.png" />');
             } else {
                 jQuery(this).parent().find('div:first').slideDown('fast');
-                jQuery(this).html('<img src="<?php echo get_template_directory_uri() ?>/images/kbe_icon-minus.png" />');
+                jQuery(this).html('<img src="<?php echo get_template_directory_uri() ?>/kbe_images/kbe_icon-minus.png" />');
                 jQuery(this).addClass('open');
             }
         });

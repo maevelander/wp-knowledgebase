@@ -1,5 +1,5 @@
 <!--==============
-	>> KBE Categories / Articles Ordering
+    >> KBE Categories / Articles Ordering
 ==============-->
 
 <?php
@@ -20,7 +20,7 @@
                 $message = "";
                 
                 if(isset($_POST['kbe_article_submit'])){
-                    custome_article_order_update();
+                    custom_article_order_update();
                 }
             ?>
             
@@ -238,9 +238,7 @@
                         for($p = 0; $p < $parent_result; $p++) {
                             $parent_str = str_replace("kbe_parent_id_", "", $parent_IDs[$p]);
                             //echo $parent_str."<br />";
-                            //echo "UPDATE $wpdb->terms SET term_order = '$p' WHERE term_id ='$parent_str'"."<br />";
-                            $term_update = "UPDATE $wpdb->terms SET terms_order = '$p' WHERE term_id ='$parent_str'";
-                            mysql_query($term_update);
+                            $term_update = $wpdb->update($wpdb->terms, array( 'terms_order' => $p ), array( 'term_id' => $parent_str ));
                         }
                         echo '<div id="message" class="updated fade"><p>'. __('Category Order updated successfully.', 'kbe').'</p></div>';
                     }else{
@@ -249,7 +247,7 @@
                 }
                 
                 /*====================>>_ Update Articles Query _<<====================*/
-                function custome_article_order_update(){
+                function custom_article_order_update(){
                     if (isset($_POST['kbe_article_custom_order']) && $_POST['kbe_article_custom_order'] != "") { 
                         global $wpdb;
     
@@ -262,8 +260,7 @@
                         for($a = 0; $a < $article_result; $a++) {
                             $article_str = str_replace("kbe_article_id_", "", $article_IDs[$a]);
                             //echo $article_str."<br />";
-                            $article_update = "UPDATE $wpdb->posts SET menu_order = '$a' WHERE ID ='$article_str'";
-                            mysql_query($article_update);
+                            $article_update = $wpdb->update($wpdb->posts, array( 'menu_order' => $a ), array( 'ID' => $article_str ));
                         }
                         echo '<div id="message" class="updated fade"><p>'. __('Article Order updated successfully.', 'kbe').'</p></div>';
                     }else{
