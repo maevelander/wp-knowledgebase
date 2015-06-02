@@ -144,6 +144,13 @@ If you've tried all the obvious stuff and it's still not working please request 
 
 == Upgrade Notice ==
 
+= 1.0.6 =
+* Update query corrected on order.
+
+= 1.0.5 =
+* Issue with child theme fixed.
+* Function corrected for copying plugin template files in to active theme folder
+
 = 1.0.4 =
 * Breadcrumbs text issue fixed.
 * Added support for Sub-Categories.
