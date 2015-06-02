@@ -1,0 +1,335 @@
+# Copyright (C) 2014 
+# This file is distributed under the same license as the  package.
+msgid ""
+msgstr ""
+"Project-Id-Version: WP Knowledgebase Swedish 1.1\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/wp-knowledgebase\n"
+"POT-Creation-Date: 2014-12-11 01:35:37+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2015-03-24 10:42+0100\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Last-Translator: Christopher Anderton <christopher@deluxive.se>\n"
+"Language-Team: Christopher Anderton - Deluxive State <projects@deluxive."
+"se>\n"
+"Language: sv_SE\n"
+"X-Generator: Poedit 1.7.5\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+
+#: articles/kbe_articles.php:15 articles/kbe_articles.php:16
+msgid "Knowledgebase"
+msgstr "Kunskapsbas"
+
+#: articles/kbe_articles.php:17
+msgid "Articles"
+msgstr "Artiklar"
+
+#: articles/kbe_articles.php:18 articles/kbe_articles.php:21
+msgid "New Article"
+msgstr "Ny artikel"
+
+#: articles/kbe_articles.php:19
+msgid "Add New Article"
+msgstr "Lägg till ny artikel"
+
+#: articles/kbe_articles.php:20
+msgid "Edit Article"
+msgstr "Redigera artikel"
+
+#: articles/kbe_articles.php:22
+msgid "View Articles"
+msgstr "Visa artiklar"
+
+#: articles/kbe_articles.php:23
+msgid "Search Articles"
+msgstr "Sök artiklar"
+
+#: articles/kbe_articles.php:24
+msgid "Nothing found"
+msgstr "Inget funnet"
+
+#: articles/kbe_articles.php:25
+msgid "Nothing found in Trash"
+msgstr "Inget funnet i papperskorgen"
+
+#: articles/kbe_articles.php:65 articles/kbe_articles.php:66
+#: widget/kbe_widget_category.php:23
+msgid "Knowledgebase Category"
+msgstr "Kunskapsbaskategori"
+
+#: articles/kbe_articles.php:67
+msgid "Search Knowledgebase Category"
+msgstr "Sök kunskapsbaskategori"
+
+#: articles/kbe_articles.php:68
+msgid "All Knowledgebase Categories"
+msgstr "Alla kunskapsbaskategorier"
+
+#: articles/kbe_articles.php:69
+msgid "Parent Knowledgebase Category"
+msgstr "Överordnad kunskapsbaskategori"
+
+#: articles/kbe_articles.php:70
+msgid "Parent Knowledgebase Category:"
+msgstr "Överordnad kunskapsbaskategori:"
+
+#: articles/kbe_articles.php:71
+msgid "Edit Knowledgebase Category"
+msgstr "Redigera kunskapsbaskategori"
+
+#: articles/kbe_articles.php:72
+msgid "Update Knowledgebase Category"
+msgstr "Uppdatera kunskapsbaskategori"
+
+#: articles/kbe_articles.php:73
+msgid "Add New Knowledgebase Category"
+msgstr "Lägg till ny kunskapsbaskategori"
+
+#: articles/kbe_articles.php:74
+msgid "New Knowledgebase Category Name"
+msgstr "Nytt namn för kunskapsbaskategori"
+
+#: articles/kbe_articles.php:75
+msgid "Categories"
+msgstr "Kategorier"
+
+#: articles/kbe_articles.php:93 widget/kbe_widget_tags.php:24
+msgid "Knowledgebase Tags"
+msgstr "Kunskapsbasetiketter"
+
+#: articles/kbe_articles.php:94
+msgid "Knowledgebase Tag"
+msgstr "Kunskapsbasetikett"
+
+#: articles/kbe_articles.php:95
+msgid "Search Knowledgebase Tags"
+msgstr "Sök kunskapsbasetiketter"
+
+#: articles/kbe_articles.php:96
+msgid "All Knowledgebase Tags"
+msgstr "Alla kunskapsbasetiketter"
+
+#: articles/kbe_articles.php:97
+msgid "Edit Knowledgebase Tag"
+msgstr "Redigera kunskapsbasetikett"
+
+#: articles/kbe_articles.php:98
+msgid "Update Knowledgebase Tag"
+msgstr "Uppdatera kunskapsbasetikett"
+
+#: articles/kbe_articles.php:99
+msgid "Add New Knowledgebase Tag"
+msgstr "Lägg till ny kunskapsbasetikett"
+
+#: articles/kbe_articles.php:100
+msgid "New Knowledgebase Tag Name"
+msgstr "Nytt namn för kunskapsbasetikett"
+
+#: articles/kbe_articles.php:101 articles/kbe_articles.php:149
+msgid "Tags"
+msgstr "Etikett"
+
+#: articles/kbe_articles.php:146
+msgid "Title"
+msgstr "Titel"
+
+#: articles/kbe_articles.php:147
+msgid "Author"
+msgstr "Författare"
+
+#: articles/kbe_articles.php:148
+msgid "Cateogry"
+msgstr "Kategori"
+
+#: articles/kbe_articles.php:150
+msgid "Comments"
+msgstr "Kommentarer"
+
+#: articles/kbe_articles.php:151
+msgid "Views"
+msgstr "Visningar"
+
+#: articles/kbe_articles.php:152
+msgid "Date"
+msgstr "Datum"
+
+#: articles/kbe_articles.php:179
+msgid " Views"
+msgstr " Visningar"
+
+#: articles/kbe_articles.php:181
+msgid "No Views"
+msgstr "Inga visningar"
+
+#: index.php:311 widget/kbe_widget_search.php:43
+msgid "Search Articles..."
+msgstr "Sök artiklar..."
+
+#: kbe_order.php:12
+msgid "Re-Order"
+msgstr "Sortera"
+
+#: kbe_order.php:46
+msgid ""
+"Drag and drop items to customise the order of categories in WP Knowledgebase"
+msgstr ""
+"Dra och släpp objekt för att anpassa sorteringen på kategorierna i WP "
+"Knowledgebase"
+
+#: kbe_order.php:60 kbe_order.php:135
+msgid "Save Order"
+msgstr "Spara sortering"
+
+#: kbe_order.php:67
+msgid "No terms found"
+msgstr "Inga termer funna"
+
+#: kbe_order.php:120
+msgid ""
+"Drag and drop items to customise the order of articles in WP Knowledgebase"
+msgstr ""
+"Dra och släpp objekt för att anpassa sorteringen på artiklar i WP "
+"Knowledgebase"
+
+#: kbe_order.php:141
+msgid "No Articles found"
+msgstr "Inga artiklar funna"
+
+#: kbe_order.php:180 kbe_settings.php:166
+msgid "Help Improve This Plugin!"
+msgstr "Hjälp till att förbättra tillägget!"
+
+#: kbe_order.php:186 kbe_settings.php:172
+msgid ""
+"Enjoyed this plugin? All donations are used to improve and further develop "
+"this plugin. Thanks for your contribution."
+msgstr ""
+"Gillade du tillägget? Alla donationer används för att förbättra och "
+"fortsätta utveckla tillägget. Tack för din insats."
+
+#: kbe_order.php:200 kbe_settings.php:186
+msgid "you can also help by"
+msgstr "du kan också hjälpa till med att"
+
+#: kbe_order.php:202 kbe_settings.php:188
+msgid "rating this plugin on wordpress.org"
+msgstr "betygsätta detta tillägg på wordpress.org"
+
+#: kbe_order.php:211 kbe_settings.php:197
+msgid "Need Support?"
+msgstr "Behöver du support?"
+
+#: kbe_order.php:216 kbe_settings.php:202
+msgid "Check out the"
+msgstr "Kolla in"
+
+#: kbe_order.php:218 kbe_settings.php:204
+msgid "and"
+msgstr "och"
+
+#: kbe_order.php:219 kbe_settings.php:205
+msgid "Support Forums"
+msgstr "Supportforumet"
+
+#: kbe_order.php:245
+msgid "Category Order updated successfully."
+msgstr "Kategorisortering uppdaterad."
+
+#: kbe_order.php:247 kbe_order.php:270
+msgid "An error occured, order has not been saved."
+msgstr "Ett fel uppstod. Sorteringen har inte sparats."
+
+#: kbe_order.php:268
+msgid "Article Order updated successfully."
+msgstr "Artikelsortering uppdaterad."
+
+#: kbe_settings.php:9
+msgid "Knowledgebase Display Settings"
+msgstr "Visningsinställningar för kunskapsbas"
+
+#: kbe_settings.php:34
+msgid "Settings updated successfully"
+msgstr "Inställningar uppdaterades"
+
+#: kbe_settings.php:52
+msgid "Knowledgebase Slug"
+msgstr "Permalänk för kunskapsbas"
+
+#: kbe_settings.php:60
+msgid "Number of articles to show"
+msgstr "Antal artiklar att visa"
+
+#: kbe_settings.php:69
+msgid "Knowledgebase search"
+msgstr "Kunskapsbassökning"
+
+#: kbe_settings.php:73 kbe_settings.php:87 kbe_settings.php:135
+msgid "On"
+msgstr "På"
+
+#: kbe_settings.php:77 kbe_settings.php:91 kbe_settings.php:139
+msgid "Off"
+msgstr "Av"
+
+#: kbe_settings.php:83
+msgid "Knowledgebase breadcrumbs"
+msgstr "Synlig sökväg för kunskapsbas"
+
+#: kbe_settings.php:97
+msgid "Knowledgebase home page sidebar"
+msgstr "Sidofält på ingångssidan för kunskapsbas"
+
+#: kbe_settings.php:101 kbe_settings.php:118
+msgid "Left"
+msgstr "Vänster"
+
+#: kbe_settings.php:105 kbe_settings.php:122
+msgid "Right"
+msgstr "Höger"
+
+#: kbe_settings.php:109 kbe_settings.php:126
+msgid "None"
+msgstr "Inget"
+
+#: kbe_settings.php:114
+msgid "Knowledgebase inner pages sidebar"
+msgstr "Sidofält på innersidor för kunskapsbas"
+
+#: kbe_settings.php:131
+msgid "Knowledgebase comments"
+msgstr "Kommentarer för kunskapsbas"
+
+#: kbe_settings.php:145
+msgid "Knowledgebase theme color"
+msgstr "Temafärg för kunskapsbas"
+
+#: template/archive-kbe_knowledgebase.php:66
+#: template/kbe_knowledgebase.php:68 widget/kbe_widget_category.php:53
+msgid "View all posts in %s"
+msgstr "Visa alla poster i %s"
+
+#: widget/kbe_widget_article.php:18
+msgid "WP Knowledgebase article widget to show articles on the site"
+msgstr "WP Knowledgebase artikelwidget för att visa artiklar på webbplatsen"
+
+#: widget/kbe_widget_article.php:24
+msgid "Knowledgebase Article"
+msgstr "Kunskapsbasartikel"
+
+#: widget/kbe_widget_category.php:17
+msgid "WP Knowledgebase category widget to show categories on the site"
+msgstr ""
+"WP Knowledgebase kategoriwidget för att visa kategorier på webbplatsen"
+
+#: widget/kbe_widget_search.php:18
+msgid "WP Knowledgebase search widget"
+msgstr "WP Knowledgebase sökwidget"
+
+#: widget/kbe_widget_search.php:24
+msgid "Knowledgebase Search"
+msgstr "Kunskapsbassökning"
+
+#: widget/kbe_widget_tags.php:18
+msgid "WP Knowledgebase article widget to show tags on the site"
+msgstr "WP Knowledgebase artikelwidget för att visa etiketter på webbplatsen"
