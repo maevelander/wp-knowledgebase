@@ -1,0 +1,332 @@
+# Copyright (C) 2014 
+# This file is distributed under the same license as the  package.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/wp-knowledgebase\n"
+"POT-Creation-Date: 2015-05-26 12:08-0300\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2015-05-26 12:29-0300\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: \n"
+"X-Generator: Poedit 1.8\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Language: pt_BR\n"
+
+#: articles/kbe_articles.php:15 articles/kbe_articles.php:16
+msgid "Knowledgebase"
+msgstr "Base de conhecimento"
+
+#: articles/kbe_articles.php:17
+msgid "Articles"
+msgstr "Artigos"
+
+#: articles/kbe_articles.php:18 articles/kbe_articles.php:21
+msgid "New Article"
+msgstr "Novo Artigo"
+
+#: articles/kbe_articles.php:19
+msgid "Add New Article"
+msgstr "Adicionar Novo Artigo"
+
+#: articles/kbe_articles.php:20
+msgid "Edit Article"
+msgstr "Editar Artigo"
+
+#: articles/kbe_articles.php:22
+msgid "View Articles"
+msgstr "Ver Artigos"
+
+#: articles/kbe_articles.php:23
+msgid "Search Articles"
+msgstr "Procurar Artigos"
+
+#: articles/kbe_articles.php:24
+msgid "Nothing found"
+msgstr "Nada encontrado"
+
+#: articles/kbe_articles.php:25
+msgid "Nothing found in Trash"
+msgstr "Nada encontrado na lixeira"
+
+#: articles/kbe_articles.php:65 articles/kbe_articles.php:66
+#: widget/kbe_widget_category.php:23
+msgid "Knowledgebase Category"
+msgstr "Categoria de Base de Conhecimento"
+
+#: articles/kbe_articles.php:67
+msgid "Search Knowledgebase Category"
+msgstr "Procurar Categoria de Base de Conhecimento"
+
+#: articles/kbe_articles.php:68
+msgid "All Knowledgebase Categories"
+msgstr "Todas as Categorias de Base de Conhecimento"
+
+#: articles/kbe_articles.php:69
+msgid "Parent Knowledgebase Category"
+msgstr "Categoria Pai da Base de Conhecimento"
+
+#: articles/kbe_articles.php:70
+msgid "Parent Knowledgebase Category:"
+msgstr "Categoria Pai da Base de Conhecimento:"
+
+#: articles/kbe_articles.php:71
+msgid "Edit Knowledgebase Category"
+msgstr "Editar Categoria da Base de Conhecimento"
+
+#: articles/kbe_articles.php:72
+msgid "Update Knowledgebase Category"
+msgstr "Atualizar Categoria da Base de Conhecimento"
+
+#: articles/kbe_articles.php:73
+msgid "Add New Knowledgebase Category"
+msgstr "Adicionar Nova Categoria da Base de Conhecimento"
+
+#: articles/kbe_articles.php:74
+msgid "New Knowledgebase Category Name"
+msgstr "Novo Nome de Categoria da Base de Conhecimento"
+
+#: articles/kbe_articles.php:75
+msgid "Categories"
+msgstr "Categorias"
+
+#: articles/kbe_articles.php:93 widget/kbe_widget_tags.php:24
+msgid "Knowledgebase Tags"
+msgstr "Tags da Base de Conhecimento"
+
+#: articles/kbe_articles.php:94
+msgid "Knowledgebase Tag"
+msgstr "Tag da Base de Conhecimento"
+
+#: articles/kbe_articles.php:95
+msgid "Search Knowledgebase Tags"
+msgstr "Procurar Tags da Base de Conhecimento"
+
+#: articles/kbe_articles.php:96
+msgid "All Knowledgebase Tags"
+msgstr "Todas as Tags da Base de Conhecimento"
+
+#: articles/kbe_articles.php:97
+msgid "Edit Knowledgebase Tag"
+msgstr "Editar Tag da Base de Conhecimento"
+
+#: articles/kbe_articles.php:98
+msgid "Update Knowledgebase Tag"
+msgstr "Atualizar Tag da Base de Conhecimento"
+
+#: articles/kbe_articles.php:99
+msgid "Add New Knowledgebase Tag"
+msgstr "Adicionar Nova Tag da Base de Conhecimento"
+
+#: articles/kbe_articles.php:100
+msgid "New Knowledgebase Tag Name"
+msgstr "Novo Nome de Tag da Base de Conhecimento"
+
+#: articles/kbe_articles.php:101 articles/kbe_articles.php:149
+msgid "Tags"
+msgstr "Tags"
+
+#: articles/kbe_articles.php:146
+msgid "Title"
+msgstr "Título"
+
+#: articles/kbe_articles.php:147
+msgid "Author"
+msgstr "Autor"
+
+#: articles/kbe_articles.php:148
+msgid "Cateogry"
+msgstr "Categoria"
+
+#: articles/kbe_articles.php:150
+msgid "Comments"
+msgstr "Comentários"
+
+#: articles/kbe_articles.php:151
+msgid "Views"
+msgstr "Visualizações"
+
+#: articles/kbe_articles.php:152
+msgid "Date"
+msgstr "Data"
+
+#: articles/kbe_articles.php:179
+msgid " Views"
+msgstr "Visualizações"
+
+#: articles/kbe_articles.php:181
+msgid "No Views"
+msgstr "Sem Visualizações"
+
+#: index.php:311 widget/kbe_widget_search.php:43
+msgid "Search Articles..."
+msgstr "Procurar Artigos..."
+
+#: kbe_order.php:12
+msgid "Re-Order"
+msgstr "Reordenar"
+
+#: kbe_order.php:46
+msgid ""
+"Drag and drop items to customise the order of categories in WP Knowledgebase"
+msgstr ""
+"Arrastar e soltar itens para customizar a ordem das categorias no WP "
+"Knowledgebase"
+
+#: kbe_order.php:60 kbe_order.php:135
+msgid "Save Order"
+msgstr "Salvar Ordem"
+
+#: kbe_order.php:67
+msgid "No terms found"
+msgstr "Nenhum termo encontrado"
+
+#: kbe_order.php:120
+msgid ""
+"Drag and drop items to customise the order of articles in WP Knowledgebase"
+msgstr ""
+"Arrastar e soltar itens para customizar a ordem dos artigos no WP "
+"Knowledgebase"
+
+#: kbe_order.php:141
+msgid "No Articles found"
+msgstr "Nenhum Artigo encontrado"
+
+#: kbe_order.php:180 kbe_settings.php:166
+msgid "Help Improve This Plugin!"
+msgstr "Ajude a melhorar este plugin!"
+
+#: kbe_order.php:186 kbe_settings.php:172
+msgid ""
+"Enjoyed this plugin? All donations are used to improve and further develop "
+"this plugin. Thanks for your contribution."
+msgstr ""
+"Gostou deste plugin? Todas as doações são utilizadas para melhorar e "
+"desenvolver ainda mais este plugin. Obrigado por sua contribuição."
+
+#: kbe_order.php:200 kbe_settings.php:186
+msgid "you can also help by"
+msgstr "você também pode ajudar"
+
+#: kbe_order.php:202 kbe_settings.php:188
+msgid "rating this plugin on wordpress.org"
+msgstr "avalie este plugin no wordpress.org"
+
+#: kbe_order.php:211 kbe_settings.php:197
+msgid "Need Support?"
+msgstr "Precisa de ajuda?"
+
+#: kbe_order.php:216 kbe_settings.php:202
+msgid "Check out the"
+msgstr "Confira a"
+
+#: kbe_order.php:218 kbe_settings.php:204
+msgid "and"
+msgstr "e"
+
+#: kbe_order.php:219 kbe_settings.php:205
+msgid "Support Forums"
+msgstr "Forum de Suporte"
+
+#: kbe_order.php:245
+msgid "Category Order updated successfully."
+msgstr "Ordem das Categorias atualizadas corretamente."
+
+#: kbe_order.php:247 kbe_order.php:270
+msgid "An error occured, order has not been saved."
+msgstr "Ocorreu um erro, a orderm não pode ser salva."
+
+#: kbe_order.php:268
+msgid "Article Order updated successfully."
+msgstr "Orderm de Artigos atualizada corretamente."
+
+#: kbe_settings.php:9
+msgid "Knowledgebase Display Settings"
+msgstr "Configurações de Exibição da Base de Conhecimento"
+
+#: kbe_settings.php:34
+msgid "Settings updated successfully"
+msgstr "Configurações atualizadas corretamente"
+
+#: kbe_settings.php:52
+msgid "Knowledgebase Slug"
+msgstr "Base de Conhecimento Slug"
+
+#: kbe_settings.php:60
+msgid "Number of articles to show"
+msgstr "Número de artigos para exibição"
+
+#: kbe_settings.php:69
+msgid "Knowledgebase search"
+msgstr "Pesquisa na Base de Conhecimento"
+
+#: kbe_settings.php:73 kbe_settings.php:87 kbe_settings.php:135
+msgid "On"
+msgstr "Ligar"
+
+#: kbe_settings.php:77 kbe_settings.php:91 kbe_settings.php:139
+msgid "Off"
+msgstr "Desligar"
+
+#: kbe_settings.php:83
+msgid "Knowledgebase breadcrumbs"
+msgstr "Breadcumbs da Base de Conhecimento"
+
+#: kbe_settings.php:97
+msgid "Knowledgebase home page sidebar"
+msgstr "Barra lateral da página principal da Base de Conhecimento"
+
+#: kbe_settings.php:101 kbe_settings.php:118
+msgid "Left"
+msgstr "Esquerda"
+
+#: kbe_settings.php:105 kbe_settings.php:122
+msgid "Right"
+msgstr "Direita"
+
+#: kbe_settings.php:109 kbe_settings.php:126
+msgid "None"
+msgstr "Nenhum"
+
+#: kbe_settings.php:114
+msgid "Knowledgebase inner pages sidebar"
+msgstr "Barra lateral das páginas internas da Base de Conhecimento"
+
+#: kbe_settings.php:131
+msgid "Knowledgebase comments"
+msgstr "Comentários da Base de Conhecimento"
+
+#: kbe_settings.php:145
+msgid "Knowledgebase theme color"
+msgstr "Cor do tema da Base de Conhecimento"
+
+#: template/archive-kbe_knowledgebase.php:66
+#: template/kbe_knowledgebase.php:68 widget/kbe_widget_category.php:53
+msgid "View all posts in %s"
+msgstr "Visualizar todas as postagens em %s"
+
+#: widget/kbe_widget_article.php:18
+msgid "WP Knowledgebase article widget to show articles on the site"
+msgstr "WP Knowledgebase article widget para exibir artigos no site"
+
+#: widget/kbe_widget_article.php:24
+msgid "Knowledgebase Article"
+msgstr "Artigo da Base de Conhecimento"
+
+#: widget/kbe_widget_category.php:17
+msgid "WP Knowledgebase category widget to show categories on the site"
+msgstr "WP Knowledgebase category widget para exibir categorias no site"
+
+#: widget/kbe_widget_search.php:18
+msgid "WP Knowledgebase search widget"
+msgstr "WP Knowledgebase widget de pesquisa"
+
+#: widget/kbe_widget_search.php:24
+msgid "Knowledgebase Search"
+msgstr "Pesquisa na Base de Conhecimento"
+
+#: widget/kbe_widget_tags.php:18
+msgid "WP Knowledgebase article widget to show tags on the site"
+msgstr "WP Knowledgebase article widget para exibir tags no site"
