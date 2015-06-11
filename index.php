@@ -4,7 +4,7 @@
   Plugin URI: http://wordpress.org/plugins/wp-knowledgebase
   Description: Simple and flexible knowledgebase plugin for WordPress
   Author: Enigma Plugins
-  Version: 1.0.7
+  Version: 1.0.8
   Author URI: http://enigmaplugins.com
  */
  
@@ -181,7 +181,7 @@ define('KBE_POST_TAGS', 'kbe_tags');
 
 //=========> Get Knowledgebase title
 global $wpdb;
-$getSql = $wpdb->get_results("Select ID From wp_posts Where post_content Like '%[kbe_knowledgebase]%' And post_type <> 'revision'");
+$getSql = $wpdb->get_results("Select ID From $wpdb->posts Where post_content Like '%[kbe_knowledgebase]%' And post_type <> 'revision'");
 
 foreach($getSql as $getRow) {
     $pageId = $getRow->ID;
@@ -571,10 +571,10 @@ function kbe_short_content($limit) {
     $pad="&hellip;";
     
     if(strlen($content) <= $limit) {
-        echo $content;
+        return strip_tags($content);
     } else {
         $content = substr($content, 0, $limit) . $pad;
-        echo $content;
+        return strip_tags($content);
     }
 }
 
