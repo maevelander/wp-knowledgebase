@@ -4,7 +4,7 @@
   Plugin URI: http://wordpress.org/plugins/wp-knowledgebase
   Description: Simple and flexible knowledgebase plugin for WordPress
   Author: Enigma Plugins
-  Version: 1.0.6
+  Version: 1.0.7
   Author URI: http://enigmaplugins.com
  */
  
@@ -210,7 +210,6 @@ function kbe_live_search(){
 
 //=========> Enqueue plugin files
 $kbe_address_bar = $_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
-
 if(strpos($kbe_address_bar, "post_type=kbe_knowledgebase")) {
     add_action('admin_init', 'wp_kbe_scripts');
     function wp_kbe_scripts(){
@@ -260,7 +259,7 @@ if ( is_child_theme() === false ) {
     define('KBE_THEME_DIR', $kbe_theme_dir);
 
     $kbe_plugin_img_dir = $kbe_plugin_dir.'template/images/';
-    $kbe_image_dir = KBE_THEME_DIR."/kbe_images";
+    $kbe_image_dir = KBE_THEME_DIR."/images";
     define('KBE_IMAGE_THEME_DIR', $kbe_image_dir);
 
     $kbe_file_dir = KBE_THEME_DIR."/wp_knowledgebase";
@@ -340,7 +339,7 @@ if ( is_child_theme() === false ) {
     
     //  check if images folder not exist in kbe folder
     if(!file_exists(KBE_IMAGE_THEME_DIR)){
-        mkdir(KBE_THEME_DIR.'/kbe_images', 0777, true);
+        mkdir(KBE_THEME_DIR.'/images', 0777, true);
         
         //  Move Images from plugin folder to theme/kbe/images folder
         $kbe_images = opendir($kbe_plugin_img_dir);
