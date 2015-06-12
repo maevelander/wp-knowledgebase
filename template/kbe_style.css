@@ -159,6 +159,7 @@
 }
 .kbe_category span.switch img {
     margin: 0px;
+	content: url("../images/kbe_icon-plus.png");
 }
 #kbe_content h2, .kbe_aside h2 {
     border-bottom: 1px solid #cccccc;
