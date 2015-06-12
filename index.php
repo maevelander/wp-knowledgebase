@@ -311,6 +311,18 @@ if ( is_child_theme() === false ) {
         unlink($kbe_delete_tags);
         unlink($kbe_delete_comment);
         unlink($kbe_delete_search);
+        
+        mkdir(KBE_FILE_DIR.'/images', 0777, true);
+        
+        //  Move Images from plugin folder to theme/kbe/images folder
+        $kbe_images = opendir($kbe_plugin_img_dir);
+        while($kbe_read_image = readdir($kbe_images)){
+            if($kbe_read_image != '.' && $kbe_read_image != '..'){
+                if (!file_exists($kbe_read_image)){
+                    copy($kbe_plugin_img_dir.$kbe_read_image, KBE_FILE_DIR.'/images/'.$kbe_read_image);
+                }
+            }
+        }
     } else {
         $kbe_archive_file = KBE_THEME_DIR.KBE_FILE_DIR.'/archive-kbe_knowledgebase.php';
         $kbe_kbe_file = KBE_THEME_DIR.KBE_FILE_DIR.'/kbe_knowledgebase.php';
@@ -338,15 +350,15 @@ if ( is_child_theme() === false ) {
     }
     
     //  check if images folder not exist in kbe folder
-    if(!file_exists(KBE_IMAGE_THEME_DIR)){
-        mkdir(KBE_THEME_DIR.'/images', 0777, true);
+    if(!file_exists(KBE_FILE_DIR.'/images')){
+        mkdir(KBE_FILE_DIR.'/images', 0777, true);
         
         //  Move Images from plugin folder to theme/kbe/images folder
         $kbe_images = opendir($kbe_plugin_img_dir);
         while($kbe_read_image = readdir($kbe_images)){
             if($kbe_read_image != '.' && $kbe_read_image != '..'){
                 if (!file_exists($kbe_read_image)){
-                    copy($kbe_plugin_img_dir.$kbe_read_image, KBE_IMAGE_THEME_DIR.'/'.$kbe_read_image);
+                    copy($kbe_plugin_img_dir.$kbe_read_image, KBE_FILE_DIR.'/images/'.$kbe_read_image);
                 }
             }
         }
