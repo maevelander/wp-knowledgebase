@@ -123,7 +123,7 @@ $wpdb->query("Delete From ".$wpdb->prefix."term_taxonomy Where taxonomy = 'kbe_t
 $wpdb->query("Delete From ".$wpdb->prefix."term_taxonomy Where taxonomy = 'kbe_tags'");
 	
 //=========> Delete All Images and Files of Knowledgebase in Theme
-$kbe_image_theme_dir = get_template_directory()."/kbe_images";
+$kbe_image_theme_dir = get_template_directory()."/wp_knowledgebase/kbe_images";
 
 // Delete Images
 unlink($kbe_image_theme_dir."/kbe_article_icon_img.png");
