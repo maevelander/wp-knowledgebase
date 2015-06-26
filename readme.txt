@@ -109,6 +109,10 @@ If you've tried all the obvious stuff and it's still not working please request 
 
 == Changelog ==
 
+= 1.0.9 =
+* Replace TEMPLATEPATH with STYLESHEETPATH.
+* Replace get_template_directory_uri() with get_stylesheet_directory_uri().
+
 = 1.0.8 =
 * Added strip_tags() function for excerpt for the search results.
 * Query corrected for getting KBE title and fixing the activation error.
