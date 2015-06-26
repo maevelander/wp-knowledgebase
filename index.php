@@ -4,7 +4,7 @@
   Plugin URI: http://wordpress.org/plugins/wp-knowledgebase
   Description: Simple and flexible knowledgebase plugin for WordPress
   Author: Enigma Plugins
-  Version: 1.0.8
+  Version: 1.0.9
   Author URI: http://enigmaplugins.com
  */
  
@@ -373,38 +373,38 @@ function kbe_template_chooser($template){
     $post_type = get_query_var('post_type');
 
     if( $post_type == 'kbe_knowledgebase' && is_single() ){
-        if(file_exists(TEMPLATEPATH . '/wp_knowledgebase/single-kbe_knowledgebase.php')) {
-            return TEMPLATEPATH . '/wp_knowledgebase/single-kbe_knowledgebase.php';
+        if(file_exists(STYLESHEETPATH . '/wp_knowledgebase/single-kbe_knowledgebase.php')) {
+            return STYLESHEETPATH . '/wp_knowledgebase/single-kbe_knowledgebase.php';
         } else {
             return $plugindir . '/template/single-kbe_knowledgebase.php';
         }
     }
     
     if( $post_type == 'kbe_knowledgebase' ){
-        if(file_exists(TEMPLATEPATH . '/wp_knowledgebase/archive-kbe_knowledgebase.php')) {
-            return TEMPLATEPATH . '/wp_knowledgebase/archive-kbe_knowledgebase.php';
+        if(file_exists(STYLESHEETPATH . '/wp_knowledgebase/archive-kbe_knowledgebase.php')) {
+            return STYLESHEETPATH . '/wp_knowledgebase/archive-kbe_knowledgebase.php';
         } else {
             return $plugindir . '/template/archive-kbe_knowledgebase.php';
         }
 		
-        if(file_exists(TEMPLATEPATH . '/wp_knowledgebase/kbe_knowledgebase.php')) {
-            return TEMPLATEPATH . '/wp_knowledgebase/kbe_knowledgebase.php';
+        if(file_exists(STYLESHEETPATH . '/wp_knowledgebase/kbe_knowledgebase.php')) {
+            return STYLESHEETPATH . '/wp_knowledgebase/kbe_knowledgebase.php';
         } else {
             return $plugindir . '/template/kbe_knowledgebase.php';
         }
     }
 
     if (is_tax('kbe_taxonomy')) {
-        if(file_exists(TEMPLATEPATH . '/wp_knowledgebase/taxonomy-kbe_taxonomy.php')) {
-            return TEMPLATEPATH . '/wp_knowledgebase/taxonomy-kbe_taxonomy.php';
+        if(file_exists(STYLESHEETPATH . '/wp_knowledgebase/taxonomy-kbe_taxonomy.php')) {
+            return STYLESHEETPATH . '/wp_knowledgebase/taxonomy-kbe_taxonomy.php';
         } else {
             return $plugindir . '/template/taxonomy-kbe_taxonomy.php';
         }
     }
     
     if (is_tax('kbe_tags')) {
-        if(file_exists(TEMPLATEPATH . '/wp_knowledgebase/taxonomy-kbe_tags.php')) {
-            return TEMPLATEPATH . '/wp_knowledgebase/taxonomy-kbe_tags.php';
+        if(file_exists(STYLESHEETPATH . '/wp_knowledgebase/taxonomy-kbe_tags.php')) {
+            return STYLESHEETPATH . '/wp_knowledgebase/taxonomy-kbe_tags.php';
         } else {
             return $plugindir . '/template/taxonomy-kbe_tags.php';
         }
@@ -470,7 +470,7 @@ function kbe_search_drop(){
     jQuery(document).ready(function () {
         
         var tree_id = 0;
-        jQuery('div.kbe_category:has(.kbe_child_category)').addClass('has-child').prepend('<span class="switch"><img src="<?php echo get_template_directory_uri() ?>/kbe_images/kbe_icon-plus.png" /></span>').each(function () {
+        jQuery('div.kbe_category:has(.kbe_child_category)').addClass('has-child').prepend('<span class="switch"><img src="<?php echo get_stylesheet_directory_uri() ?>/kbe_images/kbe_icon-plus.png" /></span>').each(function () {
             tree_id++;
             jQuery(this).attr('id', 'tree' + tree_id);
         });
@@ -480,10 +480,10 @@ function kbe_search_drop(){
             if (jQuery(this).hasClass('open')) {
                 jQuery(this).parent().find('div:first').slideUp('fast');
                 jQuery(this).removeClass('open');
-                jQuery(this).html('<img src="<?php echo get_template_directory_uri() ?>/kbe_images/kbe_icon-plus.png" />');
+                jQuery(this).html('<img src="<?php echo get_stylesheet_directory_uri() ?>/kbe_images/kbe_icon-plus.png" />');
             } else {
                 jQuery(this).parent().find('div:first').slideDown('fast');
-                jQuery(this).html('<img src="<?php echo get_template_directory_uri() ?>/kbe_images/kbe_icon-minus.png" />');
+                jQuery(this).html('<img src="<?php echo get_stylesheet_directory_uri() ?>/kbe_images/kbe_icon-minus.png" />');
                 jQuery(this).addClass('open');
             }
         });
