@@ -277,11 +277,13 @@ if ( is_child_theme() === false ) {
     $kbe_tags = KBE_THEME_DIR.'/taxonomy-kbe_tags.php';
     $kbe_comment = KBE_THEME_DIR.'/kbe_comments.php';
     $kbe_search = KBE_THEME_DIR.'/kbe_search.php';
+    $kbe_ajax = KBE_THEME_DIR.'/kbe_ajax.php';
 
     if((file_exists($kbe_style)) or (file_exists($kbe_kbe))or
        (file_exists($kbe_single)) or (file_exists($kbe_taxonomy)) or
        (file_exists($kbe_tags)) or (file_exists($kbe_comment)) or
-       (file_exists($kbe_archive)) or (file_exists($kbe_search))){
+       (file_exists($kbe_archive)) or (file_exists($kbe_search)) or 
+       (file_exists($kbe_ajax)) ){
         
         // Move files plugin kbe folder to theme/kbe folder
         copy(KBE_THEME_DIR.'/archive-kbe_knowledgebase.php', KBE_THEME_DIR.'/wp_knowledgebase/archive-kbe_knowledgebase.php');
@@ -292,6 +294,7 @@ if ( is_child_theme() === false ) {
         copy(KBE_THEME_DIR.'/kbe_comments.php', KBE_THEME_DIR.'/wp_knowledgebase/kbe_comments.php');
         copy(KBE_THEME_DIR.'/kbe_search.php', KBE_THEME_DIR.'/wp_knowledgebase/kbe_search.php');
         copy(KBE_THEME_DIR.'/kbe_style.css', KBE_THEME_DIR.'/wp_knowledgebase/kbe_style.css');
+        copy(KBE_THEME_DIR.'/kbe_ajax.php', KBE_THEME_DIR.'/wp_knowledgebase/kbe_ajax.php');
         
         $kbe_delete_archive = KBE_THEME_DIR.'/archive-kbe_knowledgebase.php';
         $kbe_delete_kbe = KBE_THEME_DIR.'/kbe_knowledgebase.php';
@@ -301,6 +304,7 @@ if ( is_child_theme() === false ) {
         $kbe_delete_tags = KBE_THEME_DIR.'/taxonomy-kbe_tags.php';
         $kbe_delete_comment = KBE_THEME_DIR.'/kbe_comments.php';
         $kbe_delete_search = KBE_THEME_DIR.'/kbe_search.php';
+        $kbe_delete_ajax = KBE_THEME_DIR.'/kbe_ajax.php';
 
         // Delete Files
         unlink($kbe_delete_archive);
@@ -311,6 +315,7 @@ if ( is_child_theme() === false ) {
         unlink($kbe_delete_tags);
         unlink($kbe_delete_comment);
         unlink($kbe_delete_search);
+        unlink($kbe_delete_ajax);
         
         mkdir(KBE_FILE_DIR.'/images', 0777, true);
         
@@ -332,11 +337,13 @@ if ( is_child_theme() === false ) {
         $kbe_tags_file = KBE_THEME_DIR.KBE_FILE_DIR.'/taxonomy-kbe_tags.php';
         $kbe_comment_file = KBE_THEME_DIR.KBE_FILE_DIR.'/kbe_comments.php';
         $kbe_search_file = KBE_THEME_DIR.KBE_FILE_DIR.'/kbe_search.php';
+        $kbe_ajax_file = KBE_THEME_DIR.KBE_FILE_DIR.'/kbe_ajax.php';
         
         if((!file_exists($kbe_archive_file)) or (!file_exists($kbe_kbe_file))or
            (!file_exists($kbe_style_file)) or (!file_exists($kbe_single_file)) or
            (!file_exists($kbe_taxonomy_file)) or (!file_exists($kbe_tags_file)) or
-           (!file_exists($kbe_comment_file)) or (!file_exists($kbe_search_file))) {
+           (!file_exists($kbe_comment_file)) or (!file_exists($kbe_search_file)) or 
+           (!file_exists($kbe_ajax_file)) ) {
         
             copy($kbe_plugin_dir.'template/archive-kbe_knowledgebase.php', KBE_THEME_DIR.'/wp_knowledgebase/archive-kbe_knowledgebase.php');
             copy($kbe_plugin_dir.'template/single-kbe_knowledgebase.php', KBE_THEME_DIR.'/wp_knowledgebase/single-kbe_knowledgebase.php');
@@ -346,6 +353,7 @@ if ( is_child_theme() === false ) {
             copy($kbe_plugin_dir.'template/kbe_comments.php', KBE_THEME_DIR.'/wp_knowledgebase/kbe_comments.php');
             copy($kbe_plugin_dir.'template/kbe_search.php', KBE_THEME_DIR.'/wp_knowledgebase/kbe_search.php');
             copy($kbe_plugin_dir.'template/kbe_style.css', KBE_THEME_DIR.'/wp_knowledgebase/kbe_style.css');
+            copy($kbe_plugin_dir.'template/kbe_ajax.php', KBE_THEME_DIR.'/wp_knowledgebase/kbe_ajax.php');
         }
     }
     
@@ -565,6 +573,16 @@ function kbe_breadcrumbs(){
 <?php
     }
 }
+
+//=========>  KBE Knowledgebase ajax
+function kbe_ajax(){
+    if(file_exists(STYLESHEETPATH . '/wp_knowledgebase/kbe_ajax.php')) {
+        include_once STYLESHEETPATH . '/wp_knowledgebase/kbe_ajax.php';
+    } else {
+        include_once $plugindir . '/template/kbe_ajax.php';
+    }
+}
+add_action( 'init', 'kbe_ajax' );
 
 //=========>  KBE Knowledgebase Shortcode
 function kbe_shortcode( $atts, $content = null ){
