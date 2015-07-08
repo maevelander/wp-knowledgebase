@@ -154,6 +154,28 @@ jQuery.fn.liveSearch = function (conf) {
 
 					// Start a new ajax-request in X ms
 					this.timer = setTimeout(function () {
+						
+						var data_query = {
+							'action' 	: 	'kbe_livesearch',
+							'query'		:	q
+						}
+						
+						jQuery.post( kbe_var.ajaxurl, data_query, function(response){
+							input.removeClass(config.loadingClass);
+							
+							// Show live-search if results and search-term aren't empty
+							if (response.success && q.length) {
+								liveSearch.html(response.data.result);
+								showLiveSearch();
+							}
+							else {
+								hideLiveSearch();
+							}
+							
+							console.log(response);
+						} );
+						
+						/*
 						jQuery.get(config.url + q, function (data) {
 							input.removeClass(config.loadingClass);
 
@@ -166,6 +188,7 @@ jQuery.fn.liveSearch = function (conf) {
 								hideLiveSearch();
 							}
 						});
+						*/
 					}, config.typeDelay);
 
 					this.lastValue = this.value;
