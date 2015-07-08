@@ -204,7 +204,7 @@ add_action('wp_enqueue_scripts', 'kbe_styles');
 
 add_action('wp_print_scripts', 'kbe_live_search');
 function kbe_live_search(){
-    wp_register_script('kbe_live_search', WP_KNOWLEDGEBASE.'js/jquery.livesearch.js');
+    wp_register_script('kbe_live_search', WP_KNOWLEDGEBASE.'js/jquery.livesearch.js', array('jquery'));
     wp_enqueue_script('kbe_live_search');
 }
 
