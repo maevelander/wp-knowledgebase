@@ -9,6 +9,8 @@
   Requires at least: 2.7
  */
  
+ define( 'KBE_PLUGIN_VERSION', '1.0.9' );
+
 //=========> Create language folder
 add_action( 'init', 'kbe_plugin_load_textdomain' );
 function kbe_plugin_load_textdomain() {
@@ -186,47 +188,60 @@ function kbe_plugin_menu() {
     add_submenu_page('edit.php?post_type=kbe_knowledgebase', 'Settings', 'Settings', 'manage_options', 'kbe_options', 'wp_kbe_options');
 }
 
-//=========> Enqueue KBE Style file in header.php
+
+//=========> Enqueue KBE frontend scripts/styles
+add_action( 'wp_enqueue_scripts', 'kbe_frontend_scripts');
+function kbe_frontend_scripts(){
+	if( file_exists( get_stylesheet_directory() . '/wp_knowledgebase/kbe_style.css' ) ){
+		$stylesheet = get_stylesheet_directory_uri() . '/wp_knowledgebase/kbe_style.css'; 
+	} else {
+		$stylesheet = WP_KNOWLEDGEBASE . '/template/kbe_style.css';
+	}
+	wp_enqueue_style ('kbe_theme_style', get_stylesheet_directory_uri() . '/wp_knowledgebase/kbe_style.css');
+	wp_enqueue_script('kbe_live_search', WP_KNOWLEDGEBASE.'js/jquery.livesearch.js', array('jquery'), KBE_PLUGIN_VERSION, true );
+}
+
+
+//=========> Enqueue admin scripts/styles
+add_action( 'current_screen', 'kbe_admin_settings_scripts' );
+function kbe_admin_settings_scripts($screen) {
+	// first check that $hook_suffix is appropriate for your admin page
+	if( $screen->id == 'kbe_knowledgebase_page_kbe_options' ){
+		wp_enqueue_style('wp-color-picker');
+		wp_enqueue_script('cp-script-handle', WP_KNOWLEDGEBASE.'js/color_picker.js', array( 'wp-color-picker' ), false, true);
+	} elseif ( $screen->id == 'kbe_knowledgebase_page_kbe_order' ){
+		wp_enqueue_script( 'jquery' );
+		wp_enqueue_script( 'jquery-ui-sortable' );
+	}
+
+	if( $screen->post_type == 'kbe_knowledgebase' ){
+		wp_enqueue_style('kbe_admin_css', WP_KNOWLEDGEBASE.'css/kbe_admin_style.css');
+	}
+
+}
+
+//=========> Deprecated functions
 function kbe_styles(){
-    wp_enqueue_style ('kbe_theme_style', get_stylesheet_directory_uri() . '/wp_knowledgebase/kbe_style.css');
+    _deprecated_function( 'kbe_styles', '1.1.0', 'kbe_frontend_scripts' );
 }
-add_action('wp_enqueue_scripts', 'kbe_styles');
 
 
-add_action('wp_print_scripts', 'kbe_live_search');
 function kbe_live_search(){
-    wp_register_script('kbe_live_search', WP_KNOWLEDGEBASE.'js/jquery.livesearch.js', array('jquery'));
-    wp_enqueue_script('kbe_live_search');
+    _deprecated_function( 'kbe_live_search', '1.1.0', 'kbe_frontend_scripts' );
 }
 
-//=========> Enqueue plugin files
-$kbe_address_bar = $_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
-if(strpos($kbe_address_bar, "post_type=kbe_knowledgebase")) {
-    add_action('admin_init', 'wp_kbe_scripts');
-    function wp_kbe_scripts(){
-        wp_register_style('kbe_admin_css', WP_KNOWLEDGEBASE.'css/kbe_admin_style.css');
-        wp_enqueue_style('kbe_admin_css');
-    }
+
+function wp_kbe_scripts(){
+    _deprecated_function( 'wp_kbe_scripts', '1.1.0', 'kbe_admin_settings_scripts' );
 }
 
-//=========> Enqueue color picker
-add_action('admin_init', 'enqueue_color_picker');
 function enqueue_color_picker($hook_suffix) {
-    // first check that $hook_suffix is appropriate for your admin page
-    wp_enqueue_style('wp-color-picker');
-    wp_enqueue_script('cp-script-handle', WP_KNOWLEDGEBASE.'js/color_picker.js', array( 'wp-color-picker' ), false, true);
+	_deprecated_function( 'enqueue_color_picker', '1.1.0', 'kbe_admin_settings_scripts' );
 }
 
-add_action('admin_init', 'load_all_jquery');
-function load_all_jquery() {
-    wp_enqueue_script("jquery");
-    $jquery_ui = array(
-        "jquery-ui-sortable"
-    );
 
-    foreach($jquery_ui as $script){
-        wp_enqueue_script($script);
-    }
+function load_all_jquery() {
+	_deprecated_function( 'load_all_jquery', '1.1.0', 'kbe_admin_settings_scripts' );
 }
 
 function st_add_live_search () {
