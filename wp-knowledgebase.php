@@ -40,11 +40,7 @@ require "widget/kbe_widget_tags.php";
 function wp_kbe_hooks($kbe_networkwide) {
     
     kbe_articles();
-    flush_rewrite_rules();
-    
     kbe_taxonomies();
-    flush_rewrite_rules();
-    
     kbe_custom_tags();
     flush_rewrite_rules();
     
