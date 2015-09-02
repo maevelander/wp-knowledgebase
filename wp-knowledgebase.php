@@ -6,6 +6,7 @@
   Author: Enigma Plugins
   Version: 1.0.9
   Author URI: http://enigmaplugins.com
+  Requires at least: 2.7
  */
  
 //=========> Hide all Reporting Errors
@@ -145,9 +146,6 @@ function wp_kbe_hooks($kbe_networkwide) {
     } 
 }
 register_activation_hook(__FILE__, 'wp_kbe_hooks');
-
-//=========> Delete Data on uninstall
-register_uninstall_hook('uninstall.php', $callback);
 
 //=========> Define plugin path
 define( 'WP_KNOWLEDGEBASE', plugin_dir_url(__FILE__));
