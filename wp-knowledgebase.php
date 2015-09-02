@@ -9,9 +9,6 @@
   Requires at least: 2.7
  */
  
-//=========> Hide all Reporting Errors
-error_reporting(0);
-
 //=========> Create language folder
 add_action( 'init', 'kbe_plugin_load_textdomain' );
 function kbe_plugin_load_textdomain() {
