@@ -120,14 +120,14 @@
                             <p><?php _e('Drag and drop items to customise the order of articles in WP Knowledgebase','kbe') ?></p>
                             
                             <ul id="kbe_article_sortable" class="kbe_admin_order">
-                            <?php
+                            <?php $i = 1;
                                 while($kbe_article_args->have_posts()) :
                                     $kbe_article_args->the_post();
                             ?>
                                     <li id="kbe_article_id_<?php echo the_ID(); ?>" class="lineitem <?php echo ($i % 2 == 0 ? 'alternate ' : ''); ?>ui-state-default">
                                         <?php the_title(); ?>
                                     </li>
-                            <?php
+                            <?php $i++;
                                 endwhile;
                             ?>
                             </ul>
