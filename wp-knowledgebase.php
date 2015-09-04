@@ -195,10 +195,10 @@ function kbe_frontend_scripts(){
 	if( file_exists( get_stylesheet_directory() . '/wp_knowledgebase/kbe_style.css' ) ){
 		$stylesheet = get_stylesheet_directory_uri() . '/wp_knowledgebase/kbe_style.css'; 
 	} else {
-		$stylesheet = WP_KNOWLEDGEBASE . '/template/kbe_style.css';
+		$stylesheet = WP_KNOWLEDGEBASE. 'template/kbe_style.css';
 	}
-	wp_enqueue_style ('kbe_theme_style', get_stylesheet_directory_uri() . '/wp_knowledgebase/kbe_style.css');
-	wp_enqueue_script('kbe_live_search', WP_KNOWLEDGEBASE.'js/jquery.livesearch.js', array('jquery'), KBE_PLUGIN_VERSION, true );
+	wp_enqueue_style ( 'kbe_theme_style', $stylesheet, array(), KBE_PLUGIN_VERSION );
+	wp_enqueue_script( 'kbe_live_search', WP_KNOWLEDGEBASE.  'js/jquery.livesearch.js', array('jquery'), KBE_PLUGIN_VERSION, true );
 }
 
 
