@@ -6,10 +6,10 @@
   Author: Enigma Plugins
   Version: 1.0.9
   Author URI: http://enigmaplugins.com
+  Requires at least: 2.7
  */
  
-//=========> Hide all Reporting Errors
-error_reporting(0);
+ define( 'KBE_PLUGIN_VERSION', '1.0.9' );
 
 //=========> Create language folder
 add_action( 'init', 'kbe_plugin_load_textdomain' );
@@ -42,11 +42,7 @@ require "widget/kbe_widget_tags.php";
 function wp_kbe_hooks($kbe_networkwide) {
     
     kbe_articles();
-    flush_rewrite_rules();
-    
     kbe_taxonomies();
-    flush_rewrite_rules();
-    
     kbe_custom_tags();
     flush_rewrite_rules();
     
@@ -146,9 +142,6 @@ function wp_kbe_hooks($kbe_networkwide) {
 }
 register_activation_hook(__FILE__, 'wp_kbe_hooks');
 
-//=========> Delete Data on uninstall
-register_uninstall_hook('uninstall.php', $callback);
-
 //=========> Define plugin path
 define( 'WP_KNOWLEDGEBASE', plugin_dir_url(__FILE__));
 
@@ -195,47 +188,60 @@ function kbe_plugin_menu() {
     add_submenu_page('edit.php?post_type=kbe_knowledgebase', 'Settings', 'Settings', 'manage_options', 'kbe_options', 'wp_kbe_options');
 }
 
-//=========> Enqueue KBE Style file in header.php
+
+//=========> Enqueue KBE frontend scripts/styles
+add_action( 'wp_enqueue_scripts', 'kbe_frontend_scripts');
+function kbe_frontend_scripts(){
+	if( file_exists( get_stylesheet_directory() . '/wp_knowledgebase/kbe_style.css' ) ){
+		$stylesheet = get_stylesheet_directory_uri() . '/wp_knowledgebase/kbe_style.css'; 
+	} else {
+		$stylesheet = WP_KNOWLEDGEBASE. 'template/kbe_style.css';
+	}
+	wp_enqueue_style ( 'kbe_theme_style', $stylesheet, array(), KBE_PLUGIN_VERSION );
+	wp_enqueue_script( 'kbe_live_search', WP_KNOWLEDGEBASE.  'js/jquery.livesearch.js', array('jquery'), KBE_PLUGIN_VERSION, true );
+}
+
+
+//=========> Enqueue admin scripts/styles
+add_action( 'current_screen', 'kbe_admin_settings_scripts' );
+function kbe_admin_settings_scripts($screen) {
+	// first check that $hook_suffix is appropriate for your admin page
+	if( $screen->id == 'kbe_knowledgebase_page_kbe_options' ){
+		wp_enqueue_style('wp-color-picker');
+		wp_enqueue_script('cp-script-handle', WP_KNOWLEDGEBASE.'js/color_picker.js', array( 'wp-color-picker' ), false, true);
+	} elseif ( $screen->id == 'kbe_knowledgebase_page_kbe_order' ){
+		wp_enqueue_script( 'jquery' );
+		wp_enqueue_script( 'jquery-ui-sortable' );
+	}
+
+	if( $screen->post_type == 'kbe_knowledgebase' ){
+		wp_enqueue_style('kbe_admin_css', WP_KNOWLEDGEBASE.'css/kbe_admin_style.css');
+	}
+
+}
+
+//=========> Deprecated functions
 function kbe_styles(){
-    wp_enqueue_style ('kbe_theme_style', get_stylesheet_directory_uri() . '/wp_knowledgebase/kbe_style.css');
+    _deprecated_function( 'kbe_styles', '1.1.0', 'kbe_frontend_scripts' );
 }
-add_action('wp_enqueue_scripts', 'kbe_styles');
 
 
-add_action('wp_print_scripts', 'kbe_live_search');
 function kbe_live_search(){
-    wp_register_script('kbe_live_search', WP_KNOWLEDGEBASE.'js/jquery.livesearch.js', array('jquery'));
-    wp_enqueue_script('kbe_live_search');
+    _deprecated_function( 'kbe_live_search', '1.1.0', 'kbe_frontend_scripts' );
 }
 
-//=========> Enqueue plugin files
-$kbe_address_bar = $_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
-if(strpos($kbe_address_bar, "post_type=kbe_knowledgebase")) {
-    add_action('admin_init', 'wp_kbe_scripts');
-    function wp_kbe_scripts(){
-        wp_register_style('kbe_admin_css', WP_KNOWLEDGEBASE.'css/kbe_admin_style.css');
-        wp_enqueue_style('kbe_admin_css');
-    }
+
+function wp_kbe_scripts(){
+    _deprecated_function( 'wp_kbe_scripts', '1.1.0', 'kbe_admin_settings_scripts' );
 }
 
-//=========> Enqueue color picker
-add_action('admin_init', 'enqueue_color_picker');
 function enqueue_color_picker($hook_suffix) {
-    // first check that $hook_suffix is appropriate for your admin page
-    wp_enqueue_style('wp-color-picker');
-    wp_enqueue_script('cp-script-handle', WP_KNOWLEDGEBASE.'js/color_picker.js', array( 'wp-color-picker' ), false, true);
+	_deprecated_function( 'enqueue_color_picker', '1.1.0', 'kbe_admin_settings_scripts' );
 }
 
-add_action('admin_init', 'load_all_jquery');
-function load_all_jquery() {
-    wp_enqueue_script("jquery");
-    $jquery_ui = array(
-        "jquery-ui-sortable"
-    );
 
-    foreach($jquery_ui as $script){
-        wp_enqueue_script($script);
-    }
+function load_all_jquery() {
+	_deprecated_function( 'load_all_jquery', '1.1.0', 'kbe_admin_settings_scripts' );
 }
 
 function st_add_live_search () {
@@ -250,167 +256,65 @@ function st_add_live_search () {
 }
 add_action('wp_head', 'st_add_live_search');
 
-//=========> Move files from Plugin to Current Theme
-if ( is_child_theme() === false ) {
-    
-    $kbe_plugin_dir = plugin_dir_path( __FILE__ );
-    
-    $kbe_theme_dir = get_template_directory();
-    define('KBE_THEME_DIR', $kbe_theme_dir);
 
-    $kbe_plugin_img_dir = $kbe_plugin_dir.'template/images/';
-    $kbe_image_dir = KBE_THEME_DIR."/images";
-    define('KBE_IMAGE_THEME_DIR', $kbe_image_dir);
-
-    $kbe_file_dir = KBE_THEME_DIR."/wp_knowledgebase";
-    define('KBE_FILE_DIR', $kbe_file_dir);
-
-    if(!file_exists(KBE_FILE_DIR)){
-        mkdir(KBE_THEME_DIR.'/wp_knowledgebase', 0777, true);
-    }
-    
-    $kbe_archive = KBE_THEME_DIR.'/archive-kbe_knowledgebase.php';
-    $kbe_kbe = KBE_THEME_DIR.'/kbe_knowledgebase.php';
-    $kbe_style = KBE_THEME_DIR.'/kbe_style.css';
-    $kbe_single = KBE_THEME_DIR.'/single-kbe_knowledgebase.php';
-    $kbe_taxonomy = KBE_THEME_DIR.'/taxonomy-kbe_taxonomy.php';
-    $kbe_tags = KBE_THEME_DIR.'/taxonomy-kbe_tags.php';
-    $kbe_comment = KBE_THEME_DIR.'/kbe_comments.php';
-    $kbe_search = KBE_THEME_DIR.'/kbe_search.php';
-
-    if((file_exists($kbe_style)) or (file_exists($kbe_kbe))or
-       (file_exists($kbe_single)) or (file_exists($kbe_taxonomy)) or
-       (file_exists($kbe_tags)) or (file_exists($kbe_comment)) or
-       (file_exists($kbe_archive)) or (file_exists($kbe_search))){
-        
-        // Move files plugin kbe folder to theme/kbe folder
-        copy(KBE_THEME_DIR.'/archive-kbe_knowledgebase.php', KBE_THEME_DIR.'/wp_knowledgebase/archive-kbe_knowledgebase.php');
-        copy(KBE_THEME_DIR.'/single-kbe_knowledgebase.php', KBE_THEME_DIR.'/wp_knowledgebase/single-kbe_knowledgebase.php');
-        copy(KBE_THEME_DIR.'/taxonomy-kbe_taxonomy.php', KBE_THEME_DIR.'/wp_knowledgebase/taxonomy-kbe_taxonomy.php');
-        copy(KBE_THEME_DIR.'/kbe_knowledgebase.php', KBE_THEME_DIR.'/wp_knowledgebase/kbe_knowledgebase.php');
-        copy(KBE_THEME_DIR.'/taxonomy-kbe_tags.php', KBE_THEME_DIR.'/wp_knowledgebase/taxonomy-kbe_tags.php');
-        copy(KBE_THEME_DIR.'/kbe_comments.php', KBE_THEME_DIR.'/wp_knowledgebase/kbe_comments.php');
-        copy(KBE_THEME_DIR.'/kbe_search.php', KBE_THEME_DIR.'/wp_knowledgebase/kbe_search.php');
-        copy(KBE_THEME_DIR.'/kbe_style.css', KBE_THEME_DIR.'/wp_knowledgebase/kbe_style.css');
-        
-        $kbe_delete_archive = KBE_THEME_DIR.'/archive-kbe_knowledgebase.php';
-        $kbe_delete_kbe = KBE_THEME_DIR.'/kbe_knowledgebase.php';
-        $kbe_delete_style = KBE_THEME_DIR.'/kbe_style.css';
-        $kbe_delete_single = KBE_THEME_DIR.'/single-kbe_knowledgebase.php';
-        $kbe_delete_taxonomy = KBE_THEME_DIR.'/taxonomy-kbe_taxonomy.php';
-        $kbe_delete_tags = KBE_THEME_DIR.'/taxonomy-kbe_tags.php';
-        $kbe_delete_comment = KBE_THEME_DIR.'/kbe_comments.php';
-        $kbe_delete_search = KBE_THEME_DIR.'/kbe_search.php';
-
-        // Delete Files
-        unlink($kbe_delete_archive);
-        unlink($kbe_delete_kbe);
-        unlink($kbe_delete_style);
-        unlink($kbe_delete_single);
-        unlink($kbe_delete_taxonomy);
-        unlink($kbe_delete_tags);
-        unlink($kbe_delete_comment);
-        unlink($kbe_delete_search);
-        
-        mkdir(KBE_FILE_DIR.'/images', 0777, true);
-        
-        //  Move Images from plugin folder to theme/kbe/images folder
-        $kbe_images = opendir($kbe_plugin_img_dir);
-        while($kbe_read_image = readdir($kbe_images)){
-            if($kbe_read_image != '.' && $kbe_read_image != '..'){
-                if (!file_exists($kbe_read_image)){
-                    copy($kbe_plugin_img_dir.$kbe_read_image, KBE_FILE_DIR.'/images/'.$kbe_read_image);
-                }
-            }
-        }
-    } else {
-        $kbe_archive_file = KBE_THEME_DIR.KBE_FILE_DIR.'/archive-kbe_knowledgebase.php';
-        $kbe_kbe_file = KBE_THEME_DIR.KBE_FILE_DIR.'/kbe_knowledgebase.php';
-        $kbe_style_file = KBE_THEME_DIR.KBE_FILE_DIR.'/kbe_style.css';
-        $kbe_single_file = KBE_THEME_DIR.KBE_FILE_DIR.'/single-kbe_knowledgebase.php';
-        $kbe_taxonomy_file = KBE_THEME_DIR.KBE_FILE_DIR.'/taxonomy-kbe_taxonomy.php';
-        $kbe_tags_file = KBE_THEME_DIR.KBE_FILE_DIR.'/taxonomy-kbe_tags.php';
-        $kbe_comment_file = KBE_THEME_DIR.KBE_FILE_DIR.'/kbe_comments.php';
-        $kbe_search_file = KBE_THEME_DIR.KBE_FILE_DIR.'/kbe_search.php';
-        
-        if((!file_exists($kbe_archive_file)) or (!file_exists($kbe_kbe_file))or
-           (!file_exists($kbe_style_file)) or (!file_exists($kbe_single_file)) or
-           (!file_exists($kbe_taxonomy_file)) or (!file_exists($kbe_tags_file)) or
-           (!file_exists($kbe_comment_file)) or (!file_exists($kbe_search_file))) {
-        
-            copy($kbe_plugin_dir.'template/archive-kbe_knowledgebase.php', KBE_THEME_DIR.'/wp_knowledgebase/archive-kbe_knowledgebase.php');
-            copy($kbe_plugin_dir.'template/single-kbe_knowledgebase.php', KBE_THEME_DIR.'/wp_knowledgebase/single-kbe_knowledgebase.php');
-            copy($kbe_plugin_dir.'template/taxonomy-kbe_taxonomy.php', KBE_THEME_DIR.'/wp_knowledgebase/taxonomy-kbe_taxonomy.php');
-            copy($kbe_plugin_dir.'template/kbe_knowledgebase.php', KBE_THEME_DIR.'/wp_knowledgebase/kbe_knowledgebase.php');
-            copy($kbe_plugin_dir.'template/taxonomy-kbe_tags.php', KBE_THEME_DIR.'/wp_knowledgebase/taxonomy-kbe_tags.php');
-            copy($kbe_plugin_dir.'template/kbe_comments.php', KBE_THEME_DIR.'/wp_knowledgebase/kbe_comments.php');
-            copy($kbe_plugin_dir.'template/kbe_search.php', KBE_THEME_DIR.'/wp_knowledgebase/kbe_search.php');
-            copy($kbe_plugin_dir.'template/kbe_style.css', KBE_THEME_DIR.'/wp_knowledgebase/kbe_style.css');
-        }
-    }
-    
-    //  check if images folder not exist in kbe folder
-    if(!file_exists(KBE_FILE_DIR.'/images')){
-        mkdir(KBE_FILE_DIR.'/images', 0777, true);
-        
-        //  Move Images from plugin folder to theme/kbe/images folder
-        $kbe_images = opendir($kbe_plugin_img_dir);
-        while($kbe_read_image = readdir($kbe_images)){
-            if($kbe_read_image != '.' && $kbe_read_image != '..'){
-                if (!file_exists($kbe_read_image)){
-                    copy($kbe_plugin_img_dir.$kbe_read_image, KBE_FILE_DIR.'/images/'.$kbe_read_image);
-                }
-            }
-        }
-    }
-}
-
-//=========> Templating
+/**
+ * Load a template.
+ *
+ * Handles template usage so that we can use our own templates instead of the themes.
+ *
+ * Templates are in the 'templates' folder. knowledgebase looks for theme
+ * overrides in /theme/wp-knowledgebase/ by default
+ *
+ * @param mixed $template
+ * @return string
+ */
 function kbe_template_chooser($template){
-    global $wp_query;
-    $plugindir = dirname(__FILE__);
 
-    $post_type = get_query_var('post_type');
+	$template_path = apply_filters( 'kbe_template_path', 'wp_knowledgebase/' );
+	
+	$find = array();
+	$file = '';
 
-    if( $post_type == 'kbe_knowledgebase' && is_single() ){
-        if(file_exists(STYLESHEETPATH . '/wp_knowledgebase/single-kbe_knowledgebase.php')) {
-            return STYLESHEETPATH . '/wp_knowledgebase/single-kbe_knowledgebase.php';
-        } else {
-            return $plugindir . '/template/single-kbe_knowledgebase.php';
-        }
-    }
-    
-    if( $post_type == 'kbe_knowledgebase' ){
-        if(file_exists(STYLESHEETPATH . '/wp_knowledgebase/archive-kbe_knowledgebase.php')) {
-            return STYLESHEETPATH . '/wp_knowledgebase/archive-kbe_knowledgebase.php';
-        } else {
-            return $plugindir . '/template/archive-kbe_knowledgebase.php';
-        }
-		
-        if(file_exists(STYLESHEETPATH . '/wp_knowledgebase/kbe_knowledgebase.php')) {
-            return STYLESHEETPATH . '/wp_knowledgebase/kbe_knowledgebase.php';
-        } else {
-            return $plugindir . '/template/kbe_knowledgebase.php';
-        }
-    }
+	if ( is_single() && get_post_type() == 'kbe_knowledgebase' ) {
 
-    if (is_tax('kbe_taxonomy')) {
-        if(file_exists(STYLESHEETPATH . '/wp_knowledgebase/taxonomy-kbe_taxonomy.php')) {
-            return STYLESHEETPATH . '/wp_knowledgebase/taxonomy-kbe_taxonomy.php';
-        } else {
-            return $plugindir . '/template/taxonomy-kbe_taxonomy.php';
-        }
-    }
-    
-    if (is_tax('kbe_tags')) {
-        if(file_exists(STYLESHEETPATH . '/wp_knowledgebase/taxonomy-kbe_tags.php')) {
-            return STYLESHEETPATH . '/wp_knowledgebase/taxonomy-kbe_tags.php';
-        } else {
-            return $plugindir . '/template/taxonomy-kbe_tags.php';
-        }
-    }
+		$file   = 'single-kbe_knowledgebase.php';
+		$find[] = $file;
+		$find[] = $template_path . $file;
 
-    return $template;   
+	} elseif ( is_tax('kbe_taxonomy') || is_tax( 'kbe_tags') ) {
+
+		$term   = get_queried_object();
+
+		if ( is_tax( 'kbe_taxonomy' ) || is_tax( 'kbe_tags' ) ) {
+			$file = 'taxonomy-' . $term->taxonomy . '.php';
+		} else {
+			$file = 'archive.php';
+		}
+
+		$find[] = 'taxonomy-' . $term->taxonomy . '-' . $term->slug . '.php';
+		$find[] = $template_path . 'taxonomy-' . $term->taxonomy . '-' . $term->slug . '.php';
+		$find[] = 'taxonomy-' . $term->taxonomy . '.php';
+		$find[] = $template_path . 'taxonomy-' . $term->taxonomy . '.php';
+		$find[] = $file;
+		$find[] = $template_path . $file;
+
+	} elseif ( is_post_type_archive( 'kbe_knowledgebase' ) || is_page( get_option('kbe_archive_page_id' ) ) ) {
+
+		$file   = 'archive-kbe_knowledgebase.php';
+		$find[] = $file;
+		$find[] = $template_path . $file;
+
+	}
+
+	if ( $file ) {
+		$template       = locate_template( array_unique( $find ) );
+		if ( ! $template ) {
+			$template = trailingslashit( dirname(__FILE__) ) . 'template/' . $file;
+		}
+	}
+
+	  return $template;
+
 }
 add_filter('template_include', 'kbe_template_chooser');
 
