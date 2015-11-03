@@ -109,6 +109,12 @@ If you've tried all the obvious stuff and it's still not working please request 
 
 == Changelog ==
 
+= 1.1 =
+* Fixed search template issue.
+* Fixed widgets issue 
+* Fixed template redirect issue.
+* Some minor css issues fixed.
+
 = 1.0.9 =
 * Replace TEMPLATEPATH with STYLESHEETPATH.
 * Replace get_template_directory_uri() with get_stylesheet_directory_uri().

@@ -8,7 +8,7 @@
             
             <h2><?php _e('Knowledgebase Display Settings','kbe')?></h2>
             <?php
-                global $wpdb;
+			global $wpdb;
                 
                 $tbl_posts = $wpdb->prefix."posts";
                 

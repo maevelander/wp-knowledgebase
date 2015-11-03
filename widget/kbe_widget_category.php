@@ -11,17 +11,16 @@ function kbe_category_widgets() {
 
 //========= Custom Knowledgebase Category Widget Body
 class kbe_Cat_Widget extends WP_Widget {
-    //=======> Widget setup.
-    function kbe_Cat_Widget() {
-        /* Widget settings. */
-	$widget_ops = array( 'classname' => 'kbe', 'description' => __('WP Knowledgebase category widget to show categories on the site', 'kbe') );
-        
-        /* Widget control settings. */
-	$control_ops = array( 'width' => 300, 'height' => 350, 'id_base' => 'kbe_category_widget' );
-        
-	/* Create the widget. */
-	$this->WP_Widget( 'kbe_category_widget', __('Knowledgebase Category', 'kbe'), $widget_ops, $control_ops );
-    }
+	
+	function __construct() {
+        parent::__construct(
+            'kbe_category_widget', // Base ID
+            __( 'Knowledgebase Category', 'kbe' ), // Name
+            array( 'description' => __('WP Knowledgebase category widget to show categories on the site', 'kbe'), 
+                    'classname' => 'kbe' ), // Args
+			array( 'width' => 300, 'height' => 350, 'id_base' => 'kbe_category_widget' )
+        );
+	}
 	
      //=======> How to display the widget on the screen.
     function widget($args, $widgetData) {
