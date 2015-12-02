@@ -38,7 +38,7 @@ if(!empty($_GET['ajax']) ? $_GET['ajax'] : null) {
 <?php
     }
 } else {
-    get_header();
+    get_header('knowledgebase');
 ?>
     <div id="kbe_container">
 
@@ -117,6 +117,6 @@ if(!empty($_GET['ajax']) ? $_GET['ajax'] : null) {
     
 </div>
 <?php
-    get_footer();
+    get_footer('knowledgebase');
 }
 ?>
