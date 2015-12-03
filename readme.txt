@@ -1,9 +1,9 @@
 === WP Knowledgebase ===
-Contributors: EnigmaWeb
+Contributors: EnigmaWeb, helgatheviking, Base29
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=CEJ9HFWJ94BG4
 Tags: WP Knowledgebase, knowledgebase, knowledge base, faqs, wiki
-Requires at least: 3.1
-Tested up to: 4.2
+Requires at least: 2.7
+Tested up to: 4.4
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -27,7 +27,17 @@ Create an attractive and professional knowledgebase. It's easy to use, easy to c
 * Works across all major browsers and devices - IE8+, Safari, Firefox, Chrome
 * Editable slug (default is /knowledgebase )
 
-On activation, the plugin will create a page called "Knowledgebase" and on that page there will be the shortcode `[kbe_knowledgebase]` with page template "KBE" assigned. The plugin also copies that page template and related CSS into your active theme. You can directly edit those files to adjust the layout and design of the knowledgebase.
+= Important =
+
+On activation, the plugin will create a page called "Knowledgebase" and on that page there will be the shortcode `[kbe_knowledgebase]`. If you want to change the slug of that page do so via the WP Knowledgebase settings.
+
+= Advanced Customisation =
+
+Developers, you can completely customise the way the WP Knowledgebase displays by copying the plugin templates to your theme and customising them there. You may be familiar with this method of templating as used by WooCommerce.
+
+In the plugin's root directory you will find a folder called `template`. You can override that folder and any of the files within, by copying them into your active theme and renaming the folder to `/yourtheme/wp_knowledgebase`. WP Knowledgebase plugin will automatically load any template files you have in that folder in your theme, and use them instead of its default template files. If no such folder or files exist in your theme, it will use the ones from the plugin.
+
+This is the safest way to customise the WP Knowledebase templates, as it means that your changes will not be overwritten when the plugin updates.
 
 = Official Demo =
 
@@ -35,25 +45,14 @@ On activation, the plugin will create a page called "Knowledgebase" and on that 
 
 = User Examples =
 
-*	[Cub Themes](http://cubthemes.com/support/) knowledgebase
 *	[Orpheus](http://orpheus-app.com/knowledgebase) Android app knowledgebase
-*	[OzBeans](http://ozbeanz.com.au/knowledgebase/) - IT consultants
+*	[Cub Themes](http://cubthemes.com/support/) knowledgebase
 
 = Languages =
 
-* English
-* German
-* Dutch
-* Bulgarian
-* Spanish - Spain
-* Spanish - USA
-* Spanish - Puerto Rico
-* Brazilian Portaguese
-* Swedish
+English, German, Dutch, Blugarian, Spanish - Spain, Spanish - USA, Spanish - Puerto Rico, Brazilian Portaguese, Swedish. 
 
-Translators, thank you all for your contribution to this plugin. Much appreciated.
-
-If you'd like to help translate this plugin into your language please get in touch. It's very easy - you don't have to know any code and it's a great way to contribute to the WordPress community. Please [contact Maeve](http://www.enigmaplugins.com/contact/)
+Translators, thank you all for your contribution to this plugin. Much appreciated. If you'd like to help translate this plugin into your language please get in touch. It's very easy - you don't have to know any code and it's a great way to contribute to the WordPress community. Please [contact Maeve](http://www.enigmaplugins.com/contact/)
 
 
 == Installation ==
@@ -62,7 +61,17 @@ If you'd like to help translate this plugin into your language please get in tou
 1. Activate the WP Knowledgebase plugin through the 'Plugins' menu in WordPress
 1. Configure the plugin by going to the `Knowledgebase` tab that appears in your admin menu.
 
-On activation, the plugin will create a page called "Knowledgebase" and on that page there will be the shortcode `[kbe_knowledgebase]` with page template "KBE" assigned. The plugin also copies that page template and related CSS into your active theme. You can directly edit those files to adjust the layout and design of the knowledgebase.
+= Important =
+
+On activation, the plugin will create a page called "Knowledgebase" and on that page there will be the shortcode `[kbe_knowledgebase]`. If you want to change the slug of that page do so via the WP Knowledgebase settings.
+
+= Advanced Customisation =
+
+Developers, you can completely customise the way the WP Knowledgebase displays by copying the plugin templates to your theme and customising them there. You may be familiar with this method of templating as used by WooCommerce.
+
+In the plugin's root directory you will find a folder called `template`. You can override that folder and any of the files within, by copying them into your active theme and renaming the folder to `/yourtheme/wp_knowledgebase`. WP Knowledgebase plugin will automatically load any template files you have in that folder in your theme, and use them instead of its default template files. If no such folder or files exist in your theme, it will use the ones from the plugin.
+
+This is the safest way to customise the WP Knowledebase templates, as it means that your changes will not be overwritten when the plugin updates.
  
 == Frequently Asked Questions ==
 
@@ -80,11 +89,17 @@ This feature is not built into the plugin, however you can use another plugin to
 
 = How can I customise the design? =
 
-You can do some basic presentation adjustments via Knowledgebase > Settings. Beyond this, you can completely customise the design via your theme css.
+You can do some basic presentation adjustments via Knowledgebase > Settings.
+
+Developers, you can completely customise the way the WP Knowledgebase displays by copying the plugin templates to your theme and customising them there. You may be familiar with this method of templating as used by WooCommerce.
+
+In the plugin's root directory you will find a folder called `template`. You can override that folder and any of the files within, by copying them into your active theme and renaming the folder to `/yourtheme/wp_knowledgebase`. WP Knowledgebase plugin will automatically load any template files you have in that folder in your theme, and use them instead of its default template files. If no such folder or files exist in your theme, it will use the ones from the plugin.
+
+This is the safest way to customise the WP Knowledebase templates, as it means that your changes will not be overwritten when the plugin updates.
 
 = It does not look good on my theme =
 
-Please check that the shortcode `[kbe_knowledgebase]` is added on the Knowledgebase main page, with page template "KBE" assigned. The plugin also copies that page template and related CSS into your active theme. You can directly edit those files to adjust the layout and design of the knowledgebase for better integration with your theme as needed.
+Please check that the shortcode `[kbe_knowledgebase]` is added on the Knowledgebase main page.  You can tweak the design using CSS in your theme. Or for more advanced customisation see previous point.
 
 = Can I use WP Knowledgebase in my Language? =
 
@@ -110,10 +125,20 @@ If you've tried all the obvious stuff and it's still not working please request 
 == Changelog ==
 
 = 1.1 =
-* Fixed search template issue.
-* Fixed widgets issue 
-* Fixed template redirect issue.
-* Some minor css issues fixed.
+* renames index.php to wp-knowledgebase.php
+* no longer automatically copies template files to theme folder
+* no longer deletes kbe template folder from theme
+* fixes template redirect issue
+* fixes search template issue
+* uninstall.php is called automatically as of WP2.7
+* no longer silences error_reporting
+* no need to flush_rewrite_rules() 3 times
+* updates widget registration
+* adds optional custom headers/footers
+* fix for undefined $i variable
+* fixes conditional loading of scripts/styles
+* sanitizes merge options
+* some minor css fixes
 
 = 1.0.9 =
 * Replace TEMPLATEPATH with STYLESHEETPATH.
@@ -161,6 +186,26 @@ If you've tried all the obvious stuff and it's still not working please request 
 * Initial release
 
 == Upgrade Notice ==
+
+= 1.1 =
+* renames index.php to wp-knowledgebase.php
+* no longer automatically copies template files to theme folder
+* no longer deletes kbe template folder from theme
+* fixes template redirect issue
+* fixes search template issue
+* uninstall.php is called automatically as of WP2.7
+* no longer silences error_reporting
+* no need to flush_rewrite_rules() 3 times
+* updates widget registration
+* adds optional custom headers/footers
+* fix for undefined $i variable
+* fixes conditional loading of scripts/styles
+* sanitizes merge options
+* some minor css fixes
+
+= 1.0.9 =
+* Replace TEMPLATEPATH with STYLESHEETPATH.
+* Replace get_template_directory_uri() with get_stylesheet_directory_uri().
 
 = 1.0.8 =
 * Added strip_tags() function for excerpt for the search results.
