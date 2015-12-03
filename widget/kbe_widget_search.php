@@ -13,17 +13,16 @@ function kbe_search_widgets() {
 class kbe_Search_Widget extends WP_Widget {
     
     //=======> Widget setup
-    function kbe_Search_Widget() {
-        /* Widget settings. */
-	$widget_ops = array( 'classname' => 'kbe', 'description' => __('WP Knowledgebase search widget', 'kbe') );
-        
-        /* Widget control settings. */
-	$control_ops = array( 'width' => 300, 'height' => 350, 'id_base' => 'kbe_search_widget' );
-        
-	/* Create the widget. */
-	$this->WP_Widget( 'kbe_search_widget', __('Knowledgebase Search', 'kbe'), $widget_ops, $control_ops );
+    function __construct() {
+        parent::__construct(
+            'kbe_search_widget', // Base ID
+            __( 'Knowledgebase Search', 'kbe' ), // Name
+            array( 'description' => __('WP Knowledgebase search widget', 'kbe'), 
+                  'classname' => 'kbe' ),
+            array( 'width' => 300, 'height' => 350, 'id_base' => 'kbe_search_widget' ) // Args
+        );
     }
-    
+        
   //=======> How to display the widget on the screen.
     function widget($args, $widgetData) {
         extract($args);
@@ -35,9 +34,9 @@ class kbe_Search_Widget extends WP_Widget {
         echo $before_widget;
         echo '<div class="kbe_widget">';
         
-                if($kbe_widget_search_title){
-                    echo '<h2>'.$kbe_widget_search_title.'</h2>';
-                }
+        if($kbe_widget_search_title){
+            echo '<h2>'.$kbe_widget_search_title.'</h2>';
+        }
     ?>
         <form role="search" method="get" id="searchform" class="clearfix" action="<?php echo home_url( '/' ); ?>" autocomplete="off">
             <input type="text" onfocus="if (this.value == '<?php _e("Search Articles...", "kbe") ?>') {this.value = '';}" onblur="if (this.value == '')  {this.value = '<?php _e("Search Articles...", "kbe") ?>';}" value="<?php _e("Search Articles...", "kbe") ?>" name="s" id="s" />

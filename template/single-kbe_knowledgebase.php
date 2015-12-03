@@ -1,5 +1,5 @@
 <?php
-    get_header();
+    get_header('knowledgebase');
     
     // Classes For main content div
     if(KBE_SIDEBAR_INNER == 0) {
@@ -84,4 +84,4 @@
     <!--/aside-->
     
 </div>
-<?php get_footer(); ?>
+<?php get_footer('knowledgebase'); ?>

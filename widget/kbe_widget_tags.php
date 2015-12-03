@@ -12,19 +12,17 @@ function kbe_tags_widgets() {
 //========= Custom Knowledgebase Tags Widget Body
 class kbe_Tags_Widget extends WP_Widget {
     
-    //=======> Widget setup
-    function kbe_Tags_Widget() {
-        /* Widget settings. */
-	$widget_ops = array( 'classname' => 'kbe', 'description' => __('WP Knowledgebase article widget to show tags on the site', 'kbe') );
-        
-        /* Widget control settings. */
-	$control_ops = array( 'width' => 300, 'height' => 350, 'id_base' => 'kbe_tags_widgets' );
-        
-	/* Create the widget. */
-	$this->WP_Widget( 'kbe_tags_widgets', __('Knowledgebase Tags', 'kbe'), $widget_ops, $control_ops );
+    function __construct() {
+        parent::__construct(
+            'kbe_tags_widgets', // Base ID
+            __( 'Knowledgebase Tags', 'kbe' ), // Name
+            array( 'description' => __('WP Knowledgebase tags widget to show tags on the site', 'kbe'), 
+                   'classname' => 'kbe' ),
+            array( 'width' => 300, 'height' => 350, 'id_base' => 'kbe_tags_widgets' ) // Args
+        );
     }
-    
-    //=======> How to display the widget on the screen.
+	
+	//=======> How to display the widget on the screen.
     function widget($args, $widgetData) {
         extract($args);
         
@@ -41,31 +39,30 @@ class kbe_Tags_Widget extends WP_Widget {
                     echo '<h2>'.$kbe_widget_tag_title.'</h2>';
                 }
         ?>
-        		<div class="kbe_tags_widget">
-        <?php
-					$args = array(
-								'smallest'                  => 	12,
-								'largest'                   => 	30,
-								'unit'                      => 	'px',
-								'number'                    => 	$kbe_widget_tag_count,
-								'format'                    => 	$kbe_widget_tag_style,
-								'separator'                 => 	"\n",
-								'orderby'                   => 	'name',
-								'order'                     => 	'ASC',
-								'exclude'                   => 	null,
-								'include'                   => 	null,
-								'topic_count_text_callback' => 	default_topic_count_text,
-								'link'                      => 	'view',
-								'taxonomy'                  => 	KBE_POST_TAGS,
-								'echo'                      => 	true
-							);
+                <div class="kbe_tags_widget">
+                <?php
+                    $args = array(
+                                'smallest'                  => 	12,
+                                'largest'                   => 	30,
+                                'unit'                      => 	'px',
+                                'number'                    => 	$kbe_widget_tag_count,
+                                'format'                    => 	$kbe_widget_tag_style,
+                                'separator'                 => 	"\n",
+                                'orderby'                   => 	'name',
+                                'order'                     => 	'ASC',
+                                'exclude'                   => 	null,
+                                'include'                   => 	null,
+                                'link'                      => 	'view',
+                                'taxonomy'                  => 	KBE_POST_TAGS,
+                                'echo'                      => 	true
+                    );
 						
-					wp_tag_cloud($args);
+                    wp_tag_cloud($args);
 					
-					wp_reset_query();
+                    wp_reset_query();
 		?>
-        		</div>
-        <?php      
+                </div>
+<?php      
         echo "</div>";
         echo $after_widget;
     }
