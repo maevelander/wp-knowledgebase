@@ -108,6 +108,8 @@ If you've tried all the obvious stuff and it's still not working please request 
 4. Available widgets
 
 == Changelog ==
+= 1.1.1 =
+* fixed warnings.
 
 = 1.1 =
 * Fixed search template issue.
