@@ -110,7 +110,7 @@ If you've tried all the obvious stuff and it's still not working please request 
 == Changelog ==
 = 1.1.1 =
 * fixed warnings.
-
+* 'parent' => 0 removed from the terms array
 = 1.1 =
 * Fixed search template issue.
 * Fixed widgets issue 
