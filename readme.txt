@@ -3,7 +3,7 @@ Contributors: EnigmaWeb, helgatheviking, Base29
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=CEJ9HFWJ94BG4
 Tags: WP Knowledgebase, knowledgebase, knowledge base, faqs, wiki
 Requires at least: 2.7
-Tested up to: 4.4
+Tested up to: 4.4.1
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -101,6 +101,10 @@ This is the safest way to customise the WP Knowledebase templates, as it means t
 
 Please check that the shortcode `[kbe_knowledgebase]` is added on the Knowledgebase main page.  You can tweak the design using CSS in your theme. Or for more advanced customisation see previous point.
 
+= Can I control privacy or content restrictions for WP Knowledgebase categories and posts? =
+
+Yes. Any content restriction solution that is compatible with Custom Post Types should work with WP Knowledgebase.
+
 = Can I use WP Knowledgebase in my Language? =
 
 Yes, the plugin is internationalized and ready for translation. If you would like to help with a translation please [contact me](http://www.enigmaweb.com.au/contact)
@@ -124,8 +128,10 @@ If you've tried all the obvious stuff and it's still not working please request 
 
 == Changelog ==
 = 1.1.1 =
-* fixed warnings.
-* 'parent' => 0 removed from the terms array
+* fixed error warnings
+* 'parent' => 0 removed from the terms array to fix reorder of subcategories
+* Registered support for 'author'
+
 = 1.1 =
 * renames index.php to wp-knowledgebase.php
 * no longer automatically copies template files to theme folder
@@ -188,6 +194,11 @@ If you've tried all the obvious stuff and it's still not working please request 
 * Initial release
 
 == Upgrade Notice ==
+
+= 1.1.1 =
+* fixed error warnings
+* 'parent' => 0 removed from the terms array to fix reorder of subcategories
+* Registered support for 'author'
 
 = 1.1 =
 * renames index.php to wp-knowledgebase.php

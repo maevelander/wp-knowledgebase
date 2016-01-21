@@ -42,7 +42,7 @@ function kbe_articles() {
         'menu_icon'             => 	WP_KNOWLEDGEBASE.'images/icon-kbe.png',
         'capability_type'       => 	'post',
         'hierarchical'          => 	false,
-        'supports'              => 	array('title','editor','thumbnail','comments','tags','revisions'),
+        'supports'              => 	array('title','editor','thumbnail','comments','tags','revisions','author'),
         'rewrite'               => 	$kbe_rewrite,
         'show_in_menu'          => 	true,
         'show_in_nav_menus'     => 	true,
