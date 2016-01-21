@@ -123,7 +123,9 @@ If you've tried all the obvious stuff and it's still not working please request 
 4. Available widgets
 
 == Changelog ==
-
+= 1.1.1 =
+* fixed warnings.
+* 'parent' => 0 removed from the terms array
 = 1.1 =
 * renames index.php to wp-knowledgebase.php
 * no longer automatically copies template files to theme folder

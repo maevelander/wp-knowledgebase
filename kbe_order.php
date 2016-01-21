@@ -37,8 +37,7 @@
                             $kbe_args = array(
                                 'orderby' => 'terms_order',
                                 'order' => 'ASC',
-                                'hide_empty' => false,
-                                'parent' => $kbe_parent_ID
+                                'hide_empty' => false
                             );
                             $kbe_terms = get_terms('kbe_taxonomy', $kbe_args);
                             if($kbe_terms){

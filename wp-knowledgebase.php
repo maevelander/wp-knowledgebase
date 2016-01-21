@@ -4,7 +4,7 @@
   Plugin URI: http://wordpress.org/plugins/wp-knowledgebase
   Description: Simple and flexible knowledgebase plugin for WordPress
   Author: Enigma Plugins
-  Version: 1.1
+  Version: 1.1.1
   Author URI: http://enigmaplugins.com
   Requires at least: 2.7
  */
@@ -223,15 +223,30 @@ define( 'WP_KNOWLEDGEBASE', plugin_dir_url(__FILE__));
 
 //  define options values
 $kbe_settings = get_option('kbe_settings');
-
+if (isset($kbe_settings['kbe_article_qty'])){
 define('KBE_ARTICLE_QTY', $kbe_settings['kbe_article_qty']);
+}
+if (isset($kbe_settings['kbe_plugin_slug'])){
 define('KBE_PLUGIN_SLUG', $kbe_settings['kbe_plugin_slug']);
+}
+if (isset($kbe_settings['kbe_search_setting'])){
 define('KBE_SEARCH_SETTING', $kbe_settings['kbe_search_setting']);
+}
+if (isset($kbe_settings['kbe_breadcrumbs_setting'])){
 define('KBE_BREADCRUMBS_SETTING', $kbe_settings['kbe_breadcrumbs_setting']);
+}
+if (isset($kbe_settings['kbe_sidebar_home'])){
 define('KBE_SIDEBAR_HOME', $kbe_settings['kbe_sidebar_home']);
+}
+if (isset($kbe_settings['kbe_sidebar_inner'])){
 define('KBE_SIDEBAR_INNER', $kbe_settings['kbe_sidebar_inner']);
+}
+if (isset($kbe_settings['kbe_comments_setting'])){
 define('KBE_COMMENT_SETTING', $kbe_settings['kbe_comments_setting']);
+}
+if (isset($kbe_settings['kbe_bgcolor'])){
 define('KBE_BG_COLOR', $kbe_settings['kbe_bgcolor']);
+}
 define('KBE_LINK_STRUCTURE', get_option('permalink_structure'));
 define('KBE_POST_TYPE', 'kbe_knowledgebase');
 define('KBE_POST_TAXONOMY', 'kbe_taxonomy');
