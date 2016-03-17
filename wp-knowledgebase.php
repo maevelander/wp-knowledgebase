@@ -268,7 +268,7 @@ function kbe_plugin_menu() {
     add_submenu_page('edit.php?post_type=kbe_knowledgebase', 'Settings', 'Settings', 'manage_options', 'kbe_options', 'wp_kbe_options');
 }
 
-//=========> Enqueue KBE frontend scripts/styles
+//=========> Register KBE frontend scripts/styles
 add_action( 'wp_enqueue_scripts', 'kbe_frontend_scripts');
 function kbe_frontend_scripts(){
     if( file_exists( get_stylesheet_directory() . '/wp_knowledgebase/kbe_style.css' ) ){
@@ -276,8 +276,8 @@ function kbe_frontend_scripts(){
     } else {
         $stylesheet = WP_KNOWLEDGEBASE. 'template/kbe_style.css';
     }
-    wp_enqueue_style ( 'kbe_theme_style', $stylesheet, array(), KBE_PLUGIN_VERSION );
-    wp_enqueue_script( 'kbe_live_search', WP_KNOWLEDGEBASE.  'js/jquery.livesearch.js', array('jquery'), KBE_PLUGIN_VERSION, true );
+    wp_register_style ( 'kbe_theme_style', $stylesheet, array(), KBE_PLUGIN_VERSION );
+    wp_register_script( 'kbe_live_search', WP_KNOWLEDGEBASE.  'js/jquery.livesearch.js', array('jquery'), KBE_PLUGIN_VERSION, true );
 }
 
 //=========> Enqueue admin scripts/styles

@@ -4,6 +4,10 @@
     =========*/
     get_header('knowledgebase');
     
+    // load the style and script
+    wp_enqueue_style ( 'kbe_theme_style' );
+    wp_enqueue_script( 'kbe_live_search' );
+
     // Classes For main content div
     if(KBE_SIDEBAR_HOME == 0) {
         $kbe_content_class = 'class="kbe_content_full"';
