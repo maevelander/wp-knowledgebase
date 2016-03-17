@@ -30,11 +30,11 @@ function kbe_register_settings() {
 }
 
 /**
-+ * Sanitize and validate plugin settings
-+ * @param  array $input
-+ * @return array
-+ * @since  1.1.0
-+ */
+ * Sanitize and validate plugin settings
+ * @param  array $input
+ * @return array
+ * @since  1.1.0
+ */
 function kbe_validate_settings( $input ) {
     $input['kbe_plugin_slug'] = isset( $input['kbe_plugin_slug'] ) ? sanitize_title( $input['kbe_plugin_slug'] ) : '';
     $input['kbe_article_qty'] = intval( $input['kbe_article_qty'] );
