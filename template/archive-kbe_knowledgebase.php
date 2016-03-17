@@ -68,7 +68,11 @@
                             <span class="kbe_count">
                                 <?php
                                     echo $kbe_taxonomy->count;
-                                    _e(' Articles','kbe');
+                                    if ($kbe_taxonomy->count == 1) {
+                                        _e(' Article','kbe');
+                                    } else {
+                                        _e(' Articles','kbe');
+                                    }
                                 ?>
                             </span>
                             <a href="<?php echo get_term_link($kbe_term_slug, 'kbe_taxonomy') ?>">
@@ -99,7 +103,11 @@
                                         <span class="kbe_count">
                                             <?php
                                                 echo $kbe_child_term->count;
-                                                _e(' Articles','kbe');
+                                                if ($kbe_child_term->count == 1) {
+                                                    _e(' Article','kbe');
+                                                } else {
+                                                    _e(' Articles','kbe');
+                                                }
                                             ?>
                                         </span>
                                         <a href="<?php echo get_term_link($kbe_child_term_slug, 'kbe_taxonomy') ?>">
