@@ -322,6 +322,7 @@ function load_all_jquery() {
 }
 
 function st_add_live_search () {
+    if( KBE_SEARCH_SETTING == 1 ){
 ?>
     <script type="text/javascript">
         jQuery(document).ready(function() {
@@ -329,9 +330,9 @@ function st_add_live_search () {
             jQuery('#live-search #s').liveSearch({url: '<?php echo home_url(); ?>/?ajax=on&post_type=kbe_knowledgebase&s='});
         });
     </script>
-<?php
+<?php }
 }
-add_action('wp_head', 'st_add_live_search');
+add_action('wp_footer', 'st_add_live_search');
 
 
 /**
@@ -418,6 +419,7 @@ function kbe_search_form(){
 
 add_action('wp_head', 'kbe_search_drop');
 function kbe_search_drop(){
+    if( KBE_SEARCH_SETTING == 1 ){
 ?>
 <script type="text/javascript">
     jQuery(document).ready(function() {
@@ -464,7 +466,7 @@ function kbe_search_drop(){
 
     });
 </script>
-<?php
+<?php }
 }
 
 //=========> KBE Plugin Breadcrumbs
