@@ -30,11 +30,11 @@ function kbe_register_settings() {
 }
 
 /**
-+ * Sanitize and validate plugin settings
-+ * @param  array $input
-+ * @return array
-+ * @since  1.1.0
-+ */
+ * Sanitize and validate plugin settings
+ * @param  array $input
+ * @return array
+ * @since  1.1.0
+ */
 function kbe_validate_settings( $input ) {
     $input['kbe_plugin_slug'] = isset( $input['kbe_plugin_slug'] ) ? sanitize_title( $input['kbe_plugin_slug'] ) : '';
     $input['kbe_article_qty'] = intval( $input['kbe_article_qty'] );
@@ -268,7 +268,7 @@ function kbe_plugin_menu() {
     add_submenu_page('edit.php?post_type=kbe_knowledgebase', 'Settings', 'Settings', 'manage_options', 'kbe_options', 'wp_kbe_options');
 }
 
-//=========> Enqueue KBE frontend scripts/styles
+//=========> Register KBE frontend scripts/styles
 add_action( 'wp_enqueue_scripts', 'kbe_frontend_scripts');
 function kbe_frontend_scripts(){
     if( file_exists( get_stylesheet_directory() . '/wp_knowledgebase/kbe_style.css' ) ){
@@ -276,8 +276,8 @@ function kbe_frontend_scripts(){
     } else {
         $stylesheet = WP_KNOWLEDGEBASE. 'template/kbe_style.css';
     }
-    wp_enqueue_style ( 'kbe_theme_style', $stylesheet, array(), KBE_PLUGIN_VERSION );
-    wp_enqueue_script( 'kbe_live_search', WP_KNOWLEDGEBASE.  'js/jquery.livesearch.js', array('jquery'), KBE_PLUGIN_VERSION, true );
+    wp_register_style ( 'kbe_theme_style', $stylesheet, array(), KBE_PLUGIN_VERSION );
+    wp_register_script( 'kbe_live_search', WP_KNOWLEDGEBASE.  'js/jquery.livesearch.js', array('jquery'), KBE_PLUGIN_VERSION, true );
 }
 
 //=========> Enqueue admin scripts/styles
@@ -322,6 +322,7 @@ function load_all_jquery() {
 }
 
 function st_add_live_search () {
+    if( KBE_SEARCH_SETTING == 1 ){
 ?>
     <script type="text/javascript">
         jQuery(document).ready(function() {
@@ -329,9 +330,9 @@ function st_add_live_search () {
             jQuery('#live-search #s').liveSearch({url: '<?php echo home_url(); ?>/?ajax=on&post_type=kbe_knowledgebase&s='});
         });
     </script>
-<?php
+<?php }
 }
-add_action('wp_head', 'st_add_live_search');
+add_action('wp_footer', 'st_add_live_search');
 
 
 /**
@@ -418,6 +419,7 @@ function kbe_search_form(){
 
 add_action('wp_head', 'kbe_search_drop');
 function kbe_search_drop(){
+    if( KBE_SEARCH_SETTING == 1 ){
 ?>
 <script type="text/javascript">
     jQuery(document).ready(function() {
@@ -464,7 +466,7 @@ function kbe_search_drop(){
 
     });
 </script>
-<?php
+<?php }
 }
 
 //=========> KBE Plugin Breadcrumbs
@@ -622,27 +624,20 @@ function kbe_show_tags(){
 }
 
 //=========> KBE Dynamic CSS
-add_action('wp_head', 'count_bg_color');
+add_action('wp_enqueue_scripts', 'count_bg_color');
 function count_bg_color(){
-?>
-<style type="text/css">
-<?php
-    $kbe_bgcolor = get_option('kbe_bgcolor');
-?>
-    #kbe_content h2 span.kbe_count {
-        background-color: <?php echo KBE_BG_COLOR; ?> !important;
+    if ( KBE_BG_COLOR ){
+        $dynamic_css = "
+            #kbe_content h2 span.kbe_count,
+            #kbe_content .kbe_child_category h3 span.kbe_count {
+                background-color: " . KBE_BG_COLOR . " !important;
+            }
+            .kbe_widget .kbe_tags_widget a,
+            .kbe_widget .kbe_tags_widget a:hover{
+                text-decoration: underline;
+                color: " . KBE_BG_COLOR . " !important;
+            }
+        ";
+        wp_add_inline_style( 'kbe_theme_style', $dynamic_css );
     }
-    #kbe_content .kbe_child_category h3 span.kbe_count {
-        background-color: <?php echo KBE_BG_COLOR; ?> !important;
-    }
-    .kbe_widget .kbe_tags_widget a{
-        text-decoration: none;
-        color: <?php echo KBE_BG_COLOR; ?> !important;
-    }
-    .kbe_widget .kbe_tags_widget a:hover{
-        text-decoration: underline;
-        color: <?php echo KBE_BG_COLOR; ?> !important;
-    }
-</style>
-<?php
 }

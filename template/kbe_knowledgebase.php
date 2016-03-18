@@ -4,6 +4,12 @@
     =========*/
     get_header('knowledgebase');
     
+    // load the style and script
+    wp_enqueue_style ( 'kbe_theme_style' );
+    if( KBE_SEARCH_SETTING == 1 ){
+        wp_enqueue_script( 'kbe_live_search' );
+    }
+
     // Classes For main content div
     if(KBE_SIDEBAR_HOME == 0) {
         $kbe_content_class = 'class="kbe_content_full"';
@@ -70,7 +76,11 @@
                         <span class="kbe_count">
                             <?php
                                 echo $kbe_taxonomy->count;
-                                _e(' Articles','kbe');
+                                if ($kbe_taxonomy->count == 1) {
+                                    _e(' Article','kbe');
+                                } else {
+                                    _e(' Articles','kbe');
+                                }
                             ?>
                         </span>
                         <a href="<?php echo get_term_link($kbe_term_slug, 'kbe_taxonomy') ?>">
@@ -101,7 +111,11 @@
                                 <span class="kbe_count">
                                     <?php
                                         echo $kbe_child_term->count;
-                                        _e(' Articles','kbe');
+                                        if ($kbe_child_term->count == 1) {
+                                            _e(' Article','kbe');
+                                        } else {
+                                            _e(' Articles','kbe');
+                                        }
                                     ?>
                                 </span>
                                 <a href="<?php echo get_term_link($kbe_child_term_slug, 'kbe_taxonomy') ?>">
