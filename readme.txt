@@ -1,5 +1,5 @@
 === WP Knowledgebase ===
-Contributors: EnigmaWeb, helgatheviking, Base29
+Contributors: EnigmaWeb, helgatheviking, Base29, macbookandrew
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=CEJ9HFWJ94BG4
 Tags: WP Knowledgebase, knowledgebase, knowledge base, faqs, wiki
 Requires at least: 2.7
