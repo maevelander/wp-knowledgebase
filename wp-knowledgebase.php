@@ -221,6 +221,9 @@ register_activation_hook(__FILE__, 'wp_kbe_hooks');
 //=========> Define plugin path
 define( 'WP_KNOWLEDGEBASE', plugin_dir_url(__FILE__));
 
+//=========> Define template path
+define( 'TEMPLATEPATH', get_stylesheet_directory());
+
 //  define options values
 $kbe_settings = get_option('kbe_settings');
 if (isset($kbe_settings['kbe_article_qty'])){
