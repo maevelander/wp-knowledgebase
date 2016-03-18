@@ -353,7 +353,7 @@ function load_all_jquery() {
 }
 
 function st_add_live_search () {
-    if( KBE_SEARCH_SETTING == 1 ){
+    if( ( KBE_SEARCH_SETTING == 1 ) && ( wp_script_is( 'kbe_live_search', 'enqueued' ) ) ){
 ?>
     <script type="text/javascript">
         jQuery(document).ready(function() {
