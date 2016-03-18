@@ -280,6 +280,12 @@ function kbe_frontend_scripts(){
     wp_register_script( 'kbe_live_search', WP_KNOWLEDGEBASE.  'js/jquery.livesearch.js', array('jquery'), KBE_PLUGIN_VERSION, true );
 }
 
+//=========> Register admin script to dismiss notices
+add_action( 'admin_enqueue_scripts', 'kbe_admin_assets' );
+function kbe_admin_assets() {
+    wp_enqueue_script('kbe-dismiss-notices', WP_KNOWLEDGEBASE.'js/notice-update.js', array( 'jquery' ));
+}
+
 //=========> Enqueue admin scripts/styles
 add_action( 'current_screen', 'kbe_admin_settings_scripts' );
 function kbe_admin_settings_scripts($screen) {
@@ -295,6 +301,31 @@ function kbe_admin_settings_scripts($screen) {
     if( $screen->post_type == 'kbe_knowledgebase' ){
         wp_enqueue_style('kbe_admin_css', WP_KNOWLEDGEBASE.'css/kbe_admin_style.css');
     }
+}
+
+//=========> Show admin notice
+function update_asset_enqueueing_notice() {
+    $class = 'notice notice-error is-dismissible asset-enqueueing-notice';
+    $title = __( 'WP Knowledgebase', 'kbe' );
+    $message = __( "It looks like you&rsquo;re using some customized templates stored in the <code>/wp-content/themes/your_theme/wp_knowledgebase/</code> folder; you <strong>need to add this code</strong> at the top of each file after <code>get_header('knowledgebase')</code> or the styling and search form will be broken.", 'kbe' );
+    $code = "   // load the style and script
+    wp_enqueue_style ( 'kbe_theme_style' );
+    if( KBE_SEARCH_SETTING == 1 ){
+        wp_enqueue_script( 'kbe_live_search' );
+    }";
+
+    // check for existence of customized files
+    $base = get_stylesheet_directory() . '/wp_knowledgebase/';
+    if ( empty( get_option( 'kbe_asset_enqueueing_notice_dismissed' ) ) && ( file_exists( $base . 'archive-kbe_knowledgebase.php' ) || file_exists( $base . 'kbe_knowledgebase.php' ) || file_exists( $base . 'single-kbe_knowledgebase.php' ) || file_exists( $base . 'taxonomy-kbe_tags.php' ) || file_exists( $base . 'taxonomy-kbe_taxonomy.php' ) ) ) {
+        printf( '<div class="%1$s"><h2>%2$s</h2><p>%3$s</p><pre><code>%4$s</code></pre></div>', $class, $title, $message, $code );
+    }
+}
+add_action( 'admin_notices', 'update_asset_enqueueing_notice' );
+
+//=========> Dismiss assett enqueueing notice
+add_action( 'wp_ajax_kbe_dismiss_asset_equeueing_notice', 'kbe_dismiss_asset_equeueing_notice' );
+function kbe_dismiss_asset_equeueing_notice() {
+    update_option( 'kbe_asset_enqueueing_notice_dismissed', '1' );
 }
 
 //=========> Deprecated functions
