@@ -307,7 +307,7 @@ function kbe_admin_settings_scripts($screen) {
 function update_asset_enqueueing_notice() {
     $class = 'notice notice-error is-dismissible asset-enqueueing-notice';
     $title = __( 'WP Knowledgebase', 'kbe' );
-    $message = __( "It looks like you&rsquo;re using some customized templates stored in the <code>/wp-content/themes/your_theme/wp_knowledgebase/</code> folder; you <strong>need to add this code</strong> at the top of each file after <code>get_header('knowledgebase')</code> or the styling and search form will be broken.", 'kbe' );
+    $message = __( "It looks like you&rsquo;re using some customized templates stored in the <code>/wp-content/themes/your_theme/wp_knowledgebase/</code> folder; you <strong>need to add this code</strong> at the top of each file after <code>get_header('knowledgebase')</code> or the styling and search form will be broken. (If you modified <code>kbe_search.php</code>, the <code>get_header('knowledgebase')</code> was originally on line 41 and this new code needs to be immediately below that call.)", 'kbe' );
     $code = "   // load the style and script
     wp_enqueue_style ( 'kbe_theme_style' );
     if( KBE_SEARCH_SETTING == 1 ){
@@ -316,7 +316,7 @@ function update_asset_enqueueing_notice() {
 
     // check for existence of customized files
     $base = get_stylesheet_directory() . '/wp_knowledgebase/';
-    if ( empty( get_option( 'kbe_asset_enqueueing_notice_dismissed' ) ) && ( file_exists( $base . 'archive-kbe_knowledgebase.php' ) || file_exists( $base . 'kbe_knowledgebase.php' ) || file_exists( $base . 'single-kbe_knowledgebase.php' ) || file_exists( $base . 'taxonomy-kbe_tags.php' ) || file_exists( $base . 'taxonomy-kbe_taxonomy.php' ) ) ) {
+    if ( empty( get_option( 'kbe_asset_enqueueing_notice_dismissed' ) ) && ( file_exists( $base . 'archive-kbe_knowledgebase.php' ) || file_exists( $base . 'kbe_knowledgebase.php' ) || file_exists( $base . 'kbe_search.php' ) || file_exists( $base . 'single-kbe_knowledgebase.php' ) || file_exists( $base . 'taxonomy-kbe_tags.php' ) || file_exists( $base . 'taxonomy-kbe_taxonomy.php' ) ) ) {
         printf( '<div class="%1$s"><h2>%2$s</h2><p>%3$s</p><pre><code>%4$s</code></pre></div>', $class, $title, $message, $code );
     }
 }
