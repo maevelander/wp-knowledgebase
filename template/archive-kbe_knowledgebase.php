@@ -3,7 +3,9 @@
     
     // load the style and script
     wp_enqueue_style ( 'kbe_theme_style' );
-    wp_enqueue_script( 'kbe_live_search' );
+    if( KBE_SEARCH_SETTING == 1 ){
+        wp_enqueue_script( 'kbe_live_search' );
+    }
 
     // Classes For main content div
     if(KBE_SIDEBAR_HOME == 0) {
