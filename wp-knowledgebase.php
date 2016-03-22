@@ -618,8 +618,8 @@ function template_chooser($template){
     $post_type = get_query_var('post_type');
     
     if( $wp_query->is_search && $post_type == 'kbe_knowledgebase' ){
-        if(file_exists(TEMPLATEPATH . '/wp_knowledgebase/kbe_search.php')) {
-            return TEMPLATEPATH . '/wp_knowledgebase/kbe_search.php';
+        if(file_exists(get_stylesheet_directory() . '/wp_knowledgebase/kbe_search.php')) {
+            return get_stylesheet_directory() . '/wp_knowledgebase/kbe_search.php';
         } else {
             return plugin_dir_path(__FILE__)."template/kbe_search.php";
         }  //  redirect to kbe_search.php
