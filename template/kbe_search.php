@@ -39,6 +39,11 @@ if(!empty($_GET['ajax']) ? $_GET['ajax'] : null) {
     }
 } else {
     get_header('knowledgebase');
+    // load the style and script
+    wp_enqueue_style ( 'kbe_theme_style' );
+    if( KBE_SEARCH_SETTING == 1 ){
+        wp_enqueue_script( 'kbe_live_search' );
+    }
 ?>
     <div id="kbe_container">
 
