@@ -1,5 +1,6 @@
 <?php
     get_header('knowledgebase');
+    global $wpdb;
     
     // load the style and script
     wp_enqueue_style ( 'kbe_theme_style' );
@@ -68,13 +69,31 @@
                     $kbe_term_id = $kbe_taxonomy->term_id;
                     $kbe_term_slug = $kbe_taxonomy->slug;
                     $kbe_term_name = $kbe_taxonomy->name;
+                    
+                    $kbe_taxonomy_parent_count = $kbe_taxonomy->count;
+                    
+                    $children = get_term_children($kbe_term_id, KBE_POST_TAXONOMY);
+                    
+                    $kbe_count_sum = $wpdb->get_var("SELECT Sum(count)
+                                                     FROM wp_term_taxonomy
+                                                     WHERE taxonomy = '".KBE_POST_TAXONOMY."'
+                                                     And parent = $kbe_term_id"
+                                                    );
+                    
+                    $kbe_count_sum_parent = '';
+                
+                    if($children) {
+                        $kbe_count_sum_parent = $kbe_count_sum + $kbe_taxonomy_parent_count;
+                    } else {
+                        $kbe_count_sum_parent = $kbe_taxonomy_parent_count;
+                    }
             ?>
                     <div class="kbe_category">
                         <h2>
                             <span class="kbe_count">
                                 <?php
-                                    echo $kbe_taxonomy->count;
-                                    if ($kbe_taxonomy->count == 1) {
+                                    echo $kbe_count_sum_parent;
+                                    if ($kbe_count_sum_parent == 1) {
                                         _e(' Article','kbe');
                                     } else {
                                         _e(' Articles','kbe');

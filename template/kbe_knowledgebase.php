@@ -9,7 +9,7 @@
     if( KBE_SEARCH_SETTING == 1 ){
         wp_enqueue_script( 'kbe_live_search' );
     }
-
+    
     // Classes For main content div
     if(KBE_SIDEBAR_HOME == 0) {
         $kbe_content_class = 'class="kbe_content_full"';
@@ -70,13 +70,31 @@
                 $kbe_term_id = $kbe_taxonomy->term_id;
                 $kbe_term_slug = $kbe_taxonomy->slug;
                 $kbe_term_name = $kbe_taxonomy->name;
+                
+                $kbe_taxonomy_parent_count = $kbe_taxonomy->count;
+                    
+                    $children = get_term_children($kbe_term_id, KBE_POST_TAXONOMY);
+                    
+                    $kbe_count_sum = $wpdb->get_var("SELECT Sum(count)
+                                                     FROM wp_term_taxonomy
+                                                     WHERE taxonomy = '".KBE_POST_TAXONOMY."'
+                                                     And parent = $kbe_term_id"
+                                                    );
+                    
+                    $kbe_count_sum_parent = '';
+                
+                    if($children) {
+                        $kbe_count_sum_parent = $kbe_count_sum + $kbe_taxonomy_parent_count;
+                    } else {
+                        $kbe_count_sum_parent = $kbe_taxonomy_parent_count;
+                    }
         ?>
                 <div class="kbe_category">
                     <h2>
                         <span class="kbe_count">
                             <?php
-                                echo $kbe_taxonomy->count;
-                                if ($kbe_taxonomy->count == 1) {
+                                echo $kbe_count_sum_parent;
+                                if ($kbe_count_sum_parent == 1) {
                                     _e(' Article','kbe');
                                 } else {
                                     _e(' Articles','kbe');
@@ -169,6 +187,7 @@
                         'posts_per_page' => KBE_ARTICLE_QTY,
                         'orderby' => 'menu_order',
                         'order' => 'ASC',
+                        'post_parent' => 0,
                         'tax_query' => array(
                             array(
                                 'taxonomy' => KBE_POST_TAXONOMY,

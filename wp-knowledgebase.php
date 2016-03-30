@@ -4,12 +4,12 @@
   Plugin URI: http://wordpress.org/plugins/wp-knowledgebase
   Description: Simple and flexible knowledgebase plugin for WordPress
   Author: Enigma Plugins
-  Version: 1.1.1
+  Version: 1.1.2
   Author URI: http://enigmaplugins.com
   Requires at least: 2.7
  */
  
- define( 'KBE_PLUGIN_VERSION', '1.1' );
+ define( 'KBE_PLUGIN_VERSION', '1.1.2' );
 
 //=========> Create language folder
 add_action( 'init', 'kbe_plugin_load_textdomain' );
@@ -316,7 +316,8 @@ function update_asset_enqueueing_notice() {
 
     // check for existence of customized files
     $base = get_stylesheet_directory() . '/wp_knowledgebase/';
-    if ( empty( get_option( 'kbe_asset_enqueueing_notice_dismissed' ) ) && ( file_exists( $base . 'archive-kbe_knowledgebase.php' ) || file_exists( $base . 'kbe_knowledgebase.php' ) || file_exists( $base . 'kbe_search.php' ) || file_exists( $base . 'single-kbe_knowledgebase.php' ) || file_exists( $base . 'taxonomy-kbe_tags.php' ) || file_exists( $base . 'taxonomy-kbe_taxonomy.php' ) ) ) {
+    $notice_dismissed = get_option( 'kbe_asset_enqueueing_notice_dismissed' );
+    if ( ( ! isset( $notice_dismissed ) || '0' === $notice_dismissed ) && ( file_exists( $base . 'archive-kbe_knowledgebase.php' ) || file_exists( $base . 'kbe_knowledgebase.php' ) || file_exists( $base . 'kbe_search.php' ) || file_exists( $base . 'single-kbe_knowledgebase.php' ) || file_exists( $base . 'taxonomy-kbe_tags.php' ) || file_exists( $base . 'taxonomy-kbe_taxonomy.php' ) ) ) {
         printf( '<div class="%1$s"><h2>%2$s</h2><p>%3$s</p><pre><code>%4$s</code></pre></div>', $class, $title, $message, $code );
     }
 }
@@ -506,7 +507,7 @@ function kbe_breadcrumbs(){
     
     $kbe_slug_case = ucwords(strtolower(KBE_PLUGIN_SLUG));
                         
-    $url = "http://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+    $url = $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
     
     if(strpos($url, 'knowledgebase_category') || strpos($url, 'kbe_taxonomy')){
         $kbe_bc_name = get_queried_object()->name;
