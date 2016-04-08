@@ -634,7 +634,7 @@
 }
 
 /*======> responsive layout <======*/
-@media screen and (min-width: 769px) and (max-width: 1024px) {
+@media screen and (min-width: 768px) and (max-width: 1024px) {
     #kbe_content .kbe_leftcol {
         width: 65%;
     }
@@ -648,6 +648,9 @@
     .kbe_aside {
         float: left;
         width: 222px;
+    }
+    .kbe_content_full {
+        width: 100% !important;
     }
     .kbe_content_full .kbe_leftcol {
         width: 100% !important;
@@ -673,14 +676,15 @@
     }
     .kbe_content_left {
         float: left;
-        width: 75% !important;
+        width: 64% !important;
         margin-bottom: 30px;
     }
 
     .kbe_content_right {
         float: left;
-        width: 75% !important;
+        width: 64% !important;
         margin-bottom: 30px;
+        margin-right: 36px;
     }
     .kbe_reply {
         width: 80%;
@@ -695,7 +699,7 @@
         font-size: 20px;
     }
 }
-@media screen and (min-width: 641px) and (max-width: 768px) {
+@media screen and (min-width: 641px) and (max-width: 767px) {
     #kbe_content .kbe_leftcol {
         width: 65%;
     }

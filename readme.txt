@@ -3,7 +3,7 @@ Contributors: EnigmaWeb, helgatheviking, Base29, macbookandrew
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=CEJ9HFWJ94BG4
 Tags: WP Knowledgebase, knowledgebase, knowledge base, faqs, wiki
 Requires at least: 2.7
-Tested up to: 4.4.1
+Tested up to: 4.5
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -127,6 +127,20 @@ If you've tried all the obvious stuff and it's still not working please request 
 4. Available widgets
 
 == Changelog ==
+
+= 1.1.2 =
+* fixed count issue on parent category
+* fixed page title issue - it will now reflect page name rather than being stuck on "knowledgebase"
+* fixed pluralization if there is only one article
+* register stylesheet and JS and call only on KBE pages 
+* only eneque and load search inline script if search is enabled
+* move some scripts to footer for better performance
+* only print inline styles if color is defined
+* add admin notice if theme contains customized templates
+* optimize images
+* use get_stylesheet_directory instead of replacing built-in constant
+* fixed a few typos
+
 = 1.1.1 =
 * fixed error warnings
 * 'parent' => 0 removed from the terms array to fix reorder of subcategories
@@ -195,67 +209,46 @@ If you've tried all the obvious stuff and it's still not working please request 
 
 == Upgrade Notice ==
 
+= 1.1.2 =
+This upgrade fixes a lot of small long running issues and optimises performance.  All users are encouraged to upgrade.
+
+A big thank you to macbookandrew for his contributions to this release.
+
 = 1.1.1 =
-* fixed error warnings
-* 'parent' => 0 removed from the terms array to fix reorder of subcategories
-* Registered support for 'author'
+This is a minor release addressing a few small bugs and enhancements.
 
 = 1.1 =
-* renames index.php to wp-knowledgebase.php
-* no longer automatically copies template files to theme folder
-* no longer deletes kbe template folder from theme
-* fixes template redirect issue
-* fixes search template issue
-* uninstall.php is called automatically as of WP2.7
-* no longer silences error_reporting
-* no need to flush_rewrite_rules() 3 times
-* updates widget registration
-* adds optional custom headers/footers
-* fix for undefined $i variable
-* fixes conditional loading of scripts/styles
-* sanitizes merge options
-* some minor css fixes
+This is a major release which focuses on the plugin's templating system and overall code improvements. Upgrade carefully and please read new FAQ info and description regarding the templating.
+
+A big thank you to helgatheviking for her contributions to this release.
+
 
 = 1.0.9 =
-* Replace TEMPLATEPATH with STYLESHEETPATH.
-* Replace get_template_directory_uri() with get_stylesheet_directory_uri().
+Minor release, but fixes an important stylesheet issue. Upgrade immediately.
 
 = 1.0.8 =
-* Added strip_tags() function for excerpt for the search results.
-* Query corrected for getting KBE title and fixing the activation error.
+Minor release.
 
 = 1.0.7 =
-* CSS file path corrected.
+Patch only.
 
 = 1.0.6 =
-* Update query corrected on order.
+Patch only.
 
 = 1.0.5 =
-* Issue with child theme fixed.
-* Function corrected for copying plugin template files in to active theme folder
+Important fixes to templating and css. Upgrade immediately.
 
 = 1.0.4 =
-* Breadcrumbs text issue fixed.
-* Added support for Sub-Categories.
-* Added support for child theme.
-* Added support for multi site.
-* Some Code Correction.
-* Added support for revisions.
-* Languages added
+Major release.
 
 = 1.0.3 =
-* Minor CSS Changes.
-* Breadcrumbs link issue fixed.
-* Truncate function removed from the titles 
-* Function corrected for loading plugin text domain
+Minor release, fixing a number of irritating problems. Encouraged to upgrade.
 
 = 1.0.2 =
-* Translation issue fixed
-* Miscellaneous minor fixes
+Minor release.
 
 = 1.0.1 =
-* Function fixed which was assigning template to the page
-* Theme styling issue fixed
+Minor release.
 
 = 1.0 =
-* Initial release
+Initial release
