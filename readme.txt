@@ -50,7 +50,7 @@ This is the safest way to customise the WP Knowledebase templates, as it means t
 
 = Languages =
 
-English, German, Dutch, Blugarian, Spanish - Spain, Spanish - USA, Spanish - Puerto Rico, Brazilian Portaguese, Swedish. 
+English, German, Dutch, Blugarian, Spanish - Spain, Spanish - USA, Spanish - Puerto Rico, Brazilian Portaguese, Swedish, Polish and Indonesian.
 
 Translators, thank you all for your contribution to this plugin. Much appreciated. If you'd like to help translate this plugin into your language please get in touch. It's very easy - you don't have to know any code and it's a great way to contribute to the WordPress community. Please [contact Maeve](http://www.enigmaplugins.com/contact/)
 
