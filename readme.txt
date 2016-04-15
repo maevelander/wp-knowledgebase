@@ -128,6 +128,9 @@ If you've tried all the obvious stuff and it's still not working please request 
 
 == Changelog ==
 
+== 1.1.3 == 
+* Custom Styles and Templates issue fixed.
+
 = 1.1.2 =
 * fixed count issue on parent category
 * fixed page title issue - it will now reflect page name rather than being stuck on "knowledgebase"

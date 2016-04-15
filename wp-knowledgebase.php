@@ -4,12 +4,12 @@
   Plugin URI: http://wordpress.org/plugins/wp-knowledgebase
   Description: Simple and flexible knowledgebase plugin for WordPress
   Author: Enigma Plugins
-  Version: 1.1.2
+  Version: 1.1.3
   Author URI: http://enigmaplugins.com
   Requires at least: 2.7
  */
  
- define( 'KBE_PLUGIN_VERSION', '1.1.2' );
+ define( 'KBE_PLUGIN_VERSION', '1.1.3' );
 
 //=========> Create language folder
 add_action( 'init', 'kbe_plugin_load_textdomain' );
@@ -268,89 +268,52 @@ function kbe_plugin_menu() {
     add_submenu_page('edit.php?post_type=kbe_knowledgebase', 'Settings', 'Settings', 'manage_options', 'kbe_options', 'wp_kbe_options');
 }
 
-//=========> Register KBE frontend scripts/styles
-add_action( 'wp_enqueue_scripts', 'kbe_frontend_scripts');
-function kbe_frontend_scripts(){
+//=========> Enqueue KBE Style file in header.php
+function kbe_styles(){
     if( file_exists( get_stylesheet_directory() . '/wp_knowledgebase/kbe_style.css' ) ){
         $stylesheet = get_stylesheet_directory_uri() . '/wp_knowledgebase/kbe_style.css'; 
     } else {
         $stylesheet = WP_KNOWLEDGEBASE. 'template/kbe_style.css';
     }
     wp_register_style ( 'kbe_theme_style', $stylesheet, array(), KBE_PLUGIN_VERSION );
-    wp_register_script( 'kbe_live_search', WP_KNOWLEDGEBASE.  'js/jquery.livesearch.js', array('jquery'), KBE_PLUGIN_VERSION, true );
 }
-
-//=========> Register admin script to dismiss notices
-add_action( 'admin_enqueue_scripts', 'kbe_admin_assets' );
-function kbe_admin_assets() {
-    wp_enqueue_script('kbe-dismiss-notices', WP_KNOWLEDGEBASE.'js/notice-update.js', array( 'jquery' ));
-}
-
-//=========> Enqueue admin scripts/styles
-add_action( 'current_screen', 'kbe_admin_settings_scripts' );
-function kbe_admin_settings_scripts($screen) {
-    // first check that $hook_suffix is appropriate for your admin page
-    if( $screen->id == 'kbe_knowledgebase_page_kbe_options' ){
-        wp_enqueue_style('wp-color-picker');
-        wp_enqueue_script('cp-script-handle', WP_KNOWLEDGEBASE.'js/color_picker.js', array( 'wp-color-picker' ), false, true);
-    } elseif ( $screen->id == 'kbe_knowledgebase_page_kbe_order' ){
-        wp_enqueue_script( 'jquery' );
-        wp_enqueue_script( 'jquery-ui-sortable' );
-    }
-
-    if( $screen->post_type == 'kbe_knowledgebase' ){
-        wp_enqueue_style('kbe_admin_css', WP_KNOWLEDGEBASE.'css/kbe_admin_style.css');
-    }
-}
-
-//=========> Show admin notice
-function update_asset_enqueueing_notice() {
-    $class = 'notice notice-error is-dismissible asset-enqueueing-notice';
-    $title = __( 'WP Knowledgebase', 'kbe' );
-    $message = __( "It looks like you&rsquo;re using some customized templates stored in the <code>/wp-content/themes/your_theme/wp_knowledgebase/</code> folder; you <strong>need to add this code</strong> at the top of each file after <code>get_header('knowledgebase')</code> or the styling and search form will be broken. (If you modified <code>kbe_search.php</code>, the <code>get_header('knowledgebase')</code> was originally on line 41 and this new code needs to be immediately below that call.)", 'kbe' );
-    $code = "   // load the style and script
-    wp_enqueue_style ( 'kbe_theme_style' );
-    if( KBE_SEARCH_SETTING == 1 ){
-        wp_enqueue_script( 'kbe_live_search' );
-    }";
-
-    // check for existence of customized files
-    $base = get_stylesheet_directory() . '/wp_knowledgebase/';
-    $notice_dismissed = get_option( 'kbe_asset_enqueueing_notice_dismissed' );
-    if ( ( ! isset( $notice_dismissed ) || '0' === $notice_dismissed ) && ( file_exists( $base . 'archive-kbe_knowledgebase.php' ) || file_exists( $base . 'kbe_knowledgebase.php' ) || file_exists( $base . 'kbe_search.php' ) || file_exists( $base . 'single-kbe_knowledgebase.php' ) || file_exists( $base . 'taxonomy-kbe_tags.php' ) || file_exists( $base . 'taxonomy-kbe_taxonomy.php' ) ) ) {
-        printf( '<div class="%1$s"><h2>%2$s</h2><p>%3$s</p><pre><code>%4$s</code></pre></div>', $class, $title, $message, $code );
-    }
-}
-add_action( 'admin_notices', 'update_asset_enqueueing_notice' );
-
-//=========> Dismiss assett enqueueing notice
-add_action( 'wp_ajax_kbe_dismiss_asset_equeueing_notice', 'kbe_dismiss_asset_equeueing_notice' );
-function kbe_dismiss_asset_equeueing_notice() {
-    update_option( 'kbe_asset_enqueueing_notice_dismissed', '1' );
-}
-
-//=========> Deprecated functions
-function kbe_styles(){
-    _deprecated_function( 'kbe_styles', '1.1.0', 'kbe_frontend_scripts' );
-}
+add_action('wp_enqueue_scripts', 'kbe_styles');
 
 
+add_action('wp_print_scripts', 'kbe_live_search');
 function kbe_live_search(){
-    _deprecated_function( 'kbe_live_search', '1.1.0', 'kbe_frontend_scripts' );
+    wp_register_script('kbe_live_search', WP_KNOWLEDGEBASE.'js/jquery.livesearch.js');
+    wp_enqueue_script('kbe_live_search');
 }
 
-
-function wp_kbe_scripts(){
-    _deprecated_function( 'wp_kbe_scripts', '1.1.0', 'kbe_admin_settings_scripts' );
+//=========> Enqueue plugin files
+$kbe_address_bar = $_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+if(strpos($kbe_address_bar, "post_type=kbe_knowledgebase")) {
+    add_action('admin_init', 'wp_kbe_scripts');
+    function wp_kbe_scripts(){
+        wp_register_style('kbe_admin_css', WP_KNOWLEDGEBASE.'css/kbe_admin_style.css');
+        wp_enqueue_style('kbe_admin_css');
+    }
 }
 
-/*function enqueue_color_picker($hook_suffix) {
-    _deprecated_function( 'enqueue_color_picker', '1.1.0', 'kbe_admin_settings_scripts' );
-}*/
+//=========> Enqueue color picker
+add_action('admin_init', 'enqueue_color_picker');
+function enqueue_color_picker($hook_suffix) {
+    // first check that $hook_suffix is appropriate for your admin page
+    wp_enqueue_style('wp-color-picker');
+    wp_enqueue_script('cp-script-handle', WP_KNOWLEDGEBASE.'js/color_picker.js', array( 'wp-color-picker' ), false, true);
+}
 
-
+add_action('admin_init', 'load_all_jquery');
 function load_all_jquery() {
-    _deprecated_function( 'load_all_jquery', '1.1.0', 'kbe_admin_settings_scripts' );
+    wp_enqueue_script("jquery");
+    $jquery_ui = array(
+        "jquery-ui-sortable"
+    );
+
+    foreach($jquery_ui as $script){
+        wp_enqueue_script($script);
+    }
 }
 
 function st_add_live_search () {
@@ -405,7 +368,7 @@ function kbe_template_chooser($template){
         $find[] = $file;
         $find[] = $template_path . $file;
     } elseif ( is_post_type_archive( 'kbe_knowledgebase' ) || is_page( KBE_PAGE_TITLE ) ) {
-        $file   = 'archive-kbe_knowledgebase.php';
+        $file   = 'kbe_knowledgebase.php';
         $find[] = $file;
         $find[] = $template_path . $file;
     }
@@ -576,7 +539,7 @@ function kbe_breadcrumbs(){
 
 //=========>  KBE Knowledgebase Shortcode
 function kbe_shortcode( $atts, $content = null ){
-    $return_string = require 'template/archive-kbe_knowledgebase.php';
+    $return_string = require 'template/kbe_knowledgebase.php';
     wp_reset_query();
     return $return_string;
 }
