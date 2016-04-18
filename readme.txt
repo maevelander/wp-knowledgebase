@@ -130,7 +130,8 @@ If you've tried all the obvious stuff and it's still not working please request 
 == Changelog ==
 
 = 1.1.3 = 
-* Custom Styles and Templates issue fixed.
+* custom Styles and Templates issue fixed.
+* fixed +/- icon filepaths so they change properly
 
 = 1.1.2 =
 * fixed count issue on parent category
