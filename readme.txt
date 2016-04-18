@@ -47,7 +47,7 @@ This is the safest way to customise the WP Knowledebase templates, as it means t
 
 *	[Orpheus](http://orpheus-app.com/knowledgebase) Android app knowledgebase
 *	[Cub Themes](http://cubthemes.com/support/) knowledgebase
-* [Enigma Plugins](https://enigmaplugins.com/knowledgebase/) knowledgebase
+*  [Enigma Plugins](https://enigmaplugins.com/knowledgebase/) knowledgebase
 
 = Languages =
 
@@ -129,7 +129,7 @@ If you've tried all the obvious stuff and it's still not working please request 
 
 == Changelog ==
 
-== 1.1.3 == 
+= 1.1.3 = 
 * Custom Styles and Templates issue fixed.
 
 = 1.1.2 =
@@ -212,6 +212,9 @@ If you've tried all the obvious stuff and it's still not working please request 
 * Initial release
 
 == Upgrade Notice ==
+
+= 1.1.3 =
+This is an urgent upgrade which fixes issues for users with custom templates. Please upgrade immediately.
 
 = 1.1.2 =
 This upgrade fixes a lot of small long running issues and optimises performance.  All users are encouraged to upgrade.
