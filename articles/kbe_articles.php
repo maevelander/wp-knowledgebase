@@ -142,7 +142,7 @@ function kbe_edit_columns($columns){
         "cb" 		=> 	"<input type=\"checkbox\" />", 
         "title" 	=> 	__("Title", "kbe"),
         "author" 	=> 	__("Author", "kbe"),
-        "cat" 		=> 	__("Cateogry", "kbe"),
+        "cat" 		=> 	__("Category", "kbe"),
         "tag" 		=> 	__("Tags", "kbe"),
         "comment" 	=> 	__("Comments", "kbe"),
         'views' 	=> 	__("Views", "kbe"),
