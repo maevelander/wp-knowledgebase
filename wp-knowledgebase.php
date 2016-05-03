@@ -4,12 +4,12 @@
   Plugin URI: http://wordpress.org/plugins/wp-knowledgebase
   Description: Simple and flexible knowledgebase plugin for WordPress
   Author: Enigma Plugins
-  Version: 1.1.3
+  Version: 1.1.4
   Author URI: http://enigmaplugins.com
   Requires at least: 2.7
  */
  
- define( 'KBE_PLUGIN_VERSION', '1.1.3' );
+ define( 'KBE_PLUGIN_VERSION', '1.1.4' );
 
 //=========> Create language folder
 add_action( 'init', 'kbe_plugin_load_textdomain' );
@@ -224,28 +224,28 @@ define( 'WP_KNOWLEDGEBASE', plugin_dir_url(__FILE__));
 //  define options values
 $kbe_settings = get_option('kbe_settings');
 if (isset($kbe_settings['kbe_article_qty'])){
-define('KBE_ARTICLE_QTY', $kbe_settings['kbe_article_qty']);
+    define('KBE_ARTICLE_QTY', $kbe_settings['kbe_article_qty']);
 }
 if (isset($kbe_settings['kbe_plugin_slug'])){
-define('KBE_PLUGIN_SLUG', $kbe_settings['kbe_plugin_slug']);
+    define('KBE_PLUGIN_SLUG', $kbe_settings['kbe_plugin_slug']);
 }
 if (isset($kbe_settings['kbe_search_setting'])){
-define('KBE_SEARCH_SETTING', $kbe_settings['kbe_search_setting']);
+    define('KBE_SEARCH_SETTING', $kbe_settings['kbe_search_setting']);
 }
 if (isset($kbe_settings['kbe_breadcrumbs_setting'])){
-define('KBE_BREADCRUMBS_SETTING', $kbe_settings['kbe_breadcrumbs_setting']);
+    define('KBE_BREADCRUMBS_SETTING', $kbe_settings['kbe_breadcrumbs_setting']);
 }
 if (isset($kbe_settings['kbe_sidebar_home'])){
-define('KBE_SIDEBAR_HOME', $kbe_settings['kbe_sidebar_home']);
+    define('KBE_SIDEBAR_HOME', $kbe_settings['kbe_sidebar_home']);
 }
 if (isset($kbe_settings['kbe_sidebar_inner'])){
-define('KBE_SIDEBAR_INNER', $kbe_settings['kbe_sidebar_inner']);
+    define('KBE_SIDEBAR_INNER', $kbe_settings['kbe_sidebar_inner']);
 }
 if (isset($kbe_settings['kbe_comments_setting'])){
-define('KBE_COMMENT_SETTING', $kbe_settings['kbe_comments_setting']);
+    define('KBE_COMMENT_SETTING', $kbe_settings['kbe_comments_setting']);
 }
 if (isset($kbe_settings['kbe_bgcolor'])){
-define('KBE_BG_COLOR', $kbe_settings['kbe_bgcolor']);
+    define('KBE_BG_COLOR', $kbe_settings['kbe_bgcolor']);
 }
 define('KBE_LINK_STRUCTURE', get_option('permalink_structure'));
 define('KBE_POST_TYPE', 'kbe_knowledgebase');
@@ -276,13 +276,25 @@ function kbe_styles(){
         $stylesheet = WP_KNOWLEDGEBASE. 'template/kbe_style.css';
     }
     wp_register_style ( 'kbe_theme_style', $stylesheet, array(), KBE_PLUGIN_VERSION );
+    wp_enqueue_style('kbe_theme_style');
 }
 add_action('wp_enqueue_scripts', 'kbe_styles');
 
+add_action('admin_init', 'load_all_jquery');
+function load_all_jquery() {
+    wp_enqueue_script("jquery");
+    $jquery_ui = array(
+        "jquery-ui-sortable"
+    );
 
-add_action('wp_print_scripts', 'kbe_live_search');
+    foreach($jquery_ui as $script){
+        wp_enqueue_script($script);
+    }
+}
+
+add_action('wp_enqueue_scripts', 'kbe_live_search');
 function kbe_live_search(){
-    wp_register_script('kbe_live_search', WP_KNOWLEDGEBASE.'js/jquery.livesearch.js');
+    wp_register_script( 'kbe_live_search', WP_KNOWLEDGEBASE.  'js/jquery.livesearch.js', array('jquery'), KBE_PLUGIN_VERSION, true );
     wp_enqueue_script('kbe_live_search');
 }
 
@@ -304,18 +316,6 @@ function enqueue_color_picker($hook_suffix) {
     wp_enqueue_script('cp-script-handle', WP_KNOWLEDGEBASE.'js/color_picker.js', array( 'wp-color-picker' ), false, true);
 }
 
-add_action('admin_init', 'load_all_jquery');
-function load_all_jquery() {
-    wp_enqueue_script("jquery");
-    $jquery_ui = array(
-        "jquery-ui-sortable"
-    );
-
-    foreach($jquery_ui as $script){
-        wp_enqueue_script($script);
-    }
-}
-
 function st_add_live_search () {
     if( ( KBE_SEARCH_SETTING == 1 ) && ( wp_script_is( 'kbe_live_search', 'enqueued' ) ) ){
 ?>
@@ -328,7 +328,6 @@ function st_add_live_search () {
 <?php }
 }
 add_action('wp_footer', 'st_add_live_search');
-
 
 /**
  * Load a template.

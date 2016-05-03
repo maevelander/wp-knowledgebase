@@ -129,6 +129,9 @@ If you've tried all the obvious stuff and it's still not working please request 
 
 == Changelog ==
 
+== 1.1.4 == 
+* Enqueue scripts & styles issue fixed. 
+
 = 1.1.3 = 
 * custom Styles and Templates issue fixed.
 * fixed +/- icon filepaths so they change properly
