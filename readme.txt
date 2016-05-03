@@ -129,8 +129,9 @@ If you've tried all the obvious stuff and it's still not working please request 
 
 == Changelog ==
 
-== 1.1.4 == 
-* Enqueue scripts & styles issue fixed. 
+= 1.1.4 = 
+* Enqueue scripts & styles issue fixed.
+* Minor typo fixed
 
 = 1.1.3 = 
 * custom Styles and Templates issue fixed.
@@ -216,6 +217,9 @@ If you've tried all the obvious stuff and it's still not working please request 
 * Initial release
 
 == Upgrade Notice ==
+
+= 1.1.4 =
+Contains important fix for users with custom templates. Please upgrade immediately.
 
 = 1.1.3 =
 This is an urgent upgrade which fixes issues for users with custom templates. Please upgrade immediately.
