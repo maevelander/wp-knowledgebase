@@ -47,7 +47,8 @@ This is the safest way to customise the WP Knowledebase templates, as it means t
 
 *	[Orpheus](http://orpheus-app.com/knowledgebase) Android app knowledgebase
 *	[Cub Themes](http://cubthemes.com/support/) knowledgebase
-*  [Enigma Plugins](https://enigmaplugins.com/knowledgebase/) knowledgebase
+* [Enigma Plugins](https://enigmaplugins.com/knowledgebase/) knowledgebase
+* [Infinte](https://br.infinite.sx/wiki/) Wiki
 
 = Languages =
 
