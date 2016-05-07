@@ -226,9 +226,8 @@ $kbe_settings = get_option('kbe_settings');
 if (isset($kbe_settings['kbe_article_qty'])){
     define('KBE_ARTICLE_QTY', $kbe_settings['kbe_article_qty']);
 }
-if (isset($kbe_settings['kbe_plugin_slug'])){
-    define('KBE_PLUGIN_SLUG', $kbe_settings['kbe_plugin_slug']);
-}
+define('KBE_PLUGIN_SLUG', isset( $kbe_settings['kbe_plugin_slug'] ) ? $kbe_settings['kbe_plugin_slug'] : 'knowledgebase');
+
 if (isset($kbe_settings['kbe_search_setting'])){
     define('KBE_SEARCH_SETTING', $kbe_settings['kbe_search_setting']);
 }
