@@ -48,7 +48,7 @@
                             <?php
                                 foreach($kbe_terms as $kbe_term) :
                             ?>
-                                    <li id="kbe_parent_id_<?php echo $kbe_term->term_id; ?>" class="lineitem <?php echo ($i % 2 == 0 ? 'alternate ' : ''); ?>ui-state-default">
+                                    <li id="kbe_parent_id_<?php echo $kbe_term->term_id; ?>" class="lineitem ui-state-default">
                                         <?php echo $kbe_term->name; ?>
                                     </li>
                             <?php
