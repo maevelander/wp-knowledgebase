@@ -372,7 +372,7 @@
 #kbe_container .kbe_widget li {
     margin-bottom: 16px;
     margin-left: 0px;
-    background: url(assets/images/kbe_icon_arrow.png) no-repeat 0 6px;
+    background: url(images/kbe_icon_arrow.png) no-repeat 0 6px;
     padding: 0 0 0 25px;
 }
 .kbe_widget li a {
