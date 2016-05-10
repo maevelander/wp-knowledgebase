@@ -302,7 +302,7 @@ $kbe_address_bar = $_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
 if(strpos($kbe_address_bar, "post_type=kbe_knowledgebase")) {
     add_action('admin_init', 'wp_kbe_scripts');
     function wp_kbe_scripts(){
-        wp_register_style('kbe_admin_css', WP_KNOWLEDGEBASE.'/assets/css/kbe_admin_style.css');
+        wp_register_style('kbe_admin_css', WP_KNOWLEDGEBASE.'/assets/css/kbe-admin-style.css');
         wp_enqueue_style('kbe_admin_css');
     }
 }
