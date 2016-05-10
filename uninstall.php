@@ -3,11 +3,18 @@
 if ( !defined( 'WP_UNINSTALL_PLUGIN' ) )
     exit ();
 
+$options = get_option( 'kbe_settings' );
+if ( ! isset( $options['kbe_wipe_uninstall'] ) || false == $options['kbe_wipe_uninstall'] ) {
+    return;
+}
+
+
 global $wpdb;
 
 $kbe_tbl_prefix = $wpdb->prefix;
-	
+
 //=========> Delete Plugin Settings From options Table
+delete_option('kbe_settings');
 delete_option('kbe_bgcolor');
 delete_option('kbe_plugin_slug');
 delete_option('kbe_article_qty');
@@ -81,7 +88,7 @@ foreach($kbe_get_post_images as $get_post_images){
     }
 }
 	
-//=========> Get all Posts of `kbe_knowledgebase` post type and Delete all relivent Data
+//=========> Get all Posts of `kbe_knowledgebase` post type and Delete all relevant Data
 $kbe_get_posts = $wpdb->get_results("Select * From ".$wpdb->prefix."posts Where post_type = 'kbe_knowledgebase'");
 
 foreach($kbe_get_posts as $get_posts){

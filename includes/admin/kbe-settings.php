@@ -10,9 +10,9 @@
         'kbe_sidebar_home' => 0,
         'kbe_sidebar_inner' => 0,
         'kbe_comments_setting' => 0,
-        'kbe_bgcolor' => ''
+        'kbe_bgcolor' => '',
+        'kbe_wipe_uninstall' => 0,
     );
-
     $kbe_settings = wp_parse_args( get_option( 'kbe_settings' ), $kbe_defaults );
 ?>
 <div id="wpbody">
@@ -165,6 +165,23 @@
                                 </td>
                                 <td colspan="3">
                                     <input type="text" name="kbe_settings[kbe_bgcolor]" id="kbe_bgcolor" value="<?php echo esc_attr( $kbe_settings['kbe_bgcolor'] ); ?>" class="cp-field">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td valign="top">
+                                    <label><?php _e('Wipe all data on uninstall','kbe'); ?></label>
+                                </td>
+                                <td>
+                                    <input type="radio" name="kbe_settings[kbe_wipe_uninstall]" id="kbe_wipe_uninstall_on" value="1" <?php checked( $kbe_settings['kbe_wipe_uninstall'], '1' ); ?>>
+                                    <span><?php _e('On','kbe'); ?></span>
+                                </td>
+                                <td>
+                                    <input type="radio" name="kbe_settings[kbe_wipe_uninstall]" id="kbe_wipe_uninstall_off" value="0" <?php checked( $kbe_settings['kbe_wipe_uninstall'], '0' ); ?>>
+                                    <span><?php _e('Off','kbe'); ?></span>
+                                </td>
+                                <td>
+                                    <strong><?php _e('Note:','kbe'); ?></strong>
+                                    <?php _e('This also includes all your articles and CANNOT be undone.','kbe'); ?>
                                 </td>
                             </tr>
                             <tr>
