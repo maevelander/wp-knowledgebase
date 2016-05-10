@@ -16,15 +16,15 @@ class kbe_Tags_Widget extends WP_Widget {
         parent::__construct(
             'kbe_tags_widgets', // Base ID
             __( 'Knowledgebase Tags', 'kbe' ), // Name
-            array( 'description' => __('WP Knowledgebase tags widget to show tags on the site', 'kbe'), 
-                   'classname' => 'kbe' ),
-            array( 'width' => 300, 'height' => 350, 'id_base' => 'kbe_tags_widgets' ) // Args
+            array(
+                'description' => __('WP Knowledgebase tags widget to show tags on the site', 'kbe'), 
+                'classname' => 'kbe' 
+            )
         );
     }
 	
 	//=======> How to display the widget on the screen.
     function widget($args, $widgetData) {
-        extract($args);
         
         //=======> Our variables from the widget settings.
         $kbe_widget_tag_title = $widgetData['txtKbeTagsHeading'];
@@ -32,7 +32,7 @@ class kbe_Tags_Widget extends WP_Widget {
         $kbe_widget_tag_style = $widgetData['txtKbeTagsStyle'];
         
         //=======> widget body
-        echo $before_widget;
+        echo $args['before_widget'];
         echo '<div class="kbe_widget kbe_widget_article">';
         
                 if($kbe_widget_tag_title){
@@ -64,7 +64,7 @@ class kbe_Tags_Widget extends WP_Widget {
                 </div>
 <?php      
         echo "</div>";
-        echo $after_widget;
+        echo $args['after_widget'];
     }
     
     //Update the widget 
@@ -81,19 +81,23 @@ class kbe_Tags_Widget extends WP_Widget {
     
     function form($widgetData) {
         //Set up some default widget settings.
-        $widgetData = wp_parse_args((array) $widgetData);
+        $widgetData = wp_parse_args((array) $widgetData, array(
+            'txtKbeTagsHeading' => '',
+            'txtKbeTagsCount' => 10,
+            'txtKbeTagsStyle' => 'flat',
+        ) );
 ?>
         <p>
-            <label for="<?php echo $this->get_field_id('txtKbeTagsHeading'); ?>"><?php _e('Tag Title:','kbe'); ?></label>
-            <input id="<?php echo $this->get_field_id('txtKbeTagsHeading'); ?>" name="<?php echo $this->get_field_name('txtKbeTagsHeading'); ?>" value="<?php echo $widgetData['txtKbeTagsHeading']; ?>" style="width:275px;" />
+            <label for="<?php echo $this->get_field_id('txtKbeTagsHeading'); ?>"><?php _e('Title:','kbe'); ?></label>
+            <input id="<?php echo $this->get_field_id('txtKbeTagsHeading'); ?>" class="widefat" name="<?php echo $this->get_field_name('txtKbeTagsHeading'); ?>" value="<?php echo $widgetData['txtKbeTagsHeading']; ?>" />
         </p>    
         <p>
             <label for="<?php echo $this->get_field_id('txtKbeTagsCount'); ?>"><?php _e('Tags Quantity:','kbe'); ?></label>
-            <input id="<?php echo $this->get_field_id('txtKbeTagsCount'); ?>" name="<?php echo $this->get_field_name('txtKbeTagsCount'); ?>" value="<?php echo $widgetData['txtKbeTagsCount']; ?>" style="width:275px;" />
+            <input id="<?php echo $this->get_field_id('txtKbeTagsCount'); ?>" class="widefat" name="<?php echo $this->get_field_name('txtKbeTagsCount'); ?>" value="<?php echo $widgetData['txtKbeTagsCount']; ?>" />
         </p>
         <p>
             <label for="<?php echo $this->get_field_id('txtKbeTagsStyle'); ?>"><?php _e('Tags Style:','kbe'); ?></label>
-            <select id="<?php echo $this->get_field_id('txtKbeTagsStyle'); ?>" name="<?php echo $this->get_field_name('txtKbeTagsStyle'); ?>">
+            <select id="<?php echo $this->get_field_id('txtKbeTagsStyle'); ?>" class="widefat" name="<?php echo $this->get_field_name('txtKbeTagsStyle'); ?>">
                 <option <?php selected($widgetData['txtKbeTagsStyle'], 'flat') ?> value="flat"><?php _e('Flat','kbe'); ?></option>
                 <option <?php selected($widgetData['txtKbeTagsStyle'], 'list') ?> value="list"><?php _e('List','kbe'); ?></option>
             </select>

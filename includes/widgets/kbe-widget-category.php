@@ -16,22 +16,22 @@ class kbe_Cat_Widget extends WP_Widget {
         parent::__construct(
             'kbe_category_widget', // Base ID
             __( 'Knowledgebase Category', 'kbe' ), // Name
-            array( 'description' => __('WP Knowledgebase category widget to show categories on the site', 'kbe'), 
-                    'classname' => 'kbe' ), // Args
-            array( 'width' => 300, 'height' => 350, 'id_base' => 'kbe_category_widget' )
+            array(
+                'description' => __('WP Knowledgebase category widget to show categories on the site', 'kbe'), 
+                'classname' => 'kbe'
+            ) // Args
         );
     }
 	
      //=======> How to display the widget on the screen.
     function widget($args, $widgetData) {
-        extract($args);
 		
         //Our variables from the widget settings.
         $kbe_widget_cat_title = $widgetData['txtKbeCatHeading'];
         $kbe_widget_cat_count = $widgetData['txtKbeCatCount'];
 		
         //=======> widget body
-        echo $before_widget;
+        echo $args['before_widget'];
         echo '<div class="kbe_widget">';
         
             if ($kbe_widget_cat_title){
@@ -57,7 +57,7 @@ class kbe_Cat_Widget extends WP_Widget {
             echo "</ul>";
         
         echo "</div>";
-        echo $after_widget;
+        echo $args['after_widget'];
     }
 	
     //Update the widget 
@@ -72,15 +72,18 @@ class kbe_Cat_Widget extends WP_Widget {
     }
     function form($widgetData) {
         //Set up some default widget settings.
-        $widgetData = wp_parse_args((array) $widgetData);
+        $widgetData = wp_parse_args((array) $widgetData, array(
+            'txtKbeCatHeading' => '',
+            'txtKbeCatCount' => 10,
+        ) );
 ?>
         <p>
-            <label for="<?php echo $this->get_field_id('txtKbeCatHeading'); ?>"><?php _e('Category Title:','kbe') ?></label>
-            <input id="<?php echo $this->get_field_id('txtKbeCatHeading'); ?>" name="<?php echo $this->get_field_name('txtKbeCatHeading'); ?>" value="<?php echo $widgetData['txtKbeCatHeading']; ?>" style="width:275px;" />
+            <label for="<?php echo $this->get_field_id('txtKbeCatHeading'); ?>"><?php _e('Title:') ?></label>
+            <input id="<?php echo $this->get_field_id('txtKbeCatHeading'); ?>" class="widefat" name="<?php echo $this->get_field_name('txtKbeCatHeading'); ?>" value="<?php echo $widgetData['txtKbeCatHeading']; ?>" />
         </p>    
         <p>
-            <label for="<?php echo $this->get_field_id('txtKbeCatCount'); ?>"><?php _e('Catgory Quantity:','kbe'); ?></label>
-            <input id="<?php echo $this->get_field_id('txtKbeCatCount'); ?>" name="<?php echo $this->get_field_name('txtKbeCatCount'); ?>" value="<?php echo $widgetData['txtKbeCatCount']; ?>" style="width:275px;" />
+            <label for="<?php echo $this->get_field_id('txtKbeCatCount'); ?>"><?php _e('Category Quantity:','kbe'); ?></label>
+            <input id="<?php echo $this->get_field_id('txtKbeCatCount'); ?>" name="<?php echo $this->get_field_name('txtKbeCatCount'); ?>" value="<?php echo $widgetData['txtKbeCatCount']; ?>" />
         </p>
 <?php
     }
