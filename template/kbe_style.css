@@ -64,7 +64,7 @@
     border: 1px solid #dbdbdb;
     width: 438px;
     padding: 12px 17px 13px 60px;
-    background: url(assets/images/kbe_search_btn.png) no-repeat left #fff;
+    background: url(images/kbe_search_btn.png) no-repeat left #fff;
 }
 
 #search-result {
@@ -76,7 +76,7 @@
     border-bottom: 1px solid #cccccc;
 }
 #search-result li{
-    background: url("assets/images/kbe_icon_search_list.png") no-repeat scroll left 16px top 13px rgb(255, 255, 255);
+    background: url("images/kbe_icon_search_list.png") no-repeat scroll left 16px top 13px rgb(255, 255, 255);
     list-style: none outside none;
     padding: 0px 0 0px 8px;
     border-left: 1px solid #CCCCCC;
@@ -199,7 +199,7 @@
 #kbe_content .kbe_leftcol .kbe_child_article_list li {
     margin-bottom: 20px;
     margin-left: 0;
-    background: url(assets/images/kbe_article_icon_img.png) no-repeat left top;
+    background: url(images/kbe_article_icon_img.png) no-repeat left top;
     padding: 0 0 0 32px;
     line-height: 20px;
 }
@@ -245,7 +245,7 @@
 #kbe_content .kbe_leftcol .kbe_article_list li {
     margin-bottom: 20px;
     margin-left: 0;
-    background: url(assets/images/kbe_article_icon_img.png) no-repeat left top;
+    background: url(images/kbe_article_icon_img.png) no-repeat left top;
     padding: 0 0 0 32px;
     line-height: 20px;
 }
@@ -268,7 +268,7 @@
     list-style: none outside none;
     padding: 2px 0 0px 30px;
     margin: 0 0 3px;
-    background: url(assets/images/kbe_icon_search_list.png) no-repeat left top 9px;
+    background: url(images/kbe_icon_search_list.png) no-repeat left top 9px;
 }
 #kbe_content .kbe_leftcol .kbe_articles ul li a {
     color: #333333;
@@ -382,7 +382,7 @@
     line-height: 20px;
 }
 #kbe_container .kbe_aside .kbe_widget_article li {
-    background: url(assets/images/kbe_article_icon_img.png) no-repeat left top;
+    background: url(images/kbe_article_icon_img.png) no-repeat left top;
 }
 .kbe_widget label {
     font-size: 13px;
@@ -1081,7 +1081,7 @@
         margin-bottom: 20px;
     }
     #kbe_content .kbe_leftcol h2 {
-        background: url("assets/images/kbe_article_icon_img.png") no-repeat scroll left top 3px rgba(0, 0, 0, 0);
+        background: url("images/kbe_article_icon_img.png") no-repeat scroll left top 3px rgba(0, 0, 0, 0);
         border-bottom: 1px solid #CCCCCC;
         font-size: 18px;
         font-weight: normal;
