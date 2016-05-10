@@ -36,7 +36,7 @@
 }
 .kbe_breadcrum ul li {
     float: left;
-    background: url(images/kbe_breadcrum_sep.png) no-repeat right;
+    background: url(assets/images/kbe_breadcrum_sep.png) no-repeat right;
     padding: 0 13px 2px 7px;
     line-height: 22px;
 }
@@ -64,7 +64,7 @@
     border: 1px solid #dbdbdb;
     width: 438px;
     padding: 12px 17px 13px 60px;
-    background: url(images/kbe_search_btn.png) no-repeat left #fff;
+    background: url(assets/images/kbe_search_btn.png) no-repeat left #fff;
 }
 
 #search-result {
@@ -76,7 +76,7 @@
     border-bottom: 1px solid #cccccc;
 }
 #search-result li{
-    background: url("images/kbe_icon_search_list.png") no-repeat scroll left 16px top 13px rgb(255, 255, 255);
+    background: url("assets/images/kbe_icon_search_list.png") no-repeat scroll left 16px top 13px rgb(255, 255, 255);
     list-style: none outside none;
     padding: 0px 0 0px 8px;
     border-left: 1px solid #CCCCCC;
@@ -108,7 +108,7 @@
     background-color: #f8f8f8;
 }
 .kbe_no_result {
-    background: url("images/kbe_icon_search_list.png") no-repeat scroll left 16px top 13px rgb(255, 255, 255);
+    background: url("assets/images/kbe_icon_search_list.png") no-repeat scroll left 16px top 13px rgb(255, 255, 255);
     border-bottom: 1px solid #cccccc;
     border-left: 1px solid #cccccc;
     border-right: 1px solid #cccccc;
@@ -199,7 +199,7 @@
 #kbe_content .kbe_leftcol .kbe_child_article_list li {
     margin-bottom: 20px;
     margin-left: 0;
-    background: url(images/kbe_article_icon_img.png) no-repeat left top;
+    background: url(assets/images/kbe_article_icon_img.png) no-repeat left top;
     padding: 0 0 0 32px;
     line-height: 20px;
 }
@@ -245,7 +245,7 @@
 #kbe_content .kbe_leftcol .kbe_article_list li {
     margin-bottom: 20px;
     margin-left: 0;
-    background: url(images/kbe_article_icon_img.png) no-repeat left top;
+    background: url(assets/images/kbe_article_icon_img.png) no-repeat left top;
     padding: 0 0 0 32px;
     line-height: 20px;
 }
@@ -268,7 +268,7 @@
     list-style: none outside none;
     padding: 2px 0 0px 30px;
     margin: 0 0 3px;
-    background: url(images/kbe_icon_search_list.png) no-repeat left top 9px;
+    background: url(assets/images/kbe_icon_search_list.png) no-repeat left top 9px;
 }
 #kbe_content .kbe_leftcol .kbe_articles ul li a {
     color: #333333;
@@ -304,7 +304,7 @@
     list-style: none outside none;
     padding: 4px 0 24px 30px;
     margin: 0 0 10px;
-    background: url(images/kbe_icon_search_list.png) no-repeat left top 8px;
+    background: url(assets/images/kbe_icon_search_list.png) no-repeat left top 8px;
     border-bottom: 1px solid #e2e2e2;
 }
 #kbe_content .kbe_leftcol .kbe_articles_search ul li a {
@@ -372,7 +372,7 @@
 #kbe_container .kbe_widget li {
     margin-bottom: 16px;
     margin-left: 0px;
-    background: url(images/kbe_icon_arrow.png) no-repeat 0 6px;
+    background: url(assets/images/kbe_icon_arrow.png) no-repeat 0 6px;
     padding: 0 0 0 25px;
 }
 .kbe_widget li a {
@@ -382,7 +382,7 @@
     line-height: 20px;
 }
 #kbe_container .kbe_aside .kbe_widget_article li {
-    background: url(images/kbe_article_icon_img.png) no-repeat left top;
+    background: url(assets/images/kbe_article_icon_img.png) no-repeat left top;
 }
 .kbe_widget label {
     font-size: 13px;
@@ -505,7 +505,7 @@
     padding:10px 10px;
 }
 .kbe_reply {
-    background: url(images/kbe_bg_reply.png) repeat-x top;
+    background: url(assets/images/kbe_bg_reply.png) repeat-x top;
     width: 622px;
     padding-top: 40px;
 }
@@ -516,7 +516,7 @@
     overflow: hidden;
 }
 .kbe_tags_icon{
-    background: url(images/kbe_icon_tag.png) no-repeat left top 1px;
+    background: url(assets/images/kbe_icon_tag.png) no-repeat left top 1px;
     float: left;
     height: 25px;
     width: 25px;
@@ -576,7 +576,7 @@
     display: none !important;
 }
 .kbe_reply .reply a{
-    background: url(images/kbe_icon_reply.png) no-repeat;
+    background: url(assets/images/kbe_icon_reply.png) no-repeat;
     float: right;
     width: 26px;
     height: 26px;
@@ -849,7 +849,7 @@
         float: none !important;
     }
     .kbe_reply {
-        background: url("images/kbe_bg_reply.png") repeat-x scroll center top rgba(0, 0, 0, 0);
+        background: url("assets/images/kbe_bg_reply.png") repeat-x scroll center top rgba(0, 0, 0, 0);
         padding-top: 40px;
         width: 100%;
     }
@@ -1081,7 +1081,7 @@
         margin-bottom: 20px;
     }
     #kbe_content .kbe_leftcol h2 {
-        background: url("images/kbe_article_icon_img.png") no-repeat scroll left top 3px rgba(0, 0, 0, 0);
+        background: url("assets/images/kbe_article_icon_img.png") no-repeat scroll left top 3px rgba(0, 0, 0, 0);
         border-bottom: 1px solid #CCCCCC;
         font-size: 18px;
         font-weight: normal;

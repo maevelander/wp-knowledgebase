@@ -7,10 +7,10 @@
 
 add_action('init', 'kbe_articles');
 function kbe_articles() {
-    
+
     $kb_slug = 'kbe_knowledgebase';
     $kb_slug = get_option('kbe_plugin_slug');
-    
+
     $labels = array(
         'name'                  => 	__('Knowledgebase', 'kbe'),
         'singular_name'         => 	__('Knowledgebase', 'kbe'),
@@ -25,21 +25,21 @@ function kbe_articles() {
         'not_found_in_trash'    => 	__('Nothing found in Trash', 'kbe'),
         'parent_item_colon'     => 	''
     );
-    
+
     $kbe_rewrite = array(
         'slug'        	=> 	KBE_PLUGIN_SLUG,
         'with_front'    => 	true,
         'pages'         => 	false,
         'feeds'         => 	true,
     );
-    
+
     $args = array(
         'labels'                => 	$labels,
         'public'                => 	true,
         'publicly_queryable'    => 	true,
         'show_ui'               => 	true,
         'query_var'             => 	true,
-        'menu_icon'             => 	WP_KNOWLEDGEBASE.'images/icon-kbe.png',
+        'menu_icon'             => 	WP_KNOWLEDGEBASE.'assets/images/icon-kbe.png',
         'capability_type'       => 	'post',
         'hierarchical'          => 	false,
         'supports'              => 	array('title','editor','thumbnail','comments','tags','revisions','author'),
@@ -51,12 +51,12 @@ function kbe_articles() {
         'has_archive'           => 	true,
         'exclude_from_search'   => 	true
     );
- 
+
     register_post_type( 'kbe_knowledgebase' , $args );
 }
 add_action( 'init', 'kbe_taxonomies', 0 );
 
-// Article taxonamy
+// Article taxonomy
 function kbe_taxonomies() {
     // Add new taxonomy, make it hierarchical (like categories)
     $labels = array(
@@ -71,8 +71,8 @@ function kbe_taxonomies() {
         'add_new_item'      => 	__( 'Add New Knowledgebase Category', 'kbe' ),
         'new_item_name'     => 	__( 'New Knowledgebase Category Name', 'kbe' ),
 	'menu_name'         => 	__( 'Categories', 'kbe' )
-    ); 	
-	
+    );
+
     register_taxonomy( 'kbe_taxonomy', array( 'kbe_knowledgebase' ), array(
         'hierarchical'      => 	true,
         "labels"            => 	$labels,
@@ -112,7 +112,7 @@ function kbe_custom_tags() {
 function kbe_set_post_views($postID) {
     $count_key = 'kbe_post_views_count';
     $count = get_post_meta($postID, $count_key, true);
-	
+
     if($count==''){
         $count = 1;
         delete_post_meta($postID, $count_key);
@@ -124,11 +124,11 @@ function kbe_set_post_views($postID) {
 }
 
 //To keep the count accurate, lets get rid of prefetching
-remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0);
+remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10 );
 function kbe_get_post_views($postID){
     $count_key = 'kbe_post_views_count';
     $count = get_post_meta($postID, $count_key, true);
-	
+
     if($count==''){
         delete_post_meta($postID, $count_key);
         add_post_meta($postID, $count_key, '1');
@@ -136,10 +136,10 @@ function kbe_get_post_views($postID){
     }
     return $count.' Views';
 }
-add_filter("manage_edit-kbe_knowledgebase_columns", "kbe_edit_columns");     
+add_filter("manage_edit-kbe_knowledgebase_columns", "kbe_edit_columns");
 function kbe_edit_columns($columns){
-    $columns = array(  
-        "cb" 		=> 	"<input type=\"checkbox\" />", 
+    $columns = array(
+        "cb" 		=> 	"<input type=\"checkbox\" />",
         "title" 	=> 	__("Title", "kbe"),
         "author" 	=> 	__("Author", "kbe"),
         "cat" 		=> 	__("Category", "kbe"),
@@ -148,26 +148,26 @@ function kbe_edit_columns($columns){
         'views' 	=> 	__("Views", "kbe"),
         "date" 		=> 	__("Date", "kbe")
     );
-    return $columns;  
-}    
-  
-add_action("manage_posts_custom_column",  "kbe_custom_columns");   
+    return $columns;
+}
+
+add_action("manage_posts_custom_column",  "kbe_custom_columns");
 function kbe_custom_columns($column){
-    global $post;  
-    switch ($column){ 
-        case "title":         
+    global $post;
+    switch ($column){
+        case "title":
             the_title();
-        break; 
-        case "author":         
+        break;
+        case "author":
             the_author();
         break;
-        case "cat":         
+        case "cat":
             echo get_the_term_list( $post->ID, 'kbe_taxonomy' , ' ' , ', ' , '' );
         break;
-        case "tag":         
+        case "tag":
             echo get_the_term_list( $post->ID, 'kbe_tags' , ' ' , ', ' , '' );
         break;
-        case "comment":         
+        case "comment":
             comments_number( __('No Comments','kbe'), __('1 Comment','kbe'), __('% Comments','kbe') );
         break;
         case "views":
@@ -178,7 +178,7 @@ function kbe_custom_columns($column){
                 echo __('No Views', 'kbe');
             }
         break;
-        case "date":         
+        case "date":
             the_date();
         break;
     }
