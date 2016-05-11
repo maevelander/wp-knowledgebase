@@ -1,69 +1,61 @@
 <?php
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-    get_header('knowledgebase');
-    global $wpdb;
-    
-    // load the style and script
-    wp_enqueue_style ( 'kbe_theme_style' );
-    if( KBE_SEARCH_SETTING == 1 ){
-        wp_enqueue_script( 'kbe_live_search' );
-    }
+get_header('knowledgebase');
+global $wpdb;
 
-    // Classes For main content div
-    if(KBE_SIDEBAR_HOME == 0) {
-        $kbe_content_class = 'class="kbe_content_full"';
-    } elseif(KBE_SIDEBAR_HOME == 1) {
-        $kbe_content_class = 'class="kbe_content_right"';
-    } elseif(KBE_SIDEBAR_HOME == 2) {
-        $kbe_content_class = 'class="kbe_content_left"';
+// load the style and script
+wp_enqueue_style ( 'kbe_theme_style' );
+if( KBE_SEARCH_SETTING == 1 ){
+    wp_enqueue_script( 'kbe_live_search' );
+}
+
+// Classes For main content div
+if(KBE_SIDEBAR_HOME == 0) {
+    $kbe_content_class = 'class="kbe_content_full"';
+} elseif(KBE_SIDEBAR_HOME == 1) {
+    $kbe_content_class = 'class="kbe_content_right"';
+} elseif(KBE_SIDEBAR_HOME == 2) {
+    $kbe_content_class = 'class="kbe_content_left"';
+}
+
+// Classes For sidebar div
+if(KBE_SIDEBAR_HOME == 0) {
+    $kbe_sidebar_class = 'kbe_aside_none';
+} elseif(KBE_SIDEBAR_HOME == 1) {
+    $kbe_sidebar_class = 'kbe_aside_left';
+} elseif(KBE_SIDEBAR_HOME == 2) {
+    $kbe_sidebar_class = 'kbe_aside_right';
+}
+
+?><div id="kbe_container"><?php
+    
+    // Breadcrumbs
+    if(KBE_BREADCRUMBS_SETTING == 1){
+        ?><div class="kbe_breadcrum"><?php
+            kbe_breadcrumbs();
+        ?></div><?php
     }
     
-    // Classes For sidebar div
-    if(KBE_SIDEBAR_HOME == 0) {
-        $kbe_sidebar_class = 'kbe_aside_none';
-    } elseif(KBE_SIDEBAR_HOME == 1) {
-        $kbe_sidebar_class = 'kbe_aside_left';
-    } elseif(KBE_SIDEBAR_HOME == 2) {
-        $kbe_sidebar_class = 'kbe_aside_right';
+    // Search field
+    if(KBE_SEARCH_SETTING == 1){
+        kbe_search_form();
     }
-?>
-<div id="kbe_container">
-   
-    <!--Breadcrum-->
-    <?php
-        if(KBE_BREADCRUMBS_SETTING == 1){
-    ?>
-        <div class="kbe_breadcrum">
-            <?php echo kbe_breadcrumbs(); ?>
-        </div>
-    <?php
-        }
-    ?>
-    <!--/Breadcrum-->
     
-    <!--search field-->
-    <?php
-        if(KBE_SEARCH_SETTING == 1){
-            kbe_search_form();
-        }
-    ?>
-    <!--/search field-->
-    
-    <!--content-->
-    <div id="kbe_content" <?php echo $kbe_content_class; ?>>
+    // Content
+    ?><div id="kbe_content" <?php echo $kbe_content_class; ?>>
         <h1><?php echo get_the_title(KBE_PAGE_TITLE) ?></h1>
 
         <!--leftcol-->
         <div class="kbe_leftcol">
-            <div class="kbe_categories">
-            <?php
+            <div class="kbe_categories"><?php
+            
                $kbe_cat_args = array(
-                                    'orderby'       => 'terms_order', 
-                                    'order'         => 'ASC',
-                                    'hide_empty'    => true,
-                                    'parent'        => 0
-                                );
+                   'orderby'       => 'terms_order', 
+                   'order'         => 'ASC',
+                   'hide_empty'    => true,
+                   'parent'        => 0
+               );
 
                 $kbe_terms = get_terms(KBE_POST_TAXONOMY, $kbe_cat_args);
 
@@ -76,11 +68,12 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
                     
                     $children = get_term_children($kbe_term_id, KBE_POST_TAXONOMY);
                     
-                    $kbe_count_sum = $wpdb->get_var("SELECT Sum(count)
-                                                     FROM wp_term_taxonomy
-                                                     WHERE taxonomy = '".KBE_POST_TAXONOMY."'
-                                                     And parent = $kbe_term_id"
-                                                    );
+                    $kbe_count_sum = $wpdb->get_var("
+                        SELECT Sum(count)
+                        FROM wp_term_taxonomy
+                        WHERE taxonomy = '".KBE_POST_TAXONOMY."'
+                        And parent = $kbe_term_id
+                    ");
                     
                     $kbe_count_sum_parent = '';
                 
@@ -89,135 +82,120 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
                     } else {
                         $kbe_count_sum_parent = $kbe_taxonomy_parent_count;
                     }
-            ?>
-                    <div class="kbe_category">
+
+                    ?><div class="kbe_category">
                         <h2>
-                            <span class="kbe_count">
-                                <?php
-                                    echo $kbe_count_sum_parent;
-                                    if ($kbe_count_sum_parent == 1) {
-                                        _e(' Article','kbe');
-                                    } else {
-                                        _e(' Articles','kbe');
-                                    }
-                                ?>
-                            </span>
-                            <a href="<?php echo get_term_link($kbe_term_slug, 'kbe_taxonomy') ?>">
-                                <?php echo $kbe_term_name; ?>
-                            </a>
-                        </h2>
+                            <span class="kbe_count"><?php
+                                echo sprintf( _n( '%d Article', '%d Articles', $kbe_count_sum_parent, 'kbe' ), $kbe_count_sum_parent );
+                            ?></span>
+                            <a href="<?php echo get_term_link($kbe_term_slug, 'kbe_taxonomy') ?>"><?php
+                                echo $kbe_term_name;
+                            ?></a>
+                        </h2><?php
                         
-                        <?php
+                        
                             $kbe_child_cat_args = array(
-                                                    'orderby'       => 'terms_order', 
-                                                    'order'         => 'ASC',
-                                                    'parent'        => $kbe_term_id,
-                                                    'hide_empty'    => true, 
-                                                );
+                                'orderby'       => 'terms_order', 
+                                'order'         => 'ASC',
+                                'parent'        => $kbe_term_id,
+                                'hide_empty'    => true, 
+                            );
 
                             $kbe_child_terms = get_terms(KBE_POST_TAXONOMY, $kbe_child_cat_args);
                             
                             if($kbe_child_terms) {
-                        ?>
-                            <div class="kbe_child_category" style="display: none;">
-                            <?php
+
+                            ?><div class="kbe_child_category" style="display: none;"><?php
+                        
                                 foreach($kbe_child_terms as $kbe_child_term){
                                     $kbe_child_term_id = $kbe_child_term->term_id;
                                     $kbe_child_term_slug = $kbe_child_term->slug;
                                     $kbe_child_term_name = $kbe_child_term->name;
-                            ?>
-                                    <h3>
-                                        <span class="kbe_count">
-                                            <?php
-                                                echo $kbe_child_term->count;
-                                                if ($kbe_child_term->count == 1) {
-                                                    _e(' Article','kbe');
-                                                } else {
-                                                    _e(' Articles','kbe');
-                                                }
-                                            ?>
-                                        </span>
-                                        <a href="<?php echo get_term_link($kbe_child_term_slug, 'kbe_taxonomy') ?>">
-                                            <?php echo $kbe_child_term_name; ?>
-                                        </a>
+
+                                    ?><h3>
+                                        <span class="kbe_count"><?php
+                                            echo sprintf( _n( '%d Article', '%d Articles', $kbe_child_term->count, 'kbe' ), $kbe_child_term->count );
+                                        ?></span>
+                                        <a href="<?php echo get_term_link($kbe_child_term_slug, 'kbe_taxonomy') ?>"><?php
+                                            echo $kbe_child_term_name;
+                                        ?></a>
                                     </h3>
-                                    <ul class="kbe_child_article_list">
-                                <?php
+                                    <ul class="kbe_child_article_list"><?php
+                                
                                     $kbe_child_post_args = array(
-                                                                'post_type' => KBE_POST_TYPE,
-                                                                'posts_per_page' => KBE_ARTICLE_QTY,
-                                                                'orderby' => 'menu_order',
-                                                                'order' => 'ASC',
-                                                                'tax_query' => array(
-                                                                        array(
-                                                                                'taxonomy' => KBE_POST_TAXONOMY,
-                                                                                'field' => 'term_id',
-                                                                                'terms' => $kbe_child_term_id
-                                                                        )
-                                                                )
-                                                        );
+                                        'post_type' => KBE_POST_TYPE,
+                                        'posts_per_page' => KBE_ARTICLE_QTY,
+                                        'orderby' => 'menu_order',
+                                        'order' => 'ASC',
+                                        'tax_query' => array(
+                                            array(
+                                                'taxonomy' => KBE_POST_TAXONOMY,
+                                                'field' => 'term_id',
+                                                'terms' => $kbe_child_term_id
+                                            )
+                                        )
+                                    );
                                     $kbe_child_post_qry = new WP_Query($kbe_child_post_args);
                                     if($kbe_child_post_qry->have_posts()) :
                                         while($kbe_child_post_qry->have_posts()) :
                                             $kbe_child_post_qry->the_post();
-                                ?>
-                                            <li>
-                                                <a href="<?php the_permalink(); ?>" rel="bookmark">
-                                                    <?php the_title(); ?>
-                                                </a>
-                                            </li>
-                                <?php
+
+                                            ?><li>
+                                                <a href="<?php the_permalink(); ?>" rel="bookmark"><?php
+                                                    the_title(); 
+                                                ?></a>
+                                            </li><?php
+                                
                                         endwhile;
                                     else :
                                         echo "No posts";
                                     endif;
-                                ?>
-                                </ul>
-                            <?php
-                                }
-                            ?>
-                            </div>
-                        <?php
-                            }
-                        ?>
 
-                        <ul class="kbe_article_list">
-                        <?php
+                                ?></ul><?php
+                            
+                                }
+
+                            ?></div><?php
+                        
+                            }
+
+                        ?><ul class="kbe_article_list"><?php
+                        
                             $kbe_tax_post_args = array(
-                                                        'post_type' => KBE_POST_TYPE,
-                                                        'posts_per_page' => KBE_ARTICLE_QTY,
-                                                        'orderby' => 'menu_order',
-                                                        'order' => 'ASC',
-                                                        'tax_query' => array(
-                                                                array(
-                                                                        'taxonomy' => KBE_POST_TAXONOMY,
-                                                                        'field' => 'term_id',
-                                                                        'terms' => $kbe_term_id
-                                                                )
-                                                        )
-                                                );
+                                'post_type' => KBE_POST_TYPE,
+                                'posts_per_page' => KBE_ARTICLE_QTY,
+                                'orderby' => 'menu_order',
+                                'order' => 'ASC',
+                                'tax_query' => array(
+                                    array(
+                                        'taxonomy' => KBE_POST_TAXONOMY,
+                                        'field' => 'term_id',
+                                        'terms' => $kbe_term_id
+                                    )
+                                )
+                            );
                             $kbe_tax_post_qry = new WP_Query($kbe_tax_post_args);
                             if($kbe_tax_post_qry->have_posts()) :
                                 while($kbe_tax_post_qry->have_posts()) :
                                     $kbe_tax_post_qry->the_post();
-                        ?>
-                                    <li>
-                                        <a href="<?php the_permalink(); ?>" rel="bookmark">
-                                            <?php the_title(); ?>
-                                        </a>
-                                    </li>
-                        <?php
+
+                                    ?><li>
+                                        <a href="<?php the_permalink(); ?>" rel="bookmark"><?php
+                                            the_title();
+                                        ?></a>
+                                    </li><?php
+                        
                                 endwhile;
                             else :
                                 echo "No posts";
                             endif;
-                        ?>
-                        </ul>
-                    </div>
-            <?php
+
+                        ?></ul>
+                    </div><?php
+            
                 }
-             ?>
-            </div>
+
+            ?></div>
         </div>
         <!--/leftcol-->
 
@@ -225,14 +203,12 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
     <!--content-->
     
     <!--aside-->
-    <div class="kbe_aside <?php echo $kbe_sidebar_class; ?>">
-    <?php
+    <div class="kbe_aside <?php echo $kbe_sidebar_class; ?>"><?php
         if((KBE_SIDEBAR_HOME == 2) || (KBE_SIDEBAR_HOME == 1)){
             dynamic_sidebar('kbe_cat_widget');
         }
-    ?>
-    </div>
+    ?></div>
     <!--/aside-->
     
-</div>
-<?php get_footer('knowledgebase'); ?>
+</div><?php
+get_footer('knowledgebase'); ?>
