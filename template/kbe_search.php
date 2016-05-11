@@ -1,4 +1,6 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+
 // Classes For main content div
 if(KBE_SIDEBAR_INNER == 0) {
     $kbe_content_class = 'class="kbe_content_full"';

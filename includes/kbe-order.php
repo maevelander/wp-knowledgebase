@@ -1,9 +1,7 @@
-<!--==============
-    >> KBE Categories / Articles Ordering
-==============-->
-
 <?php
-    global $post;
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+
+global $post;
 ?>
 <div id="wpbody">
     <div id="wpbody-content">
@@ -25,7 +23,7 @@
             ?>
             
             <div class="kbe_admin_left_bar">
-                <!--=============== Re Order Catgories ===============-->
+                <!--=============== Re Order Categories ===============-->
                 <div class="kbe_admin_left_content">
                     <div class="kbe_admin_left_heading">
                         <h3><?php _e('Category Order','kbe'); ?></h3>
