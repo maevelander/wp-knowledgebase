@@ -20,110 +20,84 @@ if(KBE_SIDEBAR_INNER == 0) {
 }
 
 if(!empty($_GET['ajax']) ? $_GET['ajax'] : null) {
+    
     if ( have_posts() ) {
-?>
-        <ul id="search-result">
-    <?php
-        while (have_posts()) : the_post();
-    ?>
-            <li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
-            
-    <?php
-        endwhile;
-    ?>
-        </ul>
 
-<?php
+        ?><ul id="search-result"><?php
+    
+            while (have_posts()) : the_post();
+                ?><li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li><?php
+            endwhile;
+        ?></ul><?php
+
     } else {
-?>
-        <span class="kbe_no_result">Search result not found......</span>
-<?php
+        ?><span class="kbe_no_result"><?php _e( 'Search result not found...', 'kbe' ); ?></span><?php
     }
+    
 } else {
+    
     get_header('knowledgebase');
     // load the style and script
     wp_enqueue_style ( 'kbe_theme_style' );
     if( KBE_SEARCH_SETTING == 1 ){
         wp_enqueue_script( 'kbe_live_search' );
     }
-?>
-    <div id="kbe_container">
+    
+    ?><div id="kbe_container"><?php
 
-    <!--Breadcrum-->
-    <?php
+        // Breadcrumbs
         if(KBE_BREADCRUMBS_SETTING == 1){
-    ?>
-        <div class="kbe_breadcrum">
-            <?php echo kbe_breadcrumbs(); ?>
-        </div>
-    <?php
+            ?><div class="kbe_breadcrum"><?php
+                kbe_breadcrumbs();
+            ?></div><?php
         }
-    ?>
-    <!--/Breadcrum-->
-        
-    <!--search field-->
-    <?php
+    
+        // Search field
         if(KBE_SEARCH_SETTING == 1){
             kbe_search_form();
         }
-    ?>
-    <!--/search field-->
         
-    <!--content-->
-    <div id="kbe_content" <?php echo $kbe_content_class; ?>>
-    <?php
-        $kbe_search_term = $_GET['s'];
-    ?>
+        // Content
+        ?><div id="kbe_content" <?php echo $kbe_content_class; ?>><?php
+    
+           $kbe_search_term = $_GET['s'];
 	
-        <h1><?php _e('Search Results for: '.$kbe_search_term, 'kbe'); ?></h1>
+            ?><h1><?php _e('Search Results for: '.$kbe_search_term, 'kbe'); ?></h1>
 
-        <!--leftcol-->
-        <div class="kbe_leftcol" >
-            <!--<articles>-->
-            <div class="kbe_articles_search">
-                <ul>
-            <?php
-                while(have_posts()) :
-                    the_post();
-            ?>
-                <li>
-                    <a href="<?php the_permalink(); ?>">
-                        <?php the_title(); ?>
-                    </a>
-                    <span class="post-meta">
-                        Post By
-                        <?php the_author(); ?>
-                        | Date : <?php the_time('j F Y'); ?>
-                    </span>
-                    <p><?php echo kbe_short_content(300); ?></p>
-                    <div class="kbe_read_more">
-                        <a href="<?php the_permalink(); ?>">
-                            Read more...
-                        </a>
-                    </div>
-                </li>
-            <?php
-                endwhile;
-            ?>
-                </ul>
+            <!--leftcol-->
+            <div class="kbe_leftcol" >
+                <!--<articles>-->
+                <div class="kbe_articles_search">
+                    <ul><?php
+                
+                        while(have_posts()) :
+                            the_post();
+                            ?><li>
+                                <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+                                <span class="post-meta">Post By <?php the_author(); ?> | Date : <?php the_time('j F Y'); ?></span>
+                                <p><?php echo kbe_short_content(300); ?></p>
+                                <div class="kbe_read_more">
+                                    <a href="<?php the_permalink(); ?>"><?php _e( 'Read more...', 'kbe' ); ?></a>
+                                </div>
+                            </li><?php
+                        endwhile;
+                        
+                    ?></ul>
+                </div>
             </div>
-        </div>
-        <!--/leftcol-->
 
-    </div>
+        </div>
     
-    <!--aside-->
-    <div class="kbe_aside <?php echo $kbe_sidebar_class; ?>">
-    <?php
-        if((KBE_SIDEBAR_INNER == 2) || (KBE_SIDEBAR_INNER == 1)){
-            dynamic_sidebar('kbe_cat_widget');
-        }
-    ?>
-    </div>
-    <!--/aside-->
+        <!--aside-->
+        <div class="kbe_aside <?php echo $kbe_sidebar_class; ?>"><?php
+            if((KBE_SIDEBAR_INNER == 2) || (KBE_SIDEBAR_INNER == 1)){
+                dynamic_sidebar('kbe_cat_widget');
+            }
+        ?></div>
     
-</div>
-<?php
+    </div><?php
+    
     get_footer('knowledgebase');
+    
 }
 ?>

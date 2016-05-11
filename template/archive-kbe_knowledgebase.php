@@ -1,39 +1,39 @@
 <?php
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-    get_header('knowledgebase');
-    global $wpdb;
-    
-    // load the style and script
-    wp_enqueue_style ( 'kbe_theme_style' );
-    if( KBE_SEARCH_SETTING == 1 ){
-        wp_enqueue_script( 'kbe_live_search' );
-    }
+get_header('knowledgebase');
+global $wpdb;
 
-    // Classes For main content div
-    if(KBE_SIDEBAR_HOME == 0) {
-        $kbe_content_class = 'class="kbe_content_full"';
-    } elseif(KBE_SIDEBAR_HOME == 1) {
-        $kbe_content_class = 'class="kbe_content_right"';
-    } elseif(KBE_SIDEBAR_HOME == 2) {
-        $kbe_content_class = 'class="kbe_content_left"';
-    }
-    
-    // Classes For sidebar div
-    if(KBE_SIDEBAR_HOME == 0) {
-        $kbe_sidebar_class = 'kbe_aside_none';
-    } elseif(KBE_SIDEBAR_HOME == 1) {
-        $kbe_sidebar_class = 'kbe_aside_left';
-    } elseif(KBE_SIDEBAR_HOME == 2) {
-        $kbe_sidebar_class = 'kbe_aside_right';
-    }
-?>
-<div id="kbe_container"><?php
+// load the style and script
+wp_enqueue_style ( 'kbe_theme_style' );
+if( KBE_SEARCH_SETTING == 1 ){
+    wp_enqueue_script( 'kbe_live_search' );
+}
+
+// Classes For main content div
+if(KBE_SIDEBAR_HOME == 0) {
+    $kbe_content_class = 'class="kbe_content_full"';
+} elseif(KBE_SIDEBAR_HOME == 1) {
+    $kbe_content_class = 'class="kbe_content_right"';
+} elseif(KBE_SIDEBAR_HOME == 2) {
+    $kbe_content_class = 'class="kbe_content_left"';
+}
+
+// Classes For sidebar div
+if(KBE_SIDEBAR_HOME == 0) {
+    $kbe_sidebar_class = 'kbe_aside_none';
+} elseif(KBE_SIDEBAR_HOME == 1) {
+    $kbe_sidebar_class = 'kbe_aside_left';
+} elseif(KBE_SIDEBAR_HOME == 2) {
+    $kbe_sidebar_class = 'kbe_aside_right';
+}
+
+?><div id="kbe_container"><?php
     
     // Breadcrumbs
     if(KBE_BREADCRUMBS_SETTING == 1){
         ?><div class="kbe_breadcrum"><?php
-            echo kbe_breadcrumbs();
+            kbe_breadcrumbs();
         ?></div><?php
     }
     
