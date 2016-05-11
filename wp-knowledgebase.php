@@ -56,11 +56,13 @@ function wp_kbe_hooks($kbe_networkwide) {
 
     $kbe_prefix = $wpdb->prefix;
 
-    $kbe_pageSql = $wpdb->get_results("Select *
-                                       From ".$kbe_prefix."posts
-                                       Where post_content like '%[kbe_knowledgebase]%'
-                                       And post_type = 'page'");
-
+    $kbe_pageSql = $wpdb->get_results("
+       Select *
+       From ".$kbe_prefix."posts
+       Where post_content like '%[kbe_knowledgebase]%'
+       And post_type = 'page'
+    ");
+    
     if(!$kbe_pageSql){
         //  Insert a "Knowledgebase" page
         $kbe_max_page_Sql = $wpdb->get_results("SELECT Max(ID) As kbe_maxId FROM ".$kbe_prefix."posts");
@@ -77,36 +79,38 @@ function wp_kbe_hooks($kbe_networkwide) {
         $kbe_table_posts = $wpdb->prefix.'posts';
 
         $kbe_data_posts = array(
-                            'post_author'           =>  $kbe_user_id,
-                            'post_date'             =>  $kbe_now,
-                            'post_date_gmt'         =>  $kbe_now_gmt,
-                            'post_content'          =>  '[kbe_knowledgebase]',
-                            'post_title'            =>  'Knowledgebase',
-                            'post_excerpt'          =>  '',
-                            'post_status'           =>  'publish',
-                            'comment_status'        =>  'closed',
-                            'ping_status'           =>  'closed',
-                            'post_password'         =>  '',
-                            'post_name'             =>  'knowledgebase',
-                            'to_ping'               =>  '',
-                            'pinged'                =>  '',
-                            'post_modified'         =>  $kbe_now,
-                            'post_modified_gmt'     =>  $kbe_now_gmt,
-                            'post_content_filtered' =>  '',
-                            'post_parent'           =>  '0',
-                            'guid'                  =>  $kbe_guid,
-                            'menu_order'            =>  '0',
-                            'post_type'             =>  'page',
-                            'post_mime_type'        =>  '',
-                            'comment_count'         =>  '0',
-                        );
+            'post_author'           =>  $kbe_user_id,
+            'post_date'             =>  $kbe_now,
+            'post_date_gmt'         =>  $kbe_now_gmt,
+            'post_content'          =>  '[kbe_knowledgebase]',
+            'post_title'            =>  'Knowledgebase',
+            'post_excerpt'          =>  '',
+            'post_status'           =>  'publish',
+            'comment_status'        =>  'closed',
+            'ping_status'           =>  'closed',
+            'post_password'         =>  '',
+            'post_name'             =>  'knowledgebase',
+            'to_ping'               =>  '',
+            'pinged'                =>  '',
+            'post_modified'         =>  $kbe_now,
+            'post_modified_gmt'     =>  $kbe_now_gmt,
+            'post_content_filtered' =>  '',
+            'post_parent'           =>  '0',
+            'guid'                  =>  $kbe_guid,
+            'menu_order'            =>  '0',
+            'post_type'             =>  'page',
+            'post_mime_type'        =>  '',
+            'comment_count'         =>  '0',
+        );
         $wpdb->insert($kbe_table_posts,$kbe_data_posts) or die(mysql_error());
 
         //  Insert a page template for knowlwdgebase
-        $kbe_tempTableSql = $wpdb->get_results("Select post_content, ID
-                                                From ".$kbe_prefix."posts
-                                                Where post_content Like '%[kbe_knowledgebase]%'
-                                                And post_type <> 'revision'");
+        $kbe_tempTableSql = $wpdb->get_results("
+            Select post_content, ID
+            From ".$kbe_prefix."posts
+            Where post_content Like '%[kbe_knowledgebase]%'
+            And post_type <> 'revision'
+        ");
         foreach($kbe_tempTableSql as $kbe_tempTableRow) {
             $tempPageId = $kbe_tempTableRow->ID;
 
@@ -162,15 +166,15 @@ function wp_kbe_hooks($kbe_networkwide) {
     if($kbe_article_qty || $kbe_plugin_slug || $kbe_search_setting || $kbe_breadcrumbs_setting || $kbe_sidebar_home
        || $kbe_sidebar_inner || $kbe_comments_setting || $kbe_bgcolor) {
         $kbe_settings_arr = array(
-                                'kbe_plugin_slug' => $kbe_plugin_slug,
-                                'kbe_article_qty' => $kbe_article_qty,
-                                'kbe_search_setting' => $kbe_search_setting,
-                                'kbe_breadcrumbs_setting' => $kbe_breadcrumbs_setting,
-                                'kbe_sidebar_home' => $kbe_sidebar_home,
-                                'kbe_sidebar_inner' => $kbe_sidebar_inner,
-                                'kbe_comments_setting' => $kbe_comments_setting,
-                                'kbe_bgcolor' => $kbe_bgcolor,
-                            );
+            'kbe_plugin_slug' => $kbe_plugin_slug,
+            'kbe_article_qty' => $kbe_article_qty,
+            'kbe_search_setting' => $kbe_search_setting,
+            'kbe_breadcrumbs_setting' => $kbe_breadcrumbs_setting,
+            'kbe_sidebar_home' => $kbe_sidebar_home,
+            'kbe_sidebar_inner' => $kbe_sidebar_inner,
+            'kbe_comments_setting' => $kbe_comments_setting,
+            'kbe_bgcolor' => $kbe_bgcolor,
+        );
         $kbe_settings_ser = serialize($kbe_settings_arr);
 
         add_option('kbe_settings', $kbe_settings_ser, '', 'yes');

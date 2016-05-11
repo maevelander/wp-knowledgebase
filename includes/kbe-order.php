@@ -266,6 +266,6 @@ global $post;
                 }
             ?>
             
-	</div>
+	    </div>
     </div>
 </div>
