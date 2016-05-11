@@ -90,3 +90,78 @@ function kbe_search_form(){
         </div>
     </div><?php
 }
+
+
+
+/**
+ * Load a template.
+ *
+ * Handles template usage so that we can use our own templates instead of the themes.
+ *
+ * Templates are in the 'templates' folder. knowledgebase looks for theme
+ * overrides in /theme/wp_knowledgebase/ by default
+ *
+ * @param mixed $template
+ * @return string
+ */
+function kbe_template_chooser($template){
+
+    $template_path = apply_filters( 'kbe_template_path', 'wp_knowledgebase/' );
+
+    $find = array();
+    $file = '';
+
+    if ( is_single() && get_post_type() == 'kbe_knowledgebase' ) {
+        $file   = 'single-kbe_knowledgebase.php';
+        $find[] = $file;
+        $find[] = $template_path . $file;
+    } elseif ( is_tax('kbe_taxonomy') || is_tax( 'kbe_tags') ) {
+        $term   = get_queried_object();
+
+        if ( is_tax( 'kbe_taxonomy' ) || is_tax( 'kbe_tags' ) ) {
+            $file = 'taxonomy-' . $term->taxonomy . '.php';
+        } else {
+            $file = 'archive.php';
+        }
+
+        $find[] = 'taxonomy-' . $term->taxonomy . '-' . $term->slug . '.php';
+        $find[] = $template_path . 'taxonomy-' . $term->taxonomy . '-' . $term->slug . '.php';
+        $find[] = 'taxonomy-' . $term->taxonomy . '.php';
+        $find[] = $template_path . 'taxonomy-' . $term->taxonomy . '.php';
+        $find[] = $file;
+        $find[] = $template_path . $file;
+    } elseif ( is_post_type_archive( 'kbe_knowledgebase' ) || is_page( KBE_PAGE_TITLE ) ) {
+        $file   = 'kbe_knowledgebase.php';
+        $find[] = $file;
+        $find[] = $template_path . $file;
+    }
+
+    if ( $file ) {
+        $template = locate_template( array_unique( $find ) ) ;
+        if ( ! $template ) {
+            $template = trailingslashit( dirname(__FILE__) ) . '../template/' . $file;
+        }
+    }
+
+    return $template;
+}
+add_filter('template_include', 'kbe_template_chooser');
+
+
+//=========>  KBE Search Template
+function template_chooser($template){
+    global $wp_query;
+
+    $post_type = get_query_var('post_type');
+
+    if( $wp_query->is_search && $post_type == 'kbe_knowledgebase' ){
+        if(file_exists(get_stylesheet_directory() . '/wp_knowledgebase/kbe_search.php')) {
+            return get_stylesheet_directory() . '/wp_knowledgebase/kbe_search.php';
+        } else {
+            return plugin_dir_path(__FILE__)."/../template/kbe_search.php";
+        }  //  redirect to kbe_search.php
+    }
+
+    return $template;
+}
+add_filter('template_include', 'template_chooser');
