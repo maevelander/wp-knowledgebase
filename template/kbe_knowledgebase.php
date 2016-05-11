@@ -2,6 +2,9 @@
     /*=========
     Template Name: KBE
     =========*/
+
+    global $wpdb;
+
     get_header('knowledgebase');
     
     // load the style and script

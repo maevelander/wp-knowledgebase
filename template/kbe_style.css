@@ -108,7 +108,7 @@
     background-color: #f8f8f8;
 }
 .kbe_no_result {
-    background: url("assets/images/kbe_icon_search_list.png") no-repeat scroll left 16px top 13px rgb(255, 255, 255);
+    background: url("images/kbe_icon_search_list.png") no-repeat scroll left 16px top 13px rgb(255, 255, 255);
     border-bottom: 1px solid #cccccc;
     border-left: 1px solid #cccccc;
     border-right: 1px solid #cccccc;
@@ -304,7 +304,7 @@
     list-style: none outside none;
     padding: 4px 0 24px 30px;
     margin: 0 0 10px;
-    background: url(assets/images/kbe_icon_search_list.png) no-repeat left top 8px;
+    background: url(images/kbe_icon_search_list.png) no-repeat left top 8px;
     border-bottom: 1px solid #e2e2e2;
 }
 #kbe_content .kbe_leftcol .kbe_articles_search ul li a {
