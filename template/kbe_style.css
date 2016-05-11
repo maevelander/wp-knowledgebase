@@ -36,7 +36,7 @@
 }
 .kbe_breadcrum ul li {
     float: left;
-    background: url(images/kbe_breadcrum_sep.png) no-repeat right;
+    background: url(assets/images/kbe_breadcrum_sep.png) no-repeat right;
     padding: 0 13px 2px 7px;
     line-height: 22px;
 }
@@ -108,7 +108,7 @@
     background-color: #f8f8f8;
 }
 .kbe_no_result {
-    background: url("images/kbe_icon_search_list.png") no-repeat scroll left 16px top 13px rgb(255, 255, 255);
+    background: url("assets/images/kbe_icon_search_list.png") no-repeat scroll left 16px top 13px rgb(255, 255, 255);
     border-bottom: 1px solid #cccccc;
     border-left: 1px solid #cccccc;
     border-right: 1px solid #cccccc;
@@ -304,7 +304,7 @@
     list-style: none outside none;
     padding: 4px 0 24px 30px;
     margin: 0 0 10px;
-    background: url(images/kbe_icon_search_list.png) no-repeat left top 8px;
+    background: url(assets/images/kbe_icon_search_list.png) no-repeat left top 8px;
     border-bottom: 1px solid #e2e2e2;
 }
 #kbe_content .kbe_leftcol .kbe_articles_search ul li a {
@@ -505,7 +505,7 @@
     padding:10px 10px;
 }
 .kbe_reply {
-    background: url(images/kbe_bg_reply.png) repeat-x top;
+    background: url(assets/images/kbe_bg_reply.png) repeat-x top;
     width: 622px;
     padding-top: 40px;
 }
@@ -516,7 +516,7 @@
     overflow: hidden;
 }
 .kbe_tags_icon{
-    background: url(images/kbe_icon_tag.png) no-repeat left top 1px;
+    background: url(assets/images/kbe_icon_tag.png) no-repeat left top 1px;
     float: left;
     height: 25px;
     width: 25px;
@@ -576,7 +576,7 @@
     display: none !important;
 }
 .kbe_reply .reply a{
-    background: url(images/kbe_icon_reply.png) no-repeat;
+    background: url(assets/images/kbe_icon_reply.png) no-repeat;
     float: right;
     width: 26px;
     height: 26px;
@@ -849,7 +849,7 @@
         float: none !important;
     }
     .kbe_reply {
-        background: url("images/kbe_bg_reply.png") repeat-x scroll center top rgba(0, 0, 0, 0);
+        background: url("assets/images/kbe_bg_reply.png") repeat-x scroll center top rgba(0, 0, 0, 0);
         padding-top: 40px;
         width: 100%;
     }
