@@ -9,6 +9,8 @@
   Requires at least: 2.7
  */
 
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+
  define( 'KBE_PLUGIN_VERSION', '1.1.4' );
 
 //=========> Create language folder

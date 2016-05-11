@@ -1,4 +1,6 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+
 /*===============
     KBE Tags Widget
  ===============*/
@@ -41,7 +43,7 @@ class kbe_Tags_Widget extends WP_Widget {
         ?>
                 <div class="kbe_tags_widget">
                 <?php
-                    $args = array(
+                    $tag_cloud_args = array(
                                 'smallest'                  => 	12,
                                 'largest'                   => 	30,
                                 'unit'                      => 	'px',
@@ -57,7 +59,7 @@ class kbe_Tags_Widget extends WP_Widget {
                                 'echo'                      => 	true
                     );
 						
-                    wp_tag_cloud($args);
+                    wp_tag_cloud($tag_cloud_args);
 					
                     wp_reset_query();
 		?>

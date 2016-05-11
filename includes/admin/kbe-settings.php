@@ -1,7 +1,7 @@
-<!--==============
-	>> KBE Settings
-==============-->
 <?php
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+
+
     $kbe_defaults = array( 
         'kbe_plugin_slug' => 'Knowledgebase',
         'kbe_article_qty' => 5,

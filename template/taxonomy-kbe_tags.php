@@ -1,4 +1,6 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+
     get_header('knowledgebase');
     
     // load the style and script
