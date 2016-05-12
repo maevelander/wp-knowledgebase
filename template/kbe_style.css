@@ -36,16 +36,8 @@
 }
 .kbe_breadcrum ul li {
     float: left;
-    background: url(assets/images/kbe_breadcrum_sep.png) no-repeat right;
-    padding: 0 13px 2px 7px;
+    padding: 0 7px 2px 7px;
     line-height: 22px;
-}
-.kbe_breadcrum ul li:last-child{
-    background: none;
-}
-.kbe_breadcrum ul li:first-child {
-    padding-left: 0;
-    margin-left: 0;
 }
 .kbe_breadcrum ul li a {
     text-decoration: none;
