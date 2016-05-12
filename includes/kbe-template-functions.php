@@ -165,3 +165,25 @@ function template_chooser($template){
     return $template;
 }
 add_filter('template_include', 'template_chooser');
+
+
+//=========> KBE Article Tags
+function kbe_show_tags(){
+    $kbe_tags_term = get_the_terms( $post->ID , KBE_POST_TAGS );
+    if($kbe_tags_term){
+
+        ?><div class="kbe_tags_div">
+            <div class="kbe_tags_icon"></div>
+            <ul><?php
+
+                foreach($kbe_tags_term as $kbe_tag){
+                    ?><li>
+                    <a href="<?php echo get_term_link($kbe_tag->slug, KBE_POST_TAGS) ?>"><?php echo $kbe_tag->name; ?></a>
+                    </li><?php
+                }
+
+            ?></ul>
+        </div><?php
+
+    }
+}
