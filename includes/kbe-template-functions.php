@@ -4,77 +4,54 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 //=========> KBE Plugin Breadcrumbs
 function kbe_breadcrumbs(){
-    global $post;
+    $parts = array(
+        array(
+            'text' => __('Home','kbe'),
+            'href' => home_url(),
+        ),
+        array(
+            'text' => ucwords(strtolower(KBE_PLUGIN_SLUG)),
+            'href' => home_url( KBE_PLUGIN_SLUG ),
+        ),
+    );
 
-    $kbe_slug_case = ucwords(strtolower(KBE_PLUGIN_SLUG));
-
-    $url = $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
-
-    if(strpos($url, 'knowledgebase_category') || strpos($url, 'kbe_taxonomy')){
-        $kbe_bc_name = get_queried_object()->name;
-
-        ?><ul>
-            <li><a href="<?php echo home_url(); ?>"><?php _e('Home','kbe'); ?></a></li>
-            <li><a href="<?php echo home_url()."/".KBE_PLUGIN_SLUG; ?>"><?php _e($kbe_slug_case ,'kbe'); ?></a></li>
-            <li><?php echo $kbe_bc_name; ?></li>
-        </ul><?php
-        
-    }elseif(strpos($url, 'kbe_tags') || strpos($url, 'knowledgebase_tags')){
-        $kbe_bc_tag_name = get_queried_object()->name;
-
-        ?><ul>
-            <li><a href="<?php echo home_url(); ?>"><?php _e('Home','kbe'); ?></a></li>
-            <li><a href="<?php echo home_url()."/".KBE_PLUGIN_SLUG; ?>"><?php _e($kbe_slug_case ,'kbe'); ?></a></li>
-            <li><?php echo $kbe_bc_tag_name; ?></li>
-        </ul><?php
-
-    }elseif(strpos($url, '?s')){
-	$kbe_search_word = $_GET['s'];
-
-        ?><ul>
-            <li><a href="<?php echo home_url(); ?>"><?php _e('Home','kbe'); ?></a></li>
-            <li><a href="<?php echo home_url()."/".KBE_PLUGIN_SLUG; ?>"><?php _e($kbe_slug_case ,'kbe'); ?></a></li>
-            <li><?php echo $kbe_search_word; ?></li>
-        </ul><?php
-
+    if(is_tax( array( 'kbe_taxonomy', 'knowledgebase_category', 'kbe_tags', 'knowledgebase_tags' ))){
+        $parts[] = array(
+            'text' => get_queried_object()->name,
+        );
+    }elseif(is_search()){
+        $parts[] = array(
+            'text' => esc_html( $_GET['s'] ),
+        );
     }elseif(is_single()){
-        $kbe_bc_term = get_the_terms( $post->ID , KBE_POST_TAXONOMY );
+        $kbe_bc_term = get_the_terms( get_the_ID() , KBE_POST_TAXONOMY );
+        foreach($kbe_bc_term as $kbe_tax_term){
+            $parts[] = array(
+                'text' => $kbe_tax_term->name,
+                'href' => get_term_link($kbe_tax_term->slug, KBE_POST_TAXONOMY),
+            );
+        }
 
-        ?><ul>
-            <li><a href="<?php echo home_url(); ?>"><?php _e('Home','kbe'); ?></a></li>
-            <li><a href="<?php echo home_url()."/".KBE_PLUGIN_SLUG; ?>"><?php _e($kbe_slug_case ,'kbe'); ?></a></li><?php
-        
-            foreach($kbe_bc_term as $kbe_tax_term){
-        
-                ?><li>
-                     <a href="<?php echo get_term_link($kbe_tax_term->slug, KBE_POST_TAXONOMY) ?>">
-                        <?php echo $kbe_tax_term->name ?>
-                    </a>
-                </li><?php
-                
-            }
-        
-            ?><li><?php
-                
-                    if(strlen(the_title('', '', FALSE) >= 50)) {
-                        echo substr(the_title('', '', FALSE), 0, 50)."....";
-                    } else {
-                        the_title();
-                    }
-                
-            ?></li>
-        </ul><?php
-
-    }else{
-
-        ?><ul>
-            <li><a href="<?php echo home_url(); ?>"><?php _e('Home','kbe'); ?></a></li>
-            <li><?php _e($kbe_slug_case ,'kbe'); ?></li>
-        </ul><?php
-
+        $title = strlen( get_the_title() ) >= 50 ? substr( get_the_title(), 0, 50 ) . "&hellip;" : get_the_title();
+        $parts[] = array(
+            'text' => $title,
+        );
     }
-}
 
+    $parts = apply_filters( 'wp_knowledgebase_breadcrumb_parts', $parts );
+    ?><ul><?php
+    foreach ( $parts as $k => $part ) {
+        $part = wp_parse_args( $part, array( 'text' => '', 'href' => '' ) );
+        ?><li class="breadcrumb-part"><a href="<?php echo esc_url( $part['href'] ); ?>"><?php echo wp_kses_post( $part['text'] ); ?></a></li><?php
+
+        $keys = array_keys( $parts );
+        if ( $k !== end( $keys ) ) {
+            ?><li class="separator"> / </li><?php
+        }
+    }
+    ?></ul><?php
+
+}
 
 
 //=========> KBE Search Form
