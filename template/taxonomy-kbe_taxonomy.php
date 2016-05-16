@@ -51,7 +51,7 @@ $kbe_tax_post_qry = new WP_Query($kbe_tax_post_args);
     // Breadcrumbs 
     if(KBE_BREADCRUMBS_SETTING == 1){
         ?><div class="kbe_breadcrum"><?php
-                kbe_breadcrumbs();
+            kbe_breadcrumbs();
         ?></div><?php
     }
     

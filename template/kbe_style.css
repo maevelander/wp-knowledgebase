@@ -36,7 +36,7 @@
 }
 .kbe_breadcrum ul li {
     float: left;
-    background: url(assets/images/kbe_breadcrum_sep.png) no-repeat right;
+    background: url(images/kbe_breadcrum_sep.png) no-repeat right;
     padding: 0 13px 2px 7px;
     line-height: 22px;
 }

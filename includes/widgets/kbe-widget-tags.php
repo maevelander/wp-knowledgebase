@@ -36,35 +36,35 @@ class kbe_Tags_Widget extends WP_Widget {
         //=======> widget body
         echo $args['before_widget'];
         echo '<div class="kbe_widget kbe_widget_article">';
-        
-                if($kbe_widget_tag_title){
-                    echo '<h2>'.$kbe_widget_tag_title.'</h2>';
-                }
-        ?>
-                <div class="kbe_tags_widget">
-                <?php
+
+            if($kbe_widget_tag_title){
+                echo '<h2>'.$kbe_widget_tag_title.'</h2>';
+            }
+
+            ?><div class="kbe_tags_widget"><?php
+                
                     $tag_cloud_args = array(
-                                'smallest'                  => 	12,
-                                'largest'                   => 	30,
-                                'unit'                      => 	'px',
-                                'number'                    => 	$kbe_widget_tag_count,
-                                'format'                    => 	$kbe_widget_tag_style,
-                                'separator'                 => 	"\n",
-                                'orderby'                   => 	'name',
-                                'order'                     => 	'ASC',
-                                'exclude'                   => 	null,
-                                'include'                   => 	null,
-                                'link'                      => 	'view',
-                                'taxonomy'                  => 	KBE_POST_TAGS,
-                                'echo'                      => 	true
+                        'smallest'                  => 	12,
+                        'largest'                   => 	30,
+                        'unit'                      => 	'px',
+                        'number'                    => 	$kbe_widget_tag_count,
+                        'format'                    => 	$kbe_widget_tag_style,
+                        'separator'                 => 	"\n",
+                        'orderby'                   => 	'name',
+                        'order'                     => 	'ASC',
+                        'exclude'                   => 	null,
+                        'include'                   => 	null,
+                        'link'                      => 	'view',
+                        'taxonomy'                  => 	KBE_POST_TAGS,
+                        'echo'                      => 	true
                     );
 						
                     wp_tag_cloud($tag_cloud_args);
 					
                     wp_reset_query();
-		?>
-                </div>
-<?php      
+
+                ?></div><?php
+      
         echo "</div>";
         echo $args['after_widget'];
     }
@@ -88,8 +88,8 @@ class kbe_Tags_Widget extends WP_Widget {
             'txtKbeTagsCount' => 10,
             'txtKbeTagsStyle' => 'flat',
         ) );
-?>
-        <p>
+
+        ?><p>
             <label for="<?php echo $this->get_field_id('txtKbeTagsHeading'); ?>"><?php _e('Title:','kbe'); ?></label>
             <input id="<?php echo $this->get_field_id('txtKbeTagsHeading'); ?>" class="widefat" name="<?php echo $this->get_field_name('txtKbeTagsHeading'); ?>" value="<?php echo $widgetData['txtKbeTagsHeading']; ?>" />
         </p>    
@@ -103,8 +103,8 @@ class kbe_Tags_Widget extends WP_Widget {
                 <option <?php selected($widgetData['txtKbeTagsStyle'], 'flat') ?> value="flat"><?php _e('Flat','kbe'); ?></option>
                 <option <?php selected($widgetData['txtKbeTagsStyle'], 'list') ?> value="list"><?php _e('List','kbe'); ?></option>
             </select>
-        </p>
-<?php
+        </p><?php
+
     }
 }
 ?>
