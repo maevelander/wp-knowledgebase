@@ -233,3 +233,7 @@ foreach($getSql as $getRow) {
 }
 define('KBE_PAGE_TITLE', $pageId);
 
+
+
+require 'includes/migrations/class-abstract-migration.php';
+require 'includes/migrations/migration-test.php';
