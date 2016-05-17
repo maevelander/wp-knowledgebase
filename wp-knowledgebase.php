@@ -14,10 +14,10 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 define( 'KBE_PLUGIN_VERSION', '1.1.4' );
 
 //=========> Create language folder
-add_action( 'init', 'kbe_plugin_load_textdomain' );
 function kbe_plugin_load_textdomain() {
     load_plugin_textdomain( 'kbe', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
 }
+add_action( 'init', 'kbe_plugin_load_textdomain' );
 
 //  Require File kbe_articles.php
 require "includes/kbe-articles.php";

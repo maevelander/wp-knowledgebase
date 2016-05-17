@@ -2,47 +2,38 @@
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 
-//=========> Enqueue plugin files
-$kbe_address_bar = $_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
-if(strpos($kbe_address_bar, "post_type=kbe_knowledgebase")) {
-	add_action('admin_init', 'wp_kbe_scripts');
-	function wp_kbe_scripts(){
-		wp_register_style('kbe_admin_css', WP_KNOWLEDGEBASE.'/assets/css/kbe-admin-style.css');
+//=========> Enqueue color picker
+function kbe_admin_scripts($hook_suffix) {
+
+	// Settings page
+	if ( $hook_suffix == 'kbe_knowledgebase_page_kbe_options' ) {
+		wp_enqueue_style('wp-color-picker');
+		wp_enqueue_script('cp-script-handle', WP_KNOWLEDGEBASE.'/assets/js/color_picker.js', array( 'wp-color-picker' ), false, true);
+	}
+
+	// Order page
+	if ( $hook_suffix == 'kbe_knowledgebase_page_kbe_order' ) {
+		wp_enqueue_script("jquery-ui-sortable");
+	}
+
+	wp_register_style('kbe_admin_css', WP_KNOWLEDGEBASE.'/assets/css/kbe-admin-style.css');
+	if ( isset( $_GET['post_type'] ) && $_GET['post_type'] == 'kbe_knowledgebase' ) {
 		wp_enqueue_style('kbe_admin_css');
 	}
+
 }
-
-//=========> Enqueue color picker
-add_action('admin_init', 'enqueue_color_picker');
-function enqueue_color_picker($hook_suffix) {
-	// first check that $hook_suffix is appropriate for your admin page
-	wp_enqueue_style('wp-color-picker');
-	wp_enqueue_script('cp-script-handle', WP_KNOWLEDGEBASE.'/assets/js/color_picker.js', array( 'wp-color-picker' ), false, true);
-}
-
-
-add_action('admin_init', 'load_all_jquery');
-function load_all_jquery() {
-	wp_enqueue_script("jquery");
-	$jquery_ui = array(
-		"jquery-ui-sortable"
-	);
-
-	foreach($jquery_ui as $script){
-		wp_enqueue_script($script);
-	}
-}
+add_action('admin_enqueue_scripts', 'kbe_admin_scripts');
 
 //=========> Plugin menu
-add_action('admin_menu', 'kbe_plugin_menu');
 function kbe_plugin_menu() {
 	add_submenu_page('edit.php?post_type=kbe_knowledgebase', 'Order', 'Order', 'manage_options', 'kbe_order', 'wp_kbe_order');
 	add_submenu_page('edit.php?post_type=kbe_knowledgebase', 'Settings', 'Settings', 'manage_options', 'kbe_options', 'wp_kbe_options');
 }
+add_action('admin_menu', 'kbe_plugin_menu');
 
 //  Require File kbe_order.php
 function wp_kbe_order(){
-	require "includes/kbe-order.php";
+	require dirname( __FILE__ ) . "/../kbe-order.php";
 }
 
 //=========> Require Files
@@ -52,10 +43,10 @@ function wp_kbe_options(){
 }
 
 //=========> Register plugin settings
-add_action('admin_init', 'kbe_register_settings');
 function kbe_register_settings() {
 	register_setting( 'kbe_settings', 'kbe_settings', 'kbe_validate_settings' );
 }
+add_action('admin_init', 'kbe_register_settings');
 
 
 /**

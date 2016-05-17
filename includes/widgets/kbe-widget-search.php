@@ -6,10 +6,11 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
  ===============*/
  
 //========= Custom Knowledgebase Search Widget
-add_action( 'widgets_init', 'kbe_search_widgets' );
 function kbe_search_widgets() {
     register_widget( 'kbe_Search_Widget' );
 }
+add_action( 'widgets_init', 'kbe_search_widgets' );
+
 
 //========= Custom Knowledgebase Search Widget Body
 class kbe_Search_Widget extends WP_Widget {

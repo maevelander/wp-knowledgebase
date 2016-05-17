@@ -7,11 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 ============
 */
 
-add_action('init', 'kbe_articles');
 function kbe_articles() {
-
-    $kb_slug = 'kbe_knowledgebase';
-    $kb_slug = get_option('kbe_plugin_slug');
 
     $labels = array(
         'name'                  => 	__('Knowledgebase', 'kbe'),
@@ -56,7 +52,8 @@ function kbe_articles() {
 
     register_post_type( 'kbe_knowledgebase' , $args );
 }
-add_action( 'init', 'kbe_taxonomies', 0 );
+add_action('init', 'kbe_articles');
+
 
 // Article taxonomy
 function kbe_taxonomies() {
@@ -84,8 +81,8 @@ function kbe_taxonomies() {
         'rewrite'           => 	array( 'slug' => 'knowledgebase_category', 'with_front' => true )
     ));
 }
+add_action( 'init', 'kbe_taxonomies', 0 );
 
-add_action( 'init', 'kbe_custom_tags', 0 );
 function kbe_custom_tags() {
     $labels = array(
         'name' 		=>  __( 'Knowledgebase Tags', 'kbe' ),
@@ -107,6 +104,7 @@ function kbe_custom_tags() {
         'rewrite'       =>  array('slug' => 'knowledgebase_tags', 'with_front' => true),
     ) );
 }
+add_action( 'init', 'kbe_custom_tags', 0 );
 
 function kbe_set_post_views($postID) {
     $count_key = 'kbe_post_views_count';
@@ -124,6 +122,7 @@ function kbe_set_post_views($postID) {
 
 //To keep the count accurate, lets get rid of prefetching
 remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10 );
+
 function kbe_get_post_views($postID){
     $count_key = 'kbe_post_views_count';
     $count = get_post_meta($postID, $count_key, true);
@@ -135,7 +134,7 @@ function kbe_get_post_views($postID){
     }
     return $count.' Views';
 }
-add_filter("manage_edit-kbe_knowledgebase_columns", "kbe_edit_columns");
+
 function kbe_edit_columns($columns){
     $columns = array(
         "cb" 		=> 	"<input type=\"checkbox\" />",
@@ -149,8 +148,9 @@ function kbe_edit_columns($columns){
     );
     return $columns;
 }
+add_filter("manage_edit-kbe_knowledgebase_columns", "kbe_edit_columns");
 
-add_action("manage_posts_custom_column",  "kbe_custom_columns");
+
 function kbe_custom_columns($column){
     global $post;
     switch ($column){
@@ -182,4 +182,6 @@ function kbe_custom_columns($column){
         break;
     }
 }
+add_action("manage_posts_custom_column",  "kbe_custom_columns");
+
 ?>

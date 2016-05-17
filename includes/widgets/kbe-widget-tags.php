@@ -6,10 +6,10 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
  ===============*/
  
 //========= Custom Knowledgebase Tags Widget
-add_action( 'widgets_init', 'kbe_tags_widgets' );
 function kbe_tags_widgets() {
     register_widget( 'kbe_Tags_Widget' );
 }
+add_action( 'widgets_init', 'kbe_tags_widgets' );
 
 //========= Custom Knowledgebase Tags Widget Body
 class kbe_Tags_Widget extends WP_Widget {
