@@ -140,3 +140,17 @@ function count_bg_color(){
 	}
 }
 add_action('wp_enqueue_scripts', 'count_bg_color');
+
+
+/**
+ * Get page ID of KB.
+ * 
+ * Get the page ID of the page that holds the Knowledgebase.
+ * 
+ * @since 1.1.5
+ * 
+ * @return int|bool Post ID when it has been found, false otherwise.
+ */
+function kbe_get_knowledgebase_page_id() {
+	return get_option( 'kbe_plugin_slug', false );
+}

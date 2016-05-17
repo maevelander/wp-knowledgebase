@@ -28,13 +28,38 @@ class KBE_Migration_Install extends KBE_Abstract_Migration {
 	}
 
 
+	/**
+	 * Actually run the migration.
+	 * 
+	 * @since 1.1.5
+	 * 
+	 * @return bool True when everything went as planned, false otherwise.
+	 */
 	public function migrate() {
-		
-		update_option( 'test_migrate_value', date_i18n( 'd-m-Y H:i:s' ) );
+
+		// Insert KB page if it doens'nt exist already
+		if ( ! kbe_get_knowledgebase_page_id() ) {
+			
+			$page_id = wp_insert_post( array(
+				'post_type' => 'page',
+				'post_status' => 'publish',
+				'post_content' => '[kbe_knowledgebase]',
+				'post_title' => __( 'Knowledgebase', 'kbe' ),
+			) );
+			update_option( 'kbe_page_id', $page_id );
+			
+		}
 		
 		return true;
 	}
 
+	/**
+	 * Notice.
+	 * 
+	 * The notice that is being displayed to inform the user.
+	 * 
+	 * @since 1.1.5
+	 */
 	public function get_notice() {
 		$href = wp_nonce_url( add_query_arg( array( 'action' => 'kbe-knowledgebase-migrate', 'migration' => $this->id ) ), 'migrate_kbe' );
 		$dismiss_href = wp_nonce_url( add_query_arg( array( 'action' => 'kbe-knowledgebase-migrate-dismiss', 'migration' => $this->id ) ), 'migrate_kbe' );
