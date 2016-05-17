@@ -88,3 +88,20 @@ function kbe_tax_order($orderby, $args){
 	}
 }
 add_filter('get_terms_orderby', 'kbe_tax_order', 10, 2);
+
+
+function kbe_migrations_check() {
+	require_once plugin_dir_path( __FILE__ ) . '../migrations/class-migration-manager.php';
+	$migration_manager = new KBE_Migration_Manager( 'wp-knowledgebase' );
+}
+add_action( 'admin_init', 'kbe_migrate_check' );
+register_activation_hook( __FILE__, 'kbe_migrations_check' );
+
+
+
+add_action( 'admin_notices', function() {
+		$last_run = get_option( 'test_migrate_value', 'Never' );
+		?><div class="notice notice-warning">
+			<p><?php echo sprintf( 'Last run on: ' . $last_run  ); ?></p>
+		</div><?php
+});

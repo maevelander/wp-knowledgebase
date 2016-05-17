@@ -32,8 +32,8 @@ abstract class KBE_Abstract_Migration {
 	 * @var string
 	 */
 	protected $notice_type = 'notice'; // 'notice', 'admin_block'
-
-
+	
+	
 	/**
 	 * Constructor.
 	 * 
@@ -42,7 +42,30 @@ abstract class KBE_Abstract_Migration {
 	public function __construct() {
 		$this->init();
 	}
+
 	
+	/**
+	 *
+	 */
+	public function init() {
+
+		// Show a notice before updating
+		if ( $this->notice_type == 'notice' ) {
+			add_action( 'admin_notices', array( $this, 'admin_notice' ) );
+
+			// Block admin area till upgraded
+		} elseif ( $this->notice_type == 'block' ) {
+
+			// Automatically update in the background
+		} elseif ( $this->notice_type == 'none' ) {
+			$this->run_migration();
+
+		}
+
+
+	}
+	
+
 	/**
 	 * Initialize the migration.
 	 * 
@@ -51,8 +74,8 @@ abstract class KBE_Abstract_Migration {
 	 * @return bool Returns true when everything went according plan, false otherwise.
 	 */
 	abstract public function migrate();
-
-
+	
+	
 	/**
 	 * Revert the migration.
 	 * 
@@ -64,19 +87,30 @@ abstract class KBE_Abstract_Migration {
 	public function revert() {}
 
 
-	/**
-	 * 
-	 */
-	public function init() {
-		
-		if ( $this->notice_type == 'notice' ) {
-			add_action( 'admin_notices', array( $this, 'admin_notice' ) );
+
+	public function run_migration() {
+
+		if ( $this->has_run_before() ) {
+			return false;
 		}
+
+		$this->migrate();
+		
+		$this->mark_as_ran();
+
+	}
+
+	public function has_run_before() {
 		
 	}
 
+	public function mark_as_ran() {
+		
+	}
+	
+	
 	public function admin_notice() {
-		?><div class="notice">
+		?><div class="notice notice-warning">
 			<p><?php echo $this->get_notice_text(); ?></p>
 		</div><?php
 	}
