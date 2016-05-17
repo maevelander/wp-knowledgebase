@@ -20,18 +20,20 @@ add_action('wp_enqueue_scripts', 'kbe_styles');
 
 
 //=========> Registering KBE widget area
-register_sidebar(array(
-	'name' => __('WP Knowledgebase Sidebar','kbe'),
-	'id' => 'kbe_cat_widget',
-	'description' => __('WP Knowledgebase sidebar area','kbe'),
-	'before_widget' => '',
-	'after_widget' => '',
-	'before_title' => '<h6>',
-	'after_title' => '</h6>',
-));
+function kbe_register_sidebar(  ) {
+	register_sidebar(array(
+		'name' => __('WP Knowledgebase Sidebar','kbe'),
+		'id' => 'kbe_cat_widget',
+		'description' => __('WP Knowledgebase sidebar area','kbe'),
+		'before_widget' => '',
+		'after_widget' => '',
+		'before_title' => '<h6>',
+		'after_title' => '</h6>',
+	));
+}
+add_action( 'widgets_init', 'kbe_register_sidebar' );
 
 
-add_action('wp_footer', 'kbe_search_drop');
 function kbe_search_drop(){
 	if( KBE_SEARCH_SETTING == 1 ){
 		?><script type="text/javascript">
@@ -91,6 +93,8 @@ function kbe_search_drop(){
 		}
 	}
 }
+add_action('wp_footer', 'kbe_search_drop');
+
 
 //=========>  KBE Knowledgebase Shortcode
 function kbe_shortcode( $atts, $content = null ){
@@ -99,10 +103,11 @@ function kbe_shortcode( $atts, $content = null ){
 	return $return_string;
 }
 
-add_action('init', 'register_kbe_shortcodes');
 function register_kbe_shortcodes(){
 	add_shortcode('kbe_knowledgebase', 'kbe_shortcode');
 }
+add_action('init', 'register_kbe_shortcodes');
+
 
 //=========>  KBE Short Content
 function kbe_short_content($limit) {
@@ -118,7 +123,6 @@ function kbe_short_content($limit) {
 }
 
 //=========> KBE Dynamic CSS
-add_action('wp_enqueue_scripts', 'count_bg_color');
 function count_bg_color(){
 	if ( KBE_BG_COLOR ){
 		$dynamic_css = "
@@ -135,3 +139,4 @@ function count_bg_color(){
 		wp_add_inline_style( 'kbe_theme_style', $dynamic_css );
 	}
 }
+add_action('wp_enqueue_scripts', 'count_bg_color');

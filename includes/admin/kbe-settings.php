@@ -2,18 +2,18 @@
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 
-    $kbe_defaults = array( 
-        'kbe_plugin_slug' => 'Knowledgebase',
-        'kbe_article_qty' => 5,
-        'kbe_search_setting' =>  0,
-        'kbe_breadcrumbs_setting' =>  0,
-        'kbe_sidebar_home' => 0,
-        'kbe_sidebar_inner' => 0,
-        'kbe_comments_setting' => 0,
-        'kbe_bgcolor' => '',
-        'kbe_wipe_uninstall' => 0,
-    );
-    $kbe_settings = wp_parse_args( get_option( 'kbe_settings' ), $kbe_defaults );
+$kbe_defaults = array( 
+    'kbe_plugin_slug' => 'Knowledgebase',
+    'kbe_article_qty' => 5,
+    'kbe_search_setting' =>  0,
+    'kbe_breadcrumbs_setting' =>  0,
+    'kbe_sidebar_home' => 0,
+    'kbe_sidebar_inner' => 0,
+    'kbe_comments_setting' => 0,
+    'kbe_bgcolor' => '',
+    'kbe_wipe_uninstall' => 0,
+);
+$kbe_settings = wp_parse_args( get_option( 'kbe_settings' ), $kbe_defaults );
 
 ?><div id="wpbody">
     <div id="wpbody-content">

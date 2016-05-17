@@ -6,10 +6,10 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
  ===============*/
 
 //========= Custom Knowledgebase Article Widget
-add_action( 'widgets_init', 'kbe_article_widgets' );
 function kbe_article_widgets() {
     register_widget( 'kbe_Article_Widget' );
 }
+add_action( 'widgets_init', 'kbe_article_widgets' );
 
 //========= Custom Knowledgebase Article Widget Body
 class kbe_Article_Widget extends WP_Widget {
