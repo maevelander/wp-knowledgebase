@@ -94,7 +94,7 @@ function kbe_migrations_check() {
 	require_once plugin_dir_path( __FILE__ ) . '../migrations/class-migration-manager.php';
 	$migration_manager = new KBE_Migration_Manager( 'wp-knowledgebase' );
 }
-add_action( 'admin_init', 'kbe_migrate_check' );
+add_action( 'admin_init', 'kbe_migrations_check' );
 register_activation_hook( __FILE__, 'kbe_migrations_check' );
 
 

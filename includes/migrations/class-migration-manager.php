@@ -12,19 +12,19 @@ class KBE_Migration_Manager {
 	 * 
 	 * @since 1.0.0
 	 */
-	public $migrations = array();
+	public static $migrations = array();
 
 
 	/**
 	 * @var array Migrations that have already been ran before.
 	 */
-	private $ran_migrations = array();
+	private static $ran_migrations = array();
 
 	
 	/**
 	 * @var string A unique name used for identifying settings. Use your plugin's/theme's name.
 	 */
-	private $identifier;
+	private static $identifier;
 	
 
 	/**
@@ -34,19 +34,19 @@ class KBE_Migration_Manager {
 	 */
 	public function __construct( $identifier ) {
 
-		$this->identifier = sanitize_title( $identifier );
-		$this->ran_migrations = $this->get_ran_migrations();
+		self::$identifier = sanitize_title( $identifier );
+		self::$ran_migrations = self::get_ran_migrations();
 		
 		require_once plugin_dir_path( __FILE__ ) . 'class-abstract-migration.php';
 
-		$this->migrations = array(
-			'migration-test.php' => 'KBE_Migrate1',
+		self::$migrations = array(
+			'migration-install.php' => 'KBE_Migration_Install',
 		);
 		
-		foreach ( $this->migrations as $file => $class ) {
+		foreach ( self::$migrations as $file => $class ) {
 			include_once $file;
 			$migration = new $class();
-			$migration->migrate();
+//			$migration->init();
 		}
 		
 	}
@@ -61,13 +61,37 @@ class KBE_Migration_Manager {
 	 * 
 	 * @return array List of migrations that already have been ran.
 	 */
-	private function get_ran_migrations() {
+	public static function get_ran_migrations() {
 		
-		if ( empty( $this->ran_migrations ) ) {
-			$this->ran_migrations = get_option( $this->identifier . '_migrations', array() );
+		if ( empty( self::$ran_migrations ) ) {
+			self::$ran_migrations = get_option( self::$identifier . '_migrations', array() );
 		}
-		return $this->ran_migrations;
+		return self::$ran_migrations;
+
 	}
 
+
+	/**
+	 * Update migration.
+	 * 
+	 * Update a migration status in the DB.
+	 * 
+	 * @since 1.0.0
+	 * 
+	 * @param $migration_id
+	 * @param string $status
+	 */
+	public static function update( $migration_id, $status = 'migrated' ) {
+	    
+		$migrations = self::get_ran_migrations();
+		$migrations[ $migration_id ] = array(
+			'status' => sanitize_title( $status ),
+			'time'   => time(),
+		);
+		update_option( self::$identifier . '_migrations', $migrations );
+		
+		self::$migrations = $migrations;
+		
+	}
 
 }
