@@ -55,11 +55,9 @@ if(KBE_SIDEBAR_INNER == 0) {
                 ?><h1><?php the_title(); ?></h1><?php
 
                 the_content();
-                if(KBE_COMMENT_SETTING == 1){
-                    ?><div class="kbe_reply"><?php
-                        comments_template("wp_knowledgebase/kbe_comments.php");
-                    ?></div><?php 
-                }
+                
+                include 'kbe_comments.php';
+            
             endwhile;
 
         ?></div>
