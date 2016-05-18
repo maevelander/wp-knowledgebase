@@ -60,9 +60,7 @@ if(!empty($_GET['ajax']) ? $_GET['ajax'] : null) {
         // Content
         ?><div id="kbe_content" <?php echo $kbe_content_class; ?>><?php
     
-           $kbe_search_term = $_GET['s'];
-	
-            ?><h1><?php _e('Search Results for: '.$kbe_search_term, 'kbe'); ?></h1>
+            ?><h1><?php echo sprintf( __('Search Results for: %s', 'kbe'), esc_html( $_GET['s'] ) ); ?></h1>
 
             <!--leftcol-->
             <div class="kbe_leftcol" >
