@@ -54,78 +54,13 @@ function wp_kbe_hooks($kbe_networkwide) {
         $wpdb->query("ALTER TABLE $wpdb->terms ADD `terms_order` INT(4) NULL DEFAULT '0'");
     }
 
-    $kbe_prefix = $wpdb->prefix;
-
-    $kbe_pageSql = $wpdb->get_results("
-       Select *
-       From ".$kbe_prefix."posts
-       Where post_content like '%[kbe_knowledgebase]%'
-       And post_type = 'page'
-    ");
-    
-    if(!$kbe_pageSql){
-        //  Insert a "Knowledgebase" page
-        $kbe_max_page_Sql = $wpdb->get_results("SELECT Max(ID) As kbe_maxId FROM ".$kbe_prefix."posts");
-        foreach($kbe_max_page_Sql as $kbe_max_page_row) {
-            $kbe_maxId = $kbe_max_page_row->kbe_maxId;
-            $kbe_maxId = $kbe_maxId + 1;
-        }
-
-        $kbe_now = date('Y-m-d H:i:s');
-        $kbe_now_gmt = gmdate('Y-m-d H:i:s');
-        $kbe_guid = get_option('home') . '/?page_id='.$kbe_maxId;
-        $kbe_user_id = get_current_user_id();
-
-        $kbe_table_posts = $wpdb->prefix.'posts';
-
-        $kbe_data_posts = array(
-            'post_author'           =>  $kbe_user_id,
-            'post_date'             =>  $kbe_now,
-            'post_date_gmt'         =>  $kbe_now_gmt,
-            'post_content'          =>  '[kbe_knowledgebase]',
-            'post_title'            =>  'Knowledgebase',
-            'post_excerpt'          =>  '',
-            'post_status'           =>  'publish',
-            'comment_status'        =>  'closed',
-            'ping_status'           =>  'closed',
-            'post_password'         =>  '',
-            'post_name'             =>  'knowledgebase',
-            'to_ping'               =>  '',
-            'pinged'                =>  '',
-            'post_modified'         =>  $kbe_now,
-            'post_modified_gmt'     =>  $kbe_now_gmt,
-            'post_content_filtered' =>  '',
-            'post_parent'           =>  '0',
-            'guid'                  =>  $kbe_guid,
-            'menu_order'            =>  '0',
-            'post_type'             =>  'page',
-            'post_mime_type'        =>  '',
-            'comment_count'         =>  '0',
-        );
-        $wpdb->insert($kbe_table_posts,$kbe_data_posts) or die(mysql_error());
-
-        //  Insert a page template for knowlwdgebase
-        $kbe_tempTableSql = $wpdb->get_results("
-            Select post_content, ID
-            From ".$kbe_prefix."posts
-            Where post_content Like '%[kbe_knowledgebase]%'
-            And post_type <> 'revision'
-        ");
-        foreach($kbe_tempTableSql as $kbe_tempTableRow) {
-            $tempPageId = $kbe_tempTableRow->ID;
-
-            //  Set Knowledgebase page template
-            add_post_meta($tempPageId, '_wp_page_template', 'wp_knowledgebase/kbe_knowledgebase.php');
-        }
-    }
-
-    $kbe_optSlugSql = $wpdb->get_results("Select * From ".$kbe_prefix."options Where option_name like '%kbe_plugin_slug%'");
+    $kbe_optSlugSql = $wpdb->get_results("Select * From {$wpdb->options} Where option_name like '%kbe_plugin_slug%'");
 
     if(!$kbe_optSlugSql){
         add_option( 'kbe_plugin_slug', 'knowledgebase', '', 'yes' );
     }
 
-    $kbe_optPageSql = $wpdb->get_results("Select * From ".$kbe_prefix."options Where option_name like '%kbe_article_qty%'");
+    $kbe_optPageSql = $wpdb->get_results("Select * From {$wpdb->options} Where option_name like '%kbe_article_qty%'");
 
     if(!$kbe_optPageSql){
         add_option( 'kbe_article_qty', '5', '', 'yes' );
@@ -233,3 +168,7 @@ foreach($getSql as $getRow) {
 }
 define('KBE_PAGE_TITLE', $pageId);
 
+
+
+require 'includes/migrations/class-abstract-migration.php';
+require 'includes/migrations/migration-install.php';
