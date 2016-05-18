@@ -79,12 +79,6 @@ function wp_kbe_hooks( $kbe_networkwide ) {
 		}
 	}
 
-	// Delete index file from directory
-	$kbe_get_index_file = plugin_dir_path( __FILE__ ) . 'index.php';
-	if ( file_exists( $kbe_get_index_file ) ) {
-		unlink( $kbe_get_index_file );
-	}
-
 	// serialize settings data
 	$kbe_settings = get_option( 'kbe_settings' );
 
