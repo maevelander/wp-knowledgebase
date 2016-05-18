@@ -7,7 +7,7 @@ global $post;
     <div id="wpbody-content">
         <div class="wrap">
 
-            <h2><?php _e( 'Re-Order', 'kbe' ); ?></h2>
+            <h2><?php _e( 'Re-Order', 'wp-knowledgebase' ); ?></h2>
 
             <?php
 				$message = '';
@@ -26,7 +26,7 @@ global $post;
                 <!--=============== Re Order Categories ===============-->
                 <div class="kbe_admin_left_content">
                     <div class="kbe_admin_left_heading">
-                        <h3><?php _e( 'Category Order', 'kbe' ); ?></h3>
+                        <h3><?php _e( 'Category Order', 'wp-knowledgebase' ); ?></h3>
                     </div>
                     <div class="kbe_admin_body">
                         <form name="custom_order_form" method="post" action="">
@@ -40,7 +40,7 @@ global $post;
 							$kbe_terms     = get_terms( 'kbe_taxonomy', $kbe_args );
 							if ( $kbe_terms ) {
 						?>
-                            <p><?php _e( 'Drag and drop items to customise the order of categories in WP Knowledgebase', 'kbe' ); ?></p>
+                            <p><?php _e( 'Drag and drop items to customise the order of categories in WP Knowledgebase', 'wp-knowledgebase' ); ?></p>
 
                             <ul id="kbe_order_sortable" class="kbe_admin_order">
                             <?php
@@ -54,14 +54,14 @@ global $post;
 							?>
                             </ul>
                             <img src="<?php echo esc_url( admin_url( 'images/wpspin_light.gif' ) ); ?>" id="kbe_custom_loading" style="display:none" alt="" />
-                            <input type="submit" name="kbe_order_submit" id="kbe_order_submit" class="button-primary" value="<?php _e( 'Save Order', 'kbe' ); ?>" />
+                            <input type="submit" name="kbe_order_submit" id="kbe_order_submit" class="button-primary" value="<?php _e( 'Save Order', 'wp-knowledgebase' ); ?>" />
                             <input type="hidden" id="kbe_parent_custom_order" name="kbe_parent_custom_order" />
                             <input type="hidden" id="kbe_parent_id" name="kbe_parent_id" value="<?php echo $kbe_parent_ID; ?>" />
                         <?php
 							} else {
 						?>
                             <p>
-                                <?php _e( 'No terms found', 'kbe' ); ?>
+                                <?php _e( 'No terms found', 'wp-knowledgebase' ); ?>
                             </p>
                         <?php
 							}
@@ -102,7 +102,7 @@ global $post;
                 <!--=============== Re Order Articles ===============-->
                 <div class="kbe_admin_left_content">
                     <div class="kbe_admin_left_heading">
-                        <h3><?php _e( 'Article Order', 'kbe' ); ?></h3>
+                        <h3><?php _e( 'Article Order', 'wp-knowledgebase' ); ?></h3>
                     </div>
                     <div class="kbe_admin_body">
                         <form name="custom_order_form" method="post" action="">
@@ -115,7 +115,7 @@ global $post;
 													) );
 							if ( $kbe_article_args->have_posts() ) {
 						?>
-                            <p><?php _e( 'Drag and drop items to customise the order of articles in WP Knowledgebase', 'kbe' ); ?></p>
+                            <p><?php _e( 'Drag and drop items to customise the order of articles in WP Knowledgebase', 'wp-knowledgebase' ); ?></p>
 
                             <ul id="kbe_article_sortable" class="kbe_admin_order">
                             <?php $i = 1;
@@ -130,13 +130,13 @@ global $post;
 							?>
                             </ul>
                             <img src="<?php echo esc_url( admin_url( 'images/wpspin_light.gif' ) ); ?>" id="kbe_custom_loading_article" style="display:none" alt="" />
-                            <input type="submit" name="kbe_article_submit" id="kbe_article_submit" class="button-primary" value="<?php _e( 'Save Order', 'kbe' ); ?>" />
+                            <input type="submit" name="kbe_article_submit" id="kbe_article_submit" class="button-primary" value="<?php _e( 'Save Order', 'wp-knowledgebase' ); ?>" />
                             <input type="hidden" id="kbe_article_custom_order" name="kbe_article_custom_order" />
                         <?php
 							} else {
 						?>
                             <p>
-                                <?php _e( 'No Articles found', 'kbe' ); ?>
+                                <?php _e( 'No Articles found', 'wp-knowledgebase' ); ?>
                             </p>
                         <?php
 							}
@@ -176,13 +176,13 @@ global $post;
             <table cellpadding="0" class="widefat donation" style="margin-bottom:10px; border:solid 2px #008001;" width="50%" valign="top">
                 <thead>
                     <th scope="col">
-                        <strong style="color:#008001;"><?php _e( 'Help Improve This Plugin!', 'kbe' ); ?></strong>
+                        <strong style="color:#008001;"><?php _e( 'Help Improve This Plugin!', 'wp-knowledgebase' ); ?></strong>
                     </th>
         	</thead>
       		<tbody>
                     <tr>
           		<td style="border:0;">
-                            <?php _e( 'Enjoyed this plugin? All donations are used to improve and further develop this plugin. Thanks for your contribution.', 'kbe' ); ?>
+                            <?php _e( 'Enjoyed this plugin? All donations are used to improve and further develop this plugin. Thanks for your contribution.', 'wp-knowledgebase' ); ?>
                         </td>
                     </tr>
                     <tr>
@@ -196,9 +196,9 @@ global $post;
                   	</td>
                     </tr>
                     <tr>
-          		<td style="border:0;"><?php _e( 'you can also help by', 'kbe' ); ?>
+          		<td style="border:0;"><?php _e( 'you can also help by', 'wp-knowledgebase' ); ?>
                             <a href="http://wordpress.org/support/view/plugin-reviews/wp_knowledgebase" target="_blank">
-                                <?php _e( 'rating this plugin on wordpress.org', 'kbe' ); ?>
+                                <?php _e( 'rating this plugin on wordpress.org', 'wp-knowledgebase' ); ?>
                             </a>
                       	</td>
                     </tr>
@@ -207,15 +207,15 @@ global $post;
 
             <table cellpadding="0" class="widefat" border="0">
                 <thead>
-                    <th scope="col"><?php _e( 'Need Support?', 'kbe' ); ?></th>
+                    <th scope="col"><?php _e( 'Need Support?', 'wp-knowledgebase' ); ?></th>
                 </thead>
                 <tbody>
                     <tr>
                         <td style="border:0;">
-                            <?php _e( 'Check out the', 'kbe' ); ?>
-                            <a href="http://enigmaplugins.com/documentation/" target="_blank"><?php _e('FAQs','kbe'); ?></a>
-                            <?php _e( 'and', 'kbe' ); ?>
-                            <a href="http://wordpress.org/support/plugin/wp_knowledgebase" target="_blank"><?php _e('Support Forums','kbe'); ?></a>
+                            <?php _e( 'Check out the', 'wp-knowledgebase' ); ?>
+                            <a href="http://enigmaplugins.com/documentation/" target="_blank"><?php _e('FAQs','wp-knowledgebase'); ?></a>
+                            <?php _e( 'and', 'wp-knowledgebase' ); ?>
+                            <a href="http://wordpress.org/support/plugin/wp_knowledgebase" target="_blank"><?php _e('Support Forums','wp-knowledgebase'); ?></a>
                         </td>
                     </tr>
                 </tbody>
@@ -239,9 +239,9 @@ global $post;
 							//echo $parent_str."<br />";
 							$term_update = $wpdb->update( $wpdb->terms, array( 'terms_order' => $p ), array( 'term_id' => $parent_str ) );
 						}
-						echo '<div id="message" class="updated fade"><p>' . __( 'Category Order updated successfully.', 'kbe' ) . '</p></div>';
+						echo '<div id="message" class="updated fade"><p>' . __( 'Category Order updated successfully.', 'wp-knowledgebase' ) . '</p></div>';
 					} else {
-						echo '<div id="message" class="error fade"><p>' . __( 'An error occured, order has not been saved.', 'kbe' ) . '</p></div>';
+						echo '<div id="message" class="error fade"><p>' . __( 'An error occured, order has not been saved.', 'wp-knowledgebase' ) . '</p></div>';
 					}
 				}
 
@@ -261,9 +261,9 @@ global $post;
 							//echo $article_str."<br />";
 							$article_update = $wpdb->update( $wpdb->posts, array( 'menu_order' => $a ), array( 'ID' => $article_str ) );
 						}
-						echo '<div id="message" class="updated fade"><p>' . __( 'Article Order updated successfully.', 'kbe' ) . '</p></div>';
+						echo '<div id="message" class="updated fade"><p>' . __( 'Article Order updated successfully.', 'wp-knowledgebase' ) . '</p></div>';
 					} else {
-						echo '<div id="message" class="error fade"><p>' . __( 'An error occured, order has not been saved.', 'kbe' ) . '</p></div>';
+						echo '<div id="message" class="error fade"><p>' . __( 'An error occured, order has not been saved.', 'wp-knowledgebase' ) . '</p></div>';
 					}
 				}
 

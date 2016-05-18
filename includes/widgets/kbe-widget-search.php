@@ -18,9 +18,9 @@ class kbe_Search_Widget extends WP_Widget {
 	function __construct() {
 		parent::__construct(
 			'kbe_search_widget', // Base ID
-			__( 'Knowledgebase Search', 'kbe' ), // Name
+			__( 'Knowledgebase Search', 'wp-knowledgebase' ), // Name
 			array(
-				'description' => __( 'WP Knowledgebase search widget', 'kbe' ),
+				'description' => __( 'WP Knowledgebase search widget', 'wp-knowledgebase' ),
 				'classname'   => 'kbe'
 			)
 		);
@@ -40,7 +40,7 @@ class kbe_Search_Widget extends WP_Widget {
 		}
 	?>
         <form role="search" method="get" id="searchform" class="clearfix" action="<?php echo home_url( '/' ); ?>" autocomplete="off">
-            <input type="text" onfocus="if (this.value == '<?php _e( 'Search Articles...', 'kbe' ); ?>') {this.value = '';}" onblur="if (this.value == '')  {this.value = '<?php _e( 'Search Articles...', 'kbe' ); ?>';}" value="<?php _e( 'Search Articles...', 'kbe' ); ?>" name="s" id="s" />
+            <input type="text" onfocus="if (this.value == '<?php _e( 'Search Articles...', 'wp-knowledgebase' ); ?>') {this.value = '';}" onblur="if (this.value == '')  {this.value = '<?php _e( 'Search Articles...', 'wp-knowledgebase' ); ?>';}" value="<?php _e( 'Search Articles...', 'wp-knowledgebase' ); ?>" name="s" id="s" />
             <input type="hidden" name="post_type" value="kbe_knowledgebase" />
         </form>
     <?php

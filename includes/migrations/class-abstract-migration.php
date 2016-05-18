@@ -179,7 +179,7 @@ abstract class KBE_Abstract_Migration {
 			<p>
 				<a href="<?php echo esc_url( $href ); ?>" class="button button-primary"><?php _e( 'Migrate' ); ?></a><?php
 				if ( $this->dismissible ) {
-					?>&nbsp;&nbsp;<a href="<?php esc_url( $dismiss_href ); ?>" class="button button-secondary"><?php _e( 'No thanks', 'kbe' ); ?></a></p><?php
+					?>&nbsp;&nbsp;<a href="<?php esc_url( $dismiss_href ); ?>" class="button button-secondary"><?php _e( 'No thanks', 'wp-knowledgebase' ); ?></a></p><?php
 				}
 		?></div><?php
 	}

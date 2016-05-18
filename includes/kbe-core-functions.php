@@ -20,9 +20,9 @@ add_action( 'wp_enqueue_scripts', 'kbe_styles' );
 //=========> Registering KBE widget area
 function kbe_register_sidebar() {
 	register_sidebar( array(
-		'name'          => __( 'WP Knowledgebase Sidebar', 'kbe' ),
+		'name'          => __( 'WP Knowledgebase Sidebar', 'wp-knowledgebase' ),
 		'id'            => 'kbe_cat_widget',
-		'description'   => __( 'WP Knowledgebase sidebar area', 'kbe' ),
+		'description'   => __( 'WP Knowledgebase sidebar area', 'wp-knowledgebase' ),
 		'before_widget' => '',
 		'after_widget'  => '',
 		'before_title'  => '<h6>',

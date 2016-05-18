@@ -86,7 +86,7 @@ if ( KBE_SIDEBAR_HOME == 0 ) {
 					?><div class="kbe_category">
                         <h2>
                             <span class="kbe_count"><?php
-								echo sprintf( _n( '%d Article', '%d Articles', $kbe_count_sum_parent, 'kbe' ), $kbe_count_sum_parent );
+								echo sprintf( _n( '%d Article', '%d Articles', $kbe_count_sum_parent, 'wp-knowledgebase' ), $kbe_count_sum_parent );
 							?></span>
                             <a href="<?php echo get_term_link( $kbe_term_slug, 'kbe_taxonomy' ); ?>"><?php
 								echo $kbe_term_name;
@@ -114,7 +114,7 @@ if ( KBE_SIDEBAR_HOME == 0 ) {
 
 									?><h3>
                                         <span class="kbe_count"><?php
-											echo sprintf( _n( '%d Article', '%d Articles', $kbe_child_term->count, 'kbe' ), $kbe_child_term->count );
+											echo sprintf( _n( '%d Article', '%d Articles', $kbe_child_term->count, 'wp-knowledgebase' ), $kbe_child_term->count );
 										?></span>
                                         <a href="<?php echo get_term_link( $kbe_child_term_slug, 'kbe_taxonomy' ); ?>"><?php
 											echo $kbe_child_term_name;

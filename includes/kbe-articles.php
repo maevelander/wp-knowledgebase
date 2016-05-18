@@ -8,17 +8,17 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 */
 function kbe_articles() {
 	$labels = array(
-		'name'               => 	__( 'Knowledgebase', 'kbe' ),
-		'singular_name'      => 	__( 'Knowledgebase', 'kbe' ),
-		'all_items'          => 	__( 'Articles', 'kbe' ),
-		'add_new'            => 	__( 'New Article', 'kbe' ),
-		'add_new_item'       => 	__( 'Add New Article', 'kbe' ),
-		'edit_item'          => 	__( 'Edit Article', 'kbe' ),
-		'new_item'           => 	__( 'New Article', 'kbe' ),
-		'view_item'          => 	__( 'View Articles', 'kbe' ),
-		'search_items'       => 	__( 'Search Articles', 'kbe' ),
-		'not_found'          => 	__( 'Nothing found', 'kbe' ),
-		'not_found_in_trash' => 	__( 'Nothing found in Trash', 'kbe' ),
+		'name'               => 	__( 'Knowledgebase', 'wp-knowledgebase' ),
+		'singular_name'      => 	__( 'Knowledgebase', 'wp-knowledgebase' ),
+		'all_items'          => 	__( 'Articles', 'wp-knowledgebase' ),
+		'add_new'            => 	__( 'New Article', 'wp-knowledgebase' ),
+		'add_new_item'       => 	__( 'Add New Article', 'wp-knowledgebase' ),
+		'edit_item'          => 	__( 'Edit Article', 'wp-knowledgebase' ),
+		'new_item'           => 	__( 'New Article', 'wp-knowledgebase' ),
+		'view_item'          => 	__( 'View Articles', 'wp-knowledgebase' ),
+		'search_items'       => 	__( 'Search Articles', 'wp-knowledgebase' ),
+		'not_found'          => 	__( 'Nothing found', 'wp-knowledgebase' ),
+		'not_found_in_trash' => 	__( 'Nothing found in Trash', 'wp-knowledgebase' ),
 		'parent_item_colon'  => 	''
 	);
 
@@ -56,23 +56,23 @@ add_action( 'init', 'kbe_articles' );
 function kbe_taxonomies() {
 	// Add new taxonomy, make it hierarchical (like categories)
 	$labels = array(
-		'name'              => 	__( 'Knowledgebase Category', 'kbe' ),
-		'singular_name'     => 	__( 'Knowledgebase Category', 'kbe' ),
-		'search_items'      => 	__( 'Search Knowledgebase Category', 'kbe' ),
-		'all_items'         => 	__( 'All Knowledgebase Categories', 'kbe' ),
-		'parent_item'       => 	__( 'Parent Knowledgebase Category', 'kbe' ),
-		'parent_item_colon' => 	__( 'Parent Knowledgebase Category:', 'kbe' ),
-		'edit_item'         => 	__( 'Edit Knowledgebase Category', 'kbe' ),
-		'update_item'       => 	__( 'Update Knowledgebase Category', 'kbe' ),
-		'add_new_item'      => 	__( 'Add New Knowledgebase Category', 'kbe' ),
-		'new_item_name'     => 	__( 'New Knowledgebase Category Name', 'kbe' ),
-		'menu_name'         => 	__( 'Categories', 'kbe' )
+		'name'              => 	__( 'Knowledgebase Category', 'wp-knowledgebase' ),
+		'singular_name'     => 	__( 'Knowledgebase Category', 'wp-knowledgebase' ),
+		'search_items'      => 	__( 'Search Knowledgebase Category', 'wp-knowledgebase' ),
+		'all_items'         => 	__( 'All Knowledgebase Categories', 'wp-knowledgebase' ),
+		'parent_item'       => 	__( 'Parent Knowledgebase Category', 'wp-knowledgebase' ),
+		'parent_item_colon' => 	__( 'Parent Knowledgebase Category:', 'wp-knowledgebase' ),
+		'edit_item'         => 	__( 'Edit Knowledgebase Category', 'wp-knowledgebase' ),
+		'update_item'       => 	__( 'Update Knowledgebase Category', 'wp-knowledgebase' ),
+		'add_new_item'      => 	__( 'Add New Knowledgebase Category', 'wp-knowledgebase' ),
+		'new_item_name'     => 	__( 'New Knowledgebase Category Name', 'wp-knowledgebase' ),
+		'menu_name'         => 	__( 'Categories', 'wp-knowledgebase' )
 	);
 
 	register_taxonomy( 'kbe_taxonomy', array( 'kbe_knowledgebase' ), array(
 		'hierarchical'      => 	true,
 		'labels'            => 	$labels,
-		'singular_label'    => 	__( 'Knowledgebase Category', 'kbe' ),
+		'singular_label'    => 	__( 'Knowledgebase Category', 'wp-knowledgebase' ),
 		'show_ui'           => 	true,
 		'query_var'         => 	true,
 		'rewrite'           => 	array( 'slug' => 'knowledgebase_category', 'with_front' => true )
@@ -82,15 +82,15 @@ add_action( 'init', 'kbe_taxonomies', 0 );
 
 function kbe_custom_tags() {
 	$labels = array(
-		'name'          =>  __( 'Knowledgebase Tags', 'kbe' ),
-		'singular_name' =>  __( 'Knowledgebase Tag', 'kbe' ),
-		'search_items'  =>  __( 'Search Knowledgebase Tags', 'kbe' ),
-		'all_items'     =>  __( 'All Knowledgebase Tags', 'kbe' ),
-		'edit_item'     =>  __( 'Edit Knowledgebase Tag', 'kbe' ),
-		'update_item'   =>  __( 'Update Knowledgebase Tag', 'kbe' ),
-		'add_new_item'  =>  __( 'Add New Knowledgebase Tag', 'kbe' ),
-		'new_item_name' =>  __( 'New Knowledgebase Tag Name', 'kbe' ),
-		'menu_name'     =>  __( 'Tags', 'kbe' )
+		'name'          =>  __( 'Knowledgebase Tags', 'wp-knowledgebase' ),
+		'singular_name' =>  __( 'Knowledgebase Tag', 'wp-knowledgebase' ),
+		'search_items'  =>  __( 'Search Knowledgebase Tags', 'wp-knowledgebase' ),
+		'all_items'     =>  __( 'All Knowledgebase Tags', 'wp-knowledgebase' ),
+		'edit_item'     =>  __( 'Edit Knowledgebase Tag', 'wp-knowledgebase' ),
+		'update_item'   =>  __( 'Update Knowledgebase Tag', 'wp-knowledgebase' ),
+		'add_new_item'  =>  __( 'Add New Knowledgebase Tag', 'wp-knowledgebase' ),
+		'new_item_name' =>  __( 'New Knowledgebase Tag Name', 'wp-knowledgebase' ),
+		'menu_name'     =>  __( 'Tags', 'wp-knowledgebase' )
 	);
 
 	register_taxonomy( 'kbe_tags', 'kbe_knowledgebase', array(
@@ -135,13 +135,13 @@ function kbe_get_post_views( $postID ) {
 function kbe_edit_columns( $columns ) {
 	$columns = array(
 		'cb'      => 	"<input type=\"checkbox\" />",
-		'title'   => 	__( 'Title', 'kbe' ),
-		'author'  => 	__( 'Author', 'kbe' ),
-		'cat'     => 	__( 'Category', 'kbe' ),
-		'tag'     => 	__( 'Tags', 'kbe' ),
-		'comment' => 	__( 'Comments', 'kbe' ),
-		'views'   => 	__( 'Views', 'kbe' ),
-		'date'    => 	__( 'Date', 'kbe' )
+		'title'   => 	__( 'Title', 'wp-knowledgebase' ),
+		'author'  => 	__( 'Author', 'wp-knowledgebase' ),
+		'cat'     => 	__( 'Category', 'wp-knowledgebase' ),
+		'tag'     => 	__( 'Tags', 'wp-knowledgebase' ),
+		'comment' => 	__( 'Comments', 'wp-knowledgebase' ),
+		'views'   => 	__( 'Views', 'wp-knowledgebase' ),
+		'date'    => 	__( 'Date', 'wp-knowledgebase' )
 	);
 	return $columns;
 }
@@ -163,14 +163,14 @@ function kbe_custom_columns( $column ) {
 			echo get_the_term_list( $post->ID, 'kbe_tags', ' ', ', ', '' );
 		break;
 		case 'comment':
-			comments_number( __( 'No Comments', 'kbe' ), __( '1 Comment', 'kbe' ), __( '% Comments', 'kbe' ) );
+			comments_number( __( 'No Comments', 'wp-knowledgebase' ), __( '1 Comment', 'wp-knowledgebase' ), __( '% Comments', 'wp-knowledgebase' ) );
 		break;
 		case 'views':
 			$views = get_post_meta( $post->ID, 'kbe_post_views_count', true );
 			if ( $views ) {
-				echo $views . __( ' Views', 'kbe' );
+				echo $views . __( ' Views', 'wp-knowledgebase' );
 			} else {
-				echo __( 'No Views', 'kbe' );
+				echo __( 'No Views', 'wp-knowledgebase' );
 			}
 		break;
 		case 'date':
