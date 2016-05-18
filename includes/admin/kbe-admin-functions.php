@@ -96,12 +96,3 @@ function kbe_migrations_check() {
 }
 add_action( 'admin_init', 'kbe_migrations_check' );
 register_activation_hook( __FILE__, 'kbe_migrations_check' );
-
-
-
-add_action( 'admin_notices', function() {
-		$last_run = get_option( 'test_migrate_value', 'Never' );
-		?><div class="notice notice-warning">
-			<p><?php echo sprintf( 'Last run on: ' . $last_run  ); ?></p>
-		</div><?php
-});
