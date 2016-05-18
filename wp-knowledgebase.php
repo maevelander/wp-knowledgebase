@@ -15,7 +15,13 @@ define( 'KBE_PLUGIN_VERSION', '1.1.4' );
 
 //=========> Create language folder
 function kbe_plugin_load_textdomain() {
-	load_plugin_textdomain( 'kbe', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
+
+	$locale = apply_filters( 'plugin_locale', get_locale(), 'wp-knowledgebase' );
+
+	// Load textdomain
+	load_textdomain( 'wp-knowledgebase', WP_LANG_DIR . '/wp-knowledgebase/wp-knowledgebase-' . $locale . '.mo' );
+	load_plugin_textdomain( 'wp-knowledgebase', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
+
 }
 add_action( 'init', 'kbe_plugin_load_textdomain' );
 

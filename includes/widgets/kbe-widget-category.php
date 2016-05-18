@@ -17,9 +17,9 @@ class kbe_Cat_Widget extends WP_Widget {
 	function __construct() {
 		parent::__construct(
 			'kbe_category_widget', // Base ID
-			__( 'Knowledgebase Category', 'kbe' ), // Name
+			__( 'Knowledgebase Category', 'wp-knowledgebase' ), // Name
 			array(
-				'description' => __( 'WP Knowledgebase category widget to show categories on the site', 'kbe' ),
+				'description' => __( 'WP Knowledgebase category widget to show categories on the site', 'wp-knowledgebase' ),
 				'classname'   => 'kbe'
 			) // Args
 		);
@@ -84,7 +84,7 @@ class kbe_Cat_Widget extends WP_Widget {
             <input id="<?php echo $this->get_field_id( 'txtKbeCatHeading' ); ?>" class="widefat" name="<?php echo $this->get_field_name( 'txtKbeCatHeading' ); ?>" value="<?php echo $widgetData['txtKbeCatHeading']; ?>" />
         </p>
         <p>
-            <label for="<?php echo $this->get_field_id( 'txtKbeCatCount' ); ?>"><?php _e( 'Category Quantity:', 'kbe' ); ?></label>
+            <label for="<?php echo $this->get_field_id( 'txtKbeCatCount' ); ?>"><?php _e( 'Category Quantity:', 'wp-knowledgebase' ); ?></label>
             <input id="<?php echo $this->get_field_id( 'txtKbeCatCount' ); ?>" name="<?php echo $this->get_field_name( 'txtKbeCatCount' ); ?>" value="<?php echo $widgetData['txtKbeCatCount']; ?>" />
         </p>
 <?php

@@ -17,9 +17,9 @@ class kbe_Tags_Widget extends WP_Widget {
 	function __construct() {
 		parent::__construct(
 			'kbe_tags_widgets', // Base ID
-			__( 'Knowledgebase Tags', 'kbe' ), // Name
+			__( 'Knowledgebase Tags', 'wp-knowledgebase' ), // Name
 			array(
-				'description' => __( 'WP Knowledgebase tags widget to show tags on the site', 'kbe' ),
+				'description' => __( 'WP Knowledgebase tags widget to show tags on the site', 'wp-knowledgebase' ),
 				'classname'   => 'kbe'
 			)
 		);
@@ -89,18 +89,18 @@ class kbe_Tags_Widget extends WP_Widget {
 		) );
 
 		?><p>
-            <label for="<?php echo $this->get_field_id( 'txtKbeTagsHeading' ); ?>"><?php _e( 'Title:', 'kbe' ); ?></label>
+            <label for="<?php echo $this->get_field_id( 'txtKbeTagsHeading' ); ?>"><?php _e( 'Title:', 'wp-knowledgebase' ); ?></label>
             <input id="<?php echo $this->get_field_id( 'txtKbeTagsHeading' ); ?>" class="widefat" name="<?php echo $this->get_field_name( 'txtKbeTagsHeading' ); ?>" value="<?php echo $widgetData['txtKbeTagsHeading']; ?>" />
         </p>
         <p>
-            <label for="<?php echo $this->get_field_id( 'txtKbeTagsCount' ); ?>"><?php _e( 'Tags Quantity:', 'kbe' ); ?></label>
+            <label for="<?php echo $this->get_field_id( 'txtKbeTagsCount' ); ?>"><?php _e( 'Tags Quantity:', 'wp-knowledgebase' ); ?></label>
             <input id="<?php echo $this->get_field_id( 'txtKbeTagsCount' ); ?>" class="widefat" name="<?php echo $this->get_field_name( 'txtKbeTagsCount' ); ?>" value="<?php echo $widgetData['txtKbeTagsCount']; ?>" />
         </p>
         <p>
-            <label for="<?php echo $this->get_field_id( 'txtKbeTagsStyle' ); ?>"><?php _e( 'Tags Style:', 'kbe' ); ?></label>
+            <label for="<?php echo $this->get_field_id( 'txtKbeTagsStyle' ); ?>"><?php _e( 'Tags Style:', 'wp-knowledgebase' ); ?></label>
             <select id="<?php echo $this->get_field_id( 'txtKbeTagsStyle' ); ?>" class="widefat" name="<?php echo $this->get_field_name( 'txtKbeTagsStyle' ); ?>">
-                <option <?php selected( $widgetData['txtKbeTagsStyle'], 'flat' ); ?> value="flat"><?php _e( 'Flat', 'kbe' ); ?></option>
-                <option <?php selected( $widgetData['txtKbeTagsStyle'], 'list' ); ?> value="list"><?php _e( 'List', 'kbe' ); ?></option>
+                <option <?php selected( $widgetData['txtKbeTagsStyle'], 'flat' ); ?> value="flat"><?php _e( 'Flat', 'wp-knowledgebase' ); ?></option>
+                <option <?php selected( $widgetData['txtKbeTagsStyle'], 'list' ); ?> value="list"><?php _e( 'List', 'wp-knowledgebase' ); ?></option>
             </select>
         </p><?php
 	}
