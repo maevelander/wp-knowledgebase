@@ -73,6 +73,7 @@ function kbe_taxonomies() {
 		'hierarchical'      => 	true,
 		'labels'            => 	$labels,
 		'singular_label'    => 	__( 'Knowledgebase Category', 'kbe' ),
+		'show_admin_column' => 	true,
 		'show_ui'           => 	true,
 		'query_var'         => 	true,
 		'rewrite'           => 	array( 'slug' => 'knowledgebase_category', 'with_front' => true )
@@ -96,6 +97,7 @@ function kbe_custom_tags() {
 	register_taxonomy( 'kbe_tags', 'kbe_knowledgebase', array(
 		'hierarchical' =>  false,
 		'labels'       =>  $labels,
+		'show_admin_column' => 	true,
 		'show_ui'      =>  true,
 		'query_var'    =>  true,
 		'rewrite'      =>  array( 'slug' => 'knowledgebase_tags', 'with_front' => true ),
@@ -108,9 +110,8 @@ function kbe_set_post_views( $postID ) {
 	$count     = get_post_meta( $postID, $count_key, true );
 
 	if ( $count=='' ) {
-		$count = 1;
 		delete_post_meta( $postID, $count_key );
-		add_post_meta( $postID, $count_key, '1' );
+		add_post_meta( $postID, $count_key, 1 );
 	} else {
 		$count++;
 		update_post_meta( $postID, $count_key, $count );
@@ -132,50 +133,39 @@ function kbe_get_post_views( $postID ) {
 	return $count . ' Views';
 }
 
-function kbe_edit_columns( $columns ) {
-	$columns = array(
-		'cb'      => 	"<input type=\"checkbox\" />",
-		'title'   => 	__( 'Title', 'kbe' ),
-		'author'  => 	__( 'Author', 'kbe' ),
-		'cat'     => 	__( 'Category', 'kbe' ),
-		'tag'     => 	__( 'Tags', 'kbe' ),
-		'comment' => 	__( 'Comments', 'kbe' ),
-		'views'   => 	__( 'Views', 'kbe' ),
-		'date'    => 	__( 'Date', 'kbe' )
-	);
-	return $columns;
+function kbe_edit_columns( $existing_columns ) {
+	$columns = array( 'views' => __( 'Views', 'kbe' ) );
+	return array_merge( $existing_columns, $columns );
 }
-add_filter( 'manage_edit-kbe_knowledgebase_columns', 'kbe_edit_columns' );
+add_filter( 'manage_edit-kbe_knowledgebase_columns', 'kbe_edit_columns', 10 );
 
 function kbe_custom_columns( $column ) {
 	global $post;
 	switch ( $column ) {
-		case 'title':
-			the_title();
-		break;
-		case 'author':
-			the_author();
-		break;
-		case 'cat':
-			echo get_the_term_list( $post->ID, 'kbe_taxonomy', ' ', ', ', '' );
-		break;
-		case 'tag':
-			echo get_the_term_list( $post->ID, 'kbe_tags', ' ', ', ', '' );
-		break;
-		case 'comment':
-			comments_number( __( 'No Comments', 'kbe' ), __( '1 Comment', 'kbe' ), __( '% Comments', 'kbe' ) );
-		break;
 		case 'views':
 			$views = get_post_meta( $post->ID, 'kbe_post_views_count', true );
-			if ( $views ) {
-				echo $views . __( ' Views', 'kbe' );
-			} else {
-				echo __( 'No Views', 'kbe' );
-			}
-		break;
-		case 'date':
-			the_date();
+			echo sprintf( _n( '%d view', '%d views', $views ), $views );
 		break;
 	}
 }
-add_action( 'manage_posts_custom_column', 'kbe_custom_columns' );
+add_action( 'manage_kbe_knowledgebase_posts_custom_column', 'kbe_custom_columns' );
+
+function kbe_sortable_custom_columns( $columns ) {
+	$columns['views'] = 'views';
+	return $columns;
+}
+add_filter( 'manage_edit-kbe_knowledgebase_sortable_columns', 'kbe_sortable_custom_columns' );
+
+function kbe_sort_custom_columns( $query ) {
+	
+	if ( ! is_admin() || ! $query->is_main_query() ) {
+		return;
+	}
+
+	if ( $orderby = $query->get( 'orderby' ) == 'views' && $query->get( 'post_type' ) == 'kbe_knowledgebase' ) {
+		$query->set( 'meta_key', 'kbe_post_views_count' );
+		$query->set( 'orderby', 'meta_value_num' );
+	}
+	
+}
+add_action( 'pre_get_posts', 'kbe_sort_custom_columns' );
