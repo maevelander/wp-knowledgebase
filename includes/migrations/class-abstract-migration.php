@@ -6,7 +6,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
  */
 abstract class KBE_Abstract_Migration {
 
-	
+
 	/**
 	 * @var bool
 	 */
@@ -22,12 +22,12 @@ abstract class KBE_Abstract_Migration {
 	 */
 	protected $dismissible = false;
 
-	
+
 	/**
 	 * User roles allowed to migrate.
-	 * 
+	 *
 	 * A list of user roles that are allowed to perform the migration.
-	 * 
+	 *
 	 * @var array
 	 */
 //	protected $allowed_roles = array( 'administrator' );
@@ -38,36 +38,34 @@ abstract class KBE_Abstract_Migration {
 	 * This is similar to how WP runs its updates.
 	 *
 	 * If set to 'notice' there will be a admin notice shown to the admin (or other roles if setup).
-	 * 
+	 *
 	 * @var string
 	 */
 	protected $notice_type = 'notice'; // 'notice', 'admin_block', 'nonce'
-	
-	
+
+
 	/**
 	 * Constructor.
-	 * 
+	 *
 	 * Initialize the migration.
 	 */
 	public function __construct() {
 		$this->redirect = remove_query_arg( array( 'action', 'migration', '_wp_nonce' ) );
-		
+
 		if ( ! $this->has_run_before() ) {
 			$this->init();
 		}
 	}
 
-	
 	/**
 	 *
 	 */
 	public function init() {
-
 		// Show a notice before updating
 		if ( $this->notice_type == 'notice' ) {
 			add_action( 'admin_notices', array( $this, 'admin_notice' ) );
-			add_action( 'admin_init', array( $this, 'check_for_migrate_action'), 50 );
-			
+			add_action( 'admin_init', array( $this, 'check_for_migrate_action' ), 50 );
+
 		// Block admin area till upgraded
 		} elseif ( $this->notice_type == 'block' ) {
 
@@ -76,57 +74,51 @@ abstract class KBE_Abstract_Migration {
 			$this->run_migration();
 
 		}
-
-
 	}
-	
 
 	/**
 	 * Initialize the migration.
-	 * 
+	 *
 	 * @since 1.0.0
-	 * 
+	 *
 	 * @return bool Returns true when everything went according plan, false otherwise.
 	 */
 	abstract public function migrate();
-	
-	
+
+
 	/**
 	 * Revert the migration.
-	 * 
-	 * If wanted, you can revert the changes made in the migration, allowing your users 
+	 *
+	 * If wanted, you can revert the changes made in the migration, allowing your users
 	 * to revert back to a old version if needed.
-	 * 
+	 *
 	 * @since 1.0.0
 	 */
 	public function revert() {}
 
-
 	/**
 	 * Run the migration.
-	 * 
+	 *
 	 * This function handles the running of the migration.
-	 * 
+	 *
 	 * @since 1.0.0
-	 * 
+	 *
 	 * @return bool
 	 */
 	public function run_migration() {
-
 		do_action( 'before_migration', $this );
-		
+
 		$this->migrate();
-		
+
 		do_action( 'after_migration', $this );
-		
+
 		$this->mark_as_ran();
-		
+
 		// Redirect after the migration has been completed.
-		if ( ! empty( $this->redirect ) ) { 
+		if ( ! empty( $this->redirect ) ) {
 			wp_redirect( $this->redirect );
 			die;
 		}
-
 	}
 
 	public function has_run_before() {
@@ -137,13 +129,10 @@ abstract class KBE_Abstract_Migration {
 		KBE_Migration_Manager::update( $this->id );
 	}
 
-
 	/******************************************
 	 * Notice migration type
 	 *****************************************/
-	
 	public function check_for_migrate_action() {
-
 		// Bail if currently no migrations are being run
 		if ( ! isset( $_GET['action'] ) || ! in_array( $_GET['action'], array( 'kbe-knowledgebase-migrate', 'kbe-knowledgebase-migrate-dismiss' ) ) ) {
 			return false;
@@ -158,50 +147,45 @@ abstract class KBE_Abstract_Migration {
 			KBE_Migration_Manager::update( $this->id, 'dismissed' );
 			return false;
 		}
-		
+
 		// Run the migration
 		return $this->run_migration();
-		
 	}
-
 
 	/**
 	 * Admin notice output.
-	 * 
+	 *
 	 * Output the admin notice in the 'admin_notices' hook.
-	 * 
+	 *
 	 * @since 1.0.0
 	 */
 	public function admin_notice() {
 		$this->get_notice();
 	}
 
-
 	/**
 	 * Get the full notice.
-	 * 
+	 *
 	 * Get the full notice HTML used to output the admin notice.
 	 * This function can be overridden in a migration class if needed.
-	 * 
+	 *
 	 * @since 1.0.0
 	 */
 	protected function get_notice() {
-		$href = wp_nonce_url( add_query_arg( array( 'action' => 'kbe-knowledgebase-migrate', 'migration' => $this->id ) ), 'migrate_kbe' );
+		$href         = wp_nonce_url( add_query_arg( array( 'action' => 'kbe-knowledgebase-migrate', 'migration' => $this->id ) ), 'migrate_kbe' );
 		$dismiss_href = wp_nonce_url( add_query_arg( array( 'action' => 'kbe-knowledgebase-migrate-dismiss', 'migration' => $this->id ) ), 'migrate_kbe' );
 		?><div class="notice notice-success">
 			<p><?php echo wp_kses_post( $this->get_notice_text() ); ?></p>
 			<p>
 				<a href="<?php echo esc_url( $href ); ?>" class="button button-primary"><?php _e( 'Migrate' ); ?></a><?php
 				if ( $this->dismissible ) {
-					?>&nbsp;&nbsp;<a href="<?php esc_url( $dismiss_href ); ?>" class="button button-secondary"><?php _e( 'No thanks', 'kbe'); ?></a></p><?php
+					?>&nbsp;&nbsp;<a href="<?php esc_url( $dismiss_href ); ?>" class="button button-secondary"><?php _e( 'No thanks', 'kbe' ); ?></a></p><?php
 				}
 		?></div><?php
 	}
 
-	
 	protected function get_notice_text() {
 		return 'Hey! You should upgrade!';
 	}
-	
-	
+
 }
