@@ -62,9 +62,6 @@ if(KBE_SIDEBAR_INNER == 0) {
                 }
             endwhile;
 
-            //  Never ever delete it !!!
-            kbe_get_post_views(get_the_ID());
-            
         ?></div>
         <!--/Content Body-->
 
