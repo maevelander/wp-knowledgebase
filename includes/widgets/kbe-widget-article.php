@@ -18,9 +18,9 @@ class kbe_Article_Widget extends WP_Widget {
 	function __construct() {
 		parent::__construct(
 			'kbe_article_widgets', // Base ID
-			__( 'Knowledgebase Article', 'kbe' ), // Name
+			__( 'Knowledgebase Article', 'wp-knowledgebase' ), // Name
 			array(
-				'description' => __( 'WP Knowledgebase article widget to show articles on the site', 'kbe' ),
+				'description' => __( 'WP Knowledgebase article widget to show articles on the site', 'wp-knowledgebase' ),
 				'classname'   => 'kbe'
 			) // Args
 		);
@@ -108,28 +108,28 @@ class kbe_Article_Widget extends WP_Widget {
 		) );
 ?>
         <p>
-            <label for="<?php echo $this->get_field_id( 'txtKbeArticleHeading' ); ?>"><?php _e( 'Article Title:', 'kbe' ); ?></label>
+            <label for="<?php echo $this->get_field_id( 'txtKbeArticleHeading' ); ?>"><?php _e( 'Article Title:', 'wp-knowledgebase' ); ?></label>
             <input id="<?php echo $this->get_field_id( 'txtKbeArticleHeading' ); ?>" class="widefat" name="<?php echo $this->get_field_name( 'txtKbeArticleHeading' ); ?>" value="<?php echo $widgetData['txtKbeArticleHeading']; ?>" />
         </p>
         <p>
-            <label for="<?php echo $this->get_field_id( 'txtKbeArticleCount' ); ?>"><?php _e( 'Articles Quantity:', 'kbe' ); ?></label>
+            <label for="<?php echo $this->get_field_id( 'txtKbeArticleCount' ); ?>"><?php _e( 'Articles Quantity:', 'wp-knowledgebase' ); ?></label>
             <input id="<?php echo $this->get_field_id( 'txtKbeArticleCount' ); ?>" class="widefat" name="<?php echo $this->get_field_name( 'txtKbeArticleCount' ); ?>" value="<?php echo $widgetData['txtKbeArticleCount']; ?>" />
         </p>
         <p>
-            <label for="<?php echo $this->get_field_id( 'txtKbeArticleOrder' ); ?>"><?php _e( 'Articles Order:', 'kbe' ); ?></label>
+            <label for="<?php echo $this->get_field_id( 'txtKbeArticleOrder' ); ?>"><?php _e( 'Articles Order:', 'wp-knowledgebase' ); ?></label>
             <select id="<?php echo $this->get_field_id( 'txtKbeArticleOrder' ); ?>" class="widefat" name="<?php echo $this->get_field_name( 'txtKbeArticleOrder' ); ?>">
-                <option <?php selected( $widgetData['txtKbeArticleOrder'], 'ASC' ); ?> value="ASC"><?php _e( 'ASC', 'kbe' ); ?></option>
-                <option <?php selected( $widgetData['txtKbeArticleOrder'], 'DESC' ); ?> value="DESC"><?php _e( 'DESC', 'kbe' ); ?></option>
+                <option <?php selected( $widgetData['txtKbeArticleOrder'], 'ASC' ); ?> value="ASC"><?php _e( 'ASC', 'wp-knowledgebase' ); ?></option>
+                <option <?php selected( $widgetData['txtKbeArticleOrder'], 'DESC' ); ?> value="DESC"><?php _e( 'DESC', 'wp-knowledgebase' ); ?></option>
             </select>
         </p>
         <p>
-            <label for="<?php echo $this->get_field_id( 'txtKbeArticleOrderBy' ); ?>"><?php _e( 'Articles Order by:', 'kbe' ); ?></label>
+            <label for="<?php echo $this->get_field_id( 'txtKbeArticleOrderBy' ); ?>"><?php _e( 'Articles Order by:', 'wp-knowledgebase' ); ?></label>
             <select id="<?php echo $this->get_field_id( 'txtKbeArticleOrderBy' ); ?>" class="widefat" name="<?php echo $this->get_field_name( 'txtKbeArticleOrderBy' ); ?>">
-                <option <?php selected( $widgetData['txtKbeArticleOrderBy'], 'name' ); ?> value="name"><?php _e( 'By Name', 'kbe' ); ?></option>
-                <option <?php selected( $widgetData['txtKbeArticleOrderBy'], 'date' ); ?> value="date"><?php _e( 'By Date', 'kbe' ); ?></option>
-                <option <?php selected( $widgetData['txtKbeArticleOrderBy'], 'rand' ); ?> value="rand"><?php _e( 'By Random', 'kbe' ); ?></option>
-                <option <?php selected( $widgetData['txtKbeArticleOrderBy'], 'popularity' ); ?> value="popularity"><?php _e( 'By Popularity', 'kbe' ); ?></option>
-                <option <?php selected( $widgetData['txtKbeArticleOrderBy'], 'comment_count' ); ?> value="comment_count"><?php _e( 'By Comments', 'kbe' ); ?></option>
+                <option <?php selected( $widgetData['txtKbeArticleOrderBy'], 'name' ); ?> value="name"><?php _e( 'By Name', 'wp-knowledgebase' ); ?></option>
+                <option <?php selected( $widgetData['txtKbeArticleOrderBy'], 'date' ); ?> value="date"><?php _e( 'By Date', 'wp-knowledgebase' ); ?></option>
+                <option <?php selected( $widgetData['txtKbeArticleOrderBy'], 'rand' ); ?> value="rand"><?php _e( 'By Random', 'wp-knowledgebase' ); ?></option>
+                <option <?php selected( $widgetData['txtKbeArticleOrderBy'], 'popularity' ); ?> value="popularity"><?php _e( 'By Popularity', 'wp-knowledgebase' ); ?></option>
+                <option <?php selected( $widgetData['txtKbeArticleOrderBy'], 'comment_count' ); ?> value="comment_count"><?php _e( 'By Comments', 'wp-knowledgebase' ); ?></option>
             </select>
         </p>
 <?php

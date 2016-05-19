@@ -8,17 +8,17 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 */
 function kbe_articles() {
 	$labels = array(
-		'name'               => 	__( 'Knowledgebase', 'kbe' ),
-		'singular_name'      => 	__( 'Knowledgebase', 'kbe' ),
-		'all_items'          => 	__( 'Articles', 'kbe' ),
-		'add_new'            => 	__( 'New Article', 'kbe' ),
-		'add_new_item'       => 	__( 'Add New Article', 'kbe' ),
-		'edit_item'          => 	__( 'Edit Article', 'kbe' ),
-		'new_item'           => 	__( 'New Article', 'kbe' ),
-		'view_item'          => 	__( 'View Articles', 'kbe' ),
-		'search_items'       => 	__( 'Search Articles', 'kbe' ),
-		'not_found'          => 	__( 'Nothing found', 'kbe' ),
-		'not_found_in_trash' => 	__( 'Nothing found in Trash', 'kbe' ),
+		'name'               => 	__( 'Knowledgebase', 'wp-knowledgebase' ),
+		'singular_name'      => 	__( 'Knowledgebase', 'wp-knowledgebase' ),
+		'all_items'          => 	__( 'Articles', 'wp-knowledgebase' ),
+		'add_new'            => 	__( 'New Article', 'wp-knowledgebase' ),
+		'add_new_item'       => 	__( 'Add New Article', 'wp-knowledgebase' ),
+		'edit_item'          => 	__( 'Edit Article', 'wp-knowledgebase' ),
+		'new_item'           => 	__( 'New Article', 'wp-knowledgebase' ),
+		'view_item'          => 	__( 'View Articles', 'wp-knowledgebase' ),
+		'search_items'       => 	__( 'Search Articles', 'wp-knowledgebase' ),
+		'not_found'          => 	__( 'Nothing found', 'wp-knowledgebase' ),
+		'not_found_in_trash' => 	__( 'Nothing found in Trash', 'wp-knowledgebase' ),
 		'parent_item_colon'  => 	''
 	);
 
@@ -56,23 +56,23 @@ add_action( 'init', 'kbe_articles' );
 function kbe_taxonomies() {
 	// Add new taxonomy, make it hierarchical (like categories)
 	$labels = array(
-		'name'              => 	__( 'Knowledgebase Category', 'kbe' ),
-		'singular_name'     => 	__( 'Knowledgebase Category', 'kbe' ),
-		'search_items'      => 	__( 'Search Knowledgebase Category', 'kbe' ),
-		'all_items'         => 	__( 'All Knowledgebase Categories', 'kbe' ),
-		'parent_item'       => 	__( 'Parent Knowledgebase Category', 'kbe' ),
-		'parent_item_colon' => 	__( 'Parent Knowledgebase Category:', 'kbe' ),
-		'edit_item'         => 	__( 'Edit Knowledgebase Category', 'kbe' ),
-		'update_item'       => 	__( 'Update Knowledgebase Category', 'kbe' ),
-		'add_new_item'      => 	__( 'Add New Knowledgebase Category', 'kbe' ),
-		'new_item_name'     => 	__( 'New Knowledgebase Category Name', 'kbe' ),
-		'menu_name'         => 	__( 'Categories', 'kbe' )
+		'name'              => 	__( 'Knowledgebase Category', 'wp-knowledgebase' ),
+		'singular_name'     => 	__( 'Knowledgebase Category', 'wp-knowledgebase' ),
+		'search_items'      => 	__( 'Search Knowledgebase Category', 'wp-knowledgebase' ),
+		'all_items'         => 	__( 'All Knowledgebase Categories', 'wp-knowledgebase' ),
+		'parent_item'       => 	__( 'Parent Knowledgebase Category', 'wp-knowledgebase' ),
+		'parent_item_colon' => 	__( 'Parent Knowledgebase Category:', 'wp-knowledgebase' ),
+		'edit_item'         => 	__( 'Edit Knowledgebase Category', 'wp-knowledgebase' ),
+		'update_item'       => 	__( 'Update Knowledgebase Category', 'wp-knowledgebase' ),
+		'add_new_item'      => 	__( 'Add New Knowledgebase Category', 'wp-knowledgebase' ),
+		'new_item_name'     => 	__( 'New Knowledgebase Category Name', 'wp-knowledgebase' ),
+		'menu_name'         => 	__( 'Categories', 'wp-knowledgebase' )
 	);
 
 	register_taxonomy( 'kbe_taxonomy', array( 'kbe_knowledgebase' ), array(
 		'hierarchical'      => 	true,
 		'labels'            => 	$labels,
-		'singular_label'    => 	__( 'Knowledgebase Category', 'kbe' ),
+		'singular_label'    => 	__( 'Knowledgebase Category', 'wp-knowledgebase' ),
 		'show_admin_column' => 	true,
 		'show_ui'           => 	true,
 		'query_var'         => 	true,
@@ -83,15 +83,15 @@ add_action( 'init', 'kbe_taxonomies', 0 );
 
 function kbe_custom_tags() {
 	$labels = array(
-		'name'          =>  __( 'Knowledgebase Tags', 'kbe' ),
-		'singular_name' =>  __( 'Knowledgebase Tag', 'kbe' ),
-		'search_items'  =>  __( 'Search Knowledgebase Tags', 'kbe' ),
-		'all_items'     =>  __( 'All Knowledgebase Tags', 'kbe' ),
-		'edit_item'     =>  __( 'Edit Knowledgebase Tag', 'kbe' ),
-		'update_item'   =>  __( 'Update Knowledgebase Tag', 'kbe' ),
-		'add_new_item'  =>  __( 'Add New Knowledgebase Tag', 'kbe' ),
-		'new_item_name' =>  __( 'New Knowledgebase Tag Name', 'kbe' ),
-		'menu_name'     =>  __( 'Tags', 'kbe' )
+		'name'          =>  __( 'Knowledgebase Tags', 'wp-knowledgebase' ),
+		'singular_name' =>  __( 'Knowledgebase Tag', 'wp-knowledgebase' ),
+		'search_items'  =>  __( 'Search Knowledgebase Tags', 'wp-knowledgebase' ),
+		'all_items'     =>  __( 'All Knowledgebase Tags', 'wp-knowledgebase' ),
+		'edit_item'     =>  __( 'Edit Knowledgebase Tag', 'wp-knowledgebase' ),
+		'update_item'   =>  __( 'Update Knowledgebase Tag', 'wp-knowledgebase' ),
+		'add_new_item'  =>  __( 'Add New Knowledgebase Tag', 'wp-knowledgebase' ),
+		'new_item_name' =>  __( 'New Knowledgebase Tag Name', 'wp-knowledgebase' ),
+		'menu_name'     =>  __( 'Tags', 'wp-knowledgebase' )
 	);
 
 	register_taxonomy( 'kbe_tags', 'kbe_knowledgebase', array(
@@ -133,6 +133,7 @@ function kbe_get_post_views( $postID ) {
 	return $count . ' Views';
 }
 
+
 function kbe_edit_columns( $existing_columns ) {
 	$columns = array( 'views' => __( 'Views', 'kbe' ) );
 	return array_merge( $existing_columns, $columns );
@@ -144,7 +145,7 @@ function kbe_custom_columns( $column ) {
 	switch ( $column ) {
 		case 'views':
 			$views = get_post_meta( $post->ID, 'kbe_post_views_count', true );
-			echo sprintf( _n( '%d view', '%d views', $views ), $views );
+			echo sprintf( _n( '%d view', '%d views', $views, 'wp-knowledgebase' ), $views );
 		break;
 	}
 }
@@ -157,7 +158,7 @@ function kbe_sortable_custom_columns( $columns ) {
 add_filter( 'manage_edit-kbe_knowledgebase_sortable_columns', 'kbe_sortable_custom_columns' );
 
 function kbe_sort_custom_columns( $query ) {
-	
+
 	if ( ! is_admin() || ! $query->is_main_query() ) {
 		return;
 	}
@@ -166,6 +167,6 @@ function kbe_sort_custom_columns( $query ) {
 		$query->set( 'meta_key', 'kbe_post_views_count' );
 		$query->set( 'orderby', 'meta_value_num' );
 	}
-	
+
 }
 add_action( 'pre_get_posts', 'kbe_sort_custom_columns' );

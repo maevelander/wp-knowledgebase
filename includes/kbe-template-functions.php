@@ -6,7 +6,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 function kbe_breadcrumbs() {
 	$parts = array(
 		array(
-			'text' => __( 'Home', 'kbe' ),
+			'text' => __( 'Home', 'wp-knowledgebase' ),
 			'href' => home_url(),
 		),
 		array(
@@ -58,7 +58,7 @@ function kbe_search_form() {
 	?><div id="live-search">
         <div class="kbe_search_field">
             <form role="search" method="get" id="searchform" class="clearfix" action="<?php echo home_url( '/' ); ?>" autocomplete="off">
-                <input type="text" onfocus="if (this.value == '<?php _e( 'Search Articles...', 'kbe' ); ?>') {this.value = '';}" onblur="if (this.value == '')  {this.value = '<?php _e( 'Search Articles...', 'kbe' ); ?>';}" value="<?php _e( 'Search Articles...', 'kbe' ); ?>" name="s" id="s" />
+                <input type="text" onfocus="if (this.value == '<?php _e( 'Search Articles...', 'wp-knowledgebase' ); ?>') {this.value = '';}" onblur="if (this.value == '')  {this.value = '<?php _e( 'Search Articles...', 'wp-knowledgebase' ); ?>';}" value="<?php _e( 'Search Articles...', 'wp-knowledgebase' ); ?>" name="s" id="s" />
                 <!--<ul id="kbe_search_dropdown"></ul>-->
                 <input type="hidden" name="post_type" value="kbe_knowledgebase" />
             </form>

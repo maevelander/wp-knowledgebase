@@ -31,7 +31,7 @@ if ( ! empty( $_GET['ajax'] ) ? $_GET['ajax'] : null ) {
 		?></ul><?php
 
 	} else {
-		?><span class="kbe_no_result"><?php _e( 'Search result not found...', 'kbe' ); ?></span><?php
+		?><span class="kbe_no_result"><?php _e( 'Search result not found...', 'wp-knowledgebase' ); ?></span><?php
 	}
 
 } else {
@@ -60,7 +60,7 @@ if ( ! empty( $_GET['ajax'] ) ? $_GET['ajax'] : null ) {
 		// Content
 		?><div id="kbe_content" <?php echo $kbe_content_class; ?>><?php
 
-			?><h1><?php echo sprintf( __( 'Search Results for: %s', 'kbe' ), esc_html( $_GET['s'] ) ); ?></h1>
+			?><h1><?php echo sprintf( __( 'Search Results for: %s', 'wp-knowledgebase' ), esc_html( $_GET['s'] ) ); ?></h1>
 
             <!--leftcol-->
             <div class="kbe_leftcol" >
@@ -75,7 +75,7 @@ if ( ! empty( $_GET['ajax'] ) ? $_GET['ajax'] : null ) {
                                 <span class="post-meta">Post By <?php the_author(); ?> | Date : <?php the_time( 'j F Y' ); ?></span>
                                 <p><?php echo kbe_short_content( 300 ); ?></p>
                                 <div class="kbe_read_more">
-                                    <a href="<?php the_permalink(); ?>"><?php _e( 'Read more...', 'kbe' ); ?></a>
+                                    <a href="<?php the_permalink(); ?>"><?php _e( 'Read more...', 'wp-knowledgebase' ); ?></a>
                                 </div>
                             </li><?php
 						endwhile;
