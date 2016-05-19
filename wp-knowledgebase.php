@@ -63,6 +63,5 @@ define( 'KBE_POST_TAGS', 'kbe_tags' );
 define( 'KBE_PAGE_TITLE', kbe_get_knowledgebase_page_id() );
 
 
-
 require 'includes/migrations/class-abstract-migration.php';
 require 'includes/migrations/migration-install.php';

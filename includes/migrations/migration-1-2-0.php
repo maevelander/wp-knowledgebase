@@ -46,7 +46,7 @@ class KBE_Migration_1_2_0 extends KBE_Abstract_Migration {
 		}
 
 		// Save settings as separate options
-		$settings = wp_parse_args( array(
+		$settings = wp_parse_args( get_option( 'kbe_settings' ), array(
 			'kbe_article_qty' => get_option( 'kbe_article_qty', 5 ),
 			'kbe_plugin_slug' => get_option( 'kbe_plugin_slug', 'knowledgebase' ),
 			'kbe_search_setting' => get_option( 'kbe_search_setting', 0 ),
@@ -55,7 +55,7 @@ class KBE_Migration_1_2_0 extends KBE_Abstract_Migration {
 			'kbe_sidebar_inner' => get_option( 'kbe_sidebar_inner', 0 ),
 			'kbe_comments_setting' => get_option( 'kbe_comments_setting', 0 ),
 			'kbe_bgcolor' => get_option( 'kbe_bgcolor', '' ),
-		), get_option( 'kbe_settings' ) );
+		) );
 
 		update_option( 'kbe_article_qty', $settings['kbe_article_qty'] );
 		update_option( 'kbe_plugin_slug', $settings['kbe_plugin_slug'] );
