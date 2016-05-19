@@ -42,33 +42,79 @@ function wp_kbe_options() {
 
 //=========> Register plugin settings
 function kbe_register_settings() {
-	register_setting( 'kbe_settings', 'kbe_settings', 'kbe_validate_settings' );
+
+	// Register each setting for automated $_POST handling
+	foreach ( kbe_get_settings() as $id => $setting ) {
+
+		switch ( $setting['type'] ) {
+			case 'number' :
+				$sanitize_callback = 'absint';
+				break;
+			case 'text' :
+				$sanitize_callback = 'sanitize_text_field';
+				break;
+			case 'title' :
+				$sanitize_callback = 'sanitize_title';
+				break;
+			case 'kbe_radio_switch' :
+				$sanitize_callback = 'sanitize_kbe_radio_switch';
+				break;
+
+		}
+		register_setting( 'kbe_settings', $id, $sanitize_callback );
+	}
 }
 add_action( 'admin_init', 'kbe_register_settings' );
 
-/**
- * Sanitize and validate plugin settings
- * @param  array $input
- * @return array
- * @since  1.1.0
- */
-function kbe_validate_settings( $input ) {
-	$input['kbe_plugin_slug'] = isset( $input['kbe_plugin_slug'] ) ? sanitize_title( $input['kbe_plugin_slug'] ) : '';
-	$input['kbe_article_qty'] = intval( $input['kbe_article_qty'] );
 
-	$input['kbe_search_setting']      =  isset( $input['kbe_search_setting'] ) && $input['kbe_search_setting'] ? 1 : 0 ;
-	$input['kbe_breadcrumbs_setting'] =  isset( $input['kbe_breadcrumbs_setting'] ) && $input['kbe_breadcrumbs_setting'] ? 1 : 0 ;
+function kbe_radio_switch_on_off( $v ) {
+	if ( $v == 1 ) {
+		return 1;
+	}
+	return 0;
+}
 
-	$sidebar_positions = array( 0, 1, 2 );
+function kbe_radio_switch_lrn( $v ) {
+	if ( $v == 1 ) {
+		return 1;
+	} elseif ( $v == 2 ) {
+		return 2;
+	}
+	return 0;
+}
 
-	$input['kbe_sidebar_home']  = isset( $input['kbe_sidebar_home'] ) && in_array( $input['kbe_sidebar_home'], $sidebar_positions ) ? intval( $input['kbe_sidebar_home'] ) : 0;
-	$input['kbe_sidebar_inner'] = isset( $input['kbe_sidebar_inner'] ) && in_array( $input['kbe_sidebar_inner'], $sidebar_positions ) ? intval( $input['kbe_sidebar_inner'] ) : 0;
+function kbe_get_settings() {
 
-	$input['kbe_comments_setting'] =  isset( $input['kbe_comments_setting'] ) && $input['kbe_comments_setting'] ? 1 : 0 ;
+	return array(
+		'kbe_plugin_slug' => array(
+			'type' => 'title',
+		),
+		'kbe_article_qty' => array(
+			'type' => 'number',
+		),
+		'kbe_search_setting' => array(
+			'type' => 'kbe_radio_switch_on_off',
+		),
+		'kbe_breadcrumbs_setting' => array(
+			'type' => 'kbe_radio_switch_on_off',
+		),
+		'kbe_sidebar_home' => array(
+			'type' => 'kbe_radio_switch_lrn', // left, right, none option
+		),
+		'kbe_sidebar_inner' => array(
+			'type' => 'kbe_radio_switch_lrn', // left, right, none option
+		),
+		'kbe_comments_setting' => array(
+			'type' => 'kbe_radio_switch_on_off',
+		),
+		'kbe_bgcolor' => array(
+			'type' => 'color',
+		),
+		'kbe_wipe_uninstall' => array(
+			'type' => 'kbe_radio_switch_on_off',
+		),
+	);
 
-	$input['kbe_bgcolor'] = isset( $input['kbe_bgcolor'] ) ?  $input['kbe_bgcolor'] : '';
-
-	return $input;
 }
 
 //=========>  KBE Custom Taxonomy Order
