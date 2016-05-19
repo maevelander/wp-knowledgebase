@@ -81,6 +81,9 @@ function kbe_register_settings() {
 			case 'kbe_radio_switch' :
 				$sanitize_callback = 'sanitize_kbe_radio_switch';
 				break;
+			case 'color' :
+				$sanitize_callback = 'wp_kses_post';
+				break;
 
 		}
 		register_setting( 'kbe_settings', $id, $sanitize_callback );
