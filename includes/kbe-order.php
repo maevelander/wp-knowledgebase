@@ -122,8 +122,8 @@ global $post;
 								while ( $kbe_article_args->have_posts() ) :
 									$kbe_article_args->the_post();
 							?>
-                                    <li id="kbe_article_id_<?php echo the_ID(); ?>" class="lineitem <?php echo ($i % 2 == 0 ? 'alternate ' : ''); ?>ui-state-default">
-                                        <?php the_title(); ?>
+                                    <li id="kbe_article_id_<?php the_ID(); ?>" class="lineitem <?php echo ($i % 2 == 0 ? 'alternate ' : ''); ?>ui-state-default">
+                                        <?php echo _draft_or_post_title(); ?>
                                     </li>
                             <?php $i++;
 								endwhile;

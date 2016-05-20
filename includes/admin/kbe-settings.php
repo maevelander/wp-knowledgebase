@@ -171,9 +171,9 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td colspan="4" align="right" style="border:0px;">
+                                    <td colspan="4" align="right" style="border:0px; padding-top: 10px;">
                                         <input type="hidden" name="update" value="update" />
-                                        <input type="submit" value="<?php _e( 'Save Changes', 'wp-knowledgebase' ); ?>" name="submit" id="submit">
+                                        <input type="submit" value="<?php _e( 'Save Changes', 'wp-knowledgebase' ); ?>" class="button button-primary" name="submit" id="submit">
                                     </td>
                                 </tr>
                             </table>
