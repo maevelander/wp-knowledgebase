@@ -185,9 +185,9 @@ $kbe_settings = wp_parse_args( get_option( 'kbe_settings' ), $kbe_defaults );
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td colspan="4" align="right" style="border:0px;">
-                                        <input type="hidden" name="kbe_settings[update]" value="update" />
-                                        <input type="submit" value="<?php _e( 'Save Changes', 'kbe' ); ?>" name="submit" id="submit">
+                                    <td colspan="4" align="right" style="border:0px; padding-top: 10px;">
+                                        <input type="hidden" name="update" value="update" />
+                                        <input type="submit" value="<?php _e( 'Save Changes', 'wp-knowledgebase' ); ?>" class="button button-primary" name="submit" id="submit">
                                     </td>
                                 </tr>
                             </table>
