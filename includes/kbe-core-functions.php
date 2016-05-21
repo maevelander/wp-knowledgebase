@@ -1,8 +1,13 @@
 <?php
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-
-//=========> Enqueue KBE Style file in header.php
+/**
+ * Enqueue scripts.
+ *
+ * Enqueue the required stylesheets and javascripts on the front end.
+ *
+ * @since 1.0
+ */
 function kbe_styles() {
 	if ( file_exists( get_stylesheet_directory() . '/wp_knowledgebase/kbe_style.css' ) ) {
 		$stylesheet = get_stylesheet_directory_uri() . '/wp_knowledgebase/kbe_style.css';
@@ -17,7 +22,13 @@ function kbe_styles() {
 }
 add_action( 'wp_enqueue_scripts', 'kbe_styles' );
 
-//=========> Registering KBE widget area
+/**
+ * Register widget area.
+ *
+ * Register a widget area that is used on the KB pages.
+ *
+ * @since 1.0
+ */
 function kbe_register_sidebar() {
 	register_sidebar( array(
 		'name'          => __( 'WP Knowledgebase Sidebar', 'wp-knowledgebase' ),
@@ -31,6 +42,13 @@ function kbe_register_sidebar() {
 }
 add_action( 'widgets_init', 'kbe_register_sidebar' );
 
+/**
+ * Required search JS code.
+ *
+ * Javascript code required for the Search feature to work properly.
+ *
+ * @since 1.0
+ */
 function kbe_search_drop() {
 	if ( KBE_SEARCH_SETTING == 1 ) {
 		?><script type="text/javascript">
@@ -92,19 +110,27 @@ function kbe_search_drop() {
 }
 add_action( 'wp_footer', 'kbe_search_drop' );
 
-//=========>  KBE Knowledgebase Shortcode
+/**
+ * Knowledgebase shortcode.
+ *
+ * Register the [kbe_knowledgebase] shortcode.
+ *
+ * @since 1.0
+ *
+ * @param array $atts Attributes used with the shortcode (none available).
+ * @param null $content Content passed through the shortcode.
+ * @return mixed Knowledgebase page contents.
+ */
 function kbe_shortcode( $atts, $content = null ) {
 	$return_string = require dirname( __FILE__ ) . '/../template/kbe_knowledgebase.php';
 	wp_reset_query();
 	return $return_string;
 }
+add_shortcode( 'kbe_knowledgebase', 'kbe_shortcode' );
 
-function register_kbe_shortcodes() {
-	add_shortcode( 'kbe_knowledgebase', 'kbe_shortcode' );
-}
-add_action( 'init', 'register_kbe_shortcodes' );
-
-//=========>  KBE Short Content
+/**
+ * @todo possibly remove this
+ */
 function kbe_short_content( $limit ) {
 	$content = get_the_content();
 	$pad='&hellip;';
@@ -117,8 +143,15 @@ function kbe_short_content( $limit ) {
 	}
 }
 
-//=========> KBE Dynamic CSS
-function count_bg_color() {
+/**
+ * Dynamic CSS.
+ *
+ * Include the dynamic CSS that can be set on the settings page.
+ * This includes the color for the number of articles badge.
+ *
+ * @since 1.0
+ */
+function kbe_count_bg_color() {
 	if ( KBE_BG_COLOR ) {
 		$dynamic_css = '
 			#kbe_content h2 span.kbe_count,
@@ -134,7 +167,7 @@ function count_bg_color() {
 		wp_add_inline_style( 'kbe_theme_style', $dynamic_css );
 	}
 }
-add_action( 'wp_enqueue_scripts', 'count_bg_color' );
+add_action( 'wp_enqueue_scripts', 'kbe_count_bg_color' );
 
 /**
  * Get page ID of KB.

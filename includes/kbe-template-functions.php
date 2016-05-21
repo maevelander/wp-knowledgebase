@@ -2,7 +2,13 @@
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 
-//=========> KBE Plugin Breadcrumbs
+/**
+ * Output breadcrumbs.
+ *
+ * Output the breadcrumbs. Used within the knowledgebase templates.
+ *
+ * @since 1.0
+ */
 function kbe_breadcrumbs() {
 	$parts = array(
 		array(
@@ -52,7 +58,13 @@ function kbe_breadcrumbs() {
 	?></ul><?php
 }
 
-//=========> KBE Search Form
+/**
+ * Output search form.
+ *
+ * Output the default search form, located at the top of KB pages by default.
+ *
+ * @since 1.0
+ */
 function kbe_search_form() {
 	// Life search
 	?><div id="live-search">
@@ -119,7 +131,14 @@ function kbe_template_chooser( $template ) {
 }
 add_filter( 'template_include', 'kbe_template_chooser' );
 
-//=========>  KBE Search Template
+/**
+ * Replace KB search template.
+ *
+ * @since 1.0
+ *
+ * @param $template
+ * @return string
+ */
 function template_chooser( $template ) {
 	global $wp_query;
 
@@ -130,14 +149,16 @@ function template_chooser( $template ) {
 			return get_stylesheet_directory() . '/wp_knowledgebase/kbe_search.php';
 		} else {
 			return plugin_dir_path( __FILE__ ) . '/../template/kbe_search.php';
-		}  //  redirect to kbe_search.php
+		}
 	}
 
 	return $template;
 }
 add_filter( 'template_include', 'template_chooser' );
 
-//=========> KBE Article Tags
+/**
+ * @todo possibly remove this
+ */
 function kbe_show_tags() {
 	$kbe_tags_term = get_the_terms( $post->ID, KBE_POST_TAGS );
 	if ( $kbe_tags_term ) {

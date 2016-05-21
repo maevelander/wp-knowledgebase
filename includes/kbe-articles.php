@@ -1,11 +1,13 @@
 <?php
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-/*
-============
-	Article Post type
-============
-*/
+/**
+ * Register 'article' post type.
+ *
+ * Register the main 'article' (actual slug is 'kbe_knowledgebase' post type that the plugin uses.
+ *
+ * @since 1.0
+ */
 function kbe_articles() {
 	$labels = array(
 		'name'               => 	__( 'Knowledgebase', 'wp-knowledgebase' ),
@@ -52,7 +54,13 @@ function kbe_articles() {
 }
 add_action( 'init', 'kbe_articles' );
 
-// Article taxonomy
+/**
+ * Register KB taxonomies.
+ *
+ * Register the 'category' taxonomy for the Articles post type.
+ *
+ * @since 1.0.0
+ */
 function kbe_taxonomies() {
 	// Add new taxonomy, make it hierarchical (like categories)
 	$labels = array(
@@ -81,6 +89,13 @@ function kbe_taxonomies() {
 }
 add_action( 'init', 'kbe_taxonomies', 0 );
 
+/**
+ * Register KB taxonomies.
+ *
+ * Register the 'tag' taxonomy for the Articles post type.
+ *
+ * @since 1.0.0
+ */
 function kbe_custom_tags() {
 	$labels = array(
 		'name'          =>  __( 'Knowledgebase Tags', 'wp-knowledgebase' ),
@@ -105,6 +120,15 @@ function kbe_custom_tags() {
 }
 add_action( 'init', 'kbe_custom_tags', 0 );
 
+/**
+ * Update article view count.
+ *
+ * Update/set the article view count by adding a count.
+ *
+ * @since 1.0
+ *
+ * @param int $postID Post ID to add the count to.
+ */
 function kbe_set_post_views( $postID ) {
 	$count_key = 'kbe_post_views_count';
 	$count     = get_post_meta( $postID, $count_key, true );
@@ -119,8 +143,19 @@ function kbe_set_post_views( $postID ) {
 }
 
 //To keep the count accurate, lets get rid of prefetching
+// @todo - what does this do?
 remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10 );
 
+/**
+ * Get article view count.
+ *
+ * Get the view count for a article post.
+ *
+ * @since 1.0
+ *
+ * @param int $postID Post ID to get the view count for.
+ * @return string View count with string text.
+ */
 function kbe_get_post_views( $postID ) {
 	$count_key = 'kbe_post_views_count';
 	$count     = get_post_meta( $postID, $count_key, true );
@@ -133,13 +168,31 @@ function kbe_get_post_views( $postID ) {
 	return $count . ' Views';
 }
 
-
+/**
+ * Article custom columns.
+ *
+ * Add custom columns to the Article post type.
+ *
+ * @since 1.0
+ *
+ * @param $existing_columns List of existing columns.
+ * @return array List of modified columns.
+ */
 function kbe_edit_columns( $existing_columns ) {
 	$columns = array( 'views' => __( 'Views', 'kbe' ) );
 	return array_merge( $existing_columns, $columns );
 }
 add_filter( 'manage_edit-kbe_knowledgebase_columns', 'kbe_edit_columns', 10 );
 
+/**
+ * Fill custom columns.
+ *
+ * Fill the newly added custom columns with the proper content.
+ *
+ * @since 1.0.
+ *
+ * @param string $column Column being processed/output.
+ */
 function kbe_custom_columns( $column ) {
 	global $post;
 	switch ( $column ) {
@@ -151,12 +204,31 @@ function kbe_custom_columns( $column ) {
 }
 add_action( 'manage_kbe_knowledgebase_posts_custom_column', 'kbe_custom_columns' );
 
+/**
+ * Make custom columns sortable.
+ *
+ * Make the custom added columns sortable.
+ *
+ * @since 1.2.0
+ *
+ * @param array $columns List of existing sortable columns.
+ * @return mixed List of modified sortable columns.
+ */
 function kbe_sortable_custom_columns( $columns ) {
 	$columns['views'] = 'views';
 	return $columns;
 }
 add_filter( 'manage_edit-kbe_knowledgebase_sortable_columns', 'kbe_sortable_custom_columns' );
 
+/**
+ * Actually sort columns.
+ *
+ * Actually modify the query that sorts the articles to sort them by the new order option.
+ *
+ * @since 1.2.0
+ *
+ * @param WP_Query $query Query that is being processed.
+ */
 function kbe_sort_custom_columns( $query ) {
 
 	if ( ! is_admin() || ! $query->is_main_query() ) {
