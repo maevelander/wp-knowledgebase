@@ -20,16 +20,16 @@ add_action('wp_enqueue_scripts', 'kbe_styles');
 
 
 //=========> Registering KBE widget area
-register_sidebar(array(
-	'name' => __('WP Knowledgebase Sidebar','kbe'),
-	'id' => 'kbe_cat_widget',
-	'description' => __('WP Knowledgebase sidebar area','kbe'),
-	'before_widget' => '',
-	'after_widget' => '',
-	'before_title' => '<h6>',
-	'after_title' => '</h6>',
-));
-
+$kbe_sidebar_args = array(
+	'name'          => __( 'WP Knowledgebase Sidebar', 'wp-knowledgebase' ),
+	'description'   => __( 'WP Knowledgebase sidebar area', 'wp-knowledgebase' ),
+	'id'            => apply_filters( 'kbe_sidebar_id', 'kbe_cat_widget' ),
+	'before_widget' => apply_filters( 'kbe_sidebar_before_widget', '' ),
+	'after_widget'  => apply_filters( 'kbe_sidebar_after_widget', '' ),
+	'before_title'  => apply_filters( 'kbe_sidebar_before_title', '<h6>' ),
+	'after_title'   => apply_filters( 'kbe_sidebar_after_title', '</h6>' ),
+);
+register_sidebar( $kbe_sidebar_args );
 
 add_action('wp_footer', 'kbe_search_drop');
 function kbe_search_drop(){
