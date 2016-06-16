@@ -31,7 +31,7 @@ add_action( 'admin_menu', 'kbe_plugin_menu' );
 
 //  Require File kbe_order.php
 function wp_kbe_order() {
-	require dirname( __FILE__ ) . '/../kbe-order.php';
+	require dirname( __FILE__ ) . '/kbe-order.php';
 }
 
 //=========> Require Files
