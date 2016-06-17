@@ -148,3 +148,27 @@ add_action( 'wp_enqueue_scripts', 'count_bg_color' );
 function kbe_get_knowledgebase_page_id() {
 	return get_option( 'kbe_plugin_slug', false );
 }
+
+/**
+ * Sort by custom order
+ *
+ * Sort categories by custom order defined on the Order admin page
+ *
+ * @param  string $orderby ORDERBY clause of the terms query
+ * @param  array  $args    array of terms query arguments
+ *
+ * @ since 1.1.5
+ *
+ * @return string string to replace $orderby
+ */
+function kbe_tax_order( $orderby, $args ) {
+	$kbe_tax = 'kbe_taxonomy';
+	if ( $args['orderby'] == 'terms_order' ) {
+		return 't.terms_order';
+	} elseif ( $kbe_tax == 1 && ! isset( $_GET['orderby'] ) ) {
+		return 't.terms_order';
+	} else {
+		return $orderby;
+	}
+}
+add_filter( 'get_terms_orderby', 'kbe_tax_order', 10, 2 );

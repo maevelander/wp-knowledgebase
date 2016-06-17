@@ -31,7 +31,7 @@ add_action( 'admin_menu', 'kbe_plugin_menu' );
 
 //  Require File kbe_order.php
 function wp_kbe_order() {
-	require dirname( __FILE__ ) . '/../kbe-order.php';
+	require dirname( __FILE__ ) . '/kbe-order.php';
 }
 
 //=========> Require Files
@@ -70,20 +70,6 @@ function kbe_validate_settings( $input ) {
 
 	return $input;
 }
-
-//=========>  KBE Custom Taxonomy Order
-function kbe_tax_order( $orderby, $args ) {
-	$kbe_tax = 'kbe_taxonomy';
-
-	if ( $args['orderby'] == 'terms_order' ) {
-		return 't.terms_order';
-	} elseif ( $kbe_tax == 1 && ! isset( $_GET['orderby'] ) ) {
-		return 't.terms_order';
-	} else {
-		return $orderby;
-	}
-}
-add_filter( 'get_terms_orderby', 'kbe_tax_order', 10, 2 );
 
 function kbe_migrations_check() {
 	require_once plugin_dir_path( __FILE__ ) . '../migrations/class-migration-manager.php';
