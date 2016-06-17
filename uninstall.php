@@ -32,9 +32,10 @@ delete_option( 'widget_kbe_category_widget' );
 $wpdb->query( "ALTER TABLE {$wpdb->terms} DROP COLUMN `terms_order`" );
 
 // Delete Knowledgebase page
-if ( $post_id = kbe_get_knowledgebase_page_id() ) {
+if ( $post_id = get_option( 'kbe_page_id', false ) ) {
 	wp_delete_post( $post_id, true );
 }
+delete_option( 'kbe_page_id' );
 
 // Delete the articles
 $kbe_get_posts = $wpdb->get_results( "SELECT ID From {$wpdb->posts} WHERE post_type = 'kbe_knowledgebase' LIMIT 500" );
