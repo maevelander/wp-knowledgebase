@@ -7,6 +7,8 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
             <h2><?php _e( 'Knowledgebase Display Settings', 'wp-knowledgebase' ); ?></h2><?php
 
+				settings_errors( 'general' );
+
 				global $wpdb;
 
 				$tbl_posts = $wpdb->prefix . 'posts';
