@@ -142,10 +142,6 @@ function kbe_set_post_views( $postID ) {
 	}
 }
 
-//To keep the count accurate, lets get rid of prefetching
-// @todo - what does this do?
-remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10 );
-
 /**
  * Get article view count.
  *

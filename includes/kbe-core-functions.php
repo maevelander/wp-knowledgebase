@@ -129,11 +129,18 @@ function kbe_shortcode( $atts, $content = null ) {
 add_shortcode( 'kbe_knowledgebase', 'kbe_shortcode' );
 
 /**
- * @todo possibly remove this
+ * Get short content excerpt.
+ *
+ * Get a short content excerpt that is being used in the search results.
+ *
+ * @since 1.0
+ *
+ * @param  int    $limit Maximum content length (in characters).
+ * @return string        Short content to show in the search results.
  */
 function kbe_short_content( $limit ) {
 	$content = get_the_content();
-	$pad='&hellip;';
+	$pad = '&hellip;';
 
 	if ( strlen( $content ) <= $limit ) {
 		return strip_tags( $content );
