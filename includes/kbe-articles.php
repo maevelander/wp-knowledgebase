@@ -171,7 +171,7 @@ function kbe_get_post_views( $postID ) {
  *
  * @since 1.0
  *
- * @param $existing_columns List of existing columns.
+ * @param array $existing_columns List of existing columns.
  * @return array List of modified columns.
  */
 function kbe_edit_columns( $existing_columns ) {
