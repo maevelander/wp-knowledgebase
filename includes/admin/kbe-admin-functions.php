@@ -1,8 +1,13 @@
 <?php
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-
-//=========> Enqueue color picker
+/**
+ * Enqueue scripts.
+ *
+ * Enqueue the required stylesheets and javascripts in the admin.
+ *
+ * @param string $hook_suffix Current page ID.
+ */
 function kbe_admin_scripts( $hook_suffix ) {
 	// Settings page
 	if ( $hook_suffix == 'kbe_knowledgebase_page_kbe_options' ) {
@@ -22,25 +27,42 @@ function kbe_admin_scripts( $hook_suffix ) {
 }
 add_action( 'admin_enqueue_scripts', 'kbe_admin_scripts' );
 
-//=========> Plugin menu
+/**
+ * Add submenus.
+ *
+ * Add submenus for the custom added pages.
+ *
+ * @since 1.0
+ */
 function kbe_plugin_menu() {
 	add_submenu_page( 'edit.php?post_type=kbe_knowledgebase', 'Order', 'Order', 'manage_options', 'kbe_order', 'wp_kbe_order' );
 	add_submenu_page( 'edit.php?post_type=kbe_knowledgebase', 'Settings', 'Settings', 'manage_options', 'kbe_options', 'wp_kbe_options' );
 }
 add_action( 'admin_menu', 'kbe_plugin_menu' );
 
-//  Require File kbe_order.php
+/**
+ * Output order page.
+ *
+ * Output the HTML for the 'order' page.
+ *
+ * @since 1.0
+ */
 function wp_kbe_order() {
 	require dirname( __FILE__ ) . '/kbe-order.php';
 }
 
-//=========> Require Files
-//  kbe_settings.php
+/**
+ * Output settings page.
+ *
+ * Output the HTML for the settings page.
+ *
+ * @since 1.0
+ */
 function wp_kbe_options() {
 	require 'kbe-settings.php';
 }
 
-//=========> Register plugin settings
+
 function kbe_register_settings() {
 	register_setting( 'kbe_settings', 'kbe_settings', 'kbe_validate_settings' );
 }
