@@ -72,6 +72,7 @@ function kbe_register_settings() {
 			case 'number' :
 				$sanitize_callback = 'absint';
 				break;
+			default:
 			case 'text' :
 				$sanitize_callback = 'sanitize_text_field';
 				break;
