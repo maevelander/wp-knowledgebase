@@ -91,7 +91,6 @@ function kbe_register_settings() {
 }
 add_action( 'admin_init', 'kbe_register_settings' );
 
-
 function kbe_radio_switch_on_off( $v ) {
 	if ( $v == 1 ) {
 		return 1;
