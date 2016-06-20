@@ -40,6 +40,7 @@ class KBE_Migration_Manager {
 
 		self::$migrations = array(
 			'migration-install.php' => 'KBE_Migration_Install',
+			'migration-1-2-0.php' => 'KBE_Migration_1_2_0',
 		);
 
 		foreach ( self::$migrations as $file => $class ) {
