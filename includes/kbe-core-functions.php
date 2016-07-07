@@ -76,7 +76,7 @@ function kbe_search_drop() {
 			jQuery(document).ready(function () {
 
 				var tree_id = 0;
-				jQuery('div.kbe_category:has(.kbe_child_category)').addClass('has-child').prepend('<span class="switch"><img src="<?php echo plugins_url( 'template/images/kbe_icon-plus.png', __FILE__ ); ?>" /></span>').each(function () {
+				jQuery('div.kbe_category:has(.kbe_child_category)').addClass('has-child').prepend('<span class="switch"><img src="<?php echo plugins_url( '../template/images/kbe_icon-plus.png', __FILE__ ); ?>" /></span>').each(function () {
 					tree_id++;
 					jQuery(this).attr('id', 'tree' + tree_id);
 				});
@@ -86,10 +86,10 @@ function kbe_search_drop() {
 					if (jQuery(this).hasClass('open')) {
 						jQuery(this).parent().find('div:first').slideUp('fast');
 						jQuery(this).removeClass('open');
-						jQuery(this).html('<img src="<?php echo plugins_url( 'template/images/kbe_icon-plus.png', __FILE__ ); ?>" />');
+						jQuery(this).html('<img src="<?php echo plugins_url( '../template/images/kbe_icon-plus.png', __FILE__ ); ?>" />');
 					} else {
 						jQuery(this).parent().find('div:first').slideDown('fast');
-						jQuery(this).html('<img src="<?php echo plugins_url( 'template/images/kbe_icon-plus.png', __FILE__ ); ?>" />');
+						jQuery(this).html('<img src="<?php echo plugins_url( '../template/images/kbe_icon-plus.png', __FILE__ ); ?>" />');
 						jQuery(this).addClass('open');
 					}
 				});
