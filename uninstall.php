@@ -4,8 +4,8 @@ if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
 	exit();
 }
 
-$options = get_option( 'kbe_settings' );
-if ( ! isset( $options['kbe_wipe_uninstall'] ) || false == $options['kbe_wipe_uninstall'] ) {
+$uninstall_on_delete = get_option( 'kbe_wipe_uninstall', false );
+if ( ! $uninstall_on_delete ) {
 	return;
 }
 
@@ -20,6 +20,7 @@ delete_option( 'kbe_article_qty' );
 delete_option( 'kbe_sidebar_home' );
 delete_option( 'kbe_sidebar_inner' );
 delete_option( 'kbe_search_setting' );
+delete_option( 'kbe_wipe_uninstall' );
 delete_option( 'kbe_comments_setting' );
 delete_option( 'kbe_taxonomy_children' );
 delete_option( 'kbe_breadcrumbs_setting' );
