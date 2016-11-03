@@ -4,8 +4,8 @@ if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
 	exit();
 }
 
-$options = get_option( 'kbe_settings' );
-if ( ! isset( $options['kbe_wipe_uninstall'] ) || false == $options['kbe_wipe_uninstall'] ) {
+$options = get_option( 'kbe_wipe_uninstall' );
+if ( ! isset( $options ) || false == $options ) {
 	return;
 }
 

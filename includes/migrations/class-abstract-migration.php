@@ -3,14 +3,10 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 /**
  * Class Abstract_Migration
+ *
+ * @package WP Data Migrations
  */
 abstract class KBE_Abstract_Migration {
-
-
-	/**
-	 * @var bool
-	 */
-//	protected $background_migrate = false;
 
 	/**
 	 * @var string  Unique ID for this migration.
@@ -22,7 +18,6 @@ abstract class KBE_Abstract_Migration {
 	 */
 	protected $dismissible = false;
 
-
 	/**
 	 * User roles allowed to migrate.
 	 *
@@ -31,7 +26,6 @@ abstract class KBE_Abstract_Migration {
 	 * @var array
 	 */
 //	protected $allowed_roles = array( 'administrator' );
-
 
 	/**
 	 * When set to 'admin_block', the admin will be blocked until the migration has been run.
@@ -43,11 +37,10 @@ abstract class KBE_Abstract_Migration {
 	 */
 	protected $notice_type = 'notice'; // 'notice', 'admin_block', 'nonce'
 
-
 	/**
 	 * Constructor.
 	 *
-	 * Initialize the migration.
+	 * @since 1.0.0
 	 */
 	public function __construct() {
 		$this->redirect = remove_query_arg( array( 'action', 'migration', '_wp_nonce' ) );
@@ -58,21 +51,25 @@ abstract class KBE_Abstract_Migration {
 	}
 
 	/**
+	 * Initialize this migration.
 	 *
+	 * Initialize the components this migration needs to function.
+	 *
+	 * @since 1.0.0
 	 */
 	public function init() {
 		// Show a notice before updating
 		if ( $this->notice_type == 'notice' ) {
 			add_action( 'admin_notices', array( $this, 'admin_notice' ) );
-			add_action( 'admin_init', array( $this, 'check_for_migrate_action' ), 50 );
+			add_action( 'admin_init', array( $this, 'check_for_migrate_actions' ), 50 );
 
 		// Block admin area till upgraded
 		} elseif ( $this->notice_type == 'block' ) {
+			// @todo
 
 		// Automatically update in the background
 		} elseif ( $this->notice_type == 'none' ) {
 			$this->run_migration();
-
 		}
 	}
 
@@ -84,7 +81,6 @@ abstract class KBE_Abstract_Migration {
 	 * @return bool Returns true when everything went according plan, false otherwise.
 	 */
 	abstract public function migrate();
-
 
 	/**
 	 * Revert the migration.
@@ -121,18 +117,44 @@ abstract class KBE_Abstract_Migration {
 		}
 	}
 
+	/**
+	 * Migration ran before?
+	 *
+	 * Check if this migration has been run before.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @return bool True when the migration has run before, false otherwise.
+	 */
 	public function has_run_before() {
 		return in_array( $this->id, array_keys( KBE_Migration_Manager::get_ran_migrations() ) );
 	}
 
+	/**
+	 * Mark as ran.
+	 *
+	 * Update the migration to be marked as ran.
+	 *
+	 * @since 1.0.0
+	 */
 	public function mark_as_ran() {
 		KBE_Migration_Manager::update( $this->id );
 	}
 
 	/******************************************
-	 * Notice migration type
+	 * 'notice' migration type
 	 *****************************************/
-	public function check_for_migrate_action() {
+
+	/**
+	 * Check for actions.
+	 *
+	 * Check for any migration actions being taken.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @return bool
+	 */
+	public function check_for_migrate_actions() {
 		// Bail if currently no migrations are being run
 		if ( ! isset( $_GET['action'] ) || ! in_array( $_GET['action'], array( 'kbe-knowledgebase-migrate', 'kbe-knowledgebase-migrate-dismiss' ) ) ) {
 			return false;
@@ -145,7 +167,8 @@ abstract class KBE_Abstract_Migration {
 
 		if ( $_GET['action'] == 'kbe-knowledgebase-migrate-dismiss' ) {
 			KBE_Migration_Manager::update( $this->id, 'dismissed' );
-			return false;
+			wp_redirect( remove_query_arg( array( 'action', 'migration', '_wpnonce' ) ) );
+			die;
 		}
 
 		// Run the migration
@@ -184,8 +207,18 @@ abstract class KBE_Abstract_Migration {
 		?></div><?php
 	}
 
+	/**
+	 * Notice text.
+	 *
+	 * Get the default notice text for when there is data to be migrated.
+	 * Feel free to override this in your migration class.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @return string
+	 */
 	protected function get_notice_text() {
-		return 'Hey! You should upgrade!';
+		return 'Thank you for updating! We need to migrate some data as there has been changes that require that.';
 	}
 
 }
