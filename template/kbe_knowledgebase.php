@@ -75,7 +75,7 @@ if ( KBE_SIDEBAR_HOME == 0 ) {
 
 					$kbe_count_sum = $wpdb->get_var( "
 						SELECT Sum(count)
-						FROM wp_term_taxonomy
+						FROM {$wpdb->prefix}term_taxonomy
 						WHERE taxonomy = '" . KBE_POST_TAXONOMY . "'
 						And parent = $kbe_term_id
 					" );
