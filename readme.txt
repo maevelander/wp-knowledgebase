@@ -1,5 +1,5 @@
 === WP Knowledgebase ===
-Contributors: EnigmaWeb, helgatheviking, Base29, macbookandrew
+Contributors: EnigmaWeb, Base29, helgatheviking, macbookandrew, sormano
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=CEJ9HFWJ94BG4
 Tags: WP Knowledgebase, knowledgebase, knowledge base, faqs, wiki
 Requires at least: 2.7
@@ -130,6 +130,26 @@ If you've tried all the obvious stuff and it's still not working please request 
 
 == Changelog ==
 
+=1.2.0=
+* big code clean up and restructure
+* fix and improve textdomain loading
+* fixed admin columns and made 'views' sortable
+* added direct access checks to all files
+* fixed uninstall (remove data opt-in)
+* fixed widgets
+* fixed a search issue
+* remove custom comments template (nothing different to default)
+* Move 'add_actions' below functions
+* only load scripts on required pages
+* fixed admin CSS filename
+* fixed 2 admin notices
+* fixed typos
+* started migrations feature
+* replace old images with SVGs / remove them when possible
+* fix term sorting
+* revamping and improving settings
+* update german translation 
+
 = 1.1.4 = 
 * Enqueue scripts & styles issue fixed.
 * Minor typo fixed
@@ -218,6 +238,11 @@ If you've tried all the obvious stuff and it's still not working please request 
 * Initial release
 
 == Upgrade Notice ==
+
+=1.2.0=
+Major upgrade overhauling code consistency and structure. Lots of small improvements.
+
+A big thank you to JeroenSormani for his contributions to this release.
 
 = 1.1.4 =
 Contains important fix for users with custom templates. Please upgrade immediately.

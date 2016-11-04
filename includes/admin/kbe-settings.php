@@ -40,6 +40,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 					update_option( 'kbe_settings', $kbe_settings );
 				}
 
+                $kbe_settings = get_option('kbe_settings');
 			?><div class="kbe_admin_left_bar">
                 <div class="kbe_admin_left_content">
                     <div class="kbe_admin_left_heading">
@@ -56,7 +57,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
                                         <label><?php _e( 'Knowledgebase Slug', 'wp-knowledgebase' ); ?></label>
                                     </td>
                                     <td colspan="3">
-                                        <input type="text" name="kbe_plugin_slug" id="kbe_plugin_slug" value="<?php echo esc_attr( get_option( 'kbe_plugin_slug', 'knowledgebase' ) ); ?>">
+                                        <input type="text" name="kbe_settings[kbe_plugin_slug]" id="kbe_plugin_slug" value="<?php echo esc_attr( $kbe_settings['kbe_plugin_slug']); ?>">
                                     </td>
                                 </tr>
                                 <tr>
@@ -64,7 +65,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
                                         <label><?php _e( 'Number of articles to show', 'wp-knowledgebase' ); ?></label>
                                     </td>
                                     <td colspan="3">
-                                        <input type="text" name="kbe_article_qty" id="kbe_article_qty" value="<?php echo esc_attr( get_option( 'kbe_article_qty', 5 ) ); ?>">
+                                        <input type="text" name="kbe_settings[kbe_article_qty]" id="kbe_article_qty" value="<?php echo esc_attr( $kbe_settings['kbe_article_qty']); ?>">
                                     <p>
                                         <strong><?php _e( 'Note:', 'wp-knowledgebase' ); ?></strong>
                                         <?php _e( 'Set the number of articles to show in each category on KB homepage', 'wp-knowledgebase' ); ?>
@@ -76,11 +77,11 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
                                         <label><?php _e( 'Knowledgebase search', 'wp-knowledgebase' ); ?></label>
                                     </td>
                                     <td width="15%">
-                                        <input type="radio" name="kbe_search_setting" id="kbe_search_setting" value="1" <?php checked( get_option( 'kbe_search_setting', 0 ), '1' ); ?>>
+                                        <input type="radio" name="kbe_settings[kbe_search_setting]" id="kbe_search_setting" value="1" <?php checked( $kbe_settings['kbe_search_setting'], '1' ); ?>>
                                         <span><?php _e( 'On', 'wp-knowledgebase' ); ?></span>
                                     </td>
                                     <td width="15%">
-                                        <input type="radio" name="kbe_search_setting" id="kbe_search_setting" value="0" <?php checked( get_option( 'kbe_search_setting', 0 ), '0' ); ?>>
+                                        <input type="radio" name="kbe_settings[kbe_search_setting]" id="kbe_search_setting" value="0" <?php checked( $kbe_settings['kbe_search_setting'], '0' ); ?>>
                                         <span><?php _e( 'Off', 'wp-knowledgebase' ); ?></span>
                                     </td>
                                     <td width="45%">&nbsp;</td>
@@ -90,11 +91,11 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
                                         <label><?php _e( 'Knowledgebase breadcrumbs', 'wp-knowledgebase' ); ?></label>
                                     </td>
                                     <td>
-                                        <input type="radio" name="kbe_breadcrumbs_setting" id="kbe_breadcrumb_setting" value="1" <?php checked( get_option( 'kbe_breadcrumbs_setting', 0 ), '1' ); ?>>
+                                        <input type="radio" name="kbe_settings[kbe_breadcrumbs_setting]" id="kbe_breadcrumb_setting" value="1" <?php checked( $kbe_settings['kbe_breadcrumbs_setting'], '1' ); ?>>
                                         <span><?php _e( 'On', 'wp-knowledgebase' ); ?></span>
                                     </td>
                                     <td>
-                                        <input type="radio" name="kbe_breadcrumbs_setting" id="kbe_breadcrumb_setting" value="0" <?php checked( get_option( 'kbe_breadcrumbs_setting', 0 ), '0' ); ?>>
+                                        <input type="radio" name="kbe_settings[kbe_breadcrumbs_setting]" id="kbe_breadcrumb_setting" value="0" <?php checked( $kbe_settings['kbe_breadcrumbs_setting'], '0' ); ?>>
                                         <span><?php _e( 'Off', 'wp-knowledgebase' ); ?></span>
                                     </td>
                                     <td>&nbsp;</td>
@@ -104,15 +105,15 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
                                         <label><?php _e( 'Knowledgebase home page sidebar', 'wp-knowledgebase' ); ?></label>
                                     </td>
                                     <td>
-                                        <input type="radio" name="kbe_sidebar_home" id="kbe_sidebar_home" value="1" <?php checked( get_option( 'kbe_sidebar_home', 0 ), 1 ); ?>>
+                                        <input type="radio" name="kbe_settings[kbe_sidebar_home]" id="kbe_sidebar_home" value="1" <?php checked( $kbe_settings['kbe_sidebar_home'], 1 ); ?>>
                                         <span><?php _e( 'Left', 'wp-knowledgebase' ); ?></span>
                                     </td>
                                     <td>
-                                        <input type="radio" name="kbe_sidebar_home" id="kbe_sidebar_home" value="2" <?php checked( get_option( 'kbe_sidebar_home', 0 ), 2 ); ?>>
+                                        <input type="radio" name="kbe_settings[kbe_sidebar_home]" id="kbe_sidebar_home" value="2" <?php checked( $kbe_settings['kbe_sidebar_home'], 2 ); ?>>
                                         <span><?php _e( 'Right', 'wp-knowledgebase' ); ?></span>
                                     </td>
                                     <td>
-                                        <input type="radio" name="kbe_sidebar_home" id="kbe_sidebar_home" value="0" <?php checked( get_option( 'kbe_sidebar_home', 0 ), 0 ); ?>>
+                                        <input type="radio" name="kbe_settings[kbe_sidebar_home]" id="kbe_sidebar_home" value="0" <?php checked( $kbe_settings['kbe_sidebar_home'], 0 ); ?>>
                                         <span><?php _e( 'None', 'wp-knowledgebase' ); ?></span>
                                     </td>
                                 </tr>
@@ -121,15 +122,15 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
                                         <label><?php _e( 'Knowledgebase inner pages sidebar', 'wp-knowledgebase' ); ?></label>
                                     </td>
                                     <td>
-                                        <input type="radio" name="kbe_sidebar_inner" id="kbe_sidebar_inner" value="1" <?php checked( get_option( 'kbe_sidebar_inner', 0 ), 1 ); ?>>
+                                        <input type="radio" name="kbe_settings[kbe_sidebar_inner]" id="kbe_sidebar_inner" value="1" <?php checked( $kbe_settings['kbe_sidebar_inner'], 1 ); ?>>
                                         <span><?php _e( 'Left', 'wp-knowledgebase' ); ?></span>
                                     </td>
                                     <td>
-                                        <input type="radio" name="kbe_sidebar_inner" id="kbe_sidebar_inner" value="2" <?php checked( get_option( 'kbe_sidebar_inner', 0 ), 2 ); ?>>
+                                        <input type="radio" name="kbe_settings[kbe_sidebar_inner]" id="kbe_sidebar_inner" value="2" <?php checked( $kbe_settings['kbe_sidebar_inner'], 2 ); ?>>
                                         <span><?php _e( 'Right', 'wp-knowledgebase' ); ?></span>
                                     </td>
                                     <td>
-                                        <input type="radio" name="kbe_sidebar_inner" id="kbe_sidebar_inner" value="0" <?php checked( get_option( 'kbe_sidebar_inner', 0 ), 0 ); ?>>
+                                        <input type="radio" name="kbe_settings[kbe_sidebar_inner]" id="kbe_sidebar_inner" value="0" <?php checked( $kbe_settings['kbe_sidebar_inner'], 0 ); ?>>
                                         <span><?php _e( 'None', 'wp-knowledgebase' ); ?></span>
                                     </td>
                                 </tr>
@@ -138,11 +139,11 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
                                         <label><?php _e( 'Knowledgebase comments', 'wp-knowledgebase' ); ?></label>
                                     </td>
                                     <td>
-                                        <input type="radio" name="kbe_comments_setting" id="kbe_comment_setting" value="1" <?php checked( get_option( 'kbe_comments_setting', 0 ), '1' ); ?>>
+                                        <input type="radio" name="kbe_settings[kbe_comments_setting]" id="kbe_comment_setting" value="1" <?php checked( $kbe_settings['kbe_comments_setting'], '1' ); ?>>
                                         <span><?php _e( 'On', 'wp-knowledgebase' ); ?></span>
                                     </td>
                                     <td>
-                                        <input type="radio" name="kbe_comments_setting" id="kbe_comment_setting" value="0" <?php checked( get_option( 'kbe_comments_setting', 0 ), '0' ); ?>>
+                                        <input type="radio" name="kbe_settings[kbe_comments_setting]" id="kbe_comment_setting" value="0" <?php checked( $kbe_settings['kbe_comments_setting'], '0' ); ?>>
                                         <span><?php _e( 'Off', 'wp-knowledgebase' ); ?></span>
                                     </td>
                                     <td>&nbsp;</td>
@@ -152,7 +153,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
                                         <label><?php _e( 'Knowledgebase theme color', 'wp-knowledgebase' ); ?></label>
                                     </td>
                                     <td colspan="3">
-                                        <input type="text" name="kbe_bgcolor" id="kbe_bgcolor" value="<?php echo esc_attr( get_option( 'kbe_bgcolor', '' ) ); ?>" class="cp-field">
+                                        <input type="text" name="kbe_settings[kbe_bgcolor]" id="kbe_bgcolor" value="<?php echo esc_attr( $kbe_settings['kbe_bgcolor'] ); ?>" class="cp-field">
                                     </td>
                                 </tr>
                                 <tr>
