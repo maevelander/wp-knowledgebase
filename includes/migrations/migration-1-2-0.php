@@ -47,19 +47,26 @@ class KBE_Migration_1_2_0 extends KBE_Abstract_Migration {
 
 		// Save settings as separate options
 		$settings = wp_parse_args( get_option( 'kbe_settings' ), array(
-			'kbe_article_qty' => get_option( 'kbe_article_qty'),
-			'kbe_plugin_slug' => get_option( 'kbe_plugin_slug' ),
-			'kbe_search_setting' => get_option( 'kbe_search_setting' ),
-			'kbe_breadcrumbs_setting' => get_option( 'kbe_breadcrumbs_setting' ),
-			'kbe_sidebar_home' => get_option( 'kbe_sidebar_home' ),
-			'kbe_sidebar_inner' => get_option( 'kbe_sidebar_inner' ),
-			'kbe_comments_setting' => get_option( 'kbe_comments_setting' ),
-			'kbe_bgcolor' => get_option( 'kbe_bgcolor' ),
+			'kbe_article_qty' => get_option( 'kbe_article_qty', 5 ),
+			'kbe_plugin_slug' => get_option( 'kbe_plugin_slug', 'knowledgebase' ),
+			'kbe_search_setting' => get_option( 'kbe_search_setting', 0 ),
+			'kbe_breadcrumbs_setting' => get_option( 'kbe_breadcrumbs_setting', 0 ),
+			'kbe_sidebar_home' => get_option( 'kbe_sidebar_home', 0 ),
+			'kbe_sidebar_inner' => get_option( 'kbe_sidebar_inner', 0 ),
+			'kbe_comments_setting' => get_option( 'kbe_comments_setting', 0 ),
+			'kbe_bgcolor' => get_option( 'kbe_bgcolor', '' ),
 		) );
 
-		update_option( 'kbe_settings', $settings );
+		update_option( 'kbe_article_qty', $settings['kbe_article_qty'] );
+		update_option( 'kbe_plugin_slug', $settings['kbe_plugin_slug'] );
+		update_option( 'kbe_search_setting', $settings['kbe_search_setting'] );
+		update_option( 'kbe_breadcrumbs_setting', $settings['kbe_breadcrumbs_setting'] );
+		update_option( 'kbe_sidebar_home', $settings['kbe_sidebar_home'] );
+		update_option( 'kbe_sidebar_inner', $settings['kbe_sidebar_inner'] );
+		update_option( 'kbe_comments_setting', $settings['kbe_comments_setting'] );
+		update_option( 'kbe_bgcolor', $settings['kbe_bgcolor'] );
 
-		//delete_option( 'kbe_settings' );
+		delete_option( 'kbe_settings' );
 
 		return true;
 	}
