@@ -4,14 +4,14 @@
 	Plugin URI: http://wordpress.org/plugins/wp-knowledgebase
 	Description: Simple and flexible knowledgebase plugin for WordPress
 	Author: Enigma Plugins
-	Version: 1.2.0
+	Version: 1.1.4
 	Author URI: http://enigmaplugins.com
 	Requires at least: 2.7
  */
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-define( 'KBE_PLUGIN_VERSION', '1.2.0' );
+define( 'KBE_PLUGIN_VERSION', '1.1.4' );
 
 //=========> Create language folder
 function kbe_plugin_load_textdomain() {
@@ -45,31 +45,22 @@ if ( is_admin() && ( ! defined( 'DOING_AJAX' ) || ! DOING_AJAX ) ) {
 	require 'includes/admin/kbe-admin-functions.php';
 }
 
-// Get Page Title
-global $wpdb;
-$getSql = $wpdb->get_results("Select ID From $wpdb->posts Where post_content Like '%[kbe_knowledgebase]%' And post_type <> 'revision'");
-
-foreach($getSql as $getRow) {
-    $pageId = $getRow->ID;
-}
-
-$kbe_settings = get_option('kbe_settings');
 
 //=========> Define plugin path
 define( 'WP_KNOWLEDGEBASE', plugin_dir_url( __FILE__ ) );
-define( 'KBE_ARTICLE_QTY', $kbe_settings['kbe_article_qty'] );
-define( 'KBE_PLUGIN_SLUG', $kbe_settings['kbe_plugin_slug'] );
-define( 'KBE_SEARCH_SETTING', $kbe_settings['kbe_search_setting'] );
-define( 'KBE_BREADCRUMBS_SETTING', $kbe_settings['kbe_breadcrumbs_setting'] );
-define( 'KBE_SIDEBAR_HOME', $kbe_settings['kbe_sidebar_home'] );
-define( 'KBE_SIDEBAR_INNER', $kbe_settings['kbe_sidebar_inner'] );
-define( 'KBE_COMMENT_SETTING', $kbe_settings['kbe_comments_setting'] );
-define( 'KBE_BG_COLOR', $kbe_settings['kbe_bgcolor'] );
-define( 'KBE_LINK_STRUCTURE', $kbe_settings['permalink_structure'] );
+define( 'KBE_ARTICLE_QTY', get_option( 'kbe_article_qty' ) );
+define( 'KBE_PLUGIN_SLUG', get_option( 'kbe_plugin_slug' ) );
+define( 'KBE_SEARCH_SETTING', get_option( 'kbe_search_setting' ) );
+define( 'KBE_BREADCRUMBS_SETTING', get_option( 'kbe_breadcrumbs_setting' ) );
+define( 'KBE_SIDEBAR_HOME', get_option( 'kbe_sidebar_home' ) );
+define( 'KBE_SIDEBAR_INNER', get_option( 'kbe_sidebar_inner' ) );
+define( 'KBE_COMMENT_SETTING', get_option( 'kbe_comments_setting' ) );
+define( 'KBE_BG_COLOR', get_option( 'kbe_bgcolor' ) );
+define( 'KBE_LINK_STRUCTURE', get_option( 'permalink_structure' ) );
 define( 'KBE_POST_TYPE', 'kbe_knowledgebase' );
 define( 'KBE_POST_TAXONOMY', 'kbe_taxonomy' );
 define( 'KBE_POST_TAGS', 'kbe_tags' );
-define( 'KBE_PAGE_TITLE', $pageId );
+define( 'KBE_PAGE_TITLE', kbe_get_knowledgebase_page_id() );
 
 
 require 'includes/migrations/class-abstract-migration.php';
