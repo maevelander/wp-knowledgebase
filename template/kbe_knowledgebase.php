@@ -173,7 +173,8 @@ if ( KBE_SIDEBAR_HOME == 0 ) {
 							array(
 								'taxonomy' => KBE_POST_TAXONOMY,
 								'field'    => 'slug',
-								'terms'    => $kbe_term_slug
+								'terms'    => $kbe_term_slug,
+								'include_children' => false
 							)
 						)
 					);

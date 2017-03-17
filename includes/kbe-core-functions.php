@@ -89,7 +89,7 @@ function kbe_search_drop() {
 						jQuery(this).html('<img src="<?php echo plugins_url( '../template/images/kbe_icon-plus.png', __FILE__ ); ?>" />');
 					} else {
 						jQuery(this).parent().find('div:first').slideDown('fast');
-						jQuery(this).html('<img src="<?php echo plugins_url( '../template/images/kbe_icon-plus.png', __FILE__ ); ?>" />');
+						jQuery(this).html('<img src="<?php echo plugins_url( '../template/images/kbe_icon-minus.png', __FILE__ ); ?>" />');
 						jQuery(this).addClass('open');
 					}
 				});

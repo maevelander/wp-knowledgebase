@@ -34,7 +34,7 @@ class KBE_Migration_Install extends KBE_Abstract_Migration {
 	 */
 	public function migrate() {
 		// Insert KB page if it doens'nt exist already
-		if ( ! kbe_get_knowledgebase_page_id() ) {
+		if (!kbe_get_knowledgebase_page_id()) {
 
 			$page_id = wp_insert_post( array(
 				'post_type'    => 'page',

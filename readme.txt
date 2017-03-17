@@ -1,9 +1,9 @@
 === WP Knowledgebase ===
-Contributors: EnigmaWeb, helgatheviking, Base29, macbookandrew
+Contributors: EnigmaWeb, helgatheviking, sormano, Base29, macbookandrew
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=CEJ9HFWJ94BG4
 Tags: WP Knowledgebase, knowledgebase, knowledge base, faqs, wiki
 Requires at least: 2.7
-Tested up to: 4.5
+Tested up to: 4.7.3
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -130,6 +130,28 @@ If you've tried all the obvious stuff and it's still not working please request 
 
 == Changelog ==
 
+= 1.1.5 =
+* fix notice when activating plugin
+* code consistency changes and cleanup structuring
+* fix admin css filename
+* fix notices on widgets when creating them + other tweaks/improvements
+* never delete data without confirming
+* widget fixes
+* add direct access checks to all files
+* enhance template files
+* add template-functions.php
+* improve how breadcrumbs are handled
+* fix initial kb page on install
+* use default theme comments template
+* improve search
+* remove unused functions
+* improve code commenting
+* move taxonomy sort order from admin-only functions file
+* deafult settings sanitize callback
+* fix german translation
+* fix db prefixes 
+* add migration class
+
 = 1.1.4 = 
 * Enqueue scripts & styles issue fixed.
 * Minor typo fixed
@@ -218,6 +240,11 @@ If you've tried all the obvious stuff and it's still not working please request 
 * Initial release
 
 == Upgrade Notice ==
+
+= 1.1.5 =
+This is a major upgrade to fix and improve a lot of underlying code in the plugin. You won't notice huge changes on the front end or feature wise, but it is important to upgrade for long term stability, security and optimization of the plugin.
+
+A huge thank you to Jeroen Sormani for his big contributions to this release, as well as to other ongoing contributors to this plugin. 
 
 = 1.1.4 =
 Contains important fix for users with custom templates. Please upgrade immediately.

@@ -4,14 +4,14 @@
 	Plugin URI: http://wordpress.org/plugins/wp-knowledgebase
 	Description: Simple and flexible knowledgebase plugin for WordPress
 	Author: Enigma Plugins
-	Version: 1.1.4
+	Version: 1.1.5
 	Author URI: http://enigmaplugins.com
 	Requires at least: 2.7
  */
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-define( 'KBE_PLUGIN_VERSION', '1.1.4' );
+define( 'KBE_PLUGIN_VERSION', '1.1.5' );
 
 //=========> Create language folder
 function kbe_plugin_load_textdomain() {
