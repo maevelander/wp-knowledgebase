@@ -122,9 +122,11 @@ add_action( 'wp_footer', 'kbe_search_drop' );
  * @return mixed Knowledgebase page contents.
  */
 function kbe_shortcode( $atts, $content = null ) {
-	$return_string = require dirname( __FILE__ ) . '/../template/kbe_knowledgebase.php';
-	wp_reset_query();
-	return $return_string;
+	if ( !is_admin() ) {
+		$return_string = require dirname( __FILE__ ) . '/../template/kbe_knowledgebase.php';
+		wp_reset_query();
+		return $return_string;
+	}
 }
 add_shortcode( 'kbe_knowledgebase', 'kbe_shortcode' );
 
