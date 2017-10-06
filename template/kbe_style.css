@@ -1,8 +1,7 @@
 
 #kbe_container {
-    width: 960px;
+    width: 100%;
     margin: 0 auto;
-    background: #fff;
     overflow: hidden;
 }
 #kbe_container h1 {
@@ -54,7 +53,7 @@
     color: #666666;
     font-size: 15px;
     border: 1px solid #dbdbdb;
-    width: 438px;
+    width: 90%;
     padding: 12px 17px 13px 60px;
     background: url(images/kbe_search_btn.png) no-repeat left #fff;
 }
@@ -116,7 +115,7 @@
 #kbe_content {
 }
 .kbe_content_full{
-    width: 980px !important;
+    width: 100%;
     display: inline-block;
     float: none;
 }
@@ -125,7 +124,7 @@
     float: right;
 }
 .kbe_content_left{
-    width: 715px !important;
+    width: 70%;
     float: left;
 }
 
@@ -343,7 +342,7 @@
 
 /*===> aside <===*/
 .kbe_aside {
-    width: 222px;
+    width: 25%;
     float: right;
 }
 .kbe_aside.kbe_aside_none{
@@ -351,9 +350,11 @@
 }
 .kbe_aside.kbe_aside_left{
     float: left !important;
+	margin-right: 5%;
 }
 .kbe_aside.kbe_aside_right{
     float: right !important;
+	margin-left: 5%;
 }
 .kbe_widget {
     margin-bottom: 40px;
@@ -361,6 +362,7 @@
     content: "";
     display: table;
     clear: both;
+	width: 99%;
 }
 .kbe_widget h2 {
     margin-bottom: 15px !important;
@@ -510,7 +512,7 @@
     padding:10px 10px;
 }
 .kbe_reply {
-    width: 622px;
+    width: 100%;
     padding-top: 40px;
 }
 .kbe_tags_div{
