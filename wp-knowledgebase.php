@@ -4,7 +4,7 @@
 	Plugin URI: http://wordpress.org/plugins/wp-knowledgebase
 	Description: Simple and flexible knowledgebase plugin for WordPress
 	Author: Enigma Plugins
-	Version: 1.1.5
+	Version: 1.1.6
 	Author URI: http://enigmaplugins.com
 	Requires at least: 2.7
  */
