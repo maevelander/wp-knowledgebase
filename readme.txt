@@ -130,6 +130,9 @@ If you've tried all the obvious stuff and it's still not working please request 
 
 == Changelog ==
 
+= 1.1.7 =
+* Fixes for Divi Theme
+
 = 1.1.6 =
 * CSS updates for responsive widths
 
@@ -243,6 +246,9 @@ If you've tried all the obvious stuff and it's still not working please request 
 * Initial release
 
 == Upgrade Notice ==
+
+= 1.1.7 =
+Fixes for Divi Theme
 
 = 1.1.6 =
 CSS updates for responsive widths in default templates. Check body width of KB following update.
