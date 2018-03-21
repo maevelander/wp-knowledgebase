@@ -3,15 +3,15 @@
 	Plugin Name: WP Knowledgebase
 	Plugin URI: http://wordpress.org/plugins/wp-knowledgebase
 	Description: Simple and flexible knowledgebase plugin for WordPress
-	Author: Enigma Plugins
-	Version: 1.1.7
-	Author URI: http://enigmaplugins.com
+	Author: Maeve Lander
+	Version: 1.1.8
+	Author URI: https://profiles.wordpress.org/enigmaweb
 	Requires at least: 2.7
  */
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-define( 'KBE_PLUGIN_VERSION', '1.1.5' );
+define( 'KBE_PLUGIN_VERSION', '1.1.8' );
 
 //=========> Create language folder
 function kbe_plugin_load_textdomain() {

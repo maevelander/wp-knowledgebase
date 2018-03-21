@@ -40,7 +40,7 @@ function kbe_articles() {
 		'menu_icon'           => 	WP_KNOWLEDGEBASE . 'assets/images/icon-kbe.png',
 		'capability_type'     => 	'post',
 		'hierarchical'        => 	false,
-		'supports'            => 	array( 'title', 'editor', 'thumbnail', 'comments', 'tags', 'revisions', 'author' ),
+		'supports'            => 	array( 'title', 'editor', 'thumbnail', 'comments', 'tags', 'revisions', 'author', 'excerpt' ),
 		'rewrite'             => 	$kbe_rewrite,
 		'show_in_menu'        => 	true,
 		'show_in_nav_menus'   => 	true,

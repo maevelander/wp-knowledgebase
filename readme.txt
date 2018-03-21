@@ -3,7 +3,7 @@ Contributors: EnigmaWeb, helgatheviking, sormano, Base29, macbookandrew
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=CEJ9HFWJ94BG4
 Tags: WP Knowledgebase, knowledgebase, knowledge base, faqs, wiki
 Requires at least: 2.7
-Tested up to: 4.8.2
+Tested up to: 4.9
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -21,7 +21,7 @@ Create an attractive and professional knowledgebase. It's easy to use, easy to c
 * Customise your catalogue presentation easily (choose theme colour, sidebar layouts, number of articles to show etc)
 * Super fast search, with predictive text - handy!
 * A selection of sidebar widgets (search, categories, tags, posts)
-* Integrated breacrumb (on/off)
+* Integrated breadcrumb (on/off)
 * Display comments on knowledgebase articles (on/off)
 * Drag & Drop for custom ordering of articles and categories
 * Works across all major browsers and devices - IE8+, Safari, Firefox, Chrome
@@ -47,7 +47,6 @@ This is the safest way to customise the WP Knowledebase templates, as it means t
 
 *	[Orpheus](http://orpheus-app.com/knowledgebase) Android app knowledgebase
 *	[Cub Themes](http://cubthemes.com/support/) knowledgebase
-* [Enigma Plugins](https://enigmaplugins.com/knowledgebase/) knowledgebase
 * [Infinte](https://br.infinite.sx/wiki/) Wiki
 
 = Languages =
@@ -129,6 +128,10 @@ If you've tried all the obvious stuff and it's still not working please request 
 4. Available widgets
 
 == Changelog ==
+
+= 1.1.8 =
+* Adds support for the excerpt
+* Uses the_excerpt in search results
 
 = 1.1.7 =
 * Fixes for Divi Theme
@@ -246,6 +249,9 @@ If you've tried all the obvious stuff and it's still not working please request 
 * Initial release
 
 == Upgrade Notice ==
+
+= 1.1.8 =
+Adds support for the excerpt, used in search results
 
 = 1.1.7 =
 Fixes for Divi Theme
