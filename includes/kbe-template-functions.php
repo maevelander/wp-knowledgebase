@@ -1,6 +1,13 @@
 <?php
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
+/*
+* Fixed Securty Issue: XSS - Vulnerable
+* Removing special character on query
+*/
+if (is_search()) {
+   $_GET["s"] = preg_replace('/[^a-zA-Z0-9-_ \.]/','', $_GET["s"]);
+}
 
 /**
  * Output breadcrumbs.
