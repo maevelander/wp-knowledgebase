@@ -1,7 +1,6 @@
 <?php
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-
 /**
  * Output breadcrumbs.
  *
@@ -141,6 +140,14 @@ add_filter( 'template_include', 'kbe_template_chooser' );
  */
 function template_chooser( $template ) {
 	global $wp_query;
+	
+	/*
+	* Fixed Securty Issue: XSS - Vulnerable
+	* Removing special character on query
+	*/
+	if (is_search()) {
+	   $_GET["s"] = preg_replace('/[^a-zA-Z0-9-_ \.]/','', $_GET["s"]);
+	}
 
 	$post_type = get_query_var( 'post_type' );
 
