@@ -129,6 +129,9 @@ If you've tried all the obvious stuff and it's still not working please request 
 
 == Changelog ==
 
+= 1.1.9 =
+* Search fix
+
 = 1.1.8 =
 * Adds support for the excerpt
 * Uses the_excerpt in search results
@@ -249,6 +252,9 @@ If you've tried all the obvious stuff and it's still not working please request 
 * Initial release
 
 == Upgrade Notice ==
+
+= 1.1.9 =
+* Search fix
 
 = 1.1.8 =
 Adds support for the excerpt, used in search results

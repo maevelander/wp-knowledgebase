@@ -4,7 +4,7 @@
 	Plugin URI: http://wordpress.org/plugins/wp-knowledgebase
 	Description: Simple and flexible knowledgebase plugin for WordPress
 	Author: Maeve Lander
-	Version: 1.1.8
+	Version: 1.1.9
 	Author URI: https://profiles.wordpress.org/enigmaweb
 	Requires at least: 2.7
  */
