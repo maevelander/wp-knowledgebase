@@ -72,7 +72,7 @@ if ( ! empty( $_GET['ajax'] ) ? $_GET['ajax'] : null ) {
 							the_post();
 							?><li>
                                 <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-                                <span class="post-meta">Post By <?php the_author(); ?> | Date : <?php the_time( 'j F Y' ); ?></span>
+                                <span class="post-meta"><?php _e( 'Post By' , 'wp-knowledgebase') ?> <?php the_author(); ?> | Date : <?php the_time( 'j F Y' ); ?></span>
                                 <p><?php the_excerpt(); ?></p>
                                 <div class="kbe_read_more">
                                     <a href="<?php the_permalink(); ?>"><?php _e( 'Read more...', 'wp-knowledgebase' ); ?></a>
