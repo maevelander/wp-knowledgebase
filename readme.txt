@@ -3,7 +3,7 @@ Contributors: EnigmaWeb, helgatheviking, sormano, Base29, macbookandrew
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=CEJ9HFWJ94BG4
 Tags: WP Knowledgebase, knowledgebase, knowledge base, faqs, wiki
 Requires at least: 2.7
-Tested up to: 4.9
+Tested up to: 5.0.1
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -129,6 +129,9 @@ If you've tried all the obvious stuff and it's still not working please request 
 
 == Changelog ==
 
+= 1.2.0 =
+* Gutenberg compatibility added
+
 = 1.1.9 =
 * Search fix
 
@@ -252,6 +255,9 @@ If you've tried all the obvious stuff and it's still not working please request 
 * Initial release
 
 == Upgrade Notice ==
+
+= 1.2.0 =
+Gutenberg compatibility added (show_in_rest).
 
 = 1.1.9 =
 * Search fix

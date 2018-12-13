@@ -45,6 +45,7 @@ function kbe_articles() {
 		'show_in_menu'        => 	true,
 		'show_in_nav_menus'   => 	true,
 		'show_in_admin_bar'   => 	true,
+		'show_in_rest'        =>	true,
 		'can_export'          => 	true,
 		'has_archive'         => 	true,
 		'exclude_from_search' => 	true
@@ -83,6 +84,7 @@ function kbe_taxonomies() {
 		'singular_label'    => 	__( 'Knowledgebase Category', 'wp-knowledgebase' ),
 		'show_admin_column' => 	true,
 		'show_ui'           => 	true,
+		'show_in_rest'        =>	true,
 		'query_var'         => 	true,
 		'rewrite'           => 	array( 'slug' => 'knowledgebase_category', 'with_front' => true )
 	) );
@@ -114,6 +116,7 @@ function kbe_custom_tags() {
 		'labels'       =>  $labels,
 		'show_admin_column' => 	true,
 		'show_ui'      =>  true,
+		'show_in_rest'        =>	true,
 		'query_var'    =>  true,
 		'rewrite'      =>  array( 'slug' => 'knowledgebase_tags', 'with_front' => true ),
 	) );
