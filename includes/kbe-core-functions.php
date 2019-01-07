@@ -123,8 +123,14 @@ add_action( 'wp_footer', 'kbe_search_drop' );
  */
 function kbe_shortcode( $atts, $content = null ) {
 	if ( !is_admin() ) {
-		$return_string = require dirname( __FILE__ ) . '/../template/kbe_knowledgebase.php';
+		ob_start();
+		
+		require dirname( __FILE__ ) . '/../template/kbe_knowledgebase.php';
 		wp_reset_query();
+		
+		$return_string = ob_get_contents();
+		ob_end_clean();
+
 		return $return_string;
 	}
 }
