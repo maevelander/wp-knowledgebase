@@ -1,21 +1,22 @@
 # Copyright (C) 2014 
 # This file is distributed under the same license as the  package.
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/wp-knowledgebase\n"
 "POT-Creation-Date: 2018-05-16 14:43-0400\n"
+"PO-Revision-Date: 2018-05-16 14:46-0400\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: fr_FR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2014-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
 "X-Generator: Poedit 2.0.6\n"
 "X-Poedit-KeywordsList: __;_e;_n;_x;_ex;_nx;esc_attr__;esc_attr_e;esc_attr_x;"
 "esc_html__;esc_html_e;esc_html_x;_n_noop;_nx_noop;translate_nooped_plural\n"
 "X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Poedit-SearchPath-0: .\n"
 
 #: includes/admin/kbe-order.php:10
@@ -321,12 +322,12 @@ msgstr ""
 
 #: includes/kbe-template-functions.php:14
 msgid "Home"
-msgstr ""
+msgstr "Accueil"
 
 #: includes/kbe-template-functions.php:72
 #: includes/widgets/kbe-widget-search.php:43
 msgid "Search Articles..."
-msgstr ""
+msgstr "Rechercher..."
 
 #: includes/migrations/class-abstract-migration.php:203
 msgid "Migrate"
@@ -343,8 +344,8 @@ msgstr ""
 
 #: includes/migrations/migration-install.php:63
 msgid ""
-"A page is needed to display the knowledgebase on. Do you want us to create "
-"a page fo you?"
+"A page is needed to display the knowledgebase on. Do you want us to create a "
+"page fo you?"
 msgstr ""
 
 #: includes/migrations/migration-install.php:64
@@ -451,25 +452,25 @@ msgid "List"
 msgstr ""
 
 #: template/archive-kbe_knowledgebase.php:89
-#: template/archive-kbe_knowledgebase.php:117
-#: template/kbe_knowledgebase.php:94 template/kbe_knowledgebase.php:120
+#: template/archive-kbe_knowledgebase.php:117 template/kbe_knowledgebase.php:94
+#: template/kbe_knowledgebase.php:120
 #, php-format
 msgid "%d Article"
 msgstr ""
 
 #: template/kbe_search.php:34
 msgid "Search result not found..."
-msgstr ""
+msgstr "Aucun résultat pour cette recherche..."
 
 #: template/kbe_search.php:63
 #, php-format
 msgid "Search Results for: %s"
-msgstr ""
+msgstr "Résultats de recherche pour : %s"
 
 #: template/kbe_search.php:75
 msgid "Post By"
-msgstr ""
+msgstr "Publié par"
 
 #: template/kbe_search.php:78
 msgid "Read more..."
-msgstr ""
+msgstr "Lire plus..."
