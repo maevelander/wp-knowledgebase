@@ -1,0 +1,535 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WP Knowledgebase\n"
+"POT-Creation-Date: 2018-10-24 23:58+0200\n"
+"PO-Revision-Date: 2018-10-25 00:17+0200\n"
+"Last-Translator: Bruno Holliger <bholliger@gmx.net>\n"
+"Language-Team: Bruno Holliger <bholliger@gmx.net>\n"
+"Language: de_CH\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: wp-knowledgebase.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: includes/admin/kbe-order.php:10
+msgid "Re-Order"
+msgstr "Neu anordnen"
+
+#: includes/admin/kbe-order.php:29
+msgid "Category Order"
+msgstr "Kategoriereihenfolge"
+
+#: includes/admin/kbe-order.php:43
+msgid ""
+"Drag and drop items to customise the order of categories in WP Knowledgebase"
+msgstr ""
+"Inhalte per Drag and Drop anordnen um die Reihenfolge in WP Knowledgebase "
+"festzulegen"
+
+#: includes/admin/kbe-order.php:57 includes/admin/kbe-order.php:133
+msgid "Save Order"
+msgstr "Reihenfolge speichern"
+
+#: includes/admin/kbe-order.php:64
+msgid "No terms found"
+msgstr "Keine Inhalte gefunden"
+
+#: includes/admin/kbe-order.php:105
+msgid "Article Order"
+msgstr "Artikel-Reihenfolge"
+
+#: includes/admin/kbe-order.php:118
+msgid ""
+"Drag and drop items to customise the order of articles in WP Knowledgebase"
+msgstr ""
+"Inhalte per Drag and Drop anordnen, um die Reihenfolge in WP Knowledgebase "
+"festzulegen"
+
+#: includes/admin/kbe-order.php:139
+msgid "No Articles found"
+msgstr "Keine Artikel gefunden"
+
+#: includes/admin/kbe-order.php:179 includes/admin/kbe-settings.php:191
+msgid "Help Improve This Plugin!"
+msgstr "Helfe dieses Plugin zu verbessern!"
+
+#: includes/admin/kbe-order.php:185 includes/admin/kbe-settings.php:197
+msgid ""
+"Enjoyed this plugin? All donations are used to improve and further develop "
+"this plugin. Thanks for your contribution."
+msgstr ""
+"Gefällt dir dieses Plugin? Alle Spenden werden verwendet um das Plugin "
+"weiterzuentwickeln. Vielen Dank für deinen Beitrag."
+
+#: includes/admin/kbe-order.php:199 includes/admin/kbe-settings.php:211
+msgid "you can also help by"
+msgstr "du kannst auch helfen indem du"
+
+#: includes/admin/kbe-order.php:201 includes/admin/kbe-settings.php:213
+msgid "rating this plugin on wordpress.org"
+msgstr "dieses Plugin auf wordpress.org bewertest"
+
+#: includes/admin/kbe-order.php:210 includes/admin/kbe-settings.php:222
+msgid "Need Support?"
+msgstr "Hilfe benötigt?"
+
+#: includes/admin/kbe-order.php:215 includes/admin/kbe-settings.php:227
+msgid "Check out the"
+msgstr "Prüfe die"
+
+#: includes/admin/kbe-order.php:216 includes/admin/kbe-settings.php:228
+msgid "FAQs"
+msgstr "FAQs"
+
+#: includes/admin/kbe-order.php:217 includes/admin/kbe-settings.php:229
+msgid "and"
+msgstr "und"
+
+#: includes/admin/kbe-order.php:218 includes/admin/kbe-settings.php:230
+msgid "Support Forums"
+msgstr "Support Foren"
+
+#: includes/admin/kbe-order.php:242
+msgid "Category Order updated successfully."
+msgstr "Reihenfolge der Kategorien erfolgreich aktualisiert."
+
+#: includes/admin/kbe-order.php:244 includes/admin/kbe-order.php:266
+msgid "An error occured, order has not been saved."
+msgstr ""
+"Ein Fehler ist aufgetreten, die Reihenfolge konnte nicht gespeichert werden."
+
+#: includes/admin/kbe-order.php:264
+msgid "Article Order updated successfully."
+msgstr "Reihenfolge der Artikel erfolgreich gespeichert."
+
+#: includes/admin/kbe-settings.php:8
+msgid "Knowledgebase Display Settings"
+msgstr "Knowledgebase Anzeige Einstellungen"
+
+#: includes/admin/kbe-settings.php:36
+msgid "Settings updated successfully"
+msgstr "Einstellungen erfolgreich geändert"
+
+#: includes/admin/kbe-settings.php:46
+msgid "Settings"
+msgstr "Einstellungen"
+
+#: includes/admin/kbe-settings.php:56
+msgid "Knowledgebase Slug"
+msgstr "Knowledgebase Slug"
+
+#: includes/admin/kbe-settings.php:64
+msgid "Number of articles to show"
+msgstr "Anzahl der anzuzeigenden Artikel"
+
+#: includes/admin/kbe-settings.php:69 includes/admin/kbe-settings.php:171
+msgid "Note:"
+msgstr "Anmerkung:"
+
+#: includes/admin/kbe-settings.php:70
+msgid "Set the number of articles to show in each category on KB homepage"
+msgstr ""
+"Anzahl Artikel, die pro Kategorie auf der Übersichtseite angezeigt werden"
+
+#: includes/admin/kbe-settings.php:76
+msgid "Knowledgebase search"
+msgstr "Knowledgebase Suche"
+
+#: includes/admin/kbe-settings.php:80 includes/admin/kbe-settings.php:94
+#: includes/admin/kbe-settings.php:142 includes/admin/kbe-settings.php:164
+msgid "On"
+msgstr "An"
+
+#: includes/admin/kbe-settings.php:84 includes/admin/kbe-settings.php:98
+#: includes/admin/kbe-settings.php:146 includes/admin/kbe-settings.php:168
+msgid "Off"
+msgstr "Aus"
+
+#: includes/admin/kbe-settings.php:90
+msgid "Knowledgebase breadcrumbs"
+msgstr "Knowledgebase Brotkrümelnavigation"
+
+#: includes/admin/kbe-settings.php:104
+msgid "Knowledgebase home page sidebar"
+msgstr "Knowledgebase Homepage-Seitenleiste"
+
+#: includes/admin/kbe-settings.php:108 includes/admin/kbe-settings.php:125
+msgid "Left"
+msgstr "Links"
+
+#: includes/admin/kbe-settings.php:112 includes/admin/kbe-settings.php:129
+msgid "Right"
+msgstr "Rechts"
+
+#: includes/admin/kbe-settings.php:116 includes/admin/kbe-settings.php:133
+msgid "None"
+msgstr "Keine"
+
+#: includes/admin/kbe-settings.php:121
+msgid "Knowledgebase inner pages sidebar"
+msgstr "Knowledgebase Sidebar innerhalb der Seiten"
+
+#: includes/admin/kbe-settings.php:138
+msgid "Knowledgebase comments"
+msgstr "Knowledgebase Kommentare"
+
+#: includes/admin/kbe-settings.php:152
+msgid "Knowledgebase theme color"
+msgstr "Knowledgebase Theme Farbe"
+
+#: includes/admin/kbe-settings.php:160
+msgid "Wipe all data on uninstall"
+msgstr "Beim Deinstallieren alle Daten löschen"
+
+#: includes/admin/kbe-settings.php:172
+msgid "This also includes all your articles and CANNOT be undone."
+msgstr "Dies beinhaltet alle Artikel und kann NICHT rückgängig gemacht werden."
+
+#: includes/admin/kbe-settings.php:178
+msgid "Save Changes"
+msgstr "Einstellungen speichern"
+
+#: includes/kbe-articles.php:13 includes/kbe-articles.php:14
+#: includes/migrations/migration-install.php:43
+msgid "Knowledgebase"
+msgstr "Wissensdatenbank"
+
+#: includes/kbe-articles.php:15
+msgid "Articles"
+msgstr "Artikel"
+
+#: includes/kbe-articles.php:16 includes/kbe-articles.php:19
+msgid "New Article"
+msgstr "Neuer Artikel"
+
+#: includes/kbe-articles.php:17
+msgid "Add New Article"
+msgstr "Neuen Artikel hinzufügen"
+
+#: includes/kbe-articles.php:18
+msgid "Edit Article"
+msgstr "Artikel bearbeiten"
+
+#: includes/kbe-articles.php:20
+msgid "View Articles"
+msgstr "Artikel anzeigen"
+
+#: includes/kbe-articles.php:21
+msgid "Search Articles"
+msgstr "Artikel suchen"
+
+#: includes/kbe-articles.php:22
+msgid "Nothing found"
+msgstr "Nichts gefunden"
+
+#: includes/kbe-articles.php:23
+msgid "Nothing found in Trash"
+msgstr "Nichts im Papierkorb gefunden"
+
+#: includes/kbe-articles.php:67 includes/kbe-articles.php:68
+#: includes/kbe-articles.php:83 includes/widgets/kbe-widget-category.php:20
+msgid "Knowledgebase Category"
+msgstr "Wissensdatenbank Kategorie"
+
+#: includes/kbe-articles.php:69
+msgid "Search Knowledgebase Category"
+msgstr "Suche Wissensdatenbank Kategorie"
+
+#: includes/kbe-articles.php:70
+msgid "All Knowledgebase Categories"
+msgstr "Alle Wissensdatenbank Kategorien"
+
+#: includes/kbe-articles.php:71
+msgid "Parent Knowledgebase Category"
+msgstr "Übergeordnete Wissensdatenbank Kategorie"
+
+#: includes/kbe-articles.php:72
+msgid "Parent Knowledgebase Category:"
+msgstr "Übergeordnete Wissensdatenbank Kategorie:"
+
+#: includes/kbe-articles.php:73
+msgid "Edit Knowledgebase Category"
+msgstr "Wissensdatenbank Kategorie bearbeiten"
+
+#: includes/kbe-articles.php:74
+msgid "Update Knowledgebase Category"
+msgstr "Wissensdatenbank Kategorie bearbeiten"
+
+#: includes/kbe-articles.php:75
+msgid "Add New Knowledgebase Category"
+msgstr "Neue Wissensdatenbank Kategorie hinzufügen"
+
+#: includes/kbe-articles.php:76
+msgid "New Knowledgebase Category Name"
+msgstr "Name der neuen Wissensdatenbank Kategorie"
+
+#: includes/kbe-articles.php:77
+msgid "Categories"
+msgstr "Kategorien"
+
+#: includes/kbe-articles.php:101 includes/widgets/kbe-widget-tags.php:20
+msgid "Knowledgebase Tags"
+msgstr "Wissensdatenbank Schlagworte"
+
+#: includes/kbe-articles.php:102
+msgid "Knowledgebase Tag"
+msgstr "Wissensdatenbank Schlagwort"
+
+#: includes/kbe-articles.php:103
+msgid "Search Knowledgebase Tags"
+msgstr "Suche Wissensdatenbank Schlagworte"
+
+#: includes/kbe-articles.php:104
+msgid "All Knowledgebase Tags"
+msgstr "Alle Wissensdatenbank Schlagworte"
+
+#: includes/kbe-articles.php:105
+msgid "Edit Knowledgebase Tag"
+msgstr "Wissensdatenbank Schlagwort bearbeiten"
+
+#: includes/kbe-articles.php:106
+msgid "Update Knowledgebase Tag"
+msgstr "Wissensdatenbank Schlagwort bearbeiten"
+
+#: includes/kbe-articles.php:107
+msgid "Add New Knowledgebase Tag"
+msgstr "Neues Wissensdatenbank Schlagwort hinzufügen"
+
+#: includes/kbe-articles.php:108
+msgid "New Knowledgebase Tag Name"
+msgstr "Name des neuen Wissensdatenbank Schlagwort"
+
+#: includes/kbe-articles.php:109
+msgid "Tags"
+msgstr "Schlagworte"
+
+#: includes/kbe-articles.php:178
+msgid "Views"
+msgstr "Ansichten"
+
+#: includes/kbe-articles.php:197
+#, php-format
+msgid "%d view"
+msgid_plural "%d views"
+msgstr[0] "%d Aufruf"
+msgstr[1] "%d Aufrufe"
+
+#: includes/kbe-core-functions.php:34
+msgid "WP Knowledgebase Sidebar"
+msgstr "WP Knowledgebase Seitenleiste"
+
+#: includes/kbe-core-functions.php:36
+msgid "WP Knowledgebase sidebar area"
+msgstr "WP Knowledgebase Seitenleistenbereich"
+
+#: includes/kbe-template-functions.php:14
+msgid "Home"
+msgstr "Startseite"
+
+#: includes/kbe-template-functions.php:72
+#: includes/widgets/kbe-widget-search.php:43
+msgid "Search Articles..."
+msgstr "Suche Artikel..."
+
+#: includes/migrations/class-abstract-migration.php:203
+msgid "Migrate"
+msgstr "Migration"
+
+#: includes/migrations/class-abstract-migration.php:205
+#: includes/migrations/migration-install.php:64
+msgid "No thanks"
+msgstr "Nein danke"
+
+#: includes/migrations/migration-install.php:63
+msgid "Thank you for using WP Knowledgebase! :-) "
+msgstr "Danke für die Benutzung von WP Knowledgebase! :-) "
+
+#: includes/migrations/migration-install.php:63
+msgid ""
+"A page is needed to display the knowledgebase on. Do you want us to create a "
+"page fo you?"
+msgstr ""
+"Für die Anzeige der Wissensdatenbank wird eine Seite benötigt. Soll diese "
+"gleich erstellt werden?"
+
+#: includes/migrations/migration-install.php:64
+msgid "Create page"
+msgstr "Seite erstellen"
+
+#: includes/widgets/kbe-widget-article.php:21
+msgid "Knowledgebase Article"
+msgstr "Knowledgebase Artikel"
+
+#: includes/widgets/kbe-widget-article.php:23
+msgid "WP Knowledgebase article widget to show articles on the site"
+msgstr ""
+"WP Knowledgebase Artikel Widget um die Artikel auf der Seite anzuzeigen"
+
+#: includes/widgets/kbe-widget-article.php:111
+msgid "Article Title:"
+msgstr "Titel des Artikels:"
+
+#: includes/widgets/kbe-widget-article.php:115
+msgid "Articles Quantity:"
+msgstr "Anzahl Artikel:"
+
+#: includes/widgets/kbe-widget-article.php:119
+msgid "Articles Order:"
+msgstr "Reihenfolge der Artikel:"
+
+#: includes/widgets/kbe-widget-article.php:121
+msgid "ASC"
+msgstr "Aufsteigend"
+
+#: includes/widgets/kbe-widget-article.php:122
+msgid "DESC"
+msgstr "Absteigend"
+
+#: includes/widgets/kbe-widget-article.php:126
+msgid "Articles Order by:"
+msgstr "Sortierreihenfolge:"
+
+#: includes/widgets/kbe-widget-article.php:128
+msgid "By Name"
+msgstr "Nach Name"
+
+#: includes/widgets/kbe-widget-article.php:129
+msgid "By Date"
+msgstr "Nach Datum"
+
+#: includes/widgets/kbe-widget-article.php:130
+msgid "By Random"
+msgstr "Zufällig"
+
+#: includes/widgets/kbe-widget-article.php:131
+msgid "By Popularity"
+msgstr "Nach Beliebtheit"
+
+#: includes/widgets/kbe-widget-article.php:132
+msgid "By Comments"
+msgstr "Nach Kommentaren"
+
+#: includes/widgets/kbe-widget-category.php:22
+msgid "WP Knowledgebase category widget to show categories on the site"
+msgstr ""
+"WP Knowledgebase Artikel Widget um die Artikel auf der Seite anzuzeigen"
+
+#: includes/widgets/kbe-widget-category.php:53
+#, php-format
+msgid "View all posts in %s"
+msgstr "Zeige alle Artikel in %s"
+
+#: includes/widgets/kbe-widget-category.php:83
+#: includes/widgets/kbe-widget-search.php:66
+#: includes/widgets/kbe-widget-tags.php:92
+msgid "Title:"
+msgstr "Titel:"
+
+#: includes/widgets/kbe-widget-category.php:87
+msgid "Category Quantity:"
+msgstr "Anzahl Kategorien:"
+
+#: includes/widgets/kbe-widget-search.php:21
+msgid "Knowledgebase Search"
+msgstr "Knowledgebase Suche"
+
+#: includes/widgets/kbe-widget-search.php:23
+msgid "WP Knowledgebase search widget"
+msgstr "WP Knowledgebase Suche Widget"
+
+#: includes/widgets/kbe-widget-tags.php:22
+msgid "WP Knowledgebase tags widget to show tags on the site"
+msgstr "WP Knowledgebase Schlagwort-Widget zeigt Schlagworte auf der Seite"
+
+#: includes/widgets/kbe-widget-tags.php:96
+msgid "Tags Quantity:"
+msgstr "Anzahl Tags:"
+
+#: includes/widgets/kbe-widget-tags.php:100
+msgid "Tags Style:"
+msgstr "Style der Tags:"
+
+#: includes/widgets/kbe-widget-tags.php:102
+msgid "Flat"
+msgstr "Flach"
+
+#: includes/widgets/kbe-widget-tags.php:103
+msgid "List"
+msgstr "Liste"
+
+#: template/archive-kbe_knowledgebase.php:89
+#: template/archive-kbe_knowledgebase.php:117 template/kbe_knowledgebase.php:94
+#: template/kbe_knowledgebase.php:120
+#, php-format
+msgid "%d Article"
+msgid_plural "%d Articles"
+msgstr[0] "%d Artikel"
+msgstr[1] "%d Artikel"
+
+#: template/kbe_search.php:34
+msgid "Search result not found..."
+msgstr "Suche ergebnislos."
+
+#: template/kbe_search.php:63
+#, php-format
+msgid "Search Results for: %s"
+msgstr "Suchresultat für: %s"
+
+#: template/kbe_search.php:78
+msgid "Read more..."
+msgstr "Mehr..."
+
+#. Plugin Name of the plugin/theme
+msgid "WP Knowledgebase"
+msgstr "WP Knowledgbase"
+
+#. Plugin URI of the plugin/theme
+msgid "http://wordpress.org/plugins/wp-knowledgebase"
+msgstr "http://wordpress.org/plugins/wp-knowledgebase"
+
+#. Description of the plugin/theme
+msgid "Simple and flexible knowledgebase plugin for WordPress"
+msgstr "Einfaches und flexibels Wissensartikel-Plugin für WordPress"
+
+#. Author of the plugin/theme
+msgid "Maeve Lander"
+msgstr "Maeve Lander"
+
+#. Author URI of the plugin/theme
+msgid "https://profiles.wordpress.org/enigmaweb"
+msgstr "https://profiles.wordpress.org/enigmaweb"
+
+#~ msgid "Title"
+#~ msgstr "Titel"
+
+#~ msgid "Author"
+#~ msgstr "Author"
+
+#~ msgid "Cateogry"
+#~ msgstr "Kategorie"
+
+#~ msgid "Comments"
+#~ msgstr "Kommentare"
+
+#~ msgid "Date"
+#~ msgstr "Datum"
+
+#~ msgid " Views"
+#~ msgstr " Ansichten"
+
+#~ msgid "No Views"
+#~ msgstr "Keine Ansichten"
+
+#~ msgid "WP Knowledgebase article widget to show tags on the site"
+#~ msgstr ""
+#~ "WP Knowledgebase Artikel Widget um die Artikel auf der Seite anzuzeigen"
